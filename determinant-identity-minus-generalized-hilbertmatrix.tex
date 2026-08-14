@@ -1,0 +1,1474 @@
+\documentclass[11pt,a4paper,reqno]{amsart}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{microtype}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\hypersetup{
+ pdftitle={Unfolding the arcsine in generalized Hilbert determinants},
+ pdfauthor={The authors}
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Nzero}{\mathbb N_0}
+\newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}
+\newcommand{\D}{\mathbb D}
+\newcommand{\T}{\mathbb T}
+\newcommand{\Hh}{\mathcal H}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\Ran}{\operatorname{Ran}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\id}{I}
+\newcommand{\cS}{\mathfrak S_1}
+
+\title[Unfolding the arcsine]{Unfolding the arcsine in generalized Hilbert determinants}
+\author{The authors}
+\date{}
+
+\begin{document}
+
+\begin{abstract}
+For $N\in\mathbb N$ and
+$\delta\in\mathbb R\setminus\{-1,-2,\ldots\}$, let
+\[
+ H_N^\delta
+ =\left(
+ \frac{\sin((1+\delta)\pi)}{\pi(j+k+1+\delta)}
+ \right)_{j,k=0}^{N-1},
+ \qquad
+ D_N^\pm(\delta):=\det(I_N\pm H_N^\delta).
+\]
+Write
+\[
+ q_\delta:=\frac1\pi\arcsin\bigl(\sin(-\pi\delta)\bigr)
+ \in\left[-\frac12,\frac12\right]
+\]
+for the principal inverse-sine phase, and define the effective phase
+\[
+ \theta_\delta:=
+ \begin{cases}
+  -\delta,&\delta\le\frac12,\\
+  q_\delta,&\delta\ge\frac12.
+ \end{cases}
+\]
+The two definitions agree at $\delta=\frac12$.  If
+$\delta\notin\frac12+\mathbb Z$, then
+\[
+ D_N^\pm(\delta)\asymp_\delta
+ N^{-(\theta_\delta^2\mp\theta_\delta)/2}.
+\]
+At the half-integers the same powers hold up to subpolynomial factors:
+\[
+ D_N^\pm(\delta)
+ =N^{-(\theta_\delta^2\mp\theta_\delta)/2+o(1)}.
+\]
+In particular, for $\delta\le\frac12$ away from the negative integers and
+half-integers,
+\[
+ \det\bigl(I_N-(H_N^\delta)^2\bigr)\asymp_\delta N^{-\delta^2},
+\]
+while at the half-integers the right-hand side is multiplied by $N^{o(1)}$.
+
+The proof separates the principal-branch Hilbert determinant from the
+contribution of the finitely many eigenvectors of the infinite normalized
+generalized Hilbert matrix at $+1$ and $-1$.  A finite-section lemma compares
+the resulting small determinant, in Loewner order, with the Gram determinant
+of the omitted eigenvector tails.  Their number and parity recover exactly
+the branch index lost when $-\pi\delta$ is replaced by
+$\arcsin(\sin(-\pi\delta))$.  At the critical half-integers the continuous
+spectral gap closes; a separate Schur-complement argument retains the same
+power of $N$, but presently only with an $N^{o(1)}$ remainder.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction and statement of the result}
+
+Let $\mathbb N_0:=\{0,1,2,\ldots\}$.  For $N\in\mathbb N$ and
+$\delta\in\R$, define the finite generalized Hilbert matrix
+\begin{equation}\label{eq:def-Hdelta}
+ H_N^\delta
+ :=\left(
+ \frac{\sin((1+\delta)\pi)}{\pi(j+k+1+\delta)}
+ \right)_{j,k=0}^{N-1}.
+\end{equation}
+The literal formula is undefined at $\delta=-1,-2,\ldots$, because one or more
+entries have the form $0/0$.  These parameters are excluded until
+Section~\ref{sec:exceptional}, where the entrywise analytic continuation is
+described.
+
+The determinants of interest are
+\begin{equation}\label{eq:def-Dpm}
+ D_N^\pm(\delta):=\det(\id_N\pm H_N^\delta).
+\end{equation}
+Paired signs are read vertically throughout the paper.  Thus $D_N^+$ denotes
+$\det(\id_N+H_N^\delta)$ and $D_N^-$ denotes
+$\det(\id_N-H_N^\delta)$.
+
+These determinants form a finite-section model for power-law determinant
+asymptotics of the type that occurs in Anderson's orthogonality catastrophe.
+Our aim is to determine their powers of $N$ up to bounded multiplicative
+factors whenever the parameter is noncritical, and up to subpolynomial factors
+at the critical half-integers.  For positive sequences $a_N,b_N$, the notation
+\[
+ a_N\asymp_\delta b_N
+\]
+means that $c_\delta b_N\le a_N\le C_\delta b_N$ for some constants
+$0<c_\delta\le C_\delta<\infty$ independent of $N$.  Equivalently,
+$\log a_N=\log b_N+O_\delta(1)$.  We write
+$a_N=b_NN^{o(1)}$ when
+\[
+ \log(a_N/b_N)=o(\log N).
+\]
+This permits subpolynomial factors, such as fixed powers of $\log N$.
+
+Set
+\begin{equation}\label{eq:def-sq}
+ s_\delta:=\sin((1+\delta)\pi)=\sin(-\pi\delta),
+ \qquad
+ q_\delta:=\frac1\pi\arcsin(s_\delta)
+ \in\left[-\frac12,\frac12\right],
+\end{equation}
+where $\arcsin:[-1,1]\to[-\pi/2,\pi/2]$ is the principal inverse sine.  Define
+also
+\begin{equation}\label{eq:effective-phase}
+ \theta_\delta:=
+ \begin{cases}
+  -\delta,&\delta\le\frac12,\\[1mm]
+  q_\delta,&\delta\ge\frac12.
+ \end{cases}
+\end{equation}
+The definitions agree at $\delta=\frac12$, because $q_{1/2}=-1/2$.
+The standard Hilbert determinant naturally produces the folded phase
+$q_\delta$.  The main point of the paper is that for $\delta< -1/2$ the edge
+eigenvectors of the infinite operator unfold this phase to $-\delta$.  No such
+unfolding occurs for larger positive $\delta$.
+
+The parameter $\delta$ is visible without any inverse trigonometric function in
+a simple Gram representation.  Put
+\[
+ a:=\frac{1+\delta}{2},
+ \qquad
+ E_N:=\operatorname{diag}(1,-1,1,-1,\ldots),
+\]
+and, for the standard basis $(e_j)_{j=0}^{N-1}$ of $\C^N$, define
+$C_{N,a},S_{N,a}:\C^N\to L^2(0,\pi)$ by
+\[
+ C_{N,a}e_j=\sqrt{\frac2\pi}\cos((j+a)x),
+ \qquad
+ S_{N,a}e_j=\sqrt{\frac2\pi}\sin((j+a)x).
+\]
+The product-to-sum identities give
+\begin{equation}\label{eq:gram-representation}
+ C_{N,a}^*C_{N,a}=E_N(\id_N+H_N^\delta)E_N,
+ \qquad
+ S_{N,a}^*S_{N,a}=E_N(\id_N-H_N^\delta)E_N.
+\end{equation}
+Indeed,
+\[
+ \frac2\pi\int_0^\pi \cos((j+a)x)\cos((k+a)x)\,dx
+ =\delta_{jk}+(-1)^{j+k}
+ \frac{\sin((1+\delta)\pi)}{\pi(j+k+1+\delta)},
+\]
+and the corresponding sine integral has the opposite sign in the second term.
+If $\delta$ is not a negative integer, the frequencies are distinct up to sign
+and none of the sine functions vanishes identically.  The two trigonometric
+systems are therefore linearly independent.  Consequently,
+\begin{equation}\label{eq:positive-determinants}
+ D_N^\pm(\delta)>0
+ \qquad
+ (\delta\notin\{-1,-2,\ldots\}),
+\end{equation}
+so all logarithms below are real.  Formula~\eqref{eq:gram-representation} also
+shows that the unfurled parameter is present from the outset as the frequency
+shift $a=(1+\delta)/2$.
+
+Define the pole and critical sets
+\begin{equation}\label{eq:exceptional-sets}
+ \mathcal P:=\{-1,-2,\ldots\},
+ \qquad
+ \mathcal C:=\frac12+\mathbb Z.
+\end{equation}
+
+\begin{theorem}[Main result]\label{thm:main}
+Let $\delta\in\mathbb R\setminus\mathcal P$.
+
+\begin{enumerate}
+\item If $\delta\notin\mathcal C$, then
+\begin{equation}\label{eq:strong-main}
+ D_N^\pm(\delta)\asymp_\delta
+ N^{-(\theta_\delta^2\mp\theta_\delta)/2}.
+\end{equation}
+Equivalently,
+\begin{equation}\label{eq:strong-main-log}
+ \log D_N^\pm(\delta)
+ =-\frac{\theta_\delta^2\mp\theta_\delta}{2}\log N+O_\delta(1).
+\end{equation}
+
+\item If $\delta\in\mathcal C$, then
+\begin{equation}\label{eq:critical-main}
+ D_N^\pm(\delta)
+ =N^{-(\theta_\delta^2\mp\theta_\delta)/2+o(1)}.
+\end{equation}
+\end{enumerate}
+Consequently,
+\begin{align}
+ \det\bigl(I_N-(H_N^\delta)^2\bigr)
+ &\asymp_\delta N^{-\theta_\delta^2},
+ &&\delta\notin\mathcal C,
+ \label{eq:product-global-strong}\\
+ \det\bigl(I_N-(H_N^\delta)^2\bigr)
+ &=N^{-\theta_\delta^2+o(1)},
+ &&\delta\in\mathcal C.
+ \label{eq:product-global-critical}
+\end{align}
+\end{theorem}
+
+\begin{remark}[The critical sign]
+At a half-integer, only one of the two determinants requires the
+subpolynomial remainder in \eqref{eq:critical-main}.  It is $D_N^-$ when
+$s_\delta=1$ and $D_N^+$ when $s_\delta=-1$, namely the determinant for which
+the continuous spectrum reaches zero.  For the opposite sign, the proof gives
+an $O_\delta(1)$ remainder in the logarithm.
+\end{remark}
+
+The result takes a particularly simple form in the unfolded range.
+
+\begin{corollary}[Recovery of the original phase]\label{cor:unfolded}
+Let $\delta\le\frac12$ and $\delta\notin\mathcal P$.  If
+$\delta\notin\mathcal C$, then
+\begin{align}
+ \det(I_N-H_N^\delta)
+ &\asymp_\delta N^{-\delta(\delta-1)/2},
+ \label{eq:minus-result}\\
+ \det(I_N+H_N^\delta)
+ &\asymp_\delta N^{-\delta(\delta+1)/2},
+ \label{eq:plus-result}\\
+ \det\bigl(I_N-(H_N^\delta)^2\bigr)
+ &\asymp_\delta N^{-\delta^2}.
+ \label{eq:square-result}
+\end{align}
+If $\delta\in\mathcal C$, the three relations remain true after replacing
+$\asymp_\delta$ by equality up to a factor $N^{o(1)}$.
+\end{corollary}
+
+\begin{remark}[Folding for positive parameters]\label{rem:positive-folding}
+For $m\in\mathbb N_0$ and
+$\delta\in[m-\frac12,m+\frac12]$,
+\begin{equation}\label{eq:triangular-q}
+ q_\delta=(-1)^{m+1}(\delta-m).
+\end{equation}
+Thus, for $\delta\ge\frac12$, the exponent of the product determinant is
+$-\operatorname{dist}(\delta,\mathbb Z)^2$.  Away from half-integers,
+\[
+ \det\bigl(I_N-(H_N^\delta)^2\bigr)
+ \asymp_\delta N^{-\operatorname{dist}(\delta,\mathbb Z)^2}.
+\]
+The return to zero at nonnegative integers is unavoidable: for
+$m\in\mathbb N_0$, the sine factor vanishes while all denominators are
+nonzero, and hence $H_N^m=0$ exactly.  The two individual determinant
+exponents are interchanged when $\delta$ is increased by one.
+\end{remark}
+
+The proof uses three established inputs, all stated explicitly below: Otte's
+Hilbert determinant theorem, including its endpoint form; the spectral
+description of the infinite generalized Hilbert matrix; and a classical
+lower bound of order $(\log N)^{-2}$ for the gap between the norm of a finite
+Hilbert matrix and $\pi$.  Away from $\mathcal C$, Otte's $O(1)$ remainder and
+a trace-class comparison give an $O(1)$ remainder for the regularized
+determinant.  Removing the regularization produces a finite-dimensional
+factor.  The edge-state extraction lemma compares this factor, in Loewner
+order, with the Gram matrix of the omitted eigenvector tails, and the latter
+has an explicit Cauchy-matrix asymptotic.  At the negative critical
+half-integers, an exact compression reduces the continuous part to the base
+parameters $\alpha=\pm\frac12$; the closed spectral gap then costs only a
+subpolynomial factor.
+
+For $r=-\delta>\frac12$, let $m$ denote the number of edge eigenvectors.  The
+algebraic core of the unfolding is
+\begin{equation}\label{eq:phase-lift-intro}
+ r=m+(-1)^m\frac1\pi\arcsin(\sin\pi r).
+\end{equation}
+The principal inverse sine gives the fractional part of the lifted phase,
+whereas the number and parity of the edge eigenvectors give the missing branch
+index.
+
+\section{The infinite generalized Hilbert matrix}
+
+Let $\ell^2(\Nzero)$ have standard orthonormal basis $(e_j)_{j\ge0}$.  For a
+real parameter
+$\alpha\notin\{0,-1,-2,\ldots\}$, let
+\begin{equation}\label{eq:Halpha}
+ \Hh_\alpha:=\left(\frac1{j+k+\alpha}\right)_{j,k\in\Nzero}
+\end{equation}
+be the bounded self-adjoint generalized Hilbert operator on
+$\ell^2(\Nzero)$, and define its normalized form
+\begin{equation}\label{eq:Aalpha}
+ A_\alpha:=\frac{\sin(\pi\alpha)}\pi\Hh_\alpha.
+\end{equation}
+Let $P_N$ be the orthogonal projection onto
+$\operatorname{span}\{e_0,\ldots,e_{N-1}\}$ and put $Q_N:=\id-P_N$.  With
+$\alpha=1+\delta$,
+\begin{equation}\label{eq:compression}
+ H_N^\delta=P_NA_\alpha P_N\big|_{P_N\ell^2(\Nzero)}.
+\end{equation}
+
+Recall that
+\[
+ H^2(\D)
+ :=\left\{f(z)=\sum_{n=0}^\infty a_nz^n:
+              \sum_{n=0}^\infty|a_n|^2<\infty\right\},
+ \qquad
+ \|f\|_{H^2}^2:=\sum_{n=0}^\infty|a_n|^2.
+\]
+Thus the coefficient map
+\[
+ U:\ell^2(\Nzero)\longrightarrow H^2(\D),
+ \qquad
+ (Uu)(z)=\sum_{n=0}^\infty u(n)z^n,
+\]
+is unitary and identifies the entries of $u$ with the Taylor coefficients of
+the analytic function $Uu$.  The same coefficients also have a Fourier
+interpretation: the radial boundary values exist in $L^2(\mathbb T)$ and
+satisfy
+\[
+ (Uu)^*(e^{it})=\sum_{n=0}^\infty u(n)e^{int}
+ \quad\text{in }L^2(\mathbb T).
+\]
+Hence $u(n)$ are the nonnegative Fourier coefficients of the boundary
+function; no pointwise convergence on $\mathbb T$ is being assumed.
+
+The following proposition is the only spectral input.  It combines
+Rosenblum's diagonalization with the explicit eigenfunction formulas in
+\cite{RosenblumII,AlemanMontesSarafoleanu,Silbermann}.
+
+\begin{proposition}[Spectral data]\label{prop:spectral-data}
+Let $\alpha=1+\delta\in\R\setminus\mathbb Z$ and set
+$s:=\sin(\pi\alpha)$.  Then:
+
+\begin{enumerate}
+\item The absolutely continuous spectrum of $A_\alpha$ is
+\begin{equation}\label{eq:ac-spectrum}
+ \operatorname{spec}_{\mathrm{ac}}(A_\alpha)
+ =[\min\{0,s\},\max\{0,s\}],
+\end{equation}
+with multiplicity one.
+
+\item The point spectrum of $A_\alpha$ is contained in $\{-1,+1\}$.  Define
+\begin{align}
+ J^-(\delta)
+ &:=\left\{j\in\Nzero:j<-\delta-\frac12,\ j\ \text{even}\right\},
+ \label{eq:Jminus}\\
+ J^+(\delta)
+ &:=\left\{j\in\Nzero:j<-\delta-\frac12,\ j\ \text{odd}\right\}.
+ \label{eq:Jplus}
+\end{align}
+For each admissible $j$, let $u_j$ be the Taylor coefficient vector of
+\begin{equation}\label{eq:fj}
+ f_j(z):=(1-z)^{-\alpha-j}(1+z)^j.
+\end{equation}
+Then
+\begin{equation}\label{eq:eigenvalue-fj}
+ A_\alpha u_j=(-1)^j u_j,
+\end{equation}
+and
+\begin{equation}\label{eq:kernel-basis}
+ \Ker(\id\pm A_\alpha)
+ =\operatorname{span}\{u_j:j\in J^\pm(\delta)\}.
+\end{equation}
+
+\item The operator $A_\alpha$ is a self-adjoint contraction.  If $|s|<1$,
+then, after the kernels in \eqref{eq:kernel-basis} are removed, the spectra of
+$\id\pm A_\alpha$ are bounded away from zero.
+\end{enumerate}
+\end{proposition}
+
+The restriction $j<-\delta-\frac12$ in
+\eqref{eq:Jminus}--\eqref{eq:Jplus} is exactly the condition that
+$f_j\in H^2(\D)$.  Indeed, near $z=1$,
+$f_j(z)$ is a nonzero constant times $(1-z)^{-\alpha-j}$, and this singularity
+belongs to $H^2$ precisely when $\alpha+j<\frac12$.
+
+At nonnegative integral $\delta$, the sine factor in
+\eqref{eq:def-Hdelta} vanishes and $H_N^\delta=0$.  These elementary cases do
+not require the spectral proposition.
+
+\section{The principal-branch Hilbert contribution}
+
+For $a>0$, write
+\begin{equation}\label{eq:finite-Hilbert}
+ \Hh_{N,a}:=\left(\frac1{j+k+a}\right)_{j,k=0}^{N-1}.
+\end{equation}
+We use the following form of Otte's generalized Hilbert determinant theorem.
+
+\begin{proposition}[Hilbert determinant asymptotics]\label{prop:Hilbert-det}
+Let $a\ge\frac12$ and $\beta\in[-1,1]$.  Set
+\begin{equation}\label{eq:hilbert-exponent}
+ h(\beta):=
+ \frac{\arcsin^2\beta+\pi\arcsin\beta}{2\pi^2},
+\end{equation}
+where the inverse sine is the principal branch.  Then
+\begin{equation}\label{eq:Otte-strong}
+ \log\det\left(\id_N-\frac\beta\pi\Hh_{N,a}\right)
+ =-h(\beta)\log N+
+ \begin{cases}
+  O_{a,\beta}(1),&\beta<1,\\
+  o(\log N),&\beta=1.
+ \end{cases}
+\end{equation}
+\end{proposition}
+
+Fedele--Gebert first obtained the leading term for $|\beta|<1$
+\cite{FedeleGebert}.  Otte proved the generalized-parameter statement and
+improved the remainder to $O(1)$ for $\beta<1$; the endpoint $\beta=1$ is
+proved with an $o(\log N)$ remainder \cite{Otte}.  For fixed $a$, Otte's more precise logarithmic scale
+differs from a constant multiple of $\log N$ by $O(1)$, which gives
+\eqref{eq:Otte-strong} in the form used here.
+
+Suppose first that $\delta\ge-\frac12$.  Then
+$\alpha=1+\delta\ge\frac12$ and
+\[
+ D_N^\pm(\delta)
+ =\det\left(\id_N-\frac{\mp s_\delta}{\pi}\Hh_{N,\alpha}\right).
+\]
+Since $\arcsin(\mp s_\delta)=\mp\pi q_\delta$,
+Proposition~\ref{prop:Hilbert-det} gives
+\begin{equation}\label{eq:Otte-paired}
+ \log D_N^\pm(\delta)
+ =-\frac{q_\delta^2\mp q_\delta}{2}\log N+
+ \begin{cases}
+  O_\delta(1),&\mp s_\delta<1,\\
+  o(\log N),&\mp s_\delta=1.
+ \end{cases}
+\end{equation}
+If $\delta\notin\mathcal C$, then $|s_\delta|<1$ and both signs have
+bounded remainders.  If $\delta\in\mathcal C$, one sign has endpoint
+coupling $1$ and the other has coupling $-1$.  Since
+$\theta_\delta=q_\delta$ throughout $\delta\ge-\frac12$, this proves
+Theorem~\ref{thm:main} in that range.
+
+For $\alpha<\frac12$, Otte's theorem does not apply directly.  The next two
+lemmas show that, away from the threshold couplings $|s|=1$, the regularized
+operator may nevertheless be compared with the standard Hilbert matrix.
+
+\begin{lemma}[Trace-class shift]\label{lem:trace-class-shift}
+If $\alpha,\beta\in\R\setminus\{0,-1,-2,\ldots\}$, then
+\begin{equation}\label{eq:trace-class-difference}
+ \Hh_\alpha-\Hh_\beta\in\cS.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Choose $r\in\Nzero$ so large that $\alpha+2r>0$ and $\beta+2r>0$.
+Deleting the first $r$ rows and columns changes the difference by a finite-rank
+operator.  After reindexing, the remaining block is
+$\Hh_{\alpha+2r}-\Hh_{\beta+2r}$.
+
+Assume, without loss of generality, that
+$a:=\alpha+2r<b:=\beta+2r$.  Its entries satisfy
+\[
+ \frac1{j+k+a}-\frac1{j+k+b}
+ =\int_0^1 t^{j+k}\bigl(t^{a-1}-t^{b-1}\bigr)\,dt,
+\]
+so the difference is positive.  Its diagonal sum is finite:
+\[
+ \sum_{n=0}^\infty
+ \left(\frac1{2n+a}-\frac1{2n+b}\right)<\infty.
+\]
+A positive bounded operator with finite diagonal sum is trace class.  The case
+$b<a$ follows after changing the sign.
+\end{proof}
+
+\begin{lemma}[Stable trace-class perturbations]\label{lem:stable-traceclass}
+Let $R,S$ be bounded self-adjoint operators on a Hilbert space, suppose that
+$R\ge c\id$ and $S\ge c\id$ for some $c>0$, and assume $S-R\in\cS$.  Then
+\begin{equation}\label{eq:stable-determinant}
+ \left|
+ \log\det(P_NSP_N)-\log\det(P_NRP_N)
+ \right|
+ \le c^{-1}\|S-R\|_1.
+\end{equation}
+The determinants are taken on the finite-dimensional space $P_N\ell^2$.
+\end{lemma}
+
+\begin{proof}
+Set $R_N:=P_NRP_N$ and $K_N:=P_N(S-R)P_N$.  For $0\le t\le1$,
+\[
+ R_N+tK_N=(1-t)P_NRP_N+tP_NSP_N\ge cP_N.
+\]
+Therefore
+\[
+ \frac{d}{dt}\log\det(R_N+tK_N)
+ =\Tr\bigl((R_N+tK_N)^{-1}K_N\bigr),
+\]
+and the absolute value of the right-hand side is bounded by
+$c^{-1}\|K_N\|_1\le c^{-1}\|S-R\|_1$.  Integration over $t\in[0,1]$
+proves the claim.
+\end{proof}
+
+Fix henceforth a noncritical parameter
+\begin{equation}\label{eq:nonthreshold}
+ |s|=|\sin(\pi\alpha)|<1.
+\end{equation}
+Define
+\begin{equation}\label{eq:Tpm}
+ T^\pm:=\id\pm A_\alpha,
+ \qquad
+ K^\pm:=\Ker T^\pm,
+\end{equation}
+let $\Pi^\pm$ be the orthogonal projection onto $K^\pm$, and set
+\begin{equation}\label{eq:Ttilde-pm}
+ \widetilde T^{\,\pm}:=T^\pm+\Pi^\pm.
+\end{equation}
+By Proposition~\ref{prop:spectral-data}, the two regularized operators are
+bounded below by positive constants.  The same is true of
+\begin{equation}\label{eq:Rpm}
+ R^\pm:=\id\pm\frac{s}{\pi}\Hh_1,
+\end{equation}
+because $\pi^{-1}\Hh_1$ has spectrum $[0,1]$ and $|s|<1$.  Moreover,
+\begin{equation}\label{eq:regularized-difference}
+ \widetilde T^{\,\pm}-R^\pm
+ =\pm\frac{s}{\pi}(\Hh_\alpha-\Hh_1)+\Pi^\pm
+ \in\cS.
+\end{equation}
+Lemmas~\ref{lem:trace-class-shift} and \ref{lem:stable-traceclass}, together
+with Proposition~\ref{prop:Hilbert-det} applied at $a=1$, give, with
+\begin{equation}\label{eq:def-q}
+ q:=\frac1\pi\arcsin(s),
+\end{equation}
+the regularized asymptotics
+\begin{equation}\label{eq:regularized-asymptotic}
+ \log\det(P_N\widetilde T^{\,\pm}P_N)
+ =-\frac{q^2\mp q}{2}\log N+O_\delta(1).
+\end{equation}
+This is the contribution that depends only on the principal inverse sine.
+
+\section{Extracting the edge eigenspaces}
+
+The next lemma converts the exact kernel of an infinite operator into the small
+finite-dimensional factor in its finite-section determinant.  The comparison
+in \eqref{eq:loewner-tail} is the key point: it says that this factor is,
+up to fixed constants, the Gram matrix of the omitted tails of the kernel
+vectors.
+
+\begin{lemma}[Edge-eigenspace extraction]\label{lem:edge-extraction}
+Let $T\ge0$ be bounded on $\ell^2(\Nzero)$.  Suppose that
+$K:=\Ker T$ has finite dimension $m$ and that $T$ is bounded below by a
+positive constant on $K^\perp$.  Let $\Pi$ be the orthogonal projection onto
+$K$, set $\widetilde T:=T+\Pi$, and let $V:\C^m\to K$ be an isometry.  Then
+\begin{equation}\label{eq:edge-factorization}
+ \det(P_NTP_N)
+ =\det(P_N\widetilde TP_N)\det M_N,
+\end{equation}
+where
+\begin{equation}\label{eq:def-MN}
+ M_N:=\id_m-V^*P_N(P_N\widetilde TP_N)^{-1}P_NV.
+\end{equation}
+There are constants $0<c\le C<\infty$, independent of $N$, such that
+\begin{equation}\label{eq:loewner-tail}
+ c\,V^*Q_NV\le M_N\le C\,V^*Q_NV
+\end{equation}
+in the Loewner order on $m\times m$ matrices.  More precisely, one may take
+\begin{equation}\label{eq:loewner-constants}
+ c=\|\widetilde T^{-1/2}\|^{-2},
+ \qquad
+ C=\|\widetilde T^{1/2}\|^2.
+\end{equation}
+If $V^*Q_NV$ is positive definite, then
+\begin{equation}\label{eq:edge-logdet}
+ \log\det M_N
+ =\log\det(V^*Q_NV)+O(1).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Since $\Pi=VV^*$,
+\[
+ P_NTP_N=P_N\widetilde TP_N-(P_NV)(P_NV)^*.
+\]
+The matrix determinant lemma gives
+\eqref{eq:edge-factorization}--\eqref{eq:def-MN}.
+
+Put $B:=\widetilde T^{1/2}$.  The hypotheses imply that $B$ is boundedly
+invertible.  Moreover, $T=0$ and $\Pi=\id$ on $K$, so
+\begin{equation}\label{eq:B-on-kernel}
+ BV=V.
+\end{equation}
+Let
+\[
+ C_N:=BP_N:P_N\ell^2\longrightarrow\ell^2.
+\]
+Then
+\[
+ C_N^*C_N=P_N\widetilde TP_N,
+ \qquad
+ C_N^*V=P_NBV=P_NV.
+\]
+Because $C_N$ is injective and has finite-dimensional range,
+\begin{equation}\label{eq:EN-projection}
+ E_N:=C_N(C_N^*C_N)^{-1}C_N^*
+\end{equation}
+is the orthogonal projection onto
+$\Ran C_N=BP_N\ell^2$.  Hence, for every $x\in\C^m$,
+\begin{align}
+ x^*M_Nx
+ &=\|Vx\|^2-
+   \bigl\langle C_N^*Vx,(C_N^*C_N)^{-1}C_N^*Vx\bigr\rangle\notag\\
+ &=\langle Vx,(\id-E_N)Vx\rangle\notag\\
+ &=\|(\id-E_N)Vx\|^2\notag\\
+ &=\dist\bigl(Vx,BP_N\ell^2\bigr)^2.
+ \label{eq:MN-distance}
+\end{align}
+This is the geometric meaning of $M_N$.
+
+Using \eqref{eq:B-on-kernel},
+\begin{align*}
+ \dist\bigl(Vx,BP_N\ell^2\bigr)
+ &=\inf_{y\in P_N\ell^2}\|Vx-By\|\\
+ &=\inf_{y\in P_N\ell^2}\|B(Vx-y)\|.
+\end{align*}
+For every $z\in\ell^2$,
+\[
+ \|B^{-1}\|^{-1}\|z\|
+ \le\|Bz\|
+ \le\|B\|\|z\|.
+\]
+Taking the infimum over $y\in P_N\ell^2$ and using that $P_N$ is an
+orthogonal projection gives
+\begin{equation}\label{eq:distance-comparison}
+ \|B^{-1}\|^{-1}\|Q_NVx\|
+ \le\dist\bigl(Vx,BP_N\ell^2\bigr)
+ \le\|B\|\|Q_NVx\|.
+\end{equation}
+Since
+\[
+ \|Q_NVx\|^2=x^*V^*Q_NVx,
+\]
+combining \eqref{eq:MN-distance} and \eqref{eq:distance-comparison} proves
+\eqref{eq:loewner-tail} with the constants in
+\eqref{eq:loewner-constants}.
+
+Finally, put $G_N:=V^*Q_NV>0$.  Conjugating
+\eqref{eq:loewner-tail} by $G_N^{-1/2}$ gives
+\[
+ c\id_m\le G_N^{-1/2}M_NG_N^{-1/2}\le C\id_m.
+\]
+Therefore
+\[
+ c^m\le\frac{\det M_N}{\det G_N}\le C^m.
+\]
+Since $m$ is fixed, this is equivalent to \eqref{eq:edge-logdet}.
+\end{proof}
+
+\begin{remark}[Meaning of the Loewner comparison]
+The matrix $M_N$ measures the squared distance of the kernel vectors $Vx$ from
+the distorted finite-section space $\widetilde T^{1/2}P_N\ell^2$, whereas
+$V^*Q_NV$ measures their ordinary squared tails.  The boundedly invertible map
+$\widetilde T^{1/2}$ changes these distances by at most its condition-number
+constants, which is exactly \eqref{eq:loewner-tail}.  In the special case
+$\widetilde T=\id$, there is no distortion and
+\[
+ M_N=\id_m-V^*P_NV=V^*Q_NV
+\]
+holds identically.
+\end{remark}
+
+Applying Lemma~\ref{lem:edge-extraction} to $T^\pm$ reduces the remaining
+problem to the tails of the explicit vectors $u_j$ from
+Proposition~\ref{prop:spectral-data}.
+
+\section{The tail Gram determinant}
+
+Let $u_j(n)$ denote the $n$th Taylor coefficient of $f_j$ in
+\eqref{eq:fj}.
+
+\begin{lemma}[Eigenvector tails]\label{lem:eigenvector-tails}
+Assume $\alpha\notin\mathbb Z$ and let $j\in\Nzero$ satisfy
+$\alpha+j<\frac12$.  Then
+\begin{equation}\label{eq:coeff-asymptotic}
+ u_j(n)
+ =c_j n^{\alpha+j-1}\bigl(1+O(n^{-1})\bigr),
+ \qquad
+ c_j:=\frac{2^j}{\Gamma(\alpha+j)}\ne0.
+\end{equation}
+If $J\subset\{j\in\Nzero:\alpha+j<\frac12\}$ is finite, then
+\begin{equation}\label{eq:tail-gram-asymptotic}
+ \det\left(\sum_{n=N}^\infty u_i(n)u_j(n)\right)_{i,j\in J}
+ =C_J
+ N^{\sum_{j\in J}(2\delta+2j+1)}\bigl(1+o(1)\bigr)
+\end{equation}
+for some constant $C_J>0$.
+\end{lemma}
+
+\begin{proof}
+Since
+\[
+ (1+z)^j=\sum_{\ell=0}^j\binom j\ell z^\ell,
+\]
+the binomial series for $(1-z)^{-\alpha-j}$ gives, for $n\ge j$,
+\[
+ u_j(n)
+ =\sum_{\ell=0}^j\binom j\ell
+ \frac{\Gamma(n-\ell+\alpha+j)}
+ {\Gamma(\alpha+j)\Gamma(n-\ell+1)}.
+\]
+The gamma-ratio asymptotic
+\[
+ \frac{\Gamma(n+a)}{\Gamma(n+b)}
+ =n^{a-b}\bigl(1+O(n^{-1})\bigr)
+\]
+then yields \eqref{eq:coeff-asymptotic}, because
+$\sum_{\ell=0}^j\binom j\ell=2^j$.
+
+For $i,j\in J$, the hypotheses imply $2\delta+i+j<-1$.  Therefore
+\begin{equation}\label{eq:tail-pairing}
+ \sum_{n=N}^\infty u_i(n)u_j(n)
+ =\frac{c_ic_j}{-(2\delta+i+j+1)}
+ N^{2\delta+i+j+1}\bigl(1+o(1)\bigr).
+\end{equation}
+Factor $N^{\delta+i+1/2}$ from row $i$ and
+$N^{\delta+j+1/2}$ from column $j$.  The remaining matrix converges to
+\begin{equation}\label{eq:Cauchy-limit}
+ \left(\frac{c_ic_j}{-(2\delta+i+j+1)}\right)_{i,j\in J}.
+\end{equation}
+This limit is positive definite: it is the Gram matrix of the linearly
+independent functions $c_jx^{\delta+j}$ in $L^2(1,\infty)$.  Its determinant
+is therefore positive, proving \eqref{eq:tail-gram-asymptotic}.
+\end{proof}
+
+For either sign, changing from the basis
+$\{u_j:j\in J^\pm(\delta)\}$ to an orthonormal basis of $K^\pm$ multiplies the
+tail Gram determinant by a fixed positive constant.  Lemmas
+\ref{lem:edge-extraction} and \ref{lem:eigenvector-tails} therefore give
+\begin{equation}\label{eq:edge-contribution}
+ \log\det M_N^\pm
+ =\left(
+ \sum_{j\in J^\pm(\delta)}(2\delta+2j+1)
+ \right)\log N+O(1),
+\end{equation}
+where $M_N^\pm$ is the matrix in \eqref{eq:def-MN} for $T=T^\pm$.
+Combining \eqref{eq:regularized-asymptotic} and
+\eqref{eq:edge-contribution} yields
+\begin{equation}\label{eq:master-formula}
+ \log D_N^\pm(\delta)
+ =\left[
+ -\frac{q^2\mp q}{2}
+ +\sum_{j\in J^\pm(\delta)}(2\delta+2j+1)
+ \right]\log N+O_\delta(1)
+\end{equation}
+whenever $|\sin(\pi(1+\delta))|<1$.
+
+Formula~\eqref{eq:master-formula} is the unsimplified strong asymptotic.  Its
+first term depends only on the principal inverse sine.  Its finite sum is the
+contribution of the exact eigenvalues at $\mp1$ to
+$D_N^\pm=\det(\id_N\pm H_N^\delta)$.
+
+\section{Recovery of the original sine argument}
+
+Assume that $\delta<-\frac12$ and $\delta\notin\mathcal C$.  Put
+\begin{equation}\label{eq:r-m-q}
+ r:=-\delta>\frac12,
+ \qquad
+ m:=\#\{j\in\Nzero:j<r-\tfrac12\},
+ \qquad
+ q:=\frac1\pi\arcsin(\sin\pi r).
+\end{equation}
+More generally, for every $r>\frac12$ the above definition of $m$ gives
+$r\in(m-\frac12,m+\frac12]$, and on this interval
+\begin{equation}\label{eq:lift}
+ q=(-1)^m(r-m),
+ \qquad\text{equivalently}\qquad
+ r=m+(-1)^mq.
+\end{equation}
+The $m$ edge eigenvectors are indexed by $j=0,\ldots,m-1$, with
+alternating eigenvalues.  Define
+\begin{equation}\label{eq:Jm-pm}
+ J_m^+:=\{0\le j<m:j\ \text{odd}\},
+ \qquad
+ J_m^-:=\{0\le j<m:j\ \text{even}\}.
+\end{equation}
+Thus $J^\pm(\delta)=J_m^\pm$.
+
+\begin{lemma}[Unfolding identity]\label{lem:unfolding}
+With $r,m,q$ as in \eqref{eq:r-m-q}--\eqref{eq:lift},
+\begin{equation}\label{eq:unfolding-identity}
+ -\frac{q^2\mp q}{2}
+ +\sum_{j\in J_m^\pm}(1-2r+2j)
+ =-\frac{r^2\mp r}{2}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Suppose first that $m=2a$.  Then $q=r-2a$, and
+\begin{align*}
+ \sum_{j\in J_m^-}(1-2r+2j)
+ &=a(1-2r)+2a(a-1),\\
+ \sum_{j\in J_m^+}(1-2r+2j)
+ &=a(1-2r)+2a^2.
+\end{align*}
+Substitution gives \eqref{eq:unfolding-identity} for both signs.
+
+If $m=2a+1$, then $q=2a+1-r$, and
+\begin{align*}
+ \sum_{j\in J_m^-}(1-2r+2j)
+ &=(a+1)(1-2r)+2a(a+1),\\
+ \sum_{j\in J_m^+}(1-2r+2j)
+ &=a(1-2r)+2a^2.
+\end{align*}
+The same substitution proves the identity.
+\end{proof}
+
+Since $2\delta+2j+1=1-2r+2j$, Lemma~\ref{lem:unfolding} turns
+\eqref{eq:master-formula} into
+\begin{equation}\label{eq:unfolded-final}
+ \log D_N^\pm(\delta)
+ =-\frac{r^2\mp r}{2}\log N+O_\delta(1)
+ =-\frac{\delta^2\pm\delta}{2}\log N+O_\delta(1).
+\end{equation}
+This proves the strong statement in Theorem~\ref{thm:main} for
+$\delta<-\frac12$ away from $\mathcal C$.  Since
+\begin{equation}\label{eq:product-determinant}
+ \det\bigl(\id_N-(H_N^\delta)^2\bigr)
+ =D_N^+(\delta)D_N^-(\delta),
+\end{equation}
+the two powers add to $-\delta^2$.  The negative critical cases are completed
+in the next section.
+
+The recovery of the sine argument is now explicit.  The absolutely continuous
+part of the operator depends on $\delta$ only through
+$s_\delta=\sin(-\pi\delta)$ and therefore yields the principal value
+$q=\pi^{-1}\arcsin(s_\delta)$.  Whenever $r=-\delta$ crosses a half-integer,
+a new function $f_j$ enters $H^2(\D)$ and produces an eigenvalue at $+1$ or
+$-1$.  The tail of that eigenvector contributes the additional power of $N$
+required to pass to the next branch.  Identity~\eqref{eq:lift} states this
+precisely: the continuous spectral contribution and the edge-eigenvector
+count reconstruct the lifted phase $r$, or equivalently the original sine
+argument $-\pi\delta$.
+
+For $-\frac12\le\delta\le\frac12$, the principal branch already satisfies
+$q_\delta=-\delta$, so the same linear formula continues without a discrete
+correction.  For $\delta>\frac12$, however, Proposition~\ref{prop:spectral-data}
+has no edge eigenvectors: the generalized Hilbert parameter
+$\alpha=1+\delta$ lies above the point-spectrum range.  The determinant
+therefore retains the principal phase $q_\delta$.  In particular,
+\[
+ |q_\delta|=\operatorname{dist}(\delta,\mathbb Z),
+ \qquad
+ q_{\delta+1}=-q_\delta.
+\]
+The squared-determinant exponent is consequently $1$-periodic on this side,
+and the two individual exponents are interchanged by $\delta\mapsto\delta+1$.
+The exact identity $H_N^n=0$ at every nonnegative integer $n$ makes this
+folding unavoidable.
+
+\section{Negative critical half-integers}\label{sec:threshold}
+
+It remains to treat
+\begin{equation}\label{eq:threshold-parameter}
+ \delta=-m-\frac12,
+ \qquad m=1,2,\ldots.
+\end{equation}
+Then
+\[
+ \alpha=1+\delta=\frac12-m,
+ \qquad
+ \sin(\pi\alpha)=(-1)^m.
+\]
+It is convenient in this section to write
+\begin{equation}\label{eq:KTa}
+ K_a:=\frac1\pi\Hh_a,
+ \qquad
+ T_a:=\id-K_a,
+ \qquad
+ T_{N,a}:=P_NT_aP_N\big|_{P_N\ell^2(\Nzero)}.
+\end{equation}
+Thus $A_\alpha=(-1)^mK_\alpha$.  The determinant whose absolutely continuous
+spectrum reaches zero is $D_N^-$ if $m$ is even and $D_N^+$ if $m$ is odd; in
+either case it equals $\det T_{N,\alpha}$.
+
+The proof requires a weak quantitative form of endpoint coercivity.  For a
+sequence $0<\gamma_N\le1$, we write $\gamma_N=N^{-o(1)}$ when
+\begin{equation}\label{eq:subpolynomial-definition}
+ -\log\gamma_N=o(\log N),
+\end{equation}
+equivalently, $\gamma_N^{-1}=N^{o(1)}$.  Such a loss is negligible on the
+scale of powers of $N$ but need not be bounded.
+
+\begin{lemma}[Endpoint coercivity at $a=\frac12$]
+\label{lem:positive-endpoint-coercivity}
+There is a sequence $\gamma_N=N^{-o(1)}$ such that
+\begin{equation}\label{eq:positive-endpoint-coercivity}
+ T_{N,1/2}\ge\gamma_N\id_N.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Write $T_{N,1/2}$ in the decomposition
+$\C e_0\oplus\operatorname{span}\{e_1,\ldots,e_{N-1}\}$ as
+\begin{equation}\label{eq:block-positive-endpoint}
+ T_{N,1/2}
+ =\begin{pmatrix} a_N&b_N^*\\ b_N&R_N\end{pmatrix},
+ \qquad
+ R_N=T_{N-1,5/2}.
+\end{equation}
+The moment representation
+\[
+ \Hh_{n,a}=\int_0^1 x^{a-1}
+ (1,x,\ldots,x^{n-1})^{\mathsf T}
+ (1,x,\ldots,x^{n-1})\,dx
+\]
+shows that $\Hh_{n,5/2}\le\Hh_{n,2}$.  The classical finite Hilbert-matrix
+estimate
+\begin{equation}\label{eq:Wilf-gap}
+ \pi-\|\Hh_{n,2}\|\ge \frac{c}{\log^2(n+1)}
+\end{equation}
+for all sufficiently large $n$ therefore gives
+\begin{equation}\label{eq:R-gap}
+ R_N\ge\frac{c}{\log^2(N+1)}\id_{N-1}.
+\end{equation}
+The sharper asymptotic behind \eqref{eq:Wilf-gap} is due to de Bruijn and
+Wilf; only this lower bound is needed here \cite{Wilf}.
+
+Let
+\[
+ \rho_N:=a_N-b_N^*R_N^{-1}b_N
+ =\frac{\det T_{N,1/2}}{\det T_{N-1,5/2}}
+\]
+be the scalar Schur complement.  Both determinants are positive.  Otte's
+endpoint theorem, applied once with parameter $1/2$ and once with parameter
+$5/2$, gives
+\begin{equation}\label{eq:rho-subpoly}
+ \log\rho_N=o(\log N),
+ \qquad
+ \rho_N^{-1}=N^{o(1)}.
+\end{equation}
+The second assertion follows from the first because $\rho_N>0$.
+
+Moreover, $\|b_N\|$ is bounded uniformly in $N$.  Put
+\[
+ U_N:=\begin{pmatrix}1&0\\R_N^{-1}b_N&\id\end{pmatrix}.
+\]
+The Schur factorization may be written as the congruence
+\begin{equation}\label{eq:endpoint-LDU}
+ T_{N,1/2}
+ =U_N^*
+   \begin{pmatrix}\rho_N&0\\0&R_N\end{pmatrix}
+  U_N.
+\end{equation}
+By \eqref{eq:R-gap},
+$\|R_N^{-1}b_N\|=O(\log^2(N+1))$, and hence
+\begin{equation}\label{eq:endpoint-U-bound}
+ \|U_N\|+\|U_N^{-1}\|=O(\log^2(N+1)).
+\end{equation}
+For every vector $z$,
+\[
+ \langle z,T_{N,1/2}z\rangle
+ \ge
+ \min\left\{\rho_N,\frac{c}{\log^2(N+1)}\right\}
+ \|U_Nz\|^2.
+\]
+Using $\|U_Nz\|\ge\|U_N^{-1}\|^{-1}\|z\|$ and
+\eqref{eq:rho-subpoly}--\eqref{eq:endpoint-U-bound}, the right-hand side is
+bounded below by $\gamma_N\|z\|^2$ for a sequence
+$\gamma_N=N^{-o(1)}$.  This proves
+\eqref{eq:positive-endpoint-coercivity}.
+\end{proof}
+
+The other base parameter, $a=-\frac12$, is not covered by Otte's theorem.  It
+can nevertheless be reduced to the two positive parameters $a=\frac12$ and
+$a=\frac32$ by elementary eigenvalue interlacing.
+
+\begin{proposition}[The base negative threshold]\label{prop:negative-half-base}
+As $N\to\infty$,
+\begin{equation}\label{eq:negative-half-det}
+ \log\det T_{N,-1/2}=-\frac38\log N+o(\log N).
+\end{equation}
+Moreover, there is a sequence $\widetilde\gamma_N=N^{-o(1)}$ such that
+\begin{equation}\label{eq:negative-half-coercivity}
+ T_{N,-1/2}\ge\widetilde\gamma_N\id_N.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Set $L_N:=K_{N,-1/2}$.  Its lower-right principal submatrix is
+$K_{N-1,3/2}>0$, whereas
+$\langle e_0,L_Ne_0\rangle=-2/\pi<0$.  Cauchy interlacing therefore shows that
+$L_N$ has exactly one negative eigenvalue.  Write its eigenvalues as
+\begin{equation}\label{eq:L-eigenvalues}
+ \lambda_1\ge\cdots\ge\lambda_{N-1}>0>\lambda_N.
+\end{equation}
+
+The infinite operator $K_{-1/2}$ has the eigenvalue $-1$ with eigenvector given
+by the Taylor coefficients of
+\begin{equation}\label{eq:negative-half-eigenvector}
+ (1-z)^{1/2}.
+\end{equation}
+These coefficients are $O(n^{-3/2})$.  If $u$ is the normalized coefficient
+vector, then $\|Q_Nu\|=O(N^{-1})$, and hence
+\[
+ \|(L_N+\id_N)P_Nu\|
+ =\|P_NK_{-1/2}Q_Nu\|=O(N^{-1}).
+\]
+Since $\|P_Nu\|\to1$, the spectral theorem implies that the distance from
+$-1$ to the spectrum of $L_N$ is $O(N^{-1})$.  The only negative eigenvalue is
+$\lambda_N$, while all other eigenvalues are positive.  Hence
+\begin{equation}\label{eq:negative-eigenvalue-rate}
+ \lambda_N=-1+O(N^{-1}).
+\end{equation}
+
+Delete the first row of $L_N$, and denote the resulting
+$(N-1)\times N$ matrix by $B_N$.  After reindexing, $B_N$ is the first
+$N-1$ rows of $K_{N,1/2}$.  For $j=1,\ldots,N-1$, singular-value
+interlacing under deletion of one row and the ideal property give
+\begin{equation}\label{eq:singular-interlace-full}
+ \sigma_{j+1}(L_N)
+ \le \sigma_j(B_N)
+ \le \sigma_j(K_{N,1/2}).
+\end{equation}
+In particular,
+\begin{equation}\label{eq:singular-interlace-base}
+ \sigma_2(L_N)
+ \le\|K_{N,1/2}\|
+ \le1-\gamma_N,
+\end{equation}
+where $\gamma_N=N^{-o(1)}$ is supplied by
+Lemma~\ref{lem:positive-endpoint-coercivity}.  Since
+$N^{-1}=o(\gamma_N)$, equations \eqref{eq:negative-eigenvalue-rate} and
+\eqref{eq:singular-interlace-base} imply that $|\lambda_N|$ is the largest
+singular value of $L_N$ for all sufficiently large $N$.
+
+Let $\mu_1\ge\cdots\ge\mu_N>0$ be the eigenvalues of $K_{N,1/2}$.  Once
+$|\lambda_N|$ is the largest singular value, the remaining singular values of
+$L_N$ are $\lambda_1,\ldots,\lambda_{N-1}$ in that order.  Thus
+\eqref{eq:singular-interlace-full} gives the explicit comparison
+\begin{equation}\label{eq:positive-eigenvalue-comparison}
+ \lambda_j=\sigma_{j+1}(L_N)
+ \le\sigma_j(B_N)
+ \le\mu_j,
+ \qquad j=1,\ldots,N-1.
+\end{equation}
+The normalized infinite operator $K_{-1/2}$ is a contraction, and so is its
+compression $L_N$; in particular, $-1\le\lambda_N<0$.  Consequently,
+\begin{align}
+ \det(\id_N-L_N)
+ &=(1-\lambda_N)\prod_{j=1}^{N-1}(1-\lambda_j)\notag\\
+ &\ge\prod_{j=1}^{N-1}(1-\mu_j)
+ \ge\det(\id_N-K_{N,1/2}).
+ \label{eq:base-lower-bound}
+\end{align}
+For the reverse estimate, let
+$\nu_1\ge\cdots\ge\nu_{N-1}>0$ be the eigenvalues of the lower-right
+principal submatrix $K_{N-1,3/2}$.  Cauchy interlacing gives
+$\lambda_j\ge\nu_j$ for $j=1,\ldots,N-1$.  Since
+$1-\lambda_N\le2$, it follows that
+\begin{equation}\label{eq:base-upper-bound}
+ \det(\id_N-L_N)
+ \le2\prod_{j=1}^{N-1}(1-\nu_j)
+ =2\det(\id_{N-1}-K_{N-1,3/2}).
+\end{equation}
+Otte's endpoint theorem applied to $a=\frac12$ and $a=\frac32$ in
+\eqref{eq:base-lower-bound}--\eqref{eq:base-upper-bound} proves
+\eqref{eq:negative-half-det}.
+
+Finally, \eqref{eq:positive-eigenvalue-comparison} and
+Lemma~\ref{lem:positive-endpoint-coercivity} imply
+$\lambda_1\le1-\gamma_N$.  Since $1-\lambda_N>1$, this proves
+\eqref{eq:negative-half-coercivity}.
+\end{proof}
+
+We next replace the uniform coercivity in
+Lemma~\ref{lem:edge-extraction} by the subpolynomial estimates just obtained.
+The following formulation is adapted to the Schur complements used below.
+
+\begin{lemma}[Threshold tail extraction]\label{lem:threshold-tail-extraction}
+Let $B\ge0$ be a bounded injective operator on $\ell^2(\Nzero)$ and suppose
+that
+\begin{equation}\label{eq:threshold-B-coercivity}
+ P_MB P_M\ge\gamma_M P_M,
+ \qquad
+ \gamma_M=M^{-o(1)}.
+\end{equation}
+Let $L:\C^d\to\ell^2(\Nzero)$ be injective, put
+$G_M:=L^*Q_ML$, and assume that $G_M$ is positive definite for all sufficiently
+large $M$.  Suppose further that there are fixed constants $A>1$, $c>0$, and
+$C<\infty$ such that
+\begin{equation}\label{eq:scale-separation}
+ L^*Q_{\lfloor M^A\rfloor}L
+ \le C M^{-c}G_M
+\end{equation}
+for all sufficiently large $M$.  Define a positive $d\times d$ matrix by
+\begin{equation}\label{eq:threshold-S-def}
+ x^*S_Mx
+ :=\inf_{y\in P_M\ell^2}
+ \langle y-Lx,B(y-Lx)\rangle.
+\end{equation}
+Then
+\begin{equation}\label{eq:threshold-S-asymptotic}
+ \log\det S_M=\log\det G_M+o(\log M).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Choosing $y=P_MLx$ in \eqref{eq:threshold-S-def} gives
+\begin{equation}\label{eq:threshold-upper}
+ S_M\le\|B\|G_M.
+\end{equation}
+For the lower bound, fix $y\in P_M\ell^2$, put
+$w:=y-Lx$, and let $M_A:=\lfloor M^A\rfloor$.  By the triangle inequality,
+\begin{align*}
+ \|B^{1/2}w\|
+ &\ge \|B^{1/2}P_{M_A}w\|
+      -\|B^{1/2}Q_{M_A}w\|\\
+ &\ge \gamma_{M_A}^{1/2}\|P_{M_A}w\|
+      -\|B\|^{1/2}\|Q_{M_A}Lx\|.
+\end{align*}
+Because $y$ is supported in the first $M$ coordinates,
+\[
+ \|P_{M_A}w\|
+ \ge\|(P_{M_A}-P_M)Lx\|.
+\]
+Condition \eqref{eq:scale-separation} therefore implies, uniformly in $x$,
+\[
+ \|(P_{M_A}-P_M)Lx\|^2
+ \ge(1-CM^{-c})x^*G_Mx,
+ \qquad
+ \|Q_{M_A}Lx\|^2\le CM^{-c}x^*G_Mx.
+\]
+Since $\gamma_{M_A}=M^{-o(1)}$, one has
+$M^{-c/2}\gamma_{M_A}^{-1/2}=M^{-c/2+o(1)}\to0$.  Hence the second term in
+the lower bound for $\|B^{1/2}w\|$ is eventually at most one half of the
+first, uniformly in $x$.  Taking the infimum over $y$ yields
+\begin{equation}\label{eq:threshold-lower}
+ S_M\ge\frac14\gamma_{M_A}G_M
+\end{equation}
+for all sufficiently large $M$.  Since $d$ is fixed,
+\eqref{eq:threshold-upper} and \eqref{eq:threshold-lower} imply
+\[
+ d\log\gamma_{M_A}-d\log4
+ \le \log\det S_M-\log\det G_M
+ \le d\log\|B\|.
+\]
+Finally, $\log\gamma_{M_A}=o(\log M_A)=o(\log M)$, proving
+\eqref{eq:threshold-S-asymptotic}.
+\end{proof}
+
+For the vectors in Lemma~\ref{lem:eigenvector-tails}, condition
+\eqref{eq:scale-separation} follows directly from the Cauchy-Gram asymptotic.
+Indeed, if the relevant indices are $j_1<\cdots<j_d$ and
+\[
+ D_M:=\operatorname{diag}
+ \bigl(M^{\delta+j_1+1/2},\ldots,M^{\delta+j_d+1/2}\bigr),
+\]
+then \eqref{eq:tail-pairing} gives
+\[
+ G_M=D_M(C+o(1))D_M
+\]
+with $C>0$.  At $\lfloor M^A\rfloor$ the corresponding diagonal matrix is
+$D_ME_M(\id+o(1))$, where
+\[
+ E_M:=\operatorname{diag}
+ \bigl(M^{(A-1)(\delta+j_1+1/2)},\ldots,
+       M^{(A-1)(\delta+j_d+1/2)}\bigr).
+\]
+Every exponent in $E_M$ is strictly negative.  Thus there is $c>0$ such
+that $\|E_M\|^2\le M^{-c}$.  Since $C$ is positive definite, for all large
+$M$ there are constants $0<c_0\le C_0<\infty$ with
+\[
+ c_0D_M^2\le G_M\le C_0D_M^2
+\]
+and
+\[
+ G_{\lfloor M^A\rfloor}
+ \le C_0D_ME_M^2D_M
+ \le \frac{C_0}{c_0}M^{-c}G_M.
+\]
+This is \eqref{eq:scale-separation}.  A fixed change of basis conjugates both
+Gram matrices by the same invertible matrix and therefore does not affect the
+conclusion.
+
+\begin{proposition}[Threshold determinant asymptotics]
+\label{prop:threshold-asymptotics}
+Let $\delta=-m-\frac12$ with $m=1,2,\ldots$, and set
+\begin{equation}\label{eq:threshold-q}
+ q:=\frac1\pi\arcsin(\sin(-\pi\delta))=\frac{(-1)^m}{2}.
+\end{equation}
+Then
+\begin{equation}\label{eq:threshold-master}
+ \log D_N^\pm(\delta)
+ =\left[
+ -\frac{q^2\mp q}{2}
+ +\sum_{j\in J^\pm(\delta)}(2\delta+2j+1)
+ \right]\log N+o(\log N).
+\end{equation}
+Consequently,
+\begin{equation}\label{eq:threshold-unfolded}
+ \log D_N^\pm(\delta)
+ =-\frac{\delta^2\pm\delta}{2}\log N+o(\log N),
+\end{equation}
+or equivalently
+\begin{equation}\label{eq:threshold-power-form}
+ D_N^\pm(\delta)
+ =N^{-(\delta^2\pm\delta)/2+o(1)}.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Put $\alpha=\frac12-m$ and $d:=\lfloor m/2\rfloor$.  Compression to the
+coordinates $d,d+1,\ldots$ shifts the generalized Hilbert parameter by $2d$:
+\begin{equation}\label{eq:threshold-compression}
+ Q_dK_\alpha Q_d\cong K_a,
+ \qquad
+ a:=\alpha+2d=
+ \begin{cases}
+  \frac12,&m\ \text{even},\\
+  -\frac12,&m\ \text{odd}.
+ \end{cases}
+\end{equation}
+The kernel of $T_\alpha=\id-K_\alpha$ has dimension $d$ and is spanned by the
+vectors $u_j$ with
+\begin{equation}\label{eq:critical-J}
+ 0\le j<m,
+ \qquad
+ j\equiv m\pmod2.
+\end{equation}
+Indeed, $K_\alpha=(-1)^mA_\alpha$ and
+$A_\alpha u_j=(-1)^ju_j$.
+
+Let $E_d:=P_d\ell^2$ and $F_d:=Q_d\ell^2$.  The restriction from
+$\Ker T_\alpha$ to $E_d$ is injective: a kernel vector vanishing on $E_d$
+would, by \eqref{eq:threshold-compression}, give a vector in $\Ker T_a$, but
+$T_{1/2}$ and $T_{-1/2}$ are injective.  Since both spaces have dimension $d$,
+the restriction is an isomorphism.  Hence there is a map
+$L:E_d\to F_d$ such that
+\begin{equation}\label{eq:kernel-graph}
+ \Ker T_\alpha=\{x\oplus Lx:x\in E_d\}.
+\end{equation}
+
+With respect to $E_d\oplus F_d$, write
+\begin{equation}\label{eq:threshold-block-operator}
+ T_\alpha=
+ \begin{pmatrix}A&C^*\\ C&T_a\end{pmatrix}.
+\end{equation}
+Since every $x\oplus Lx$ lies in the kernel, the two block equations are
+\[
+ Cx+T_aLx=0,
+ \qquad
+ Ax+C^*Lx=0.
+\]
+Thus $C=-T_aL$ and, using self-adjointness, $A=L^*T_aL$.  Consequently,
+\begin{equation}\label{eq:threshold-square-completion}
+ \left\langle x\oplus y,T_\alpha(x\oplus y)\right\rangle
+ =\langle y-Lx,T_a(y-Lx)\rangle.
+\end{equation}
+
+Let $M=N-d$.  The lower-right block of the $N$th finite section is
+$T_{M,a}$ and is positive definite.  Taking its Schur complement gives
+\begin{equation}\label{eq:threshold-det-factorization}
+ \det T_{N,\alpha}=\det T_{M,a}\det S_M,
+\end{equation}
+where the Schur complement has the equivalent variational description
+\begin{equation}\label{eq:threshold-variational}
+ x^*S_Mx
+ =\inf_{y\in P_MF_d}
+ \langle y-Lx,T_a(y-Lx)\rangle.
+\end{equation}
+Proposition~\ref{prop:negative-half-base} and
+Lemma~\ref{lem:positive-endpoint-coercivity} allow us to apply
+Lemma~\ref{lem:threshold-tail-extraction} to \eqref{eq:threshold-variational}.
+The columns of $L$ are a fixed basis of the kernel in
+\eqref{eq:critical-J}; Lemma~\ref{lem:eigenvector-tails} is unchanged by this
+fixed change of basis and by deleting finitely many coordinates.  Therefore
+\begin{equation}\label{eq:critical-schur-exponent}
+ \log\det S_M
+ =\left(
+   \sum_{\substack{0\le j<m\\j\equiv m\ (2)}}
+   (2\delta+2j+1)
+  \right)\log M+o(\log M).
+\end{equation}
+Both base determinants in \eqref{eq:threshold-compression} satisfy
+\begin{equation}\label{eq:base-three-eighths}
+ \log\det T_{M,a}=-\frac38\log M+o(\log M)
+\end{equation}
+by Otte's theorem when $a=\frac12$ and by
+Proposition~\ref{prop:negative-half-base} when $a=-\frac12$.  This proves
+\eqref{eq:threshold-master} for the critical determinant, because its
+principal-branch term is $-3/8$.
+
+For the other determinant the absolutely continuous part of
+$\id+K_\alpha$ is bounded below by the identity.  After adding the projection
+onto its finite-dimensional kernel at $-1$, the trace-class comparison and
+Lemma~\ref{lem:edge-extraction} apply exactly as in Sections~3--5, now with the
+reference operator $\id+\pi^{-1}\Hh_1$.  Proposition~\ref{prop:Hilbert-det}
+with coupling $-1$ gives the principal term $1/8$, and the remaining kernel
+vectors are those with parity opposite to \eqref{eq:critical-J}.  This proves
+\eqref{eq:threshold-master} for the second determinant.
+
+Finally, with $r=-\delta=m+\frac12$, equation \eqref{eq:threshold-q} gives
+$q=(-1)^m(r-m)$.  The algebra in Lemma~\ref{lem:unfolding} remains valid at
+this endpoint and turns \eqref{eq:threshold-master} into
+\eqref{eq:threshold-unfolded}.
+\end{proof}
+
+Proposition~\ref{prop:threshold-asymptotics} completes the proof of
+Theorem~\ref{thm:main}.  The argument determines the coefficient of $\log N$;
+it deliberately allows additional factors of the form $N^{o(1)}$, including
+possible powers of $\log N$.
+
+
+\section{Example: \texorpdfstring{$\delta=-7/3$}{delta=-7/3}}
+
+For $\delta=-7/3$,
+\[
+ \alpha=-\frac43,
+ \qquad
+ s=\sin\left(-\frac{4\pi}{3}\right)=\frac{\sqrt3}{2},
+ \qquad
+ q=\frac13.
+\]
+There are two edge eigenvectors: $j=0$ at $+1$ and $j=1$ at $-1$.
+For $D_N^-$, the principal-branch contribution is
+\[
+ -\frac{q^2+q}{2}=-\frac29,
+\]
+and the $j=0$ tail contributes
+\[
+ 2\delta+1=-\frac{11}{3}.
+\]
+For $D_N^+$, the principal-branch contribution is
+\[
+ -\frac{q^2-q}{2}=\frac19,
+\]
+and the $j=1$ tail contributes
+\[
+ 2\delta+3=-\frac53.
+\]
+Consequently,
+\begin{align*}
+ \det(\id_N-H_N^{-7/3})
+ &\asymp N^{-35/9},\\
+ \det(\id_N+H_N^{-7/3})
+ &\asymp N^{-14/9},\\
+ \det\bigl(\id_N-(H_N^{-7/3})^2\bigr)
+ &\asymp N^{-49/9}.
+\end{align*}
+Thus the principal Hilbert contribution and the two edge-state tails give not
+only the logarithmic exponents but two-sided power bounds.
+
+\section{Exceptional parameters}\label{sec:exceptional}
+
+\subsection{Negative integers}
+Let $\delta=-n$, $n\in\mathbb N$.  Although the literal formula
+\eqref{eq:def-Hdelta} contains $0/0$ entries, its entrywise analytic
+continuation is
+\[
+ H_N^{-n}(j,k)=
+ \begin{cases}
+ (-1)^{n-1},&j+k=n-1,\\
+ 0,&j+k\ne n-1.
+ \end{cases}
+\]
+For $N\ge n$, this is a signed reversal on the first $n$ coordinates and zero
+on the remaining coordinates.  Hence $(H_N^{-n})^2$ is the identity on a
+nonzero subspace and
+\[
+ \det\bigl(\id_N-(H_N^{-n})^2\bigr)=0.
+\]
+The negative integers therefore do not belong to the power-law regime in
+Theorem~\ref{thm:main}.
+
+\section{Conclusion}
+
+The main theorem gives two-sided power bounds at every noncritical
+parameter and the same powers up to subpolynomial factors at the half-integer
+thresholds.  On the left of $\delta=\frac12$ the effective phase is the
+unfurled value $-\delta$; on the right it is the principal triangular wave
+$q_\delta$.  Thus the squared-determinant exponent is $-\delta^2$ in the
+unfolded range and becomes
+$-\operatorname{dist}(\delta,\mathbb Z)^2$ for larger positive parameters.
+
+The Gram representation \eqref{eq:gram-representation} shows that the full
+parameter $\delta$ is present from the beginning as a displacement of
+trigonometric frequencies.  The principal branch appears only after the
+shifted generalized Hilbert matrix is compared with the standard Hilbert
+matrix, whose determinant asymptotics depend on the scalar coupling
+$s_\delta$.
+
+Away from the threshold couplings, that comparison is trace-class stable only
+after the exact kernels at $\pm1$ have been regularized.  Removing the
+regularization creates a finite-dimensional determinant.
+Lemma~\ref{lem:edge-extraction} identifies it, up to bounded factors, with the
+Gram determinant of the omitted tails of the edge eigenvectors.  At the
+threshold half-integers, the same reduction is made after compressing to the
+base parameters $\alpha=\pm\frac12$; the missing uniform gap costs only a
+subpolynomial factor.  In both cases the power-law tails contain precisely the
+branch index lost on passing from $-\pi\delta$ to
+$\arcsin(\sin(-\pi\delta))$.
+
+The resulting relation may be summarized as
+\[
+ \begin{aligned}
+ \text{lifted phase}
+ &=\text{principal continuous phase}\\
+ &\quad+\text{edge-eigenvector branch data}.
+ \end{aligned}
+\]
+It is analogous to a Levinson-type principle, in which a continuous phase is
+supplemented by a bound-state count.  Here both terms are explicit, and the
+identity
+\[
+ -\delta
+ =m+(-1)^m\frac1\pi\arcsin(\sin(-\pi\delta))
+\]
+is recovered directly in the exponents of the finite determinants.
+
+\begin{thebibliography}{99}
+
+\bibitem{AlemanMontesSarafoleanu}
+A. Aleman, A. Montes-Rodr\'iguez, and A. Sarafoleanu,
+\emph{The eigenfunctions of the Hilbert matrix},
+Constr. Approx. \textbf{36} (2012), no.~3, 353--374.
+\href{https://doi.org/10.1007/s00365-012-9157-z}{doi:10.1007/s00365-012-9157-z}.
+
+\bibitem{FedeleGebert}
+E. Fedele and M. Gebert,
+\emph{On determinants identity minus Hankel matrix},
+Bull. Lond. Math. Soc. \textbf{51} (2019), no.~4, 751--764.
+\href{https://doi.org/10.1112/blms.12271}{doi:10.1112/blms.12271}.
+
+\bibitem{Otte}
+P. Otte,
+\emph{A Szeg\H{o} limit theorem related to the Hilbert matrix},
+Rocky Mountain J. Math. \textbf{54} (2024), no.~5, 1447--1472.
+\href{https://doi.org/10.1216/rmj.2024.54.1447}{doi:10.1216/rmj.2024.54.1447}.
+
+\bibitem{RosenblumII}
+M. Rosenblum,
+\emph{On the Hilbert matrix. II},
+Proc. Amer. Math. Soc. \textbf{9} (1958), 581--585.
+
+\bibitem{Silbermann}
+B. Silbermann,
+\emph{On the spectrum of Hilbert matrix operator},
+Integral Equations Operator Theory \textbf{93} (2021), Paper No.~21.
+\href{https://doi.org/10.1007/s00020-021-02637-5}{doi:10.1007/s00020-021-02637-5}.
+
+\bibitem{Wilf}
+H. S. Wilf,
+\emph{Finite sections of some classical inequalities},
+Ergebnisse der Mathematik und ihrer Grenzgebiete, Band~52,
+Springer-Verlag, Berlin--New York, 1970.
+\href{https://doi.org/10.1007/978-3-642-86712-5}{doi:10.1007/978-3-642-86712-5}.
+
+\end{thebibliography}
+
+\end{document}
