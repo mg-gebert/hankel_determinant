@@ -99,18 +99,7 @@ These determinants form a finite-section model for power-law determinant
 asymptotics of the type that occurs in Anderson's orthogonality catastrophe.
 Our aim is to determine their powers of $N$ up to bounded multiplicative
 factors whenever the parameter is noncritical, and up to subpolynomial factors
-at the critical half-integers.  For positive sequences $a_N,b_N$, the notation
-\[
- a_N\asymp_\delta b_N
-\]
-means that $c_\delta b_N\le a_N\le C_\delta b_N$ for some constants
-$0<c_\delta\le C_\delta<\infty$ independent of $N$.  Equivalently,
-$\log a_N=\log b_N+O_\delta(1)$.  We write
-$a_N=b_NN^{o(1)}$ when
-\[
- \log(a_N/b_N)=o(\log N).
-\]
-This permits subpolynomial factors, such as fixed powers of $\log N$.
+at the critical half-integers.
 
 Set
 \begin{equation}\label{eq:def-sq}
@@ -186,29 +175,24 @@ Let $\delta\in\mathbb R\setminus\mathcal P$.
 \begin{enumerate}
 \item If $\delta\notin\mathcal C$, then
 \begin{equation}\label{eq:strong-main}
- D_N^\pm(\delta)\asymp_\delta
- N^{-(\theta_\delta^2\mp\theta_\delta)/2}.
-\end{equation}
-Equivalently,
-\begin{equation}\label{eq:strong-main-log}
  \log D_N^\pm(\delta)
  =-\frac{\theta_\delta^2\mp\theta_\delta}{2}\log N+O_\delta(1).
 \end{equation}
 
 \item If $\delta\in\mathcal C$, then
 \begin{equation}\label{eq:critical-main}
- D_N^\pm(\delta)
- =N^{-(\theta_\delta^2\mp\theta_\delta)/2+o(1)}.
+ \log D_N^\pm(\delta)
+ =-\frac{\theta_\delta^2\mp\theta_\delta}{2}\log N+o(\log N).
 \end{equation}
 \end{enumerate}
 Consequently,
 \begin{align}
- \det\bigl(I_N-(H_N^\delta)^2\bigr)
- &\asymp_\delta N^{-\theta_\delta^2},
+ \log\det\bigl(I_N-(H_N^\delta)^2\bigr)
+ &=-\theta_\delta^2\log N+O_\delta(1),
  &&\delta\notin\mathcal C,
  \label{eq:product-global-strong}\\
- \det\bigl(I_N-(H_N^\delta)^2\bigr)
- &=N^{-\theta_\delta^2+o(1)},
+ \log\det\bigl(I_N-(H_N^\delta)^2\bigr)
+ &=-\theta_\delta^2\log N+o(\log N),
  &&\delta\in\mathcal C.
  \label{eq:product-global-critical}
 \end{align}
@@ -228,18 +212,18 @@ The result takes a particularly simple form in the unfolded range.
 Let $\delta\le\frac12$ and $\delta\notin\mathcal P$.  If
 $\delta\notin\mathcal C$, then
 \begin{align}
- \det(I_N-H_N^\delta)
- &\asymp_\delta N^{-\delta(\delta-1)/2},
+ \log\det(I_N-H_N^\delta)
+ &=-\frac{\delta(\delta-1)}{2}\log N+O_\delta(1),
  \label{eq:minus-result}\\
- \det(I_N+H_N^\delta)
- &\asymp_\delta N^{-\delta(\delta+1)/2},
+ \log\det(I_N+H_N^\delta)
+ &=-\frac{\delta(\delta+1)}{2}\log N+O_\delta(1),
  \label{eq:plus-result}\\
- \det\bigl(I_N-(H_N^\delta)^2\bigr)
- &\asymp_\delta N^{-\delta^2}.
+ \log\det\bigl(I_N-(H_N^\delta)^2\bigr)
+ &=-\delta^2\log N+O_\delta(1).
  \label{eq:square-result}
 \end{align}
-If $\delta\in\mathcal C$, the three relations remain true after replacing
-$\asymp_\delta$ by equality up to a factor $N^{o(1)}$.
+If $\delta\in\mathcal C$, the three relations remain true after replacing the
+remainder $O_\delta(1)$ by $o(\log N)$.
 \end{corollary}
 
 \begin{remark}[Folding for positive parameters]\label{rem:positive-folding}
@@ -251,8 +235,8 @@ $\delta\in[m-\frac12,m+\frac12]$,
 Thus, for $\delta\ge\frac12$, the exponent of the product determinant is
 $-\operatorname{dist}(\delta,\mathbb Z)^2$.  Away from half-integers,
 \[
- \det\bigl(I_N-(H_N^\delta)^2\bigr)
- \asymp_\delta N^{-\operatorname{dist}(\delta,\mathbb Z)^2}.
+ \log\det\bigl(I_N-(H_N^\delta)^2\bigr)
+ =-\operatorname{dist}(\delta,\mathbb Z)^2\log N+O_\delta(1).
 \]
 The return to zero at nonnegative integers is unavoidable: for
 $m\in\mathbb N_0$, the sine factor vanishes while all denominators are
@@ -1209,12 +1193,7 @@ Then
 Consequently,
 \begin{equation}\label{eq:threshold-unfolded}
  \log D_N^\pm(\delta)
- =-\frac{\delta^2\pm\delta}{2}\log N+o(\log N),
-\end{equation}
-or equivalently
-\begin{equation}\label{eq:threshold-power-form}
- D_N^\pm(\delta)
- =N^{-(\delta^2\pm\delta)/2+o(1)}.
+ =-\frac{\delta^2\pm\delta}{2}\log N+o(\log N).
 \end{equation}
 \end{proposition}
 
@@ -1350,12 +1329,12 @@ and the $j=1$ tail contributes
 \]
 Consequently,
 \begin{align*}
- \det(\id_N-H_N^{-7/3})
- &\asymp N^{-35/9},\\
- \det(\id_N+H_N^{-7/3})
- &\asymp N^{-14/9},\\
- \det\bigl(\id_N-(H_N^{-7/3})^2\bigr)
- &\asymp N^{-49/9}.
+ \log\det(\id_N-H_N^{-7/3})
+ &=-\frac{35}{9}\log N+O(1),\\
+ \log\det(\id_N+H_N^{-7/3})
+ &=-\frac{14}{9}\log N+O(1),\\
+ \log\det\bigl(\id_N-(H_N^{-7/3})^2\bigr)
+ &=-\frac{49}{9}\log N+O(1).
 \end{align*}
 Thus the principal Hilbert contribution and the two edge-state tails give not
 only the logarithmic exponents but two-sided power bounds.
