@@ -7,8 +7,8 @@
 \usepackage{microtype}
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
 \hypersetup{
- pdftitle={Unfolding the arcsine in generalized Hilbert determinants},
- pdfauthor={The authors}
+ pdftitle={Determinant of the identity minus a generalized Hilbert matrix},
+ pdfauthor={Martin Gebert and Heinrich K\"uttler}
 }
 
 \newtheorem{theorem}{Theorem}[section]
@@ -31,68 +31,48 @@
 \newcommand{\id}{I}
 \newcommand{\cS}{\mathfrak S_1}
 
-\title[Unfolding the arcsine]{Unfolding the arcsine in generalized Hilbert determinants}
-\author{The authors}
+\title[Determinant of generalized Hilbert matrix]{Determinant of the identity minus a generalized Hilbert matrix}
+\author{Martin Gebert and Heinrich K\"uttler}
 \date{}
 
 \begin{document}
 
 \begin{abstract}
-For $N\in\mathbb N$ and
-$\delta\in\mathbb R\setminus\{-1,-2,\ldots\}$, let
+We compute the large-$N$ asymptotics of the determinant of the identity plus or minus a generalized Hilbert matrix.
+For $N \in \mathbb{N}$ and $\delta \in \mathbb{R} \setminus \{-1, -2, \ldots\}$, let
 \[
- H_N^\delta
- =\left(
- \frac{\sin((1+\delta)\pi)}{\pi(j+k+1+\delta)}
- \right)_{j,k=0}^{N-1},
- \qquad
- D_N^\pm(\delta):=\det(I_N\pm H_N^\delta).
+  H_N^\delta
+  := \left(
+    \frac{\sin((1+\delta)\pi)}{\pi(j+k+1+\delta)}
+  \right)_{j,k=0}^{N-1}
 \]
-Write
+be the generalized Hilbert matrix. For $\delta$ not a half-integer, i.e.\ $\delta \notin \frac{1}{2} + \mathbb{Z}$, we prove the large-$N$ asymptotics of the determinant
 \[
- q_\delta:=\frac1\pi\arcsin\bigl(\sin(-\pi\delta)\bigr)
- \in\left[-\frac12,\frac12\right]
+  \log \det(I_N \pm H_N^\delta) = -\frac{\theta_\delta^2 \mp \theta_\delta}{2} \log N + O(1).
 \]
-for the principal inverse-sine phase, and define the effective phase
+The decay exponent is given by
 \[
- \theta_\delta:=
- \begin{cases}
-  -\delta,&\delta\le\frac12,\\
-  q_\delta,&\delta\ge\frac12.
- \end{cases}
+  \theta_\delta :=
+  \begin{cases}
+    -\delta, & \delta \le \frac{1}{2}, \\
+    \dfrac{1}{\pi} \arcsin\bigl(\sin(-\pi\delta)\bigr), & \delta \ge \frac{1}{2},
+  \end{cases}
 \]
-The two definitions agree at $\delta=\frac12$.  If
-$\delta\notin\frac12+\mathbb Z$, then
+where $\arcsin \colon [-1,1] \to \left[-\frac{\pi}{2}, \frac{\pi}{2}\right]$ denotes the principal branch of $\arcsin$.
+At the half-integers, the same algebraic decay holds up to sub-logarithmic factors
 \[
- D_N^\pm(\delta)\asymp_\delta
- N^{-(\theta_\delta^2\mp\theta_\delta)/2}.
+  \log \det(I_N \pm H_N^\delta) = -\frac{\theta_\delta^2 \mp \theta_\delta}{2} \log N + o(\log N).
 \]
-At the half-integers the same powers hold up to subpolynomial factors:
+Most notably, we obtain
 \[
- D_N^\pm(\delta)
- =N^{-(\theta_\delta^2\mp\theta_\delta)/2+o(1)}.
+  \log \det\bigl(I_N - (H_N^\delta)^2\bigr) = -\theta_\delta^2 \log N + O(1),
 \]
-In particular, for $\delta\le\frac12$ away from the negative integers and
-half-integers,
-\[
- \det\bigl(I_N-(H_N^\delta)^2\bigr)\asymp_\delta N^{-\delta^2},
-\]
-while at the half-integers the right-hand side is multiplied by $N^{o(1)}$.
-
-The proof separates the principal-branch Hilbert determinant from the
-contribution of the finitely many eigenvectors of the infinite normalized
-generalized Hilbert matrix at $+1$ and $-1$.  A finite-section lemma compares
-the resulting small determinant, in Loewner order, with the Gram determinant
-of the omitted eigenvector tails.  Their number and parity recover exactly
-the branch index lost when $-\pi\delta$ is replaced by
-$\arcsin(\sin(-\pi\delta))$.  At the critical half-integers the continuous
-spectral gap closes; a separate Schur-complement argument retains the same
-power of $N$, but presently only with an $N^{o(1)}$ remainder.
+where the asymptotics exhibit a kind of phase transition: for all $\delta > \frac{1}{2}$ the decay exponent is bounded $\theta_\delta^2\in [0,\frac 1 4]$, whereas for $\delta \le \frac{1}{2}$ the exponent $\theta_\delta^2 = \delta^2$ is unbounded.
 \end{abstract}
 
 \maketitle
 
-\section{Introduction and statement of the result}
+\section{Introduction}
 
 Let $\mathbb N_0:=\{0,1,2,\ldots\}$.  For $N\in\mathbb N$ and
 $\delta\in\R$, define the finite generalized Hilbert matrix
@@ -565,7 +545,7 @@ vectors.
 Let $T\ge0$ be bounded on $\ell^2(\Nzero)$.  Suppose that
 $K:=\Ker T$ has finite dimension $m$ and that $T$ is bounded below by a
 positive constant on $K^\perp$.  Let $\Pi$ be the orthogonal projection onto
-$K$, set $\widetilde T:=T+\Pi$, and let $V:\C^m\to K$ be an isometry.  Then
+$K$, set $\widetilde T:=T+\Pi$, and let $V$ be an isometry $\C^m\to K$.  Then
 \begin{equation}\label{eq:edge-factorization}
  \det(P_NTP_N)
  =\det(P_N\widetilde TP_N)\det M_N,
@@ -578,7 +558,8 @@ There are constants $0<c\le C<\infty$, independent of $N$, such that
 \begin{equation}\label{eq:loewner-tail}
  c\,V^*Q_NV\le M_N\le C\,V^*Q_NV
 \end{equation}
-in the Loewner order on $m\times m$ matrices.  More precisely, one may take
+where $Q_N = \id - P_n$.
+ More precisely, one may take
 \begin{equation}\label{eq:loewner-constants}
  c=\|\widetilde T^{-1/2}\|^{-2},
  \qquad
@@ -593,11 +574,26 @@ If $V^*Q_NV$ is positive definite, then
 
 \begin{proof}
 Since $\Pi=VV^*$,
-\[
- P_NTP_N=P_N\widetilde TP_N-(P_NV)(P_NV)^*.
-\]
-The matrix determinant lemma gives
+\begin{align}
+ P_NTP_N&=P_N\widetilde TP_N-(P_NV)(P_NV)^*\\
+ &= P_N\widetilde TP_N ( \id - P_N\widetilde TP_N (P_NV)(P_NV)^*).
+\end{align}
+Taking the determinant and using $\det( \id - A B C) = \det( \id - B C A) $, gives
 \eqref{eq:edge-factorization}--\eqref{eq:def-MN}.
+Now, let $\varphi_1,...,\varphi_m$ be an ONB of $K$. Then
+\begin{align}
+    \det(\id_m-V^*P_N(P_N\widetilde TP_N)^{-1}P_NV)
+    = 
+    \det A
+\end{align}
+where $A$ is a $m\times m$ matrix with
+\begin{align}
+A_{ij} :=& \delta_{ij} - \langle \varphi_i, P_N(P_N\widetilde TP_N)^{-1}P_N \varphi_j\rangle
+\end{align}
+By construction, we have that 
+\[
+ \id - (P_N\widetilde TP_N)^{-1} \leq 
+\]
 
 Put $B:=\widetilde T^{1/2}$.  The hypotheses imply that $B$ is boundedly
 invertible.  Moreover, $T=0$ and $\Pi=\id$ on $K$, so
