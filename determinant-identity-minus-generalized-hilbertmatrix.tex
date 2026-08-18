@@ -48,7 +48,7 @@ For $N \in \mathbb{N}$ and $\delta \in \mathbb{R} \setminus \{-1, -2, \ldots\}$,
 \]
 be the generalized Hilbert matrix. For $\delta$ not a half-integer, i.e.\ $\delta \notin \frac{1}{2} + \mathbb{Z}$, we prove the large-$N$ asymptotics of the determinant
 \[
-  \log \det(I_N \pm H_N^\delta) = -\frac{\theta_\delta^2 \mp \theta_\delta}{2} \log N + O(1).
+  \log \det(\id_N \pm H_N^\delta) = -\frac{\theta_\delta^2 \mp \theta_\delta}{2} \log N + O(1).
 \]
 The decay exponent is given by
 \[
@@ -61,55 +61,44 @@ The decay exponent is given by
 where $\arcsin \colon [-1,1] \to \left[-\frac{\pi}{2}, \frac{\pi}{2}\right]$ denotes the principal branch of $\arcsin$.
 At the half-integers, the same algebraic decay holds up to sub-logarithmic factors
 \[
-  \log \det(I_N \pm H_N^\delta) = -\frac{\theta_\delta^2 \mp \theta_\delta}{2} \log N + o(\log N).
+  \log \det(\id_N \pm H_N^\delta) = -\frac{\theta_\delta^2 \mp \theta_\delta}{2} \log N + o(\log N).
 \]
 Most notably, we obtain
 \[
-  \log \det\bigl(I_N - (H_N^\delta)^2\bigr) = -\theta_\delta^2 \log N + O(1),
+  \log \det\bigl(\id_N - (H_N^\delta)^2\bigr) = -\theta_\delta^2 \log N + O(1),
 \]
-where the asymptotics exhibit a kind of phase transition: for all $\delta > \frac{1}{2}$ the decay exponent is bounded $\theta_\delta^2\in [0,\frac 1 4]$, whereas for $\delta \le \frac{1}{2}$ the exponent $\theta_\delta^2 = \delta^2$ is unbounded.
+where the asymptotics exhibits a kind of phase transition: for all $\delta > \frac{1}{2}$ the decay exponent is bounded $\theta_\delta^2\in [0,\frac 1 4]$, whereas for $\delta \le \frac{1}{2}$ the exponent $\theta_\delta^2 = \delta^2$ is unbounded.
 \end{abstract}
 
 \maketitle
 
-\section{Introduction}
+\section{Introduction and results}
 
 Let $\mathbb N_0:=\{0,1,2,\ldots\}$.  For $N\in\mathbb N$ and
-$\delta\in\R$, define the finite generalized Hilbert matrix
+$\delta\in\mathbb R \setminus \{-1,-2,\ldots\}$, we define the generalized Hilbert matrix
 \begin{equation}\label{eq:def-Hdelta}
  H_N^\delta
  :=\left(
  \frac{\sin((1+\delta)\pi)}{\pi(j+k+1+\delta)}
  \right)_{j,k=0}^{N-1}.
 \end{equation}
-The literal formula is undefined at $\delta=-1,-2,\ldots$, because one or more
-entries have the form $0/0$.  These parameters are excluded until
-Section~\ref{sec:exceptional}, where the entrywise analytic continuation is
-described.
 
-The determinants of interest are
+We are interested in asymptotic behaviour as the matrix size $N\to\infty$ of the determinants
 \begin{equation}\label{eq:def-Dpm}
  D_N^\pm(\delta):=\det(\id_N\pm H_N^\delta).
 \end{equation}
-Paired signs are read vertically throughout the paper.  Thus $D_N^+$ denotes
-$\det(\id_N+H_N^\delta)$ and $D_N^-$ denotes
-$\det(\id_N-H_N^\delta)$.
+One word regarding notation: Paired signs are read vertically throughout the paper. 
 
-These determinants form a finite-section model for power-law determinant
-asymptotics of the type that occurs in Anderson's orthogonality catastrophe.
-Our aim is to determine their powers of $N$ up to bounded multiplicative
-factors whenever the parameter is noncritical, and up to subpolynomial factors
-at the critical half-integers.
+TODO: Add motivation AOC, paper with Mihail and some reference to det Hankel + Toeplitz. Also extension of Otte and Gebert/Fedele. 
 
-Set
+To state our main result, we introduce
 \begin{equation}\label{eq:def-sq}
  s_\delta:=\sin((1+\delta)\pi)=\sin(-\pi\delta),
  \qquad
  q_\delta:=\frac1\pi\arcsin(s_\delta)
  \in\left[-\frac12,\frac12\right],
 \end{equation}
-where $\arcsin:[-1,1]\to[-\pi/2,\pi/2]$ is the principal inverse sine.  Define
-also
+where $\arcsin:[-1,1]\to[-\pi/2,\pi/2]$ is the principal inverse sine.  With the latter, we further define
 \begin{equation}\label{eq:effective-phase}
  \theta_\delta:=
  \begin{cases}
@@ -117,55 +106,15 @@ also
   q_\delta,&\delta\ge\frac12.
  \end{cases}
 \end{equation}
-The definitions agree at $\delta=\frac12$, because $q_{1/2}=-1/2$.
-The standard Hilbert determinant naturally produces the folded phase
-$q_\delta$.  The main point of the paper is that for $\delta< -1/2$ the edge
-eigenvectors of the infinite operator unfold this phase to $-\delta$.  No such
-unfolding occurs for larger positive $\delta$.
+It is easy to see that $\theta_\delta$ is continuous in $\delta$. 
 
-The parameter $\delta$ is visible without any inverse trigonometric function in
-a simple Gram representation.  Put
-\[
- a:=\frac{1+\delta}{2},
- \qquad
- E_N:=\operatorname{diag}(1,-1,1,-1,\ldots),
-\]
-and, for the standard basis $(e_j)_{j=0}^{N-1}$ of $\C^N$, define
-$C_{N,a},S_{N,a}:\C^N\to L^2(0,\pi)$ by
-\[
- C_{N,a}e_j=\sqrt{\frac2\pi}\cos((j+a)x),
- \qquad
- S_{N,a}e_j=\sqrt{\frac2\pi}\sin((j+a)x).
-\]
-The product-to-sum identities give
-\begin{equation}\label{eq:gram-representation}
- C_{N,a}^*C_{N,a}=E_N(\id_N+H_N^\delta)E_N,
- \qquad
- S_{N,a}^*S_{N,a}=E_N(\id_N-H_N^\delta)E_N.
-\end{equation}
-Indeed,
-\[
- \frac2\pi\int_0^\pi \cos((j+a)x)\cos((k+a)x)\,dx
- =\delta_{jk}+(-1)^{j+k}
- \frac{\sin((1+\delta)\pi)}{\pi(j+k+1+\delta)},
-\]
-and the corresponding sine integral has the opposite sign in the second term.
-If $\delta$ is not a negative integer, the frequencies are distinct up to sign
-and none of the sine functions vanishes identically.  The two trigonometric
-systems are therefore linearly independent.  Consequently,
-\begin{equation}\label{eq:positive-determinants}
- D_N^\pm(\delta)>0
- \qquad
- (\delta\notin\{-1,-2,\ldots\}),
-\end{equation}
-so all logarithms below are real.  Formula~\eqref{eq:gram-representation} also
-shows that the unfurled parameter is present from the outset as the frequency
-shift $a=(1+\delta)/2$.
+
+TODO: Mention symbol of infinite generalized Hilbert matrix. Mention that symbol has winding number for $\delta<\frac12$.
 
 Define the pole and critical sets
 \begin{equation}\label{eq:exceptional-sets}
- \mathcal P:=\{-1,-2,\ldots\},
- \qquad
+ \mathcal P:=\{-1,-2,\ldots\}
+ \qquad \text{and} \qquad
  \mathcal C:=\frac12+\mathbb Z.
 \end{equation}
 
@@ -185,17 +134,7 @@ Let $\delta\in\mathbb R\setminus\mathcal P$.
  =-\frac{\theta_\delta^2\mp\theta_\delta}{2}\log N+o(\log N).
 \end{equation}
 \end{enumerate}
-Consequently,
-\begin{align}
- \log\det\bigl(I_N-(H_N^\delta)^2\bigr)
- &=-\theta_\delta^2\log N+O_\delta(1),
- &&\delta\notin\mathcal C,
- \label{eq:product-global-strong}\\
- \log\det\bigl(I_N-(H_N^\delta)^2\bigr)
- &=-\theta_\delta^2\log N+o(\log N),
- &&\delta\in\mathcal C.
- \label{eq:product-global-critical}
-\end{align}
+
 \end{theorem}
 
 \begin{remark}[The critical sign]
@@ -206,67 +145,38 @@ the continuous spectrum reaches zero.  For the opposite sign, the proof gives
 an $O_\delta(1)$ remainder in the logarithm.
 \end{remark}
 
-The result takes a particularly simple form in the unfolded range.
+\begin{corollary}
+Let $\delta\in\mathbb R\setminus\mathcal P$. Then 
 
-\begin{corollary}[Recovery of the original phase]\label{cor:unfolded}
-Let $\delta\le\frac12$ and $\delta\notin\mathcal P$.  If
-$\delta\notin\mathcal C$, then
-\begin{align}
- \log\det(I_N-H_N^\delta)
- &=-\frac{\delta(\delta-1)}{2}\log N+O_\delta(1),
- \label{eq:minus-result}\\
- \log\det(I_N+H_N^\delta)
- &=-\frac{\delta(\delta+1)}{2}\log N+O_\delta(1),
- \label{eq:plus-result}\\
- \log\det\bigl(I_N-(H_N^\delta)^2\bigr)
- &=-\delta^2\log N+O_\delta(1).
- \label{eq:square-result}
-\end{align}
-If $\delta\in\mathcal C$, the three relations remain true after replacing the
-remainder $O_\delta(1)$ by $o(\log N)$.
+\begin{enumerate}
+\item If $\delta\notin\mathcal C$, then
+\begin{equation}\label{eq:strong-main-sq}
+ \log\det\bigl(\id_N-(H_N^\delta)^2\bigr)
+ =-\theta_\delta^2\log N+O_\delta(1).
+\end{equation}
+
+\item If $\delta\in\mathcal C$, then
+\begin{equation}\label{eq:critical-main-sq}
+ \log\det\bigl(\id_N-(H_N^\delta)^2\bigr)
+ =-\theta_\delta^2\log N+o(\log N).
+\end{equation}
+\end{enumerate}
 \end{corollary}
 
-\begin{remark}[Folding for positive parameters]\label{rem:positive-folding}
+\begin{remark}[Delete? Important?]\label{rem:positive-folding}
 For $m\in\mathbb N_0$ and
 $\delta\in[m-\frac12,m+\frac12]$,
 \begin{equation}\label{eq:triangular-q}
  q_\delta=(-1)^{m+1}(\delta-m).
 \end{equation}
-Thus, for $\delta\ge\frac12$, the exponent of the product determinant is
-$-\operatorname{dist}(\delta,\mathbb Z)^2$.  Away from half-integers,
+Thus, for $\delta\in\mathbb R\setminus\mathcal P$ with $\delta\ge\frac12$, we obtain
 \[
- \log\det\bigl(I_N-(H_N^\delta)^2\bigr)
+ \log\det\bigl(\id_N-(H_N^\delta)^2\bigr)
  =-\operatorname{dist}(\delta,\mathbb Z)^2\log N+O_\delta(1).
 \]
-The return to zero at nonnegative integers is unavoidable: for
-$m\in\mathbb N_0$, the sine factor vanishes while all denominators are
-nonzero, and hence $H_N^m=0$ exactly.  The two individual determinant
-exponents are interchanged when $\delta$ is increased by one.
 \end{remark}
 
-The proof uses three established inputs, all stated explicitly below: Otte's
-Hilbert determinant theorem, including its endpoint form; the spectral
-description of the infinite generalized Hilbert matrix; and a classical
-lower bound of order $(\log N)^{-2}$ for the gap between the norm of a finite
-Hilbert matrix and $\pi$.  Away from $\mathcal C$, Otte's $O(1)$ remainder and
-a trace-class comparison give an $O(1)$ remainder for the regularized
-determinant.  Removing the regularization produces a finite-dimensional
-factor.  The edge-state extraction lemma compares this factor, in Loewner
-order, with the Gram matrix of the omitted eigenvector tails, and the latter
-has an explicit Cauchy-matrix asymptotic.  At the negative critical
-half-integers, an exact compression reduces the continuous part to the base
-parameters $\alpha=\pm\frac12$; the closed spectral gap then costs only a
-subpolynomial factor.
-
-For $r=-\delta>\frac12$, let $m$ denote the number of edge eigenvectors.  The
-algebraic core of the unfolding is
-\begin{equation}\label{eq:phase-lift-intro}
- r=m+(-1)^m\frac1\pi\arcsin(\sin\pi r).
-\end{equation}
-The principal inverse sine gives the fractional part of the lifted phase,
-whereas the number and parity of the edge eigenvectors give the missing branch
-index.
-
+TODO: Add motivation where the different behaviour for $\delta<\frac12$ comes from, i.e. the eigenvalues $\pm 1$. Maybe add remark about spectral structure of $H$ earlier.
 \section{The infinite generalized Hilbert matrix}
 
 Let $\ell^2(\Nzero)$ have standard orthonormal basis $(e_j)_{j\ge0}$.  For a
@@ -1339,27 +1249,6 @@ Consequently,
 Thus the principal Hilbert contribution and the two edge-state tails give not
 only the logarithmic exponents but two-sided power bounds.
 
-\section{Exceptional parameters}\label{sec:exceptional}
-
-\subsection{Negative integers}
-Let $\delta=-n$, $n\in\mathbb N$.  Although the literal formula
-\eqref{eq:def-Hdelta} contains $0/0$ entries, its entrywise analytic
-continuation is
-\[
- H_N^{-n}(j,k)=
- \begin{cases}
- (-1)^{n-1},&j+k=n-1,\\
- 0,&j+k\ne n-1.
- \end{cases}
-\]
-For $N\ge n$, this is a signed reversal on the first $n$ coordinates and zero
-on the remaining coordinates.  Hence $(H_N^{-n})^2$ is the identity on a
-nonzero subspace and
-\[
- \det\bigl(\id_N-(H_N^{-n})^2\bigr)=0.
-\]
-The negative integers therefore do not belong to the power-law regime in
-Theorem~\ref{thm:main}.
 
 \section{Conclusion}
 
