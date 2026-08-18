@@ -1,0 +1,20 @@
+name: Build PDF
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dante-ev/latex-action@latest
+        with:
+          root_file: determinant-identity-minus-generalized-hilbertmatrix.tex
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: paper-pdf
+          path: determinant-identity-minus-generalized-hilbertmatrix.pdf
