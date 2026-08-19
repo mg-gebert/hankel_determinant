@@ -190,43 +190,19 @@ $\ell^2(\Nzero)$, and define its normalized form
 \begin{equation}\label{eq:Aalpha}
  A_\alpha:=\frac{\sin(\pi\alpha)}\pi\Hh_\alpha.
 \end{equation}
-Let $P_N$ be the orthogonal projection onto
-$\operatorname{span}\{e_0,\ldots,e_{N-1}\}$ and put $Q_N:=\id-P_N$.  With
-$\alpha=1+\delta$,
+Throughout let $P_N$ be the orthogonal projection onto
+$\operatorname{span}\{e_0,\ldots,e_{N-1}\}$ and put 
+\[Q_N:=\id-P_N.\]
+  With
+$\alpha=1+\delta$, we obtain
 \begin{equation}\label{eq:compression}
  H_N^\delta=P_NA_\alpha P_N\big|_{P_N\ell^2(\Nzero)}.
 \end{equation}
 
-Recall that
-\[
- H^2(\D)
- :=\left\{f(z)=\sum_{n=0}^\infty a_nz^n:
-              \sum_{n=0}^\infty|a_n|^2<\infty\right\},
- \qquad
- \|f\|_{H^2}^2:=\sum_{n=0}^\infty|a_n|^2.
-\]
-Thus the coefficient map
-\[
- U:\ell^2(\Nzero)\longrightarrow H^2(\D),
- \qquad
- (Uu)(z)=\sum_{n=0}^\infty u(n)z^n,
-\]
-is unitary and identifies the entries of $u$ with the Taylor coefficients of
-the analytic function $Uu$.  The same coefficients also have a Fourier
-interpretation: the radial boundary values exist in $L^2(\mathbb T)$ and
-satisfy
-\[
- (Uu)^*(e^{it})=\sum_{n=0}^\infty u(n)e^{int}
- \quad\text{in }L^2(\mathbb T).
-\]
-Hence $u(n)$ are the nonnegative Fourier coefficients of the boundary
-function; no pointwise convergence on $\mathbb T$ is being assumed.
+The generalized Hilbert operator $A_\alpha$ can be diagonalized explicitly, see e.g.
+\cite{AlemanMontesSarafoleanu,RosenblumII,Silbermann}.
 
-The following proposition is the only spectral input.  It combines
-Rosenblum's diagonalization with the explicit eigenfunction formulas in
-\cite{RosenblumII,AlemanMontesSarafoleanu,Silbermann}.
-
-\begin{proposition}[Spectral data]\label{prop:spectral-data}
+\begin{proposition}[Spectrum of generalized Hilbert operator]\label{prop:spectral-data}
 Let $\alpha=1+\delta\in\R\setminus\mathbb Z$ and set
 $s:=\sin(\pi\alpha)$.  Then:
 
@@ -240,14 +216,14 @@ with multiplicity one.
 
 \item The point spectrum of $A_\alpha$ is contained in $\{-1,+1\}$.  Define
 \begin{align}
- J^-(\delta)
- &:=\left\{j\in\Nzero:j<-\delta-\frac12,\ j\ \text{even}\right\},
+ J^-_\delta
+ &:=\left\{j\in 2\mathbb N:0\leq j<-\delta-\frac12\right\},
  \label{eq:Jminus}\\
- J^+(\delta)
- &:=\left\{j\in\Nzero:j<-\delta-\frac12,\ j\ \text{odd}\right\}.
+ J^+_\delta
+ &:=\left\{j\in 2 \mathbb N +1:0\leq j<-\delta-\frac12\right\}.
  \label{eq:Jplus}
 \end{align}
-For each admissible $j$, let $u_j$ be the Taylor coefficient vector of
+For each $j\in J^-_\delta) \cup J^+_\delta$, let $u_j$ be the Taylor coefficient vector (TODO: Check if saying here Fourier coefficients is better) of
 \begin{equation}\label{eq:fj}
  f_j(z):=(1-z)^{-\alpha-j}(1+z)^j.
 \end{equation}
@@ -258,65 +234,64 @@ Then
 and
 \begin{equation}\label{eq:kernel-basis}
  \Ker(\id\pm A_\alpha)
- =\operatorname{span}\{u_j:j\in J^\pm(\delta)\}.
+ =\operatorname{span}\{u_j:j\in J^\pm_\delta\}.
 \end{equation}
 
-\item The operator $A_\alpha$ is a self-adjoint contraction.  If $|s|<1$,
-then, after the kernels in \eqref{eq:kernel-basis} are removed, the spectra of
-$\id\pm A_\alpha$ are bounded away from zero.
+\item 
+The singular continuous spectrum is empty, i.e. the above describes the  spectrum of $A_\alpha$ completely.
 \end{enumerate}
 \end{proposition}
 
-The restriction $j<-\delta-\frac12$ in
-\eqref{eq:Jminus}--\eqref{eq:Jplus} is exactly the condition that
-$f_j\in H^2(\D)$.  Indeed, near $z=1$,
-$f_j(z)$ is a nonzero constant times $(1-z)^{-\alpha-j}$, and this singularity
-belongs to $H^2$ precisely when $\alpha+j<\frac12$.
+\begin{remark}
+    The operator $A_\alpha$ is a self-adjoint contraction.  If $|s|<1$,
+then, after the kernels in \eqref{eq:kernel-basis} are removed, the spectra of $\id\pm A_\alpha$ are bounded away from zero.
+\end{remark}
 
-At nonnegative integral $\delta$, the sine factor in
-\eqref{eq:def-Hdelta} vanishes and $H_N^\delta=0$.  These elementary cases do
-not require the spectral proposition.
+\begin{remark}
+    Explain why $u_j\in\ell^2(\Nzero)$, not sure if we should start with Hardy spaces here.
+\end{remark}
 
 \section{The principal-branch Hilbert contribution}
 
 For $a>0$, write
 \begin{equation}\label{eq:finite-Hilbert}
- \Hh_{N,a}:=\left(\frac1{j+k+a}\right)_{j,k=0}^{N-1}.
+ \Hh_{a,N}:=\left(\frac1{j+k+a}\right)_{j,k=0}^{N-1}.
 \end{equation}
-We use the following form of Otte's generalized Hilbert determinant theorem.
+We need the following result.
 
 \begin{proposition}[Hilbert determinant asymptotics]\label{prop:Hilbert-det}
-Let $a\ge\frac12$ and $\beta\in[-1,1]$.  Set
+Let $a\ge\frac12$ and $\beta\in[-1,1]$. Then we have 
+\begin{equation}\label{eq:Otte-strong}
+ \log\det\left(\id_N-\frac\beta\pi\Hh_{a,N}\right)
+ =-h(\beta)\log N+
+ \begin{cases}
+  O_{a,\beta}(1),&\beta<1,\\
+  o(\log N),&\beta=1
+ \end{cases}
+\end{equation}
+where
 \begin{equation}\label{eq:hilbert-exponent}
  h(\beta):=
  \frac{\arcsin^2\beta+\pi\arcsin\beta}{2\pi^2},
 \end{equation}
-where the inverse sine is the principal branch.  Then
-\begin{equation}\label{eq:Otte-strong}
- \log\det\left(\id_N-\frac\beta\pi\Hh_{N,a}\right)
- =-h(\beta)\log N+
- \begin{cases}
-  O_{a,\beta}(1),&\beta<1,\\
-  o(\log N),&\beta=1.
- \end{cases}
-\end{equation}
+and $\arcsin$ is the principal branch of the inverse sine. 
 \end{proposition}
 
+\begin{remark}
 Fedele--Gebert first obtained the leading term for $|\beta|<1$
-\cite{FedeleGebert}.  Otte proved the generalized-parameter statement and
+\cite{FedeleGebert}. Otte proved the generalized-parameter statement and
 improved the remainder to $O(1)$ for $\beta<1$; the endpoint $\beta=1$ is
-proved with an $o(\log N)$ remainder \cite{Otte}.  For fixed $a$, Otte's more precise logarithmic scale
-differs from a constant multiple of $\log N$ by $O(1)$, which gives
-\eqref{eq:Otte-strong} in the form used here.
+proved with an $o(\log N)$ remainder \cite{Otte}. TODO: Also Gebert/Poplavskyi have the $o(\log N)$ formula. 
+\end{remark}
 
-Suppose first that $\delta\ge-\frac12$.  Then
+Translated to our notation, let $\delta\ge-\frac12$.  Then
 $\alpha=1+\delta\ge\frac12$ and
 \[
  D_N^\pm(\delta)
- =\det\left(\id_N-\frac{\mp s_\delta}{\pi}\Hh_{N,\alpha}\right).
+ =\det\left(\id_N-\frac{\mp s_\delta}{\pi}\Hh_{\alpha,N}\right).
 \]
 Since $\arcsin(\mp s_\delta)=\mp\pi q_\delta$,
-Proposition~\ref{prop:Hilbert-det} gives
+Proposition~\ref{prop:Hilbert-det} directly gives
 \begin{equation}\label{eq:Otte-paired}
  \log D_N^\pm(\delta)
  =-\frac{q_\delta^2\mp q_\delta}{2}\log N+
@@ -325,13 +300,9 @@ Proposition~\ref{prop:Hilbert-det} gives
   o(\log N),&\mp s_\delta=1.
  \end{cases}
 \end{equation}
-If $\delta\notin\mathcal C$, then $|s_\delta|<1$ and both signs have
-bounded remainders.  If $\delta\in\mathcal C$, one sign has endpoint
-coupling $1$ and the other has coupling $-1$.  Since
-$\theta_\delta=q_\delta$ throughout $\delta\ge-\frac12$, this proves
-Theorem~\ref{thm:main} in that range.
+This proves Theorem~\ref{thm:main} for $\delta \geq -\frac12$,
 
-For $\alpha<\frac12$, Otte's theorem does not apply directly.  The next two
+For $\alpha<\frac12$ and in turn $\delta < -\frac12$, Proposition~\ref{prop:Hilbert-det} does not apply directly.  The next two
 lemmas show that, away from the threshold couplings $|s|=1$, the regularized
 operator may nevertheless be compared with the standard Hilbert matrix.
 
@@ -637,13 +608,13 @@ is therefore positive, proving \eqref{eq:tail-gram-asymptotic}.
 \end{proof}
 
 For either sign, changing from the basis
-$\{u_j:j\in J^\pm(\delta)\}$ to an orthonormal basis of $K^\pm$ multiplies the
+$\{u_j:j\in J^\pm_\delta\}$ to an orthonormal basis of $K^\pm$ multiplies the
 tail Gram determinant by a fixed positive constant.  Lemmas
 \ref{lem:edge-extraction} and \ref{lem:eigenvector-tails} therefore give
 \begin{equation}\label{eq:edge-contribution}
  \log\det M_N^\pm
  =\left(
- \sum_{j\in J^\pm(\delta)}(2\delta+2j+1)
+ \sum_{j\in J^\pm_\delta}(2\delta+2j+1)
  \right)\log N+O(1),
 \end{equation}
 where $M_N^\pm$ is the matrix in \eqref{eq:def-MN} for $T=T^\pm$.
@@ -653,7 +624,7 @@ Combining \eqref{eq:regularized-asymptotic} and
  \log D_N^\pm(\delta)
  =\left[
  -\frac{q^2\mp q}{2}
- +\sum_{j\in J^\pm(\delta)}(2\delta+2j+1)
+ +\sum_{j\in J^\pm_\delta}(2\delta+2j+1)
  \right]\log N+O_\delta(1)
 \end{equation}
 whenever $|\sin(\pi(1+\delta))|<1$.
@@ -687,7 +658,7 @@ alternating eigenvalues.  Define
  \qquad
  J_m^-:=\{0\le j<m:j\ \text{even}\}.
 \end{equation}
-Thus $J^\pm(\delta)=J_m^\pm$.
+Thus $J^\pm_\delta=J_m^\pm$.
 
 \begin{lemma}[Unfolding identity]\label{lem:unfolding}
 With $r,m,q$ as in \eqref{eq:r-m-q}--\eqref{eq:lift},
@@ -813,7 +784,7 @@ $\C e_0\oplus\operatorname{span}\{e_1,\ldots,e_{N-1}\}$ as
 \end{equation}
 The moment representation
 \[
- \Hh_{n,a}=\int_0^1 x^{a-1}
+ \Hh_{a,N}=\int_0^1 x^{a-1}
  (1,x,\ldots,x^{n-1})^{\mathsf T}
  (1,x,\ldots,x^{n-1})\,dx
 \]
@@ -1097,7 +1068,7 @@ Then
  \log D_N^\pm(\delta)
  =\left[
  -\frac{q^2\mp q}{2}
- +\sum_{j\in J^\pm(\delta)}(2\delta+2j+1)
+ +\sum_{j\in J^\pm_\delta}(2\delta+2j+1)
  \right]\log N+o(\log N).
 \end{equation}
 Consequently,
