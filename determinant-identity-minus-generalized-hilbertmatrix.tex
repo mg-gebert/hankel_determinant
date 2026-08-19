@@ -439,27 +439,11 @@ If $V^*Q_NV$ is positive definite, then
 
 \begin{proof}
 Since $\Pi=VV^*$,
-\begin{align}
- P_NTP_N&=P_N\widetilde TP_N-(P_NV)(P_NV)^*\\
- &= P_N\widetilde TP_N ( \id - P_N\widetilde TP_N (P_NV)(P_NV)^*).
-\end{align}
-Taking the determinant and using $\det( \id - A B C) = \det( \id - B C A) $, gives
-\eqref{eq:edge-factorization}--\eqref{eq:def-MN}.
-Now, let $\varphi_1,...,\varphi_m$ be an ONB of $K$. Then
-\begin{align}
-    \det(\id_m-V^*P_N(P_N\widetilde TP_N)^{-1}P_NV)
-    = 
-    \det A
-\end{align}
-where $A$ is a $m\times m$ matrix with
-\begin{align}
-A_{ij} :=& \delta_{ij} - \langle \varphi_i, P_N(P_N\widetilde TP_N)^{-1}P_N \varphi_j\rangle
-\end{align}
-By construction, we have that 
 \[
- \id - (P_N\widetilde TP_N)^{-1} \leq 
+ P_NTP_N=P_N\widetilde TP_N-(P_NV)(P_NV)^*.
 \]
-
+The matrix determinant lemma gives
+\eqref{eq:edge-factorization}--\eqref{eq:def-MN}.
 Put $B:=\widetilde T^{1/2}$.  The hypotheses imply that $B$ is boundedly
 invertible.  Moreover, $T=0$ and $\Pi=\id$ on $K$, so
 \begin{equation}\label{eq:B-on-kernel}
