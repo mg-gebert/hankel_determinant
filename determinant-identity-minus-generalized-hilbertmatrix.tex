@@ -31,6 +31,14 @@
 \newcommand{\id}{I}
 \newcommand{\cS}{\mathfrak S_1}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\let\<\langle
+\let\>\rangle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \title[Determinant of generalized Hilbert matrix]{Determinant of the identity minus a generalized Hilbert matrix}
 \author{Martin Gebert and Heinrich K\"uttler}
 \date{}
@@ -250,7 +258,6 @@ then, after the kernels in \eqref{eq:kernel-basis} are removed, the spectra of $
 \begin{remark}
     Explain why $u_j\in\ell^2(\Nzero)$, not sure if we should start with Hardy spaces here.
 \end{remark}
-
 \section{The principal-branch Hilbert contribution}
 
 For $a>0$, write
@@ -278,10 +285,14 @@ and $\arcsin$ is the principal branch of the inverse sine.
 \end{proposition}
 
 \begin{remark}
-Fedele--Gebert first obtained the leading term for $|\beta|<1$
-\cite{FedeleGebert}. Otte proved the generalized-parameter statement and
-improved the remainder to $O(1)$ for $\beta<1$; the endpoint $\beta=1$ is
-proved with an $o(\log N)$ remainder \cite{Otte}. TODO: Also Gebert/Poplavskyi have the $o(\log N)$ formula. 
+Fedele and Gebert first obtained the leading term for $|\beta|<1$
+\cite{FedeleGebert}. For the classical Hilbert matrix $a=1$, the
+endpoint case $\beta=1$ with an $o(\log N)$ remainder was obtained by
+Gebert and Poplavskyi \cite{GebertPoplavskyi}, as a special case of
+their work on truncations of random orthogonal matrices. Otte proved
+the generalized-parameter statement, improved the remainder to $O(1)$
+for $\beta<1$, and established the same $o(\log N)$ remainder at the
+endpoint $\beta=1$ for general $a$ \cite{Otte}.
 \end{remark}
 
 Translated to our notation, let $\delta\ge-\frac12$.  Then
@@ -300,17 +311,17 @@ Proposition~\ref{prop:Hilbert-det} directly gives
   o(\log N),&\mp s_\delta=1.
  \end{cases}
 \end{equation}
-This proves Theorem~\ref{thm:main} for $\delta \geq -\frac12$,
+This proves Theorem~\ref{thm:main} for $\delta \geq -\frac12$.
 
 For $\alpha<\frac12$ and in turn $\delta < -\frac12$, Proposition~\ref{prop:Hilbert-det} does not apply directly.  The next two
-lemmas show that, away from the threshold couplings $|s|=1$, the regularized
-operator may nevertheless be compared with the standard Hilbert matrix.
+lemmas show how different generalized Hilbert matrices can be compared.
 
-\begin{lemma}[Trace-class shift]\label{lem:trace-class-shift}
-If $\alpha,\beta\in\R\setminus\{0,-1,-2,\ldots\}$, then
+\begin{lemma}[Trace-class difference]\label{lem:trace-class-shift}
+If $\alpha,\beta\in\mathbb R\setminus\{0,-1,-2,\ldots\}$, then
 \begin{equation}\label{eq:trace-class-difference}
- \Hh_\alpha-\Hh_\beta\in\cS.
+ \Hh_\alpha-\Hh_\beta\in\cS
 \end{equation}
+where $\cS$ stands for the trace class.
 \end{lemma}
 
 \begin{proof}
@@ -320,30 +331,37 @@ operator.  After reindexing, the remaining block is
 $\Hh_{\alpha+2r}-\Hh_{\beta+2r}$.
 
 Assume, without loss of generality, that
-$a:=\alpha+2r<b:=\beta+2r$.  Its entries satisfy
+$a:=\alpha+2r<b:=\beta+2r$.  The entries of $\Hh_a-\Hh_b$ satisfy
 \[
  \frac1{j+k+a}-\frac1{j+k+b}
- =\int_0^1 t^{j+k}\bigl(t^{a-1}-t^{b-1}\bigr)\,dt,
+ =\int_0^1 t^{j+k}\bigl(t^{a-1}-t^{b-1}\bigr)\,dt.
 \]
-so the difference is positive.  Its diagonal sum is finite:
+Hence, for $\psi\in\ell^2(\Nzero)$ we obtain 
+\begin{align}
+    \<\psi, (\Hh_a - \Hh_b)\psi \>
+    &= \int_0^1\bigl(t^{a-1}-t^{b-1}\bigr) \sum_{j,k} \bar\psi_j t^j t^k \psi_k\,dt \\
+    &= \int_0^1\bigl(t^{a-1}-t^{b-1}\bigr) |\< \psi, t_{\text{vec}} \>|^2\,dt \geq 0,
+\end{align}
+where $(t_{\text{vec}})_j = t^j$ and $t_{\text{vec}}\in\ell^2(\Nzero)$ for $t\in [0,1)$, 
+so the difference is positive.  Its diagonal sum is also finite: 
 \[
+\Tr(\Hh_a - \Hh_b) = 
  \sum_{n=0}^\infty
  \left(\frac1{2n+a}-\frac1{2n+b}\right)<\infty.
 \]
-A positive bounded operator with finite diagonal sum is trace class.  The case
-$b<a$ follows after changing the sign.
+A positive bounded operator with finite diagonal sum is trace class.  
 \end{proof}
 
-\begin{lemma}[Stable trace-class perturbations]\label{lem:stable-traceclass}
-Let $R,S$ be bounded self-adjoint operators on a Hilbert space, suppose that
-$R\ge c\id$ and $S\ge c\id$ for some $c>0$, and assume $S-R\in\cS$.  Then
+\begin{lemma}[Determinant bound for trace-class perturbations]\label{lem:stable-traceclass}
+Let $R,S$ be bounded self-adjoint operators on a Hilbert space with $S-R\in\cS$. Suppose that
+$R\ge c\id$ and $S\ge c\id$ for some $c>0$.  Then
 \begin{equation}\label{eq:stable-determinant}
  \left|
  \log\det(P_NSP_N)-\log\det(P_NRP_N)
  \right|
  \le c^{-1}\|S-R\|_1.
 \end{equation}
-The determinants are taken on the finite-dimensional space $P_N\ell^2$.
+The determinants are taken on the finite-dimensional space $P_N\ell^2(\Nzero)$.
 \end{lemma}
 
 \begin{proof}
@@ -361,43 +379,42 @@ $c^{-1}\|K_N\|_1\le c^{-1}\|S-R\|_1$.  Integration over $t\in[0,1]$
 proves the claim.
 \end{proof}
 
-Fix henceforth a noncritical parameter
+We now fix a noncritical parameter,
 \begin{equation}\label{eq:nonthreshold}
- |s|=|\sin(\pi\alpha)|<1.
+ s:=\sin(\pi\alpha),\qquad |s|<1,
 \end{equation}
-Define
+and define
 \begin{equation}\label{eq:Tpm}
  T^\pm:=\id\pm A_\alpha,
  \qquad
- K^\pm:=\Ker T^\pm,
+ K^\pm:=\Ker T^\pm.
 \end{equation}
-let $\Pi^\pm$ be the orthogonal projection onto $K^\pm$, and set
+Let $\Pi^\pm$ be the orthogonal projection onto $K^\pm$, and set
 \begin{equation}\label{eq:Ttilde-pm}
  \widetilde T^{\,\pm}:=T^\pm+\Pi^\pm.
 \end{equation}
-By Proposition~\ref{prop:spectral-data}, the two regularized operators are
-bounded below by positive constants.  The same is true of
+By Proposition~\ref{prop:spectral-data}, the operators $\widetilde T^{\,\pm}$ are
+bounded below by $1-s$. The same is true for
 \begin{equation}\label{eq:Rpm}
- R^\pm:=\id\pm\frac{s}{\pi}\Hh_1,
+ R^\pm:=\id\pm\frac{s}{\pi}\Hh_1 \geq 1 - s
 \end{equation}
-because $\pi^{-1}\Hh_1$ has spectrum $[0,1]$ and $|s|<1$.  Moreover,
+because $\pi^{-1}\Hh_1$ has spectrum $[0,1]$.  Moreover,
 \begin{equation}\label{eq:regularized-difference}
  \widetilde T^{\,\pm}-R^\pm
  =\pm\frac{s}{\pi}(\Hh_\alpha-\Hh_1)+\Pi^\pm
  \in\cS.
 \end{equation}
-Lemmas~\ref{lem:trace-class-shift} and \ref{lem:stable-traceclass}, together
-with Proposition~\ref{prop:Hilbert-det} applied at $a=1$, give, with
+With
 \begin{equation}\label{eq:def-q}
  q:=\frac1\pi\arcsin(s),
 \end{equation}
-the regularized asymptotics
+Lemmas~\ref{lem:trace-class-shift} and \ref{lem:stable-traceclass}, together
+with Proposition~\ref{prop:Hilbert-det} applied at $a=1$, give the regularized asymptotics
 \begin{equation}\label{eq:regularized-asymptotic}
  \log\det(P_N\widetilde T^{\,\pm}P_N)
  =-\frac{q^2\mp q}{2}\log N+O_\delta(1).
 \end{equation}
 This is the contribution that depends only on the principal inverse sine.
-
 \section{Extracting the edge eigenspaces}
 
 The next lemma converts the exact kernel of an infinite operator into the small
@@ -1263,6 +1280,12 @@ E. Fedele and M. Gebert,
 \emph{On determinants identity minus Hankel matrix},
 Bull. Lond. Math. Soc. \textbf{51} (2019), no.~4, 751--764.
 \href{https://doi.org/10.1112/blms.12271}{doi:10.1112/blms.12271}.
+
+\bibitem{GebertPoplavskyi}
+M. Gebert and M. Poplavskyi,
+\emph{On pure complex spectrum for truncations of random orthogonal matrices and Kac polynomials},
+preprint (2019).
+\href{https://arxiv.org/abs/1905.03154}{arXiv:1905.03154 [math.PR]}.
 
 \bibitem{Otte}
 P. Otte,
