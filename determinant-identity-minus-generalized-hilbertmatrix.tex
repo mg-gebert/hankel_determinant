@@ -415,13 +415,10 @@ with Proposition~\ref{prop:Hilbert-det} applied at $a=1$, give the regularized a
  =-\frac{q^2\mp q}{2}\log N+O_\delta(1).
 \end{equation}
 This is the contribution that depends only on the principal inverse sine.
+
 \section{Extracting the edge eigenspaces}
 
-The next lemma converts the exact kernel of an infinite operator into the small
-finite-dimensional factor in its finite-section determinant.  The comparison
-in \eqref{eq:loewner-tail} is the key point: it says that this factor is,
-up to fixed constants, the Gram matrix of the omitted tails of the kernel
-vectors.
+The next lemma divides the asymptotics of the determinant into two. Firstly, into the asymptotics \eqref{eq:regularized-asymptotic} and secondly into the asymptotics of a determinant consisting of the edge eigenfunctions of the generalized Hilbert matrix only. 
 
 \begin{lemma}[Edge-eigenspace extraction]\label{lem:edge-extraction}
 Let $T\ge0$ be bounded on $\ell^2(\Nzero)$.  Suppose that
@@ -436,18 +433,17 @@ where
 \begin{equation}\label{eq:def-MN}
  M_N:=\id_m-V^*P_N(P_N\widetilde TP_N)^{-1}P_NV.
 \end{equation}
-There are constants $0<c\le C<\infty$, independent of $N$, such that
-\begin{equation}\label{eq:loewner-tail}
- c\,V^*Q_NV\le M_N\le C\,V^*Q_NV
-\end{equation}
-where $Q_N = \id - P_n$.
- More precisely, one may take
+Let 
 \begin{equation}\label{eq:loewner-constants}
  c=\|\widetilde T^{-1/2}\|^{-2},
  \qquad
  C=\|\widetilde T^{1/2}\|^2.
 \end{equation}
-If $V^*Q_NV$ is positive definite, then
+Then, with $Q_N := \id - P_n$,
+\begin{equation}\label{eq:loewner-tail}
+ c\,V^*Q_NV\le M_N\le C\,V^*Q_NV
+\end{equation}
+and
 \begin{equation}\label{eq:edge-logdet}
  \log\det M_N
  =\log\det(V^*Q_NV)+O(1).
@@ -455,21 +451,23 @@ If $V^*Q_NV$ is positive definite, then
 \end{lemma}
 
 \begin{proof}
-Since $\Pi=VV^*$,
-\[
- P_NTP_N=P_N\widetilde TP_N-(P_NV)(P_NV)^*.
-\]
-The matrix determinant lemma gives
-\eqref{eq:edge-factorization}--\eqref{eq:def-MN}.
-Put $B:=\widetilde T^{1/2}$.  The hypotheses imply that $B$ is boundedly
-invertible.  Moreover, $T=0$ and $\Pi=\id$ on $K$, so
+Since $\Pi=VV^*$, we obtain
+\begin{align}
+    P_NTP_N &= P_N\widetilde TP_N-(P_NV)(P_NV)^* \\
+    &= P_N\widetilde TP_N( \id - (P_N\widetilde TP_N)^{-1}(P_NV)(P_NV)^*).
+\end{align}
+Since $\det(\id - ABC) = \det(\id - CAB)$ we obtain \eqref{eq:edge-factorization} and \eqref{eq:def-MN}.
+
+Let $B:=\widetilde T^{1/2}$.  Since by assumption $\widetilde T > 0$, $B$ is boundedly
+invertible.  Moreover, $\widetilde T=\id$ on $K$, so
 \begin{equation}\label{eq:B-on-kernel}
  BV=V.
 \end{equation}
 Let
 \[
- C_N:=BP_N:P_N\ell^2\longrightarrow\ell^2.
+ C_N:=BP_N: P_N\ell^2(\Nzero)\rightarrow\ell^2(\Nzero).
 \]
+We write $P_N\ell^2 := P_N\ell^2(\Nzero)$ for brevity. 
 Then
 \[
  C_N^*C_N=P_N\widetilde TP_N,
@@ -491,7 +489,6 @@ $\Ran C_N=BP_N\ell^2$.  Hence, for every $x\in\C^m$,
  &=\dist\bigl(Vx,BP_N\ell^2\bigr)^2.
  \label{eq:MN-distance}
 \end{align}
-This is the geometric meaning of $M_N$.
 
 Using \eqref{eq:B-on-kernel},
 \begin{align*}
@@ -531,19 +528,6 @@ Therefore
 \]
 Since $m$ is fixed, this is equivalent to \eqref{eq:edge-logdet}.
 \end{proof}
-
-\begin{remark}[Meaning of the Loewner comparison]
-The matrix $M_N$ measures the squared distance of the kernel vectors $Vx$ from
-the distorted finite-section space $\widetilde T^{1/2}P_N\ell^2$, whereas
-$V^*Q_NV$ measures their ordinary squared tails.  The boundedly invertible map
-$\widetilde T^{1/2}$ changes these distances by at most its condition-number
-constants, which is exactly \eqref{eq:loewner-tail}.  In the special case
-$\widetilde T=\id$, there is no distortion and
-\[
- M_N=\id_m-V^*P_NV=V^*Q_NV
-\]
-holds identically.
-\end{remark}
 
 Applying Lemma~\ref{lem:edge-extraction} to $T^\pm$ reduces the remaining
 problem to the tails of the explicit vectors $u_j$ from
