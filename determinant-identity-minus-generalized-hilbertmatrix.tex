@@ -76,9 +76,16 @@ Most notably, we obtain
   \log \det\bigl(\id_N - (H_N^\delta)^2\bigr) = -\theta_\delta^2 \log N + O(1),
 \]
 where the asymptotics exhibits a kind of phase transition: for all $\delta > \frac{1}{2}$ the decay exponent is bounded $\theta_\delta^2\in [0,\frac 1 4]$, whereas for $\delta \le \frac{1}{2}$ the exponent $\theta_\delta^2 = \delta^2$ is unbounded.
+
+TODO: Add some kind of AI acknowledgement. One option: The key
+inequality \eqref{eq:loewner-tail} was found by ChatGPT~5.6 Pro.
 \end{abstract}
 
 \maketitle
+
+TODO: Consider removing some of the AI "insights" and formulations,
+including "unfurled", "edge-eigenspace extraction", "endpoint
+coercitivity", "Levinson-type"
 
 \section{Introduction and results}
 
@@ -95,9 +102,10 @@ We are interested in asymptotic behaviour as the matrix size $N\to\infty$ of the
 \begin{equation}\label{eq:def-Dpm}
  D_N^\pm(\delta):=\det(\id_N\pm H_N^\delta).
 \end{equation}
-One word regarding notation: Paired signs are read vertically throughout the paper. 
 
-TODO: Add motivation AOC, paper with Mihail and some reference to det Hankel + Toeplitz. Also extension of Otte and Gebert/Fedele. 
+TODO: Add motivation AOC, paper with Mihail and some reference to det
+Hankel + Toeplitz. Also extension of Otte and Gebert/Fedele. (Some of
+this is in "Conclusions" at the end)
 
 To state our main result, we introduce
 \begin{equation}\label{eq:def-sq}
@@ -114,7 +122,7 @@ where $\arcsin:[-1,1]\to[-\pi/2,\pi/2]$ is the principal inverse sine.  With the
   q_\delta,&\delta\ge\frac12.
  \end{cases}
 \end{equation}
-It is easy to see that $\theta_\delta$ is continuous in $\delta$. 
+It is easy to see that $\theta_\delta$ is continuous in $\delta$.
 
 
 TODO: Mention symbol of infinite generalized Hilbert matrix. Mention that symbol has winding number for $\delta<\frac12$.
@@ -154,7 +162,7 @@ an $O_\delta(1)$ remainder in the logarithm.
 \end{remark}
 
 \begin{corollary}
-Let $\delta\in\mathbb R\setminus\mathcal P$. Then 
+Let $\delta\in\mathbb R\setminus\mathcal P$. Then
 
 \begin{enumerate}
 \item If $\delta\notin\mathcal C$, then
@@ -199,7 +207,7 @@ $\ell^2(\Nzero)$, and define its normalized form
  A_\alpha:=\frac{\sin(\pi\alpha)}\pi\Hh_\alpha.
 \end{equation}
 Throughout let $P_N$ be the orthogonal projection onto
-$\operatorname{span}\{e_0,\ldots,e_{N-1}\}$ and put 
+$\operatorname{span}\{e_0,\ldots,e_{N-1}\}$ and put
 \[Q_N:=\id-P_N.\]
   With
 $\alpha=1+\delta$, we obtain
@@ -245,7 +253,7 @@ and
  =\operatorname{span}\{u_j:j\in J^\pm_\delta\}.
 \end{equation}
 
-\item 
+\item
 The singular continuous spectrum is empty, i.e. the above describes the  spectrum of $A_\alpha$ completely.
 \end{enumerate}
 \end{proposition}
@@ -267,7 +275,7 @@ For $a>0$, write
 We need the following result.
 
 \begin{proposition}[Hilbert determinant asymptotics]\label{prop:Hilbert-det}
-Let $a\ge\frac12$ and $\beta\in[-1,1]$. Then we have 
+Let $a\ge\frac12$ and $\beta\in[-1,1]$. Then we have
 \begin{equation}\label{eq:Otte-strong}
  \log\det\left(\id_N-\frac\beta\pi\Hh_{a,N}\right)
  =-h(\beta)\log N+
@@ -281,7 +289,7 @@ where
  h(\beta):=
  \frac{\arcsin^2\beta+\pi\arcsin\beta}{2\pi^2},
 \end{equation}
-and $\arcsin$ is the principal branch of the inverse sine. 
+and $\arcsin$ is the principal branch of the inverse sine.
 \end{proposition}
 
 \begin{remark}
@@ -336,20 +344,20 @@ $a:=\alpha+2r<b:=\beta+2r$.  The entries of $\Hh_a-\Hh_b$ satisfy
  \frac1{j+k+a}-\frac1{j+k+b}
  =\int_0^1 t^{j+k}\bigl(t^{a-1}-t^{b-1}\bigr)\,dt.
 \]
-Hence, for $\psi\in\ell^2(\Nzero)$ we obtain 
+Hence, for $\psi\in\ell^2(\Nzero)$ we obtain
 \begin{align}
     \<\psi, (\Hh_a - \Hh_b)\psi \>
     &= \int_0^1\bigl(t^{a-1}-t^{b-1}\bigr) \sum_{j,k} \bar\psi_j t^j t^k \psi_k\,dt \\
     &= \int_0^1\bigl(t^{a-1}-t^{b-1}\bigr) |\< \psi, t_{\text{vec}} \>|^2\,dt \geq 0,
 \end{align}
-where $(t_{\text{vec}})_j = t^j$ and $t_{\text{vec}}\in\ell^2(\Nzero)$ for $t\in [0,1)$, 
-so the difference is positive.  Its diagonal sum is also finite: 
+where $(t_{\text{vec}})_j = t^j$ and $t_{\text{vec}}\in\ell^2(\Nzero)$ for $t\in [0,1)$,
+so the difference is positive.  Its diagonal sum is also finite:
 \[
-\Tr(\Hh_a - \Hh_b) = 
+\Tr(\Hh_a - \Hh_b) =
  \sum_{n=0}^\infty
  \left(\frac1{2n+a}-\frac1{2n+b}\right)<\infty.
 \]
-A positive bounded operator with finite diagonal sum is trace class.  
+A positive bounded operator with finite diagonal sum is trace class.
 \end{proof}
 
 \begin{lemma}[Determinant bound for trace-class perturbations]\label{lem:stable-traceclass}
@@ -418,7 +426,7 @@ This is the contribution that depends only on the principal inverse sine.
 
 \section{Extracting the edge eigenspaces}
 
-The next lemma divides the asymptotics of the determinant into two. Firstly, into the asymptotics \eqref{eq:regularized-asymptotic} and secondly into the asymptotics of a determinant consisting of the edge eigenfunctions of the generalized Hilbert matrix only. 
+The next lemma divides the asymptotics of the determinant into two. Firstly, into the asymptotics \eqref{eq:regularized-asymptotic} and secondly into the asymptotics of a determinant consisting of the edge eigenfunctions of the generalized Hilbert matrix only.
 
 \begin{lemma}[Edge-eigenspace extraction]\label{lem:edge-extraction}
 Let $T\ge0$ be bounded on $\ell^2(\Nzero)$.  Suppose that
@@ -433,7 +441,7 @@ where
 \begin{equation}\label{eq:def-MN}
  M_N:=\id_m-V^*P_N(P_N\widetilde TP_N)^{-1}P_NV.
 \end{equation}
-Let 
+Let
 \begin{equation}\label{eq:loewner-constants}
  c=\|\widetilde T^{-1/2}\|^{-2},
  \qquad
@@ -467,7 +475,7 @@ Let
 \[
  C_N:=BP_N: P_N\ell^2(\Nzero)\rightarrow\ell^2(\Nzero).
 \]
-We write $P_N\ell^2 := P_N\ell^2(\Nzero)$ for brevity. 
+We write $P_N\ell^2 := P_N\ell^2(\Nzero)$ for brevity.
 Then
 \[
  C_N^*C_N=P_N\widetilde TP_N,
@@ -1135,7 +1143,9 @@ fixed change of basis and by deleting finitely many coordinates.  Therefore
    \sum_{\substack{0\le j<m\\j\equiv m\ (2)}}
    (2\delta+2j+1)
   \right)\log M+o(\log M).
-\end{equation}
+\end{equation}%
+[TODO: Fix  this last equation. Parens are super large and what does
+  the notation mean, modulo?]
 Both base determinants in \eqref{eq:threshold-compression} satisfy
 \begin{equation}\label{eq:base-three-eighths}
  \log\det T_{M,a}=-\frac38\log M+o(\log M)
@@ -1208,6 +1218,8 @@ only the logarithmic exponents but two-sided power bounds.
 
 \section{Conclusion}
 
+TODO: Rewrite to be less slop.
+
 The main theorem gives two-sided power bounds at every noncritical
 parameter and the same powers up to subpolynomial factors at the half-integer
 thresholds.  On the left of $\delta=\frac12$ the effective phase is the
@@ -1216,7 +1228,7 @@ $q_\delta$.  Thus the squared-determinant exponent is $-\delta^2$ in the
 unfolded range and becomes
 $-\operatorname{dist}(\delta,\mathbb Z)^2$ for larger positive parameters.
 
-The Gram representation \eqref{eq:gram-representation} shows that the full
+The Gram representation shows that the full
 parameter $\delta$ is present from the beginning as a displacement of
 trigonometric frequencies.  The principal branch appears only after the
 shifted generalized Hilbert matrix is compared with the standard Hilbert
