@@ -558,69 +558,83 @@ Applying Lemma~\ref{lem:edge-extraction} to $T^\pm$ reduces the remaining
 problem to the tails of the explicit vectors $u_j$ from
 Proposition~\ref{prop:spectral-data}.
 
-\section{The tail Gram determinant}
+\section{The edge eigenvalue determinant}
 
 Let $u_j(n)$ denote the $n$th Taylor coefficient of $f_j$ in
 \eqref{eq:fj}.
 
-\begin{lemma}[Eigenvector tails]\label{lem:eigenvector-tails}
-Assume $\alpha\notin\mathbb Z$ and let $j\in\Nzero$ satisfy
-$\alpha+j<\frac12$.  Then
+\begin{lemma}[Edge eigenvalue determinant]\label{lem:eigenvector-tails}
+Assume $\delta\notin\mathbb Z$ and let $j\in\Nzero$ satisfy
+$\delta+j<-\frac12$.  Then
 \begin{equation}\label{eq:coeff-asymptotic}
  u_j(n)
- =c_j n^{\alpha+j-1}\bigl(1+O(n^{-1})\bigr),
+ =c_j n^{\delta+j}\bigl(1+O(n^{-1})\bigr),
  \qquad
- c_j:=\frac{2^j}{\Gamma(\alpha+j)}\ne0.
+ c_j:=\frac{2^j}{\Gamma(\delta+j+1)}\ne0.
 \end{equation}
-If $J\subset\{j\in\Nzero:\alpha+j<\frac12\}$ is finite, then
+This implies in particular $u_j \in \ell^2(\Nzero)$.
+Moreover, for any $J\subset\{j\in\Nzero:\delta+j<-\frac12\}$ we have
 \begin{equation}\label{eq:tail-gram-asymptotic}
  \det\left(\sum_{n=N}^\infty u_i(n)u_j(n)\right)_{i,j\in J}
- =C_J
+ =C_J\times
  N^{\sum_{j\in J}(2\delta+2j+1)}\bigl(1+o(1)\bigr)
 \end{equation}
+as $N\to\infty$ 
 for some constant $C_J>0$.
 \end{lemma}
 
 \begin{proof}
-Since
+Recall that $u_j(n)$ are the Taylor coefficients of $f_j(z) = (1+z)^j(1-z)^{-(\delta+j+1)}$, see \eqref{eq:fj}. Since
 \[
- (1+z)^j=\sum_{\ell=0}^j\binom j\ell z^\ell,
+ (1+z)^j=\sum_{\ell=0}^j\binom j\ell z^\ell
 \]
-the binomial series for $(1-z)^{-\alpha-j}$ gives, for $n\ge j$,
+and 
+\[
+(1-z)^{-(\delta+j+1)} = \sum_{l=0}^\infty \frac {\Gamma(l+\delta+j+1) }{\Gamma(\delta + j+1)\Gamma(l+1)} z^l,
+\]
+the Cauchy product formula, gives for indices $n\ge j$,
 \[
  u_j(n)
  =\sum_{\ell=0}^j\binom j\ell
- \frac{\Gamma(n-\ell+\alpha+j)}
- {\Gamma(\alpha+j)\Gamma(n-\ell+1)}.
+ \frac{\Gamma(n-\ell+\delta+j+1)}
+ {\Gamma(\delta+j+1)\Gamma(n-\ell+1)}.
 \]
-The gamma-ratio asymptotic
+The gamma-ratio asymptotic expansion
 \[
  \frac{\Gamma(n+a)}{\Gamma(n+b)}
  =n^{a-b}\bigl(1+O(n^{-1})\bigr)
 \]
+as $n\to\infty$
 then yields \eqref{eq:coeff-asymptotic}, because
 $\sum_{\ell=0}^j\binom j\ell=2^j$.
 
-For $i,j\in J$, the hypotheses imply $2\delta+i+j<-1$.  Therefore
+For $i,j\in J$, the hypotheses imply $2\delta+i+j<-1$.  Therefore, for $i,j\in J$
 \begin{equation}\label{eq:tail-pairing}
  \sum_{n=N}^\infty u_i(n)u_j(n)
  =\frac{c_ic_j}{-(2\delta+i+j+1)}
- N^{2\delta+i+j+1}\bigl(1+o(1)\bigr).
+ N^{2\delta+i+j+1}\bigl(1+o(1)\bigr)
 \end{equation}
-Factor $N^{\delta+i+1/2}$ from row $i$ and
-$N^{\delta+j+1/2}$ from column $j$.  The remaining matrix converges to
+as $N\to\infty$.
+Factor out $N^{\delta+i+1/2}$ from row $i$ and
+$N^{\delta+j+1/2}$ from column $j$ we obtain 
+\begin{align}
+    &\det\left(\sum_{n=N}^\infty u_i(n)u_j(n)\right)_{i,j\in J}\notag\\
+    &= \det A \times
+    N^{\sum_{j\in J}(2\delta+2j+1)}\bigl(1+o(1)\bigr)
+\end{align}
+as $N\to\infty$ with
 \begin{equation}\label{eq:Cauchy-limit}
- \left(\frac{c_ic_j}{-(2\delta+i+j+1)}\right)_{i,j\in J}.
+ A:= \left(\frac{c_ic_j}{-(2\delta+i+j+1)}\right)_{i,j\in J}.
 \end{equation}
-This limit is positive definite: it is the Gram matrix of the linearly
+The matrix $A$ is positive definite: it is the Gram matrix of the linearly
 independent functions $c_jx^{\delta+j}$ in $L^2(1,\infty)$.  Its determinant
 is therefore positive, proving \eqref{eq:tail-gram-asymptotic}.
 \end{proof}
 
-For either sign, changing from the basis
-$\{u_j:j\in J^\pm_\delta\}$ to an orthonormal basis of $K^\pm$ multiplies the
-tail Gram determinant by a fixed positive constant.  Lemmas
-\ref{lem:edge-extraction} and \ref{lem:eigenvector-tails} therefore give
+TODO: Add a section Proof of Theorem main result and prove the theorem there referencing all lemmas in the proof, i.e. the following will go into this proof. 
+
+Lemmas
+\ref{lem:edge-extraction} and \ref{lem:eigenvector-tails} give
 \begin{equation}\label{eq:edge-contribution}
  \log\det M_N^\pm
  =\left(
@@ -643,7 +657,6 @@ Formula~\eqref{eq:master-formula} is the unsimplified strong asymptotic.  Its
 first term depends only on the principal inverse sine.  Its finite sum is the
 contribution of the exact eigenvalues at $\mp1$ to
 $D_N^\pm=\det(\id_N\pm H_N^\delta)$.
-
 \section{Recovery of the original sine argument}
 
 Assume that $\delta<-\frac12$ and $\delta\notin\mathcal C$.  Put
