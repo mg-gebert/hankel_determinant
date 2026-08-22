@@ -46,15 +46,19 @@
 \begin{document}
 
 \begin{abstract}
-We compute the large-$N$ asymptotics of the determinant of the identity plus or minus a generalized Hilbert matrix.
-For $N \in \mathbb{N}$ and $\delta \in \mathbb{R} \setminus \{-1, -2, \ldots\}$, let
+We compute the large-$N$ asymptotics of the determinant of the
+identity plus or minus a generalized Hilbert matrix.
+For $N \in \mathbb{N}$ and $\delta \in \mathbb{R} \setminus \{-1, -2,
+  \ldots\}$, let
 \[
   H_N^\delta
   := \left(
     \frac{\sin((1+\delta)\pi)}{\pi(j+k+1+\delta)}
   \right)_{j,k=0}^{N-1}
 \]
-be the generalized Hilbert matrix. For $\delta$ not a half-integer, i.e.\ $\delta \notin \frac{1}{2} + \mathbb{Z}$, we prove the large-$N$ asymptotics of the determinant
+be the generalized Hilbert matrix. For $\delta$ not a half-integer,
+i.e.\ $\delta \notin \frac{1}{2} + \mathbb{Z}$, we prove the large-$N$
+asymptotics of the determinant
 \[
   \log \det(\id_N \pm H_N^\delta) = -\frac{\theta_\delta^2 \mp \theta_\delta}{2} \log N + O(1).
 \]
@@ -73,11 +77,20 @@ At the half-integers, the same algebraic decay holds up to sub-logarithmic facto
 \]
 Most notably, we obtain
 \[
-  \log \det\bigl(\id_N - (H_N^\delta)^2\bigr) = -\theta_\delta^2 \log N + O(1),
+  \log \det\bigl(\id_N - (H_N^\delta)^2\bigr) = -\theta_\delta^2 \log
+  N +
+  \begin{cases}
+  O(1),&\delta \notin \frac{1}{2} + \mathbb{Z},\\[1mm]
+  o(\log N),&\delta \in \frac{1}{2} + \mathbb{Z}.
+ \end{cases}
 \]
-where the asymptotics exhibits a kind of phase transition: for all $\delta > \frac{1}{2}$ the decay exponent is bounded $\theta_\delta^2\in [0,\frac 1 4]$, whereas for $\delta \le \frac{1}{2}$ the exponent $\theta_\delta^2 = \delta^2$ is unbounded.
+The asymptotics exhibits a kind of
+phase transition: for all $\delta > \frac{1}{2}$ the decay exponent is
+bounded $\theta_\delta^2\in [0,\frac 1 4]$, whereas for $\delta \le
+\frac{1}{2}$ the exponent $\theta_\delta^2 = \delta^2$ is unbounded.
 
-TODO: Add some kind of AI acknowledgement. One option: The key
+AI acknowledgement: While the authors were aware of most results of
+this paper for several years, the key
 inequality \eqref{eq:loewner-tail} was found by ChatGPT~5.6 Pro.
 \end{abstract}
 
@@ -185,11 +198,13 @@ $\delta\in[m-\frac12,m+\frac12]$,
 \begin{equation}\label{eq:triangular-q}
  q_\delta=(-1)^{m+1}(\delta-m).
 \end{equation}
-Thus, for $\delta\in\mathbb R\setminus\mathcal P$ with $\delta\ge\frac12$, we obtain
+Thus, for $\delta\in [\frac12, \infty)\setminus\mathcal P$, we obtain
 \[
  \log\det\bigl(\id_N-(H_N^\delta)^2\bigr)
- =-\operatorname{dist}(\delta,\mathbb Z)^2\log N+O_\delta(1).
+ =-\operatorname{dist}(\delta,\mathbb Z)^2\log N+O_\delta(1)
 \]
+except for $\delta\in\mathcal C$, where the asymptotic term is
+$o(\log N)$.
 \end{remark}
 
 TODO: Add motivation where the different behaviour for $\delta<\frac12$ comes from, i.e. the eigenvalues $\pm 1$. Maybe add remark about spectral structure of $H$ earlier.
