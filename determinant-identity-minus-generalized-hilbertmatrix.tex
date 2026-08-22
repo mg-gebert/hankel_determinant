@@ -140,6 +140,8 @@ It is easy to see that $\theta_\delta$ is continuous in $\delta$.
 
 TODO: Mention symbol of infinite generalized Hilbert matrix. Mention that symbol has winding number for $\delta<\frac12$.
 
+TODO: Mention/prove that $D_N^\pm(\delta)> 0$ so that $\log$ will be well defined. 
+
 Define the pole and critical sets
 \begin{equation}\label{eq:exceptional-sets}
  \mathcal P:=\{-1,-2,\ldots\}
@@ -248,10 +250,10 @@ with multiplicity one.
 \item The point spectrum of $A_\alpha$ is contained in $\{-1,+1\}$.  Define
 \begin{align}
  J^-_\delta
- &:=\left\{j\in 2\mathbb N:0\leq j<-\delta-\frac12\right\},
+ &:=\left\{j\in 2\Nzero:0\leq j<-\delta-\frac12\right\},
  \label{eq:Jminus}\\
  J^+_\delta
- &:=\left\{j\in 2 \mathbb N +1:0\leq j<-\delta-\frac12\right\}.
+ &:=\left\{j\in 2 \Nzero +1:0\leq j<-\delta-\frac12\right\}.
  \label{eq:Jplus}
 \end{align}
 For each $j\in J^-_\delta \cup J^+_\delta$, let $u_j$ be the Taylor coefficient vector (TODO: Check if saying here Fourier coefficients is better) of
@@ -417,9 +419,9 @@ Let $\Pi^\pm$ be the orthogonal projection onto $K^\pm$, and set
  \widetilde T^{\,\pm}:=T^\pm+\Pi^\pm.
 \end{equation}
 By Proposition~\ref{prop:spectral-data}, the operators $\widetilde T^{\,\pm}$ are
-bounded below by $1-s$. The same is true for
+bounded below by $1-|s|$. The same is true for
 \begin{equation}\label{eq:Rpm}
- R^\pm:=\id\pm\frac{s}{\pi}\Hh_1 \geq 1 - s
+ R^\pm:=\id\pm\frac{s}{\pi}\Hh_1 \geq 1 - |s|
 \end{equation}
 because $\pi^{-1}\Hh_1$ has spectrum $[0,1]$.  Moreover,
 \begin{equation}\label{eq:regularized-difference}
@@ -439,11 +441,11 @@ with Proposition~\ref{prop:Hilbert-det} applied at $a=1$, give the regularized a
 \end{equation}
 This is the contribution that depends only on the principal inverse sine.
 
-\section{Extracting the edge eigenspaces}
+\section{Factorizing into bulk and edge determinant}
 
 The next lemma divides the asymptotics of the determinant into two. Firstly, into the asymptotics \eqref{eq:regularized-asymptotic} and secondly into the asymptotics of a determinant consisting of the edge eigenfunctions of the generalized Hilbert matrix only.
 
-\begin{lemma}[Edge-eigenspace extraction]\label{lem:edge-extraction}
+\begin{lemma}[Bulk and edge determinant factorization]\label{lem:edge-extraction}
 Let $T\ge0$ be bounded on $\ell^2(\Nzero)$.  Suppose that
 $K:=\Ker T$ has finite dimension $m$ and that $T$ is bounded below by a
 positive constant on $K^\perp$.  Let $\Pi$ be the orthogonal projection onto
@@ -466,7 +468,7 @@ Then, with $Q_N := \id - P_n$,
 \begin{equation}\label{eq:loewner-tail}
  c\,V^*Q_NV\le M_N\le C\,V^*Q_NV
 \end{equation}
-and
+and if $V^*Q_NV$ is positive definite
 \begin{equation}\label{eq:edge-logdet}
  \log\det M_N
  =\log\det(V^*Q_NV)+O(1).
@@ -540,7 +542,7 @@ combining \eqref{eq:MN-distance} and \eqref{eq:distance-comparison} proves
 \eqref{eq:loewner-tail} with the constants in
 \eqref{eq:loewner-constants}.
 
-Finally, put $G_N:=V^*Q_NV>0$.  Conjugating
+Finally, define $G_N:=V^*Q_NV$. Assuming that $G_N>0$, $G_N$ is invertible. Then conjugating
 \eqref{eq:loewner-tail} by $G_N^{-1/2}$ gives
 \[
  c\id_m\le G_N^{-1/2}M_NG_N^{-1/2}\le C\id_m.
