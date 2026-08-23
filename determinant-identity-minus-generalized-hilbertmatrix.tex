@@ -66,8 +66,8 @@ The decay exponent is given by
 \[
   \theta_\delta :=
   \begin{cases}
-    -\delta, & \delta \le \frac{1}{2}, \\
-    \dfrac{1}{\pi} \arcsin\bigl(\sin(-\pi\delta)\bigr), & \delta \ge \frac{1}{2},
+    -\delta, & \delta \le -\frac{1}{2}, \\
+    \dfrac{1}{\pi} \arcsin\bigl(\sin(-\pi\delta)\bigr), & \delta \ge -\frac{1}{2},
   \end{cases}
 \]
 where $\arcsin \colon [-1,1] \to \left[-\frac{\pi}{2}, \frac{\pi}{2}\right]$ denotes the principal branch of $\arcsin$.
@@ -85,9 +85,9 @@ Most notably, we obtain
  \end{cases}
 \]
 The asymptotics exhibits a kind of
-phase transition: for all $\delta > \frac{1}{2}$ the decay exponent is
-bounded $\theta_\delta^2\in [0,\frac 1 4]$, whereas for $\delta \le
-\frac{1}{2}$ the exponent $\theta_\delta^2 = \delta^2$ is unbounded.
+phase transition: for all $\delta \ge -\frac{1}{2}$ the decay exponent is
+bounded $\theta_\delta^2\in [0,\frac 1 4]$, whereas for $\delta <
+-\frac{1}{2}$ the exponent $\theta_\delta^2 = \delta^2$ is unbounded.
 
 AI acknowledgement: While the authors were aware of most results of
 this paper for several years, the key
@@ -131,14 +131,14 @@ where $\arcsin:[-1,1]\to[-\pi/2,\pi/2]$ is the principal inverse sine.  With the
 \begin{equation}\label{eq:effective-phase}
  \theta_\delta:=
  \begin{cases}
-  -\delta,&\delta\le\frac12,\\[1mm]
-  q_\delta,&\delta\ge\frac12.
+  -\delta,&\delta\le-\frac12,\\[1mm]
+  q_\delta,&\delta\ge-\frac12.
  \end{cases}
 \end{equation}
 It is easy to see that $\theta_\delta$ is continuous in $\delta$.
 
 
-TODO: Mention symbol of infinite generalized Hilbert matrix. Mention that symbol has winding number for $\delta<\frac12$.
+TODO: Mention symbol of infinite generalized Hilbert matrix. Mention that symbol has winding number for $\delta<-\frac12$.
 
 TODO: Mention/prove that $D_N^\pm(\delta)> 0$ so that $\log$ will be well defined.
 
@@ -200,7 +200,7 @@ $\delta\in[m-\frac12,m+\frac12]$,
 \begin{equation}\label{eq:triangular-q}
  q_\delta=(-1)^{m+1}(\delta-m).
 \end{equation}
-Thus, for $\delta\in [\frac12, \infty)\setminus\mathcal P$, we obtain
+Thus, for $\delta\in [-\frac12, \infty)\setminus\mathcal P$, we obtain
 \[
  \log\det\bigl(\id_N-(H_N^\delta)^2\bigr)
  =-\operatorname{dist}(\delta,\mathbb Z)^2\log N+O_\delta(1)
@@ -209,7 +209,7 @@ except for $\delta\in\mathcal C$, where the asymptotic term is
 $o(\log N)$.
 \end{remark}
 
-TODO: Add motivation where the different behaviour for $\delta<\frac12$ comes from, i.e. the eigenvalues $\pm 1$. Maybe add remark about spectral structure of $H$ earlier.
+TODO: Add motivation where the different behaviour for $\delta<-\frac12$ comes from, i.e. the eigenvalues $\pm 1$. Maybe add remark about spectral structure of $H$ earlier.
 \section{The infinite generalized Hilbert matrix}
 
 Let $\ell^2(\Nzero)$ have standard orthonormal basis $(e_j)_{j\ge0}$.  For a
@@ -740,12 +740,11 @@ precisely: the continuous spectral contribution and the edge-eigenvector
 count reconstruct the lifted phase $r$, or equivalently the original sine
 argument $-\pi\delta$.
 
-For $-\frac12\le\delta\le\frac12$, the principal branch already satisfies
-$q_\delta=-\delta$, so the same linear formula continues without a discrete
-correction.  For $\delta>\frac12$, however, Proposition~\ref{prop:spectral-data}
+For $\delta\ge-\frac12$, Proposition~\ref{prop:spectral-data}
 has no edge eigenvectors: the generalized Hilbert parameter
 $\alpha=1+\delta$ lies above the point-spectrum range.  The determinant
-therefore retains the principal phase $q_\delta$.  In particular,
+therefore retains the principal phase $q_\delta$ throughout, with no discrete
+correction.  In particular,
 \[
  |q_\delta|=\operatorname{dist}(\delta,\mathbb Z),
  \qquad
@@ -1254,11 +1253,11 @@ TODO: Rewrite to be less slop.
 
 The main theorem gives two-sided power bounds at every noncritical
 parameter and the same powers up to subpolynomial factors at the half-integer
-thresholds.  On the left of $\delta=\frac12$ the effective phase is the
+thresholds.  On the left of $\delta=-\frac12$ the effective phase is the
 unfurled value $-\delta$; on the right it is the principal triangular wave
 $q_\delta$.  Thus the squared-determinant exponent is $-\delta^2$ in the
 unfolded range and becomes
-$-\operatorname{dist}(\delta,\mathbb Z)^2$ for larger positive parameters.
+$-\operatorname{dist}(\delta,\mathbb Z)^2$ for $\delta\ge-\frac12$.
 
 The Gram representation shows that the full
 parameter $\delta$ is present from the beginning as a displacement of
