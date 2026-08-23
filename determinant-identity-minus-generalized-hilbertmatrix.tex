@@ -660,20 +660,17 @@ contribution of the exact eigenvalues at $\mp1$ to
 $D_N^\pm=\det(\id_N\pm H_N^\delta)$.
 \section{Recovery of the original sine argument}
 
-Assume that $\delta<-\frac12$ and $\delta\notin\mathcal C$.  Put
-\begin{equation}\label{eq:r-m-q}
- r:=-\delta>\frac12,
- \qquad
- m:=\#\{j\in\Nzero:j<r-\tfrac12\},
- \qquad
- q:=\frac1\pi\arcsin(\sin\pi r).
+Assume that $\delta<-\frac12$ and $\delta\notin\mathcal C$.  In this range
+$\theta_\delta=-\delta>\frac12$.  Put
+\begin{equation}\label{eq:m-def}
+ m:=\#\{j\in\Nzero:j<\theta_\delta-\tfrac12\}.
 \end{equation}
-More generally, for every $r>\frac12$ the above definition of $m$ gives
-$r\in(m-\frac12,m+\frac12]$, and on this interval
+More generally, for every $\theta_\delta>\frac12$ the above definition of $m$ gives
+$\theta_\delta\in(m-\frac12,m+\frac12]$, and on this interval
 \begin{equation}\label{eq:lift}
- q=(-1)^m(r-m),
+ q_\delta=(-1)^m(\theta_\delta-m),
  \qquad\text{equivalently}\qquad
- r=m+(-1)^mq.
+ \theta_\delta=m+(-1)^mq_\delta.
 \end{equation}
 The $m$ edge eigenvectors are indexed by $j=0,\ldots,m-1$, with
 alternating eigenvalues.  Define
@@ -685,39 +682,68 @@ alternating eigenvalues.  Define
 Thus $J^\pm_\delta=J_m^\pm$.
 
 \begin{lemma}[Unfolding identity]\label{lem:unfolding}
-With $r,m,q$ as in \eqref{eq:r-m-q}--\eqref{eq:lift},
+With $m$ as in \eqref{eq:m-def} and $q_\delta$ as in \eqref{eq:lift},
 \begin{equation}\label{eq:unfolding-identity}
- -\frac{q^2\mp q}{2}
- +\sum_{j\in J_m^\pm}(1-2r+2j)
- =-\frac{r^2\mp r}{2}.
+ -\frac{q_\delta^2\mp q_\delta}{2}
+ +\sum_{j\in J_m^\pm}(1-2\theta_\delta+2j)
+ =-\frac{\theta_\delta^2\mp\theta_\delta}{2}.
 \end{equation}
 \end{lemma}
 
 \begin{proof}
-Suppose first that $m=2a$.  Then $q=r-2a$, and
+Suppose first that $m$ is even, i.e. $m=2a$.  Then
+\[
+ J_m^-=\{2i:0\le i\le a-1\},
+ \qquad
+ J_m^+=\{2i+1:0\le i\le a-1\},
+\]
+each with $a$ elements, and $(-1)^m=1$, so \eqref{eq:lift} gives
+$q_\delta=\theta_\delta-2a$.  Using $\sum_{i=0}^{a-1}i=\frac{a(a-1)}2$,
 \begin{align*}
- \sum_{j\in J_m^-}(1-2r+2j)
- &=a(1-2r)+2a(a-1),\\
- \sum_{j\in J_m^+}(1-2r+2j)
- &=a(1-2r)+2a^2.
+ \sum_{j\in J_m^-}(1-2\theta_\delta+2j)
+ &=\sum_{i=0}^{a-1}(1-2\theta_\delta+4i) \\
+ &=a(1-2\theta_\delta)+4\cdot\frac{a(a-1)}2 \\
+ &=a(1-2\theta_\delta)+2a(a-1),\\
+ \sum_{j\in J_m^+}(1-2\theta_\delta+2j)
+ &=\sum_{i=0}^{a-1}(3-2\theta_\delta+4i) \\
+ &=a(3-2\theta_\delta)+2a(a-1) \\
+ &=a(1-2\theta_\delta)+2a^2.
 \end{align*}
-Substitution gives \eqref{eq:unfolding-identity} for both signs.
+For the lower sign, substituting $q_\delta=\theta_\delta-2a$ gives
+\[
+ q_\delta^2+q_\delta
+ =(\theta_\delta-2a)^2+(\theta_\delta-2a)
+ =\theta_\delta^2+\theta_\delta-4a\theta_\delta+4a^2-2a,
+\]
+so that
+\begin{align*}
+ -\frac{q_\delta^2+q_\delta}2+\sum_{j\in J_m^-}(1-2\theta_\delta+2j)
+ &=-\frac{\theta_\delta^2+\theta_\delta}2+2a\theta_\delta-2a^2+a
+ +a(1-2\theta_\delta)+2a(a-1)\\
+ &=-\frac{\theta_\delta^2+\theta_\delta}2
+\end{align*}
+which is \eqref{eq:unfolding-identity} for the lower sign.  For the upper sign,
+\[
+ q_\delta^2-q_\delta
+ =(\theta_\delta-2a)^2-(\theta_\delta-2a)
+ =\theta_\delta^2-\theta_\delta-4a\theta_\delta+4a^2+2a,
+\]
+and adding $\sum_{j\in J_m^+}(1-2\theta_\delta+2j)=a(1-2\theta_\delta)+2a^2$ gives, by the same
+cancellation,
+\[
+ -\frac{q_\delta^2-q_\delta}2+\sum_{j\in J_m^+}(1-2\theta_\delta+2j)
+ =-\frac{\theta_\delta^2-\theta_\delta}2.
+\]
+This proves \eqref{eq:unfolding-identity} for $m=2a$.
 
-If $m=2a+1$, then $q=2a+1-r$, and
-\begin{align*}
- \sum_{j\in J_m^-}(1-2r+2j)
- &=(a+1)(1-2r)+2a(a+1),\\
- \sum_{j\in J_m^+}(1-2r+2j)
- &=a(1-2r)+2a^2.
-\end{align*}
-The same substitution proves the identity.
+For $m=2a+1$, the statement follows along the same lines as above. 
 \end{proof}
 
-Since $2\delta+2j+1=1-2r+2j$, Lemma~\ref{lem:unfolding} turns
+Since $2\delta+2j+1=1-2\theta_\delta+2j$, Lemma~\ref{lem:unfolding} turns
 \eqref{eq:master-formula} into
 \begin{equation}\label{eq:unfolded-final}
  \log D_N^\pm(\delta)
- =-\frac{r^2\mp r}{2}\log N+O_\delta(1)
+ =-\frac{\theta_\delta^2\mp\theta_\delta}{2}\log N+O_\delta(1)
  =-\frac{\delta^2\pm\delta}{2}\log N+O_\delta(1).
 \end{equation}
 This proves the strong statement in Theorem~\ref{thm:main} for
@@ -729,31 +755,6 @@ $\delta<-\frac12$ away from $\mathcal C$.  Since
 the two powers add to $-\delta^2$.  The negative critical cases are completed
 in the next section.
 
-The recovery of the sine argument is now explicit.  The absolutely continuous
-part of the operator depends on $\delta$ only through
-$s_\delta=\sin(-\pi\delta)$ and therefore yields the principal value
-$q=\pi^{-1}\arcsin(s_\delta)$.  Whenever $r=-\delta$ crosses a half-integer,
-a new function $f_j$ enters $H^2(\D)$ and produces an eigenvalue at $+1$ or
-$-1$.  The tail of that eigenvector contributes the additional power of $N$
-required to pass to the next branch.  Identity~\eqref{eq:lift} states this
-precisely: the continuous spectral contribution and the edge-eigenvector
-count reconstruct the lifted phase $r$, or equivalently the original sine
-argument $-\pi\delta$.
-
-For $\delta\ge-\frac12$, Proposition~\ref{prop:spectral-data}
-has no edge eigenvectors: the generalized Hilbert parameter
-$\alpha=1+\delta$ lies above the point-spectrum range.  The determinant
-therefore retains the principal phase $q_\delta$ throughout, with no discrete
-correction.  In particular,
-\[
- |q_\delta|=\operatorname{dist}(\delta,\mathbb Z),
- \qquad
- q_{\delta+1}=-q_\delta.
-\]
-The squared-determinant exponent is consequently $1$-periodic on this side,
-and the two individual exponents are interchanged by $\delta\mapsto\delta+1$.
-The exact identity $H_N^n=0$ at every nonnegative integer $n$ makes this
-folding unavoidable.
 
 \section{Negative critical half-integers}\label{sec:threshold}
 
@@ -1195,8 +1196,8 @@ with coupling $-1$ gives the principal term $1/8$, and the remaining kernel
 vectors are those with parity opposite to \eqref{eq:critical-J}.  This proves
 \eqref{eq:threshold-master} for the second determinant.
 
-Finally, with $r=-\delta=m+\frac12$, equation \eqref{eq:threshold-q} gives
-$q=(-1)^m(r-m)$.  The algebra in Lemma~\ref{lem:unfolding} remains valid at
+Finally, with $\theta_\delta=-\delta=m+\frac12$, equation \eqref{eq:threshold-q} gives
+$q=(-1)^m(\theta_\delta-m)$.  The algebra in Lemma~\ref{lem:unfolding} remains valid at
 this endpoint and turns \eqref{eq:threshold-master} into
 \eqref{eq:threshold-unfolded}.
 \end{proof}
