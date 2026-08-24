@@ -1208,46 +1208,6 @@ it deliberately allows additional factors of the form $N^{o(1)}$, including
 possible powers of $\log N$.
 
 
-\section{Example: \texorpdfstring{$\delta=-7/3$}{delta=-7/3}}
-
-For $\delta=-7/3$,
-\[
- \alpha=-\frac43,
- \qquad
- s=\sin\left(-\frac{4\pi}{3}\right)=\frac{\sqrt3}{2},
- \qquad
- q=\frac13.
-\]
-There are two edge eigenvectors: $j=0$ at $+1$ and $j=1$ at $-1$.
-For $D_N^-$, the principal-branch contribution is
-\[
- -\frac{q^2+q}{2}=-\frac29,
-\]
-and the $j=0$ tail contributes
-\[
- 2\delta+1=-\frac{11}{3}.
-\]
-For $D_N^+$, the principal-branch contribution is
-\[
- -\frac{q^2-q}{2}=\frac19,
-\]
-and the $j=1$ tail contributes
-\[
- 2\delta+3=-\frac53.
-\]
-Consequently,
-\begin{align*}
- \log\det(\id_N-H_N^{-7/3})
- &=-\frac{35}{9}\log N+O(1),\\
- \log\det(\id_N+H_N^{-7/3})
- &=-\frac{14}{9}\log N+O(1),\\
- \log\det\bigl(\id_N-(H_N^{-7/3})^2\bigr)
- &=-\frac{49}{9}\log N+O(1).
-\end{align*}
-Thus the principal Hilbert contribution and the two edge-state tails give not
-only the logarithmic exponents but two-sided power bounds.
-
-
 \section{Conclusion}
 
 TODO: Rewrite to be less slop.
