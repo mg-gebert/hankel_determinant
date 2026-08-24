@@ -109,7 +109,7 @@ For $\delta\in\mathbb R \setminus \{-1,-2,\ldots\}$, we define the generalized H
  \frac{\sin((1+\delta)\pi)}{\pi(j+k+1+\delta)}
  \right)
 \end{equation}
-for $j,k\in\Nzero$. We are interested in $N\in\mathbb N$ restrictions of $H^\delta$ and denote 
+for $j,k\in\Nzero$. We are interested in $N\in\mathbb N$ restrictions of $H^\delta$ and denote
 \begin{equation}\label{eq:def-Hdelta}
  H_N^\delta
  :=H^\delta_N = \Big(H^\delta(j,k)\Big)_{j,k=0}^{N-1}.
@@ -477,9 +477,8 @@ $K$, set $\widetilde T:=T+\Pi$, and let $V$ be an isometry $\C^m\to K$.  Then
 \end{equation}
 where
 \begin{equation}\label{eq:def-MN}
- M_N:=\id_m-V^*P_N(P_N\widetilde TP_N)^{-1}P_NV,
+ M_N:=\id_m-V^*P_N(P_N\widetilde TP_N)^{-1}P_NV.
 \end{equation}
-which is strictly positive. [TODO: Spell out why in proof.]
 Let
 \begin{equation}\label{eq:loewner-constants}
  c=\|\widetilde T^{-1/2}\|^{-2},
@@ -601,7 +600,7 @@ Moreover, for any $J\subset\{j\in\Nzero:\delta+j<-\frac12\}$ we have
  =C_J\times
  N^{\sum_{j\in J}(2\delta+2j+1)}\bigl(1+o(1)\bigr)
 \end{equation}
-as $N\to\infty$ 
+as $N\to\infty$
 for some constant $C_J>0$.
 \end{lemma}
 
@@ -610,7 +609,7 @@ Recall that $u_j(n)$ are the Taylor coefficients of $f_j(z) = (1+z)^j(1-z)^{-(\d
 \[
  (1+z)^j=\sum_{\ell=0}^j\binom j\ell z^\ell
 \]
-and 
+and
 \[
 (1-z)^{-(\delta+j+1)} = \sum_{l=0}^\infty \frac {\Gamma(l+\delta+j+1) }{\Gamma(\delta + j+1)\Gamma(l+1)} z^l,
 \]
@@ -638,7 +637,7 @@ For $i,j\in J$, the hypotheses imply $2\delta+i+j<-1$.  Therefore, for $i,j\in J
 \end{equation}
 as $N\to\infty$.
 Factor out $N^{\delta+i+1/2}$ from row $i$ and
-$N^{\delta+j+1/2}$ from column $j$ we obtain 
+$N^{\delta+j+1/2}$ from column $j$ we obtain
 \begin{align}
     &\det\left(\sum_{n=N}^\infty u_i(n)u_j(n)\right)_{i,j\in J}\notag\\
     &= \det A \times
@@ -653,7 +652,7 @@ independent functions $c_jx^{\delta+j}$ in $L^2(1,\infty)$.  Its determinant
 is therefore positive, proving \eqref{eq:tail-gram-asymptotic}.
 \end{proof}
 
-TODO: Add a section Proof of Theorem main result and prove the theorem there referencing all lemmas in the proof, i.e. the following will go into this proof. 
+TODO: Add a section Proof of Theorem main result and prove the theorem there referencing all lemmas in the proof, i.e. the following will go into this proof.
 
 Lemmas
 \ref{lem:edge-extraction} and \ref{lem:eigenvector-tails} give
@@ -757,7 +756,7 @@ cancellation,
 \]
 This proves \eqref{eq:unfolding-identity} for $m=2a$.
 
-For $m=2a+1$, the statement follows along the same lines as above. 
+For $m=2a+1$, the statement follows along the same lines as above.
 \end{proof}
 
 Since $2\delta+2j+1=1-2\theta_\delta+2j$, Lemma~\ref{lem:unfolding} turns
