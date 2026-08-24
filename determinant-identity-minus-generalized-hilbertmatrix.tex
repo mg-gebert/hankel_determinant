@@ -102,19 +102,42 @@ coercitivity", "Levinson-type"
 
 \section{Introduction and results}
 
-For $N\in\mathbb N$ and
-$\delta\in\mathbb R \setminus \{-1,-2,\ldots\}$, we define the generalized Hilbert matrix
-\begin{equation}\label{eq:def-Hdelta}
- H_N^\delta
+For $\delta\in\mathbb R \setminus \{-1,-2,\ldots\}$, we define the generalized Hilbert matrix $H^\delta: \ell^2(\Nzero)\rightarrow \ell^2(\Nzero)$ by the matrix elements
+\begin{equation}
+ H^\delta(j,k)
  :=\left(
  \frac{\sin((1+\delta)\pi)}{\pi(j+k+1+\delta)}
- \right)_{j,k=0}^{N-1}.
+ \right)
+\end{equation}
+for $j,k\in\Nzero$. We are interested in $N\in\mathbb N$ restrictions of $H^\delta$ and denote 
+\begin{equation}\label{eq:def-Hdelta}
+ H_N^\delta
+ :=H^\delta_N = \Big(H^\delta(j,k)\Big)_{j,k=0}^{N-1}.
 \end{equation}
 
-We are interested in asymptotic behaviour as the matrix size $N\to\infty$ of the determinants
+We are interested in the asymptotic behaviour  of the determinants
 \begin{equation}\label{eq:def-Dpm}
- D_N^\pm(\delta):=\det(\id_N\pm H_N^\delta).
+ D_N^\pm(\delta):=\det(\id_N\pm H_N^\delta)
 \end{equation}
+as the matrix size $N\to\infty$.
+
+
+\begin{remark}
+For a Hankel matrix $H:\ell^2(\Nzero)\to\ell^2(\Nzero)$, we call a bounded function
+$f:\mathbb T\to\mathbb C$ a symbol of $H$ if
+\begin{equation}
+ H(j,k)=\hat f(j+k), \qquad j,k\in\Nzero,
+\end{equation}
+where $\mathbb T:=\{z\in\mathbb C:|z|=1\}$ and
+\begin{equation}
+ \hat f(n):=\frac1{2\pi}\int_0^{2\pi}f(e^{it})e^{-int}\,dt, \qquad n\in\Nzero,
+\end{equation}
+denotes the $n$-th Fourier coefficient of $f$. For the operator $H^\delta$ studied here, the function
+\begin{equation}
+ f(e^{it})=e^{i(1+\delta)(\pi-t)}, \qquad t\in[0,2\pi),
+\end{equation}
+is a symbol.
+\end{remark}
 
 TODO: Add motivation AOC, paper with Mihail and some reference to det
 Hankel + Toeplitz. Also extension of Otte and Gebert/Fedele. (Some of
@@ -137,8 +160,6 @@ where $\arcsin:[-1,1]\to[-\pi/2,\pi/2]$ is the principal inverse sine.  With the
 \end{equation}
 It is easy to see that $\theta_\delta$ is continuous in $\delta$.
 
-
-TODO: Mention symbol of infinite generalized Hilbert matrix. Mention that symbol has winding number for $\delta<-\frac12$.
 
 TODO: Mention/prove that $D_N^\pm(\delta)> 0$ so that $\log$ will be well defined.
 
@@ -681,7 +702,7 @@ alternating eigenvalues.  Define
 \end{equation}
 Thus $J^\pm_\delta=J_m^\pm$.
 
-\begin{lemma}[Unfolding identity]\label{lem:unfolding}
+\begin{lemma}\label{lem:unfolding}
 With $m$ as in \eqref{eq:m-def} and $q_\delta$ as in \eqref{eq:lift},
 \begin{equation}\label{eq:unfolding-identity}
  -\frac{q_\delta^2\mp q_\delta}{2}
