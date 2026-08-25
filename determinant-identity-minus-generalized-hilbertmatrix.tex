@@ -31,6 +31,8 @@
 \newcommand{\dist}{\operatorname{dist}}
 \newcommand{\id}{I}
 \newcommand{\cS}{\mathfrak S_1}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 
 \pgfplotsset{set layers}
 
@@ -271,7 +273,7 @@ Corollary~\ref{cor:main-sq} resolves this question for every
 $\delta\in\mathbb R\setminus(\mathcal P\cup\mathcal C)$, i.e.\ for every
 $\eta=1+\delta$ away from the poles and the critical half-integers. Fedele and
 Gebert \cite[Cor.~1.5]{FedeleGebert} had previously given a partial answer,
-valid only for the classical Hilbert matrix $\eta=1$ and $|\sin(\pi\delta)|<1$.
+valid only for the classical Hilbert matrix $\eta=1$ and $\abs{\sin(\pi\delta)}<1$.
 Moreover, AOC for Dirac-$\delta$ perturbations is treated in
 \cite{Gebert2015}, where it was first observed that the
 exponent $\pi^{-2}\arcsin^2(\sin\delta_\alpha)$ fails to be sharp once the phase shift $\delta_\alpha$ exceeds
@@ -365,7 +367,7 @@ $f:\mathbb T\to\mathbb C$ a \emph{symbol of $H$} if
 \begin{equation}
  H(j,k)=\hat f(j+k), \qquad j,k\in\Nzero,
 \end{equation}
-where $\mathbb T:=\{z\in\mathbb C:|z|=1\}$ and
+where $\mathbb T:=\{z\in\mathbb C:\abs{z}=1\}$ and
 \begin{equation}
  \hat f(n):=\frac1{2\pi}\int_0^{2\pi}f(e^{it})e^{-int}\,dt, \qquad n\in\Nzero,
 \end{equation}
@@ -377,7 +379,7 @@ is a symbol.
 \end{remark}
 
 \begin{remark}
-    The operator $A_\alpha$ is a self-adjoint contraction.  If $|s|<1$,
+    The operator $A_\alpha$ is a self-adjoint contraction.  If $\abs{s}<1$,
 then, after the kernels in \eqref{eq:kernel-basis} are removed, the
 spectra of $\id\pm A_\alpha$ are bounded away from zero.
 [TODO: Reformulate? E.g.: The absolutely continuous spectra of $I\pm
@@ -407,7 +409,7 @@ Suppose there exists $0\ne\psi\in P_N\ell^2(\Nzero)$ such that
     \langle\psi,(\id\pm A_\alpha)\psi\rangle = 0.
 \end{equation}
 With
-$B:=(\id\pm A_\alpha)^{1/2}\ge0$, the above shows $\|B\psi\|^2=0$ and $B\psi=0$, hence
+$B:=(\id\pm A_\alpha)^{1/2}\ge0$, the above shows $\norm{B\psi}^2=0$ and $B\psi=0$, hence
 $(\id\pm A_\alpha)\psi=B(B\psi)=0$, i.e.\ $\psi\in\Ker(\id\pm A_\alpha)$ and $A_\alpha$ has an eigenvalue $\mp 1$ with compactly supported eigenfunction.
 
 If $\delta\ge-\frac12$, Proposition~\ref{prop:spectral-data} gives
@@ -452,7 +454,7 @@ and $\arcsin$ is the principal branch of the inverse sine.
 \begin{remark}{}
   [TODO: I think this is clearer if we call this \emph{proof} and then
   refer to the literature in the proof?]
-Fedele and Gebert first obtained the leading term $h(\beta)$ for $|\beta|<1$
+Fedele and Gebert first obtained the leading term $h(\beta)$ for $\abs{\beta}<1$
 \cite{FedeleGebert}. For the classical Hilbert matrix $a=1$, the
 endpoint case $\beta=1$ with an $o(\log N)$ remainder was obtained by
 Gebert and Poplavskyi \cite{GebertPoplavskyi}, as a special case in
@@ -520,7 +522,7 @@ Hence, for $\psi\in\ell^2(\Nzero)$ we obtain
 \begin{align}
     \<\psi, (\Hh_a - \Hh_b)\psi \>
     &= \int_0^1\bigl(t^{a-1}-t^{b-1}\bigr) \sum_{j,k} \overline{\psi_j} t^j t^k \psi_k\,dt \\
-    &= \int_0^1\bigl(t^{a-1}-t^{b-1}\bigr) |\< \psi, t_{\text{vec}} \>|^2\,dt \geq 0,
+    &= \int_0^1\bigl(t^{a-1}-t^{b-1}\bigr) \abs{\< \psi, t_{\text{vec}} \>}^2\,dt \geq 0,
 \end{align}
 where $(t_{\text{vec}})_j = t^j$ and $t_{\text{vec}}\in\ell^2(\Nzero)$ for $t\in [0,1)$,
 so the difference is positive.  Its diagonal sum is also finite:
@@ -536,10 +538,8 @@ A positive bounded operator with finite diagonal sum is trace class.
 Let $R,S$ be bounded self-adjoint operators on a Hilbert space with $S-R\in\cS$. Suppose that
 $R\ge c\id$ and $S\ge c\id$ for some $c>0$.  Then
 \begin{equation}\label{eq:stable-determinant}
- \left|
- \log\det(P_NSP_N)-\log\det(P_NRP_N)
- \right|
- \le c^{-1}\|S-R\|_1.
+ \abs*{\log\det(P_NSP_N)-\log\det(P_NRP_N)}
+ \le c^{-1}\norm{S-R}_1.
 \end{equation}
 The determinants are taken on the finite-dimensional space $P_N\ell^2(\Nzero)$.
 \end{lemma}
@@ -555,13 +555,13 @@ Therefore
  =\Tr\bigl((R_N+tK_N)^{-1}K_N\bigr),
 \]
 and the absolute value of the right-hand side is bounded by
-$c^{-1}\|K_N\|_1\le c^{-1}\|S-R\|_1$.  Integration over $t\in[0,1]$
+$c^{-1}\norm{K_N}_1\le c^{-1}\norm{S-R}_1$.  Integration over $t\in[0,1]$
 proves the claim.
 \end{proof}
 
 We now fix a noncritical parameter,
 \begin{equation}\label{eq:nonthreshold}
- s:=\sin(\pi\alpha),\qquad |s|<1,
+ s:=\sin(\pi\alpha),\qquad \abs{s}<1,
 \end{equation}
 and define
 \begin{equation}\label{eq:Tpm}
@@ -574,9 +574,9 @@ Let $\Pi^\pm$ be the orthogonal projection onto $K^\pm$, and set
  \widetilde T^{\,\pm}:=T^\pm+\Pi^\pm.
 \end{equation}
 By Proposition~\ref{prop:spectral-data}, the operators $\widetilde T^{\,\pm}$ are
-bounded below by $1-|s|$. The same is true for
+bounded below by $1-\abs{s}$. The same is true for
 \begin{equation}\label{eq:Rpm}
- R^\pm:=\id\pm\frac{s}{\pi}\Hh_1 \geq 1 - |s|
+ R^\pm:=\id\pm\frac{s}{\pi}\Hh_1 \geq 1 - \abs{s}
 \end{equation}
 because $\pi^{-1}\Hh_1$ has spectrum $[0,1]$.  Moreover,
 \begin{equation}\label{eq:regularized-difference}
@@ -615,9 +615,9 @@ where
 \end{equation}
 Let
 \begin{equation}\label{eq:loewner-constants}
- c=\|\widetilde T^{-1/2}\|^{-2},
+ c=\norm{\widetilde T^{-1/2}}^{-2},
  \qquad
- C=\|\widetilde T^{1/2}\|^2.
+ C=\norm{\widetilde T^{1/2}}^2.
 \end{equation}
 Then, with $Q_N := \id - P_N$,
 \begin{equation}\label{eq:loewner-tail}
@@ -662,10 +662,10 @@ is the orthogonal projection onto
 $\Ran C_N=BP_N\ell^2$.  Hence, for every $x\in\C^m$,
 \begin{align}
  x^*M_Nx
- &=\|Vx\|^2-
+ &=\norm{Vx}^2-
    \bigl\langle C_N^*Vx,(C_N^*C_N)^{-1}C_N^*Vx\bigr\rangle\notag\\
  &=\langle Vx,(\id-E_N)Vx\rangle\notag\\
- &=\|(\id-E_N)Vx\|^2\notag\\
+ &=\norm{(\id-E_N)Vx}^2\notag\\
  &=\dist\bigl(Vx,BP_N\ell^2\bigr)^2.
  \label{eq:MN-distance}
 \end{align}
@@ -673,25 +673,25 @@ $\Ran C_N=BP_N\ell^2$.  Hence, for every $x\in\C^m$,
 Using \eqref{eq:B-on-kernel},
 \begin{align*}
  \dist\bigl(Vx,BP_N\ell^2\bigr)
- &=\inf_{y\in P_N\ell^2}\|Vx-By\|\\
- &=\inf_{y\in P_N\ell^2}\|B(Vx-y)\|.
+ &=\inf_{y\in P_N\ell^2}\norm{Vx-By}\\
+ &=\inf_{y\in P_N\ell^2}\norm{B(Vx-y)}.
 \end{align*}
 For every $z\in\ell^2$,
 \[
- \|B^{-1}\|^{-1}\|z\|
- \le\|Bz\|
- \le\|B\|\|z\|.
+ \norm{B^{-1}}^{-1}\norm{z}
+ \le\norm{Bz}
+ \le\norm{B}\norm{z}.
 \]
 Taking the infimum over $y\in P_N\ell^2$ and using that $P_N$ is an
 orthogonal projection gives
 \begin{equation}\label{eq:distance-comparison}
- \|B^{-1}\|^{-1}\|Q_NVx\|
+ \norm{B^{-1}}^{-1}\norm{Q_NVx}
  \le\dist\bigl(Vx,BP_N\ell^2\bigr)
- \le\|B\|\|Q_NVx\|.
+ \le\norm{B}\norm{Q_NVx}.
 \end{equation}
 Since
 \[
- \|Q_NVx\|^2=x^*V^*Q_NVx,
+ \norm{Q_NVx}^2=x^*V^*Q_NVx,
 \]
 combining \eqref{eq:MN-distance} and \eqref{eq:distance-comparison} proves
 \eqref{eq:loewner-tail} with the constants in
@@ -806,7 +806,7 @@ Combining \eqref{eq:regularized-asymptotic} and
  +\sum_{j\in J^\pm_\delta}(2\delta+2j+1)
  \right]\log N+O_\delta(1)
 \end{equation}
-whenever $|\sin(\pi(1+\delta))|<1$.
+whenever $\abs{\sin(\pi(1+\delta))}<1$.
 
 Formula~\eqref{eq:master-formula} is the unsimplified strong asymptotic.  Its
 first term depends only on the principal inverse sine.  Its finite sum is the
