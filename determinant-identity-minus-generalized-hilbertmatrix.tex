@@ -586,8 +586,9 @@ Let $\Pi^\pm$ be the orthogonal projection onto $K^\pm$, and set
 \begin{equation}\label{eq:Ttilde-pm}
  \widetilde T^{\,\pm}:=T^\pm+\Pi^\pm.
 \end{equation}
-By Proposition~\ref{prop:spectral-data}, the operators $\widetilde T^{\,\pm}$ are
-bounded below by $1-\abs{s}$. The same is true for
+By Proposition~\ref{prop:spectral-data}, the spectra of the operators
+$\widetilde T^{\,\pm}$ lie in $[1 - \abs{s}, \infty)$ and thus
+$\widetilde T^{\,\pm} \ge 1-\abs{s}$. The same is true for
 \begin{equation}\label{eq:Rpm}
  R^\pm:=\id\pm\frac{s}{\pi}\Hh_1 \geq 1 - \abs{s}
 \end{equation}
@@ -595,19 +596,24 @@ because $\pi^{-1}\Hh_1$ has spectrum $[0,1]$.  Moreover,
 \begin{equation}\label{eq:regularized-difference}
  \widetilde T^{\,\pm}-R^\pm
  =\pm\frac{s}{\pi}(\Hh_\alpha-\Hh_1)+\Pi^\pm
- \in\cS.
+ \in\cS
 \end{equation}
+by Lemma~\ref{lem:trace-class-shift} and $\dim K^\pm < \infty$.
 With
 \begin{equation}\label{eq:def-q}
  q:=\frac1\pi\arcsin(s),
 \end{equation}
-Lemmas~\ref{lem:trace-class-shift} and \ref{lem:stable-traceclass}, together
+Lemma~\ref{lem:stable-traceclass}, together
 with Proposition~\ref{prop:Hilbert-det} applied at $a=1$, give the regularized asymptotics
 \begin{equation}\label{eq:regularized-asymptotic}
  \log\det(P_N\widetilde T^{\,\pm}P_N)
  =-\frac{q^2\mp q}{2}\log N+O_\delta(1).
 \end{equation}
-This is the contribution that depends only on the principal inverse sine.
+This is the contribution that depends only on the principal inverse
+sine.
+
+What is left is treating $T^\pm$, an operator which can have
+eigenvalues $\pm 1$.
 
 \section{Factorizing into bulk and edge determinant}
 
