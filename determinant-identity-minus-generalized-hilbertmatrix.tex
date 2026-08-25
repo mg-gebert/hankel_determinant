@@ -247,7 +247,7 @@ the continuous spectrum reaches zero.  For the opposite sign, the proof gives
 an $O_\delta(1)$ remainder in the logarithm.
 \end{remark}
 
-\begin{corollary}
+\begin{corollary}\label{cor:main-sq}
 Let $\delta\in\mathbb R\setminus\mathcal P$. Then
 
 \begin{enumerate}
@@ -271,13 +271,12 @@ $\delta\in[m-\frac12,m+\frac12]$,
 \begin{equation}\label{eq:triangular-q}
  \theta_\delta = \frac{1}{\pi}\arcsin(\sin(-\pi\delta)) =(-1)^{m+1}(\delta-m).
 \end{equation}
-Thus, for $\delta\in [-\frac12, \infty)\setminus\mathcal P$, we obtain
+Thus, for $\delta\ge-\frac12$ the coefficient in
+Corollary~\ref{cor:main-sq} can be written
 \[
- \log\det\bigl(\id_N-(H_N^\delta)^2\bigr)
- =-\operatorname{dist}(\delta,\mathbb Z)^2\log N+O_\delta(1)
+ -\theta_\delta^2
+ =-\operatorname{dist}(\delta,\mathbb Z)^2.
 \]
-except for $\delta\in\mathcal C$, where the asymptotic term is
-$o(\log N)$.
 \end{remark}
 
 TODO: Add motivation where the different behaviour for $\delta<-\frac12$ comes from, i.e. the eigenvalues $\pm 1$. Maybe add remark about spectral structure of $H$ earlier.
