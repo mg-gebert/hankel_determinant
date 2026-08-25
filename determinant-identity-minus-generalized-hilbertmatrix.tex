@@ -120,29 +120,6 @@ We are interested in the asymptotic behaviour  of the determinants
 \end{equation}
 as the matrix size $N\to\infty$.
 
-
-\begin{remark} {}
-  [TODO: Why here? Shouldn't we get to main result first?]
-For a Hankel matrix $H:\ell^2(\Nzero)\to\ell^2(\Nzero)$, we call a bounded function
-$f:\mathbb T\to\mathbb C$ a \emph{symbol of $H$} if
-\begin{equation}
- H(j,k)=\hat f(j+k), \qquad j,k\in\Nzero,
-\end{equation}
-where $\mathbb T:=\{z\in\mathbb C:|z|=1\}$ and
-\begin{equation}
- \hat f(n):=\frac1{2\pi}\int_0^{2\pi}f(e^{it})e^{-int}\,dt, \qquad n\in\Nzero,
-\end{equation}
-denotes the $n$-th Fourier coefficient of $f$. For the operator $H^\delta$ studied here, the function
-\begin{equation}
- f(e^{it})=e^{i(1+\delta)(\pi-t)}, \qquad t\in[0,2\pi),
-\end{equation}
-is a symbol.
-\end{remark}
-
-TODO: Add motivation AOC, paper with Mihail and some reference to det
-Hankel + Toeplitz. Also extension of Otte and Gebert/Fedele. (Some of
-this is in "Conclusions" at the end)
-
 To state our main result, we introduce
 \begin{equation}\label{eq:def-sq}
  s_\delta:=\sin((1+\delta)\pi)=\sin(-\pi\delta),
@@ -203,14 +180,14 @@ Figure~\ref{fig:effective-phase} for an illustration.
 \label{fig:effective-phase}
 \end{figure}
 
-TODO: Mention/prove that $D_N^\pm(\delta)> 0$ so that $\log$ will be well defined.
-
 Define the pole and critical sets
 \begin{equation}\label{eq:exceptional-sets}
  \mathcal P:=\{-1,-2,\ldots\}
  \qquad \text{and} \qquad
  \mathcal C:=\frac12+\mathbb Z.
 \end{equation}
+
+Moreover, we note that $D_N^\pm(\delta)>0$ by Lemma \ref{lem:positivity} and therefore $\log D_N^\pm(\delta)$ is well-defined. Our main result is the following: 
 
 \begin{theorem}[Main result]\label{thm:main}
 Let $\delta\in\mathbb R\setminus(\mathcal P\cup\mathcal C)$. Then
@@ -242,8 +219,32 @@ Corollary~\ref{cor:main-sq} can be written
 \]
 \end{remark}
 
+\begin{remark} {}
+For a Hankel matrix $H:\ell^2(\Nzero)\to\ell^2(\Nzero)$, we call a bounded function
+$f:\mathbb T\to\mathbb C$ a \emph{symbol of $H$} if
+\begin{equation}
+ H(j,k)=\hat f(j+k), \qquad j,k\in\Nzero,
+\end{equation}
+where $\mathbb T:=\{z\in\mathbb C:|z|=1\}$ and
+\begin{equation}
+ \hat f(n):=\frac1{2\pi}\int_0^{2\pi}f(e^{it})e^{-int}\,dt, \qquad n\in\Nzero,
+\end{equation}
+denotes the $n$-th Fourier coefficient of $f$. For the operator $H^\delta$ studied here, the function
+\begin{equation}
+ f(e^{it})=e^{i(1+\delta)(\pi-t)}, \qquad t\in[0,2\pi),
+\end{equation}
+is a symbol.
+\end{remark}
+
+
 TODO: Add motivation where the different behaviour for $\delta<-\frac12$ comes from, i.e. the eigenvalues $\pm 1$. Maybe add remark about spectral structure of $H$ earlier.
-\section{The infinite generalized Hilbert matrix}
+
+TODO: Add motivation AOC, paper with Mihail and some reference to det
+Hankel + Toeplitz. Also extension of Otte and Gebert/Fedele. (Some of
+this is in "Conclusions" at the end)
+
+
+\section{The spectrum of the generalized Hilbert matrix}
 
 Let $\ell^2(\Nzero)$ have standard orthonormal basis $(e_j)_{j\ge0}$.  For a
 real parameter
@@ -318,8 +319,44 @@ spectra of $\id\pm A_\alpha$ are bounded away from zero.
 \end{remark}
 
 \begin{remark}
-    Explain why $u_j\in\ell^2(\Nzero)$, not sure if we should start with Hardy spaces here.
+The asymptotic behavior of $u_j(n)$ as $n\to\infty$, derived in
+Lemma~\ref{lem:eigenvector-tails} below, shows that $u_j\in\ell^2(\Nzero)$.
 \end{remark}
+
+\begin{lemma}\label{lem:positivity}
+Let $N\in\mathbb N$ and $\delta\in\mathbb R\setminus\mathbb Z$. Then
+\begin{equation}
+ \id_N\pm H_N^\delta>0,
+\end{equation}
+and consequently $D_N^\pm(\delta)=\det(\id_N\pm H_N^\delta)>0$, so that
+$\log D_N^\pm(\delta)$ is well-defined.
+\end{lemma}
+
+\begin{proof}
+By \eqref{eq:compression}, $\langle\psi,(\id_N\pm H_N^\delta)\psi\rangle
+=\langle\psi,(\id\pm A_\alpha)\psi\rangle$ for any $\psi\in P_N\ell^2(\Nzero)$. 
+
+Suppose there exists $0\ne\psi\in P_N\ell^2(\Nzero)$ such that 
+\begin{equation}
+    \langle\psi,(\id\pm A_\alpha)\psi\rangle = 0.
+\end{equation}
+With
+$B:=(\id\pm A_\alpha)^{1/2}\ge0$, the above shows $\|B\psi\|^2=0$ and $B\psi=0$, hence
+$(\id\pm A_\alpha)\psi=B(B\psi)=0$, i.e.\ $\psi\in\Ker(\id\pm A_\alpha)$ and $A_\alpha$ has an eigenvalue $\mp 1$ with compactly supported eigenfunction.
+
+If $\delta\ge-\frac12$, Proposition~\ref{prop:spectral-data} gives
+$A_\alpha$ has no eigenvalues at all, so $\Ker(\id\pm A_\alpha)=\{0\}$ by
+\eqref{eq:kernel-basis} -- contradicting $\psi\ne0$.
+
+If $\delta<-\frac12$, we show that there can't be a $\mp 1$ eigenvalue with compact support. Note that \eqref{eq:kernel-basis} identifies
+$\Ker(\id\pm A_\alpha)$ with the span of $\{u_j:j\in J_\delta^\pm\}$. Writing
+$\psi=\sum_{j\in J_\delta^\pm}\gamma_ju_j$ and
+$j^*:=\max\{j\in J_\delta^\pm:\gamma_j\ne0\}$, \eqref{eq:coeff-asymptotic}
+gives $\psi(n)=\gamma_{j^*}c_{j^*}n^{\delta+j^*}(1+o(1))$ with
+$\gamma_{j^*}c_{j^*}\ne0$, so $\psi(n)\ne0$ for large $n$ -- contradicting
+$\psi\in P_N\ell^2(\Nzero)$.
+\end{proof}
+
 \section{The principal-branch Hilbert contribution}
 
 For $\alpha>0$, write
