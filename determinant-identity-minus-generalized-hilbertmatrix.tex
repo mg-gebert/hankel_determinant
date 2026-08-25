@@ -417,11 +417,11 @@ With
 $B:=(\id\pm A_\alpha)^{1/2}\ge0$, the above shows $\norm{B\psi}^2=0$ and $B\psi=0$, hence
 $(\id\pm A_\alpha)\psi=B(B\psi)=0$, i.e.\ $\psi\in\Ker(\id\pm A_\alpha)$ and $A_\alpha$ has an eigenvalue $\mp 1$ with compactly supported eigenfunction.
 
-If $\delta\ge-\frac12$, Proposition~\ref{prop:spectral-data} gives
+If $\delta\ge-\frac12$, Proposition~\ref{prop:spectral-data} shows that
 $A_\alpha$ has no eigenvalues at all, so $\Ker(\id\pm A_\alpha)=\{0\}$ by
 \eqref{eq:kernel-basis} -- contradicting $\psi\ne0$.
 
-If $\delta<-\frac12$, we show that there can't be a $\mp 1$ eigenvalue with compact support. Note that \eqref{eq:kernel-basis} identifies
+If $\delta<-\frac12$, we show that there cannot be a $\mp 1$ eigenvalue with compact support. Note that \eqref{eq:kernel-basis} identifies
 $\Ker(\id\pm A_\alpha)$ with the span of $\{u_j:j\in J_\delta^\pm\}$. Writing
 $\psi=\sum_{j\in J_\delta^\pm}\gamma_ju_j$ and
 $j^*:=\max\{j\in J_\delta^\pm:\gamma_j\ne0\}$, \eqref{eq:coeff-asymptotic}
@@ -499,8 +499,10 @@ where $\cS$ stands for the trace class.
 \end{lemma}
 
 \begin{proof}
-Choose $r\in\Nzero$ so large that $\alpha+2r>0$ and $\beta+2r>0$. Let
-$P_r$ be the projection onto the first $r$ coordinates and and
+Choose $r\in\Nzero$ so large that $\alpha+2r>0$ and $\beta+2r>0$. We
+first show that treating $\Hh_{\alpha+2r}-\Hh_{\beta+2r}$ is enough
+since the difference has finite rank.
+Let $P_r$ be the projection onto the first $r$ coordinates and and
 $Q_r=\id-P_r$.
 Expanding via $\id = P_r + Q_r$ gives
 \[
