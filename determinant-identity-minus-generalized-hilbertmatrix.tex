@@ -118,7 +118,7 @@ We are interested in the asymptotic behaviour  of the determinants
 \begin{equation}\label{eq:def-Dpm}
  D_N^\pm(\delta):=\det(\id_N\pm H_N^\delta)
 \end{equation}
-as the matrix size $N\to\infty$. We note that $D_N^\pm(\delta)>0$ by Lemma \ref{lem:positivity} and therefore $\log D_N^\pm(\delta)$ is well-defined. 
+as the matrix size $N\to\infty$. We note that $D_N^\pm(\delta)>0$ by Lemma \ref{lem:positivity} and therefore $\log D_N^\pm(\delta)$ is well-defined.
 
 \begin{figure}
 \centering
@@ -173,7 +173,7 @@ Define the pole and critical sets
  \mathcal C:=\frac12+\mathbb Z.
 \end{equation}
 
-Our main result is the following: 
+Our main result is the following:
 
 \begin{theorem}\label{thm:main}
 Let $\delta\in\mathbb R\setminus(\mathcal P\cup\mathcal C)$. We define a $\arcsin-\sin$ regularized $\delta$ by
@@ -198,9 +198,9 @@ Then, we have the following asymptotic behaviour as $N\to\infty$
 
 \begin{remark}
 Note that the exponent $\delta\mapsto\theta_\delta$ is a continuous function. See
-Figure~\ref{fig:effective-phase} for an illustration. 
+Figure~\ref{fig:effective-phase} for an illustration.
 
-Moreover, we note that 
+Moreover, we note that
 \begin{equation}
     \delta_{\text{reg}}=\frac1\pi\arcsin\bigl(\sin(\delta\pi)\bigr)
     = - \frac1\pi\arcsin\bigl(\sin((1+\delta)\pi)\bigr).
@@ -241,7 +241,7 @@ factorization of Lemma~\ref{lem:edge-extraction}. We omit the details here to
 keep the presentation concise.
 \end{remark}
 
-TODO: Add motivation where the different behaviour for $\delta<-\frac12$ comes from, i.e. the eigenvalues $\pm 1$. Maybe add remark about spectral structure of $H$ earlier. Mention bulk and edge contribution. 
+TODO: Add motivation where the different behaviour for $\delta<-\frac12$ comes from, i.e. the eigenvalues $\pm 1$. Maybe add remark about spectral structure of $H$ earlier. Mention bulk and edge contribution.
 
 \begin{remark}\label{rem:motivation}
 \begin{enumerate}
@@ -250,7 +250,7 @@ $D_N^\pm(\delta)$ and $\det(\id_N-(H_N^\delta)^2)$ appear in a phenomenon called
 Anderson's orthogonality catastrophe (AOC), which describes the precise
 asymptotic vanishing of ground-state overlaps of two non-interacting Fermi
 gases, see \cite{GebertKuttlerMuller,GebertKuttlerMullerOtte}. The essential
-task in AOC is to understand the $L\to\infty$ asymptotics of determinants 
+task in AOC is to understand the $L\to\infty$ asymptotics of determinants
 involving differences of spectral projections of
 the form
 \begin{equation}
@@ -276,7 +276,7 @@ Moreover, AOC for Dirac-$\delta$ perturbations is treated in
 \cite{Gebert2015}, where it was first observed that the
 exponent $\pi^{-2}\arcsin^2(\sin\delta_\alpha)$ fails to be sharp once the phase shift $\delta_\alpha$ exceeds
 $\pi/2$: the true exponent is $\pi^{-2}\delta_\alpha^2$
-throughout. However, the asymptotics was derived without the notation of Hankel matrices. 
+throughout. However, the asymptotics was derived without the notation of Hankel matrices.
 
 \item \emph{Appearance in random matrix theory.} At $\delta=0$,
 $D_N^-(0)=\det(\id_N-H_N)$ with $H_N$ the classical Hilbert matrix, and its
@@ -400,9 +400,9 @@ $\log D_N^\pm(\delta)$ is well-defined.
 
 \begin{proof}
 By \eqref{eq:compression}, $\langle\psi,(\id_N\pm H_N^\delta)\psi\rangle
-=\langle\psi,(\id\pm A_\alpha)\psi\rangle$ for any $\psi\in P_N\ell^2(\Nzero)$. 
+=\langle\psi,(\id\pm A_\alpha)\psi\rangle$ for any $\psi\in P_N\ell^2(\Nzero)$.
 
-Suppose there exists $0\ne\psi\in P_N\ell^2(\Nzero)$ such that 
+Suppose there exists $0\ne\psi\in P_N\ell^2(\Nzero)$ such that
 \begin{equation}
     \langle\psi,(\id\pm A_\alpha)\psi\rangle = 0.
 \end{equation}
@@ -492,10 +492,23 @@ where $\cS$ stands for the trace class.
 \end{lemma}
 
 \begin{proof}
-Choose $r\in\Nzero$ so large that $\alpha+2r>0$ and $\beta+2r>0$.
-Deleting the first $r$ rows and columns changes the difference by a finite-rank
-operator.  After reindexing, the remaining block is
-$\Hh_{\alpha+2r}-\Hh_{\beta+2r}$.
+Choose $r\in\Nzero$ so large that $\alpha+2r>0$ and $\beta+2r>0$. Let
+$P_r$ be the projection onto the first $r$ coordinates and and
+$Q_r=\id-P_r$.
+Expanding via $\id = P_r + Q_r$ gives
+\[
+ (\Hh_\alpha-\Hh_\beta) - Q_r(\Hh_\alpha-\Hh_\beta)Q_r=P_r(\Hh_\alpha-\Hh_\beta)+Q_r(\Hh_\alpha-\Hh_\beta)P_r,
+\]
+which has rank at most $2r$.  Moreover, if
+$U_r:\ell^2(\Nzero)\to Q_r\ell^2(\Nzero)$ is given by
+$U_re_j=e_{j+r}$, then
+\[
+ U_r^*Q_r(\Hh_\alpha-\Hh_\beta)Q_rU_r
+ =
+ \Hh_{\alpha+2r}-\Hh_{\beta+2r}.
+\]
+The difference between $\Hh_{\alpha+2r}-\Hh_{\beta+2r}$ and $\Hh_\alpha-\Hh_\beta$ is
+therefore of finite rank.
 
 Assume, without loss of generality, that
 $a:=\alpha+2r<b:=\beta+2r$.  The entries of $\Hh_a-\Hh_b$ satisfy
@@ -506,7 +519,7 @@ $a:=\alpha+2r<b:=\beta+2r$.  The entries of $\Hh_a-\Hh_b$ satisfy
 Hence, for $\psi\in\ell^2(\Nzero)$ we obtain
 \begin{align}
     \<\psi, (\Hh_a - \Hh_b)\psi \>
-    &= \int_0^1\bigl(t^{a-1}-t^{b-1}\bigr) \sum_{j,k} \bar\psi_j t^j t^k \psi_k\,dt \\
+    &= \int_0^1\bigl(t^{a-1}-t^{b-1}\bigr) \sum_{j,k} \overline{\psi_j} t^j t^k \psi_k\,dt \\
     &= \int_0^1\bigl(t^{a-1}-t^{b-1}\bigr) |\< \psi, t_{\text{vec}} \>|^2\,dt \geq 0,
 \end{align}
 where $(t_{\text{vec}})_j = t^j$ and $t_{\text{vec}}\in\ell^2(\Nzero)$ for $t\in [0,1)$,
