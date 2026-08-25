@@ -67,10 +67,10 @@ The decay exponent is given by
   \theta_\delta :=
   \begin{cases}
     -\delta, & \delta \le -\frac{1}{2}, \\
-    \dfrac{1}{\pi} \arcsin\bigl(\sin(-\pi\delta)\bigr), & \delta \ge -\frac{1}{2},
+    \dfrac{1}{\pi} \arcsin\bigl(\sin(-\pi\delta)\bigr), & \delta > -\frac{1}{2},
   \end{cases}
 \]
-where $\arcsin \colon [-1,1] \to \left[-\frac{\pi}{2}, \frac{\pi}{2}\right]$ denotes the principal branch of $\arcsin$.
+where $\arcsin \colon [-1,1] \to [-\frac{\pi}{2}, \frac{\pi}{2}]$ denotes the principal branch of $\arcsin$.
 At the half-integers, the same algebraic decay holds up to sub-logarithmic factors
 \[
   \log \det(\id_N \pm H_N^\delta) = -\frac{\theta_\delta^2 \mp \theta_\delta}{2} \log N + o(\log N).
@@ -87,7 +87,11 @@ Most notably, we obtain
 The asymptotics exhibits a kind of
 phase transition: for all $\delta \ge -\frac{1}{2}$ the decay exponent is
 bounded $\theta_\delta^2\in [0,\frac 1 4]$, whereas for $\delta <
--\frac{1}{2}$ the exponent $\theta_\delta^2 = \delta^2$ is unbounded.
+-\frac{1}{2}$ the exponent $\theta_\delta^2 = \delta^2$ is
+unbounded. [TODO: Add motivation? E.g.: This decay behavior mirrors the
+more complicated vanishing of the ground-state overlap of two
+non-interacting Fermi gases known as Anderson’s orthogonality
+catastrophe.]
 
 AI acknowledgement: While the authors were aware of most results of
 this paper for several years, the key
@@ -109,10 +113,11 @@ For $\delta\in\mathbb R \setminus \{-1,-2,\ldots\}$, we define the generalized H
  \frac{\sin((1+\delta)\pi)}{\pi(j+k+1+\delta)}
  \right)
 \end{equation}
-for $j,k\in\Nzero$. We are interested in $N\in\mathbb N$ restrictions of $H^\delta$ and denote
+for $j,k\in\Nzero$. For $N\in\mathbb N$, denote restrictions of $H^\delta$ by
 \begin{equation}\label{eq:def-Hdelta}
  H_N^\delta
- :=H^\delta_N = \Big(H^\delta(j,k)\Big)_{j,k=0}^{N-1}.
+ :=
+ \Big(H^\delta(j,k)\Big)_{j,k=0}^{N-1}.
 \end{equation}
 
 We are interested in the asymptotic behaviour  of the determinants
@@ -122,9 +127,10 @@ We are interested in the asymptotic behaviour  of the determinants
 as the matrix size $N\to\infty$.
 
 
-\begin{remark}
+\begin{remark} {}
+  [TODO: Why here? Shouldn't we get to main result first?]
 For a Hankel matrix $H:\ell^2(\Nzero)\to\ell^2(\Nzero)$, we call a bounded function
-$f:\mathbb T\to\mathbb C$ a symbol of $H$ if
+$f:\mathbb T\to\mathbb C$ a \emph{symbol of $H$} if
 \begin{equation}
  H(j,k)=\hat f(j+k), \qquad j,k\in\Nzero,
 \end{equation}
@@ -155,7 +161,7 @@ where $\arcsin:[-1,1]\to[-\pi/2,\pi/2]$ is the principal inverse sine.  With the
  \theta_\delta:=
  \begin{cases}
   -\delta,&\delta\le-\frac12,\\[1mm]
-  q_\delta,&\delta\ge-\frac12.
+  q_\delta,&\delta > -\frac12.
  \end{cases}
 \end{equation}
 It is easy to see that $\theta_\delta$ is continuous in $\delta$.
@@ -219,7 +225,7 @@ Let $\delta\in\mathbb R\setminus\mathcal P$. Then
 For $m\in\mathbb N_0$ and
 $\delta\in[m-\frac12,m+\frac12]$,
 \begin{equation}\label{eq:triangular-q}
- q_\delta=(-1)^{m+1}(\delta-m).
+ \theta_\delta = \frac{1}{\pi}\arcsin(\sin(-\pi\delta)) =(-1)^{m+1}(\delta-m).
 \end{equation}
 Thus, for $\delta\in [-\frac12, \infty)\setminus\mathcal P$, we obtain
 \[
@@ -244,6 +250,7 @@ $\ell^2(\Nzero)$, and define its normalized form
 \begin{equation}\label{eq:Aalpha}
  A_\alpha:=\frac{\sin(\pi\alpha)}\pi\Hh_\alpha.
 \end{equation}
+[Since $A_\alpha = H^{1+\delta}$ do we really need both variables?]
 Throughout let $P_N$ be the orthogonal projection onto
 $\operatorname{span}\{e_0,\ldots,e_{N-1}\}$ and put
 \[Q_N:=\id-P_N.\]
@@ -298,7 +305,10 @@ The singular continuous spectrum is empty, i.e. the above describes the  spectru
 
 \begin{remark}
     The operator $A_\alpha$ is a self-adjoint contraction.  If $|s|<1$,
-then, after the kernels in \eqref{eq:kernel-basis} are removed, the spectra of $\id\pm A_\alpha$ are bounded away from zero.
+then, after the kernels in \eqref{eq:kernel-basis} are removed, the
+spectra of $\id\pm A_\alpha$ are bounded away from zero.
+[TODO: Reformulate? E.g.: The absolutely continuous spectra of $I\pm
+  A_\alpha$ have positive distance to zero.]
 \end{remark}
 
 \begin{remark}
@@ -306,19 +316,19 @@ then, after the kernels in \eqref{eq:kernel-basis} are removed, the spectra of $
 \end{remark}
 \section{The principal-branch Hilbert contribution}
 
-For $a>0$, write
+For $\alpha>0$, write
 \begin{equation}\label{eq:finite-Hilbert}
- \Hh_{a,N}:=\left(\frac1{j+k+a}\right)_{j,k=0}^{N-1}.
+ \Hh_{\alpha,N}:=\left(\frac1{j+k+\alpha}\right)_{j,k=0}^{N-1}.
 \end{equation}
 We need the following result.
 
 \begin{proposition}[Hilbert determinant asymptotics]\label{prop:Hilbert-det}
-Let $a\ge\frac12$ and $\beta\in[-1,1]$. Then we have
+Let $\alpha\ge\frac12$ and $\beta\in[-1,1]$. Then we have
 \begin{equation}\label{eq:Otte-strong}
- \log\det\left(\id_N-\frac\beta\pi\Hh_{a,N}\right)
+ \log\det\left(\id_N-\frac\beta\pi\Hh_{\alpha,N}\right)
  =-h(\beta)\log N+
  \begin{cases}
-  O_{a,\beta}(1),&\beta<1,\\
+  O_{\alpha,\beta}(1),&\beta<1,\\
   o(\log N),&\beta=1
  \end{cases}
 \end{equation}
@@ -330,15 +340,17 @@ where
 and $\arcsin$ is the principal branch of the inverse sine.
 \end{proposition}
 
-\begin{remark}
-Fedele and Gebert first obtained the leading term for $|\beta|<1$
+\begin{remark}{}
+  [TODO: I think this is clearer if we call this \emph{proof} and then
+  refer to the literature in the proof?]
+Fedele and Gebert first obtained the leading term $h(\beta)$ for $|\beta|<1$
 \cite{FedeleGebert}. For the classical Hilbert matrix $a=1$, the
 endpoint case $\beta=1$ with an $o(\log N)$ remainder was obtained by
-Gebert and Poplavskyi \cite{GebertPoplavskyi}, as a special case of
-their work on truncations of random orthogonal matrices. Otte proved
+Gebert and Poplavskyi \cite{GebertPoplavskyi}, as a special case in
+the context of truncations of random orthogonal matrices. Otte proved
 the generalized-parameter statement, improved the remainder to $O(1)$
 for $\beta<1$, and established the same $o(\log N)$ remainder at the
-endpoint $\beta=1$ for general $a$ \cite{Otte}.
+endpoint $\beta=1$ for general $a\ge\frac12$ \cite{Otte}.
 \end{remark}
 
 Translated to our notation, let $\delta\ge-\frac12$.  Then
