@@ -251,8 +251,7 @@ keep the presentation concise.
 TODO: Add motivation where the different behaviour for $\delta<-\frac12$ comes from, i.e. the eigenvalues $\pm 1$. Maybe add remark about spectral structure of $H$ earlier. Mention bulk and edge contribution.
 
 \begin{remark}\label{rem:motivation}
-\begin{enumerate}
-\item \emph{Anderson's orthogonality catastrophe.} Determinants of the form
+(1) \emph{Anderson's orthogonality catastrophe.} Determinants of the form
 $D_N^\pm(\delta)$ and $\det(\id_N-(H_N^\delta)^2)$ appear in a phenomenon called
 Anderson's orthogonality catastrophe (AOC), which describes the precise
 asymptotic vanishing of ground-state overlaps of two non-interacting Fermi
@@ -260,7 +259,7 @@ gases, see \cite{GebertKuttlerMuller,GebertKuttlerMullerOtte}. The essential
 task in AOC is to understand the $L\to\infty$ asymptotics of determinants
 involving differences of spectral projections of
 the form
-\begin{equation}
+\begin{equation} \label{eq:aoc-det}
     \det( \id - \id_L ( \id_{(-\infty, E]} (H_0) - \id_{(-\infty, E]} (H_1) )^2 \id_L),
 \end{equation}
 for appropriate pairs of Schr\"odinger operators $(H_0, H_1)$ which differ by a short-range scattering potential and
@@ -283,21 +282,27 @@ Moreover, AOC for Dirac-$\delta$ perturbations is treated in
 \cite{Gebert2015}, where it was first observed that the
 exponent $\pi^{-2}\arcsin^2(\sin\delta_\alpha)$ fails to be sharp once the phase shift $\delta_\alpha$ exceeds
 $\pi/2$: the true exponent is $\pi^{-2}\delta_\alpha^2$
-throughout. However, the asymptotics was derived without the notation of Hankel matrices.
+throughout.
 
-\item \emph{Appearance in random matrix theory.} At $\delta=0$,
+Expanding \eqref{eq:aoc-det} yields trace expressions of the form
+$\Tr(\id_{(-\infty, E]} (H_0) - \id_{(-\infty, E]} (H_1))$ which gives
+rise to the spectal shift function originally introduced by Lifshitz
+and Krein, see \cite{KostrykinMakarov} and its references. Note that
+in this work the spectral properties of this difference of projections
+are derived via generalized Hilbert matrices.
+
+(2) \emph{Appearance in random matrix theory.} At $\delta=0$,
 $D_N^-(0)=\det(\id_N-H_N)$ with $H_N$ the classical Hilbert matrix, and its
 asymptotics determine the probability that a truncated random orthogonal
 matrix has no real eigenvalues, equivalently a persistence probability for
 Kac polynomials \cite{GebertPoplavskyi}.
 
-\item \emph{Asymptotics of Hankel, Toeplitz, and Hankel-plus-Toeplitz determinants}
+(3) \emph{Asymptotics of Hankel, Toeplitz, and Hankel-plus-Toeplitz determinants}
 are a classical subject, see e.g.\ \cite{BasorEhrhardt,DeiftItsKrasovsky,GharakhlooIts,GharakhlooItsII} and
 the references therein. Since $\id_N$ is (trivially) Toeplitz and $H_N^\delta$
 is Hankel, $D_N^\pm(\delta)$ is itself a Hankel-plus-Toeplitz determinant;
 however, the existing literature generally requires the Toeplitz and Hankel
 matrices to be related to the same symbol, a condition that fails here.
-\end{enumerate}
 \end{remark}
 
 \section{The spectrum of the generalized Hilbert matrix}
@@ -561,6 +566,7 @@ Therefore
  \frac{d}{dt}\log\det(R_N+tK_N)
  =\Tr\bigl((R_N+tK_N)^{-1}K_N\bigr),
 \]
+via Jacobi’s determinant formula
 and the absolute value of the right-hand side is bounded by
 $c^{-1}\norm{K_N}_1\le c^{-1}\norm{S-R}_1$.  Integration over $t\in[0,1]$
 proves the claim.
@@ -996,12 +1002,12 @@ B. Silbermann,
 Integral Equations Operator Theory \textbf{93} (2021), Paper No.~21.
 \href{https://doi.org/10.1007/s00020-021-02637-5}{doi:10.1007/s00020-021-02637-5}.
 
-\bibitem{Wilf}
-H. S. Wilf,
-\emph{Finite sections of some classical inequalities},
-Ergebnisse der Mathematik und ihrer Grenzgebiete, Band~52,
-Springer-Verlag, Berlin--New York, 1970.
-\href{https://doi.org/10.1007/978-3-642-86712-5}{doi:10.1007/978-3-642-86712-5}.
+% \bibitem{Wilf}
+% H. S. Wilf,
+% \emph{Finite sections of some classical inequalities},
+% Ergebnisse der Mathematik und ihrer Grenzgebiete, Band~52,
+% Springer-Verlag, Berlin--New York, 1970.
+% \href{https://doi.org/10.1007/978-3-642-86712-5}{doi:10.1007/978-3-642-86712-5}.
 
 \bibitem{KnoerrOtteSpitzer}
 H.~K. Kn\"orr, P. Otte, and W. Spitzer,
@@ -1025,6 +1031,12 @@ J. Spectr. Theory \textbf{6} (2016), no.~3, 643--683.
 M. Gebert,
 \emph{The asymptotics of an eigenfunction-correlation determinant for Dirac-$\delta$ perturbations},
 J. Math. Phys. \textbf{56} (2015), no.~7, article id.\ 072110.
+
+\bibitem{KostrykinMakarov}
+V. Kostrykin and K.~A. Makarov,
+\emph{On Krein's example},
+Proc. Amer. Math. Soc. \textbf{136} (2008), no.~6, 2067--2071.
+\href{https://doi.org/10.1090/S0002-9939-08-09141-7}{doi:10.1090/S0002-9939-08-09141-7}.
 
 \bibitem{BasorEhrhardt}
 E.~L. Basor and T. Ehrhardt,
