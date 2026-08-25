@@ -10,6 +10,7 @@
  pdftitle={Determinant of the identity minus a generalized Hilbert matrix},
  pdfauthor={Martin Gebert and Heinrich K\"uttler}
 }
+\usepackage{pgfplots}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
@@ -31,6 +32,7 @@
 \newcommand{\id}{I}
 \newcommand{\cS}{\mathfrak S_1}
 
+\pgfplotsset{set layers}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -164,8 +166,50 @@ where $\arcsin:[-1,1]\to[-\pi/2,\pi/2]$ is the principal inverse sine.  With the
   q_\delta,&\delta > -\frac12.
  \end{cases}
 \end{equation}
-It is easy to see that $\theta_\delta$ is continuous in $\delta$.
+Note that $\delta\mapsto\theta_\delta$ is a continuous function. See
+Figure~\ref{fig:effective-phase} for an illustration.
 
+[TODO: Consider removing $s_\delta$ as a separate variable. It's
+  rarely used.]
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=8.4cm, height=5.2cm,          % <- set to \linewidth in the paper
+    scale only axis,
+    xlabel={$\delta$},
+    ylabel={$\theta_\delta$},
+    xmin=-3, xmax=3, ymin=-0.9, ymax=3.2,
+    xtick={-3,-2.5,...,3},
+    ytick={-0.5,0,...,3},
+    axis lines=left,
+    axis line style={gray!60},
+    tick style={gray!60},
+    tick label style={font=\footnotesize},
+    grid=both,
+    major grid style={gray!25},
+    minor tick num=0,
+    ylabel style={rotate=-90},
+    clip=false,
+]
+
+% Shade the region delta <= -1/2 (the non-folded branch)
+\addplot[draw=none, fill=black!5, forget plot, on layer=axis background]
+    coordinates {(-3,-0.9) (-0.5,-0.9) (-0.5,3.2) (-3,3.2)} \closedcycle;
+
+% The function is piecewise linear, so exact vertices beat sampling.
+% delta <= 1/2 : the line -delta   (the two branches agree on (-1/2, 1/2])
+% delta >  1/2 : triangle wave, reflecting at every half-integer
+\addplot[very thick, blue!55!black] coordinates {
+    (-3, 3) (0.5, -0.5) (1.5, 0.5) (2.5, -0.5) (3, 0)
+};
+
+\end{axis}
+\end{tikzpicture}
+\caption{$\theta_\delta$ as a function of $\delta$}
+\label{fig:effective-phase}
+\end{figure}
 
 TODO: Mention/prove that $D_N^\pm(\delta)> 0$ so that $\log$ will be well defined.
 
