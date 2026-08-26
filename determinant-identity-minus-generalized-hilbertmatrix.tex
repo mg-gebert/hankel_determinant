@@ -840,9 +840,9 @@ $\theta_\delta=-\delta>\frac12$.  Put
 More generally, for every $\theta_\delta>\frac12$ the above definition of $m$ gives
 $\theta_\delta\in(m-\frac12,m+\frac12]$, and on this interval
 \begin{equation}\label{eq:lift}
- \delta_{\text{reg}}=(-1)^m(\theta_\delta-m),
+ -\delta_{\text{reg}}=(-1)^m(\theta_\delta-m),
  \qquad\text{equivalently}\qquad
- \theta_\delta=m+(-1)^m\delta_{\text{reg}}.
+ \theta_\delta=m - (-1)^m\delta_{\text{reg}}.
 \end{equation}
 The $m$ edge eigenvectors are indexed by $j=0,\ldots,m-1$, with
 alternating eigenvalues.  Define
@@ -856,7 +856,7 @@ Thus $J^\pm_\delta=J_m^\pm$.
 \begin{lemma}\label{lem:unfolding}
 With $m$ as in \eqref{eq:m-def} and $\delta_{\text{reg}}$ as in \eqref{eq:lift},
 \begin{equation}\label{eq:unfolding-identity}
- -\frac{\delta_{\text{reg}}^2\mp \delta_{\text{reg}}}{2}
+ -\frac{\delta_{\text{reg}}^2\pm \delta_{\text{reg}}}{2}
  +\sum_{j\in J_m^\pm}(1-2\theta_\delta+2j)
  =-\frac{\theta_\delta^2\mp\theta_\delta}{2}.
 \end{equation}
