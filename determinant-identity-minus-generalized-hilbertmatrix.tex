@@ -701,8 +701,8 @@ For every $z\in\ell^2$,
  \le\norm{Bz}
  \le\norm{B}\norm{z}.
 \]
-Taking the infimum over $y\in P_N\ell^2$ and using that $P_N$ is an
-orthogonal projection gives
+Using $z = Vx - y$, taking the infimum over $y\in P_N\ell^2$, and
+using that $P_N$ is an orthogonal projection gives
 \begin{equation}\label{eq:distance-comparison}
  \norm{B^{-1}}^{-1}\norm{Q_NVx}
  \le\dist\bigl(Vx,BP_N\ell^2\bigr)
@@ -747,14 +747,13 @@ $\delta+j<-\frac12$.  Then
  c_j:=\frac{2^j}{\Gamma(\delta+j+1)}\ne0.
 \end{equation}
 This implies in particular $u_j \in \ell^2(\Nzero)$.
-Moreover, for any $J\subset\{j\in\Nzero:\delta+j<-\frac12\}$ we have
+Moreover, for any $J\subseteq\{j\in\Nzero:\delta+j<-\frac12\}$ we have
 \begin{equation}\label{eq:tail-gram-asymptotic}
- \det\left(\sum_{n=N}^\infty u_i(n)u_j(n)\right)_{i,j\in J}
- =C_J\times
- N^{\sum_{j\in J}(2\delta+2j+1)}\bigl(1+o(1)\bigr)
+ \log\det\left(\sum_{n=N}^\infty u_i(n)u_j(n)\right)_{i,j\in J}
+ =
+ \sum_{j\in J}(2\delta+2j+1) \log N + O(1)
 \end{equation}
-as $N\to\infty$
-for some constant $C_J>0$.
+as $N\to\infty$ with a constant depending on $J$.
 \end{lemma}
 
 \begin{proof}
@@ -766,7 +765,7 @@ and
 \[
 (1-z)^{-(\delta+j+1)} = \sum_{l=0}^\infty \frac {\Gamma(l+\delta+j+1) }{\Gamma(\delta + j+1)\Gamma(l+1)} z^l,
 \]
-the Cauchy product formula, gives for indices $n\ge j$,
+the Cauchy product formula gives for indices $n\ge j$,
 \[
  u_j(n)
  =\sum_{\ell=0}^j\binom j\ell
