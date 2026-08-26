@@ -246,32 +246,33 @@ TODO: Add motivation where the different behaviour for $\delta<-\frac12$ comes f
 \begin{remark}\label{rem:motivation}
 (1) \emph{Anderson's orthogonality catastrophe.} Determinants of the form
 $D_N^\pm(\delta)$ and $\det(\id_N-(H_N^\delta)^2)$ appear in a phenomenon called
-Anderson's orthogonality catastrophe (AOC), which describes the precise
+Anderson's orthogonality catastrophe (AOC), which describes the
 asymptotic vanishing of ground-state overlaps of two non-interacting Fermi
 gases, see \cite{GebertKuttlerMuller,GebertKuttlerMullerOtte}. The essential
-task in AOC is to understand the $L\to\infty$ asymptotics of determinants
+task in AOC is to understand the precise $L\to\infty$ asymptotics of determinants
 involving differences of spectral projections of
 the form
 \begin{equation} \label{eq:aoc-det}
     \det( \id - \id_L ( \id_{(-\infty, E]} (H_0) - \id_{(-\infty, E]} (H_1) )^2 \id_L),
 \end{equation}
-for appropriate pairs of Schr\"odinger operators $(H_0, H_1)$ which
-differ by a short-range scattering potential and finite-volume
-projections $\id_L$. Since products and differences of spectral
-projections are closely related to Hankel operators
-\cite{FrankPushnitski}, the generalized Hilbert matrix treated here
-can serve as a model operator for the above problem.
+for appropriate pairs of Schr\"odinger operators $(H_0, H_1)$ which differ by a short-range scattering potential and
+finite-volume projections $\id_L$. Differences of such spectral projections
+are closely related to Hankel operators \cite{FrankPushnitski}, and the generalized Hilbert matrix
+treated here can serve as a model operator. 
+For example, the Hilbert matrix already appeared in the
+study of Krein’s example which is a simple pair of such spectral projections, see \cite{KostrykinMakarov}. 
 
-For example, this was done in \cite[Rmk.~2.7]{KnoerrOtteSpitzer}, where, in a
+In the direct context of AOC, the determinant identity minus squared
+(generalized) Hilbert matrix appeared in \cite{KnoerrOtteSpitzer}, where, in a
 special case, the asymptotics of AOC was reduced to the asymptotics of
-\begin{equation}
-    \det(\id_N-\pi^{-2}\sin^2(\delta)P_NH_\eta^2P_N),
+\begin{equation}\label{rm:sq-asymp}
+    \det(\id_N-\pi^{-2}\sin^2(\delta)P_N\mathcal H_\eta^2P_N),
 \end{equation}
-and the absence of a Szeg\H o-type theorem for this quantity was noted.
+for some $\eta$ and $\mathcal H_\eta$ is defined here \eqref{eq:Halpha}. The absence of a Szeg\H o-type theorem for this quantity was noted.
 Corollary~\ref{cor:main-sq} resolves this question for every
 $\delta\in\mathbb R\setminus(\mathcal P\cup\mathcal C)$, i.e.\ for every
 $\eta=1+\delta$ away from the poles and the critical half-integers. Fedele and
-Gebert \cite[Cor.~1.5]{FedeleGebert} had previously given a partial answer,
+Gebert \cite[Cor.~1.5]{FedeleGebert} had previously given a partial answer to the asymptotics of \eqref{rm:sq-asymp},
 valid only for the classical Hilbert matrix $\eta=1$ and $\abs{\sin(\pi\delta)}<1$.
 Moreover, AOC for Dirac-$\delta$ perturbations is treated in
 \cite{Gebert2015}, where it was first observed that the
@@ -279,21 +280,8 @@ exponent $\pi^{-2}\arcsin^2(\sin\delta_\alpha)$ fails to be sharp once the phase
 $\pi/2$: the true exponent is $\pi^{-2}\delta_\alpha^2$
 throughout.
 
-Differences of spectral projections as in \eqref{eq:aoc-det} give rise
-to the ``amazing and multifaceted'' spectral shift function,
-originally introduced by Lifshitz and Krein, see
-\cite{BirmanPushnitski} and its references. It plays a key role in
-perturbation theory; one illustrative example is
-\cite{KostrykinMakarov}, where
-generalized Hilbert matrices are used to determine the
-spectral properties of the difference of projections
-$\Tr(\id_{(-\infty, E]} (H_0) - \id_{(-\infty, E]} (H_1))$.
-
-(2) \emph{Appearance in random matrix theory.} At $\delta=0$,
-$D_N^-(0)=\det(\id_N-H_N)$ with $H_N$ the classical Hilbert matrix, and its
-asymptotics determine the probability that a truncated random orthogonal
-matrix has no real eigenvalues, equivalently a persistence probability for
-Kac polynomials \cite{GebertPoplavskyi}.
+(2) \emph{Appearance in random matrix theory.} The asymptotics of the determinant $\det(\id_N-\mathcal H_1)$ with $\mathcal H_1$ being the classical Hilbert matrix defined in \eqref{eq:Halpha}, determines the probability that a truncated random orthogonal
+matrix has no real eigenvalues, see \cite{GebertPoplavskyi}. 
 
 (3) \emph{Asymptotics of Hankel, Toeplitz, and Hankel-plus-Toeplitz determinants}
 are a classical subject, see e.g.\ \cite{BasorEhrhardt,DeiftItsKrasovsky,GharakhlooIts,GharakhlooItsII} and
