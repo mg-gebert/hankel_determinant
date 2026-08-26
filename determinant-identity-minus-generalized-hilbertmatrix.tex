@@ -84,7 +84,7 @@ Most notably, we obtain
   \log \det\bigl(\id_N - (H_N^\delta)^2\bigr) = -\theta_\delta^2 \log
   N + O(1).
 \]
-The asymptotics exhibit a kind of
+The asymptotics exhibits a kind of
 phase transition: for all $\delta \ge -\frac{1}{2}$ the decay exponent is
 bounded $\theta_\delta^2\in [0,\frac 1 4]$, whereas for $\delta <
 -\frac{1}{2}$ the exponent $\theta_\delta^2 = \delta^2$ is
@@ -176,7 +176,7 @@ Define the pole and critical sets
 Our main result is the following:
 
 \begin{theorem}\label{thm:main}
-Let $\delta\in\mathbb R\setminus(\mathcal P\cup\mathcal C)$. We define a $\arcsin$-\,$\sin$ regularized $\delta$ by
+Let $\delta\in\mathbb R\setminus(\mathcal P\cup\mathcal C)$. We define a $\arcsin-\sin$ regularized $\delta$ by
 \begin{align}\label{eq:def-sq}
  \delta_{\text{reg}}:=&\frac1\pi\arcsin\bigl(\sin(\delta\pi)\bigr)
  \in\left[-\frac12,\frac12\right]
@@ -256,11 +256,11 @@ the form
     \det( \id - \id_L ( \id_{(-\infty, E]} (H_0) - \id_{(-\infty, E]} (H_1) )^2 \id_L),
 \end{equation}
 for appropriate pairs of Schr\"odinger operators $(H_0, H_1)$ which differ by a short-range scattering potential and
-finite-volume projections $\id_L$. Products and differences of such spectral projections
+finite-volume projections $\id_L$. Differences of such spectral projections
 are closely related to Hankel operators \cite{FrankPushnitski}, and the generalized Hilbert matrix
-treated here can serve as a model operator.
+treated here can serve as a model operator. 
 For example, the Hilbert matrix already appeared in the
-study of Krein’s example which is a simple pair of such spectral projections, see \cite{KostrykinMakarov}.
+study of Krein’s example which is a simple pair of such spectral projections, see \cite{KostrykinMakarov}. 
 
 In the direct context of AOC, the determinant identity minus squared
 (generalized) Hilbert matrix appeared in \cite{KnoerrOtteSpitzer}, where, in a
@@ -281,7 +281,7 @@ $\pi/2$: the true exponent is $\pi^{-2}\delta_\alpha^2$
 throughout.
 
 (2) \emph{Appearance in random matrix theory.} The asymptotics of the determinant $\det(\id_N-\mathcal H_1)$ with $\mathcal H_1$ being the classical Hilbert matrix defined in \eqref{eq:Halpha}, determines the probability that a truncated random orthogonal
-matrix has no real eigenvalues, see \cite{GebertPoplavskyi}.
+matrix has no real eigenvalues, see \cite{GebertPoplavskyi}. 
 
 (3) \emph{Asymptotics of Hankel, Toeplitz, and Hankel-plus-Toeplitz determinants}
 are a classical subject, see e.g.\ \cite{BasorEhrhardt,DeiftItsKrasovsky,GharakhlooIts,GharakhlooItsII} and
@@ -421,65 +421,75 @@ $\gamma_{j^*}c_{j^*}\ne0$, so $\psi(n)\ne0$ for large $n$ -- contradicting
 $\psi\in P_N\ell^2(\Nzero)$.
 \end{proof}
 
-\section{The principal-branch Hilbert contribution}
+\section{The bulk and the edge determinant}
 
-For $\alpha>0$, write
-\begin{equation}\label{eq:finite-Hilbert}
- \Hh_{\alpha,N}:=\left(\frac1{j+k+\alpha}\right)_{j,k=0}^{N-1}.
+In this section we we decompose the determinat $D_N^\pm(\delta)$ into two determinants:
+\begin{itemize}
+    \item[(i)] (Bulk determinant) A determinant involving a matrix which is based only on the absolutely continuous part of  $H^\delta$. 
+    \item[(ii)] (Edge determinant) A determinant involving (mainly) the edge eigenvalues $\pm 1$ eigenspace of $H^\delta$. 
+\end{itemize}
+To do so, we now fix a noncritical parameter $\delta\in\mathbb R\setminus(\mathcal P\cup\mathcal C)$, and set 
+\begin{equation}\label{eq:nonthreshold}
+ s:=\sin((\delta +1)\pi),\qquad \abs{s}<1,
 \end{equation}
-We need the following result.
+and define
+\begin{equation}\label{eq:Tpm}
+ T^\pm:=\id\pm H^\delta,
+ \qquad
+ K^\pm:=\Ker T^\pm.
+\end{equation}
+Let $\Pi^\pm$ be the orthogonal projection onto $K^\pm$, and set
+\begin{equation}\label{eq:Ttilde-pm}
+ \widetilde T^{\,\pm}:=T^\pm+\Pi^\pm.
+\end{equation}
+By Proposition~\ref{prop:spectral-data}, the spectra of the operators
+$\widetilde T^{\,\pm}$ lie in $[1 - \abs{s}, \infty)$ and thus
+$\widetilde T^{\,\pm} \ge 1-\abs{s}$. 
 
-\begin{proposition}[Hilbert determinant asymptotics]\label{prop:Hilbert-det}
-Let $\alpha\ge\frac12$ and $\beta\in[-1,1]$. Then we have
-\begin{equation}\label{eq:Otte-strong}
- \log\det\left(\id_N-\frac\beta\pi\Hh_{\alpha,N}\right)
- =-h(\beta)\log N+
- \begin{cases}
-  O_{\alpha,\beta}(1),&\beta<1,\\
-  o(\log N),&\beta=1
- \end{cases}
+We decompose $D_N^\pm(\delta)$ the following way: 
+
+\begin{lemma}[Bulk and edge determinant factorization]\label{lem:edge-extraction}
+Let $T\ge0$ be bounded on $\ell^2(\Nzero)$.  Suppose that
+$K:=\Ker T$ has finite dimension $m$ and that $T$ is bounded below by a
+positive constant on $K^\perp$.  Let $\Pi$ be the orthogonal projection onto
+$K$, set $\widetilde T:=T+\Pi$, and let $V$ be an isometry $\C^m\to K$.  Then
+\begin{equation}\label{eq:edge-factorization}
+ \det(P_NTP_N)
+ =\det(P_N\widetilde TP_N)\det M_N,
 \end{equation}
 where
-\begin{equation}\label{eq:hilbert-exponent}
- h(\beta):=
- \frac{\arcsin^2\beta+\pi\arcsin\beta}{2\pi^2},
+\begin{equation}\label{eq:def-MN}
+ M_N:=\id_m-V^*P_N(P_N\widetilde TP_N)^{-1}P_NV
 \end{equation}
-and $\arcsin$ is the principal branch of the inverse sine.
-\end{proposition}
+and $\id_m$ denotes the identity on $\mathbb C^m$.
+\end{lemma}
 
-\begin{remark}{}
-  [TODO: I think this is clearer if we call this \emph{proof} and then
-  refer to the literature in the proof?]
-Fedele and Gebert first obtained the leading term $h(\beta)$ for $\abs{\beta}<1$
-\cite{FedeleGebert}. For the classical Hilbert matrix $\alpha=1$, the
-endpoint case $\beta=1$ with an $o(\log N)$ remainder was obtained by
-Gebert and Poplavskyi \cite{GebertPoplavskyi}, as a special case in
-the context of truncations of random orthogonal matrices. Otte proved
-the generalized-parameter statement, improved the remainder to $O(1)$
-for $\beta<1$, and established the same $o(\log N)$ remainder at the
-endpoint $\beta=1$ for general $\alpha\ge\frac12$ \cite{Otte}.
-\end{remark}
+\begin{proof}
+Since $\Pi=VV^*$, we obtain
+\begin{align}
+    P_NTP_N &= P_N\widetilde TP_N-(P_NV)(P_NV)^*\notag \\
+    &= P_N\widetilde TP_N( \id - (P_N\widetilde TP_N)^{-1}(P_NV)(P_NV)^*).
+\end{align}
+Since $\det(\id - ABC) = \det(\id - CAB)$ we obtain \eqref{eq:edge-factorization} and \eqref{eq:def-MN}.    
 
-Translated to our notation, let $\delta\ge-\frac12$.  Then
-$\alpha=1+\delta\ge\frac12$ and
-\[
- D_N^\pm(\delta)
- =\det\left(\id_N-\frac{\mp\sin((1+\delta)\pi)}{\pi}\Hh_{\alpha,N}\right).
-\]
-Since $\arcsin\bigl(\mp\sin((1+\delta)\pi)\bigr)=\pm\pi \delta_{\text{reg}}$,
-Proposition~\ref{prop:Hilbert-det} directly gives
-\begin{equation}\label{eq:Otte-paired}
- \log D_N^\pm(\delta)
- =-\frac{\delta_{\text{reg}}^2\pm \delta_{\text{reg}}}{2}\log N+
- \begin{cases}
-  O_\delta(1),&\mp\sin((1+\delta)\pi)<1,\\
-  o(\log N),&\mp\sin((1+\delta)\pi)=1.
- \end{cases}
+TODO: Why is $(P_N\widetilde TP_N)^{-1}$ invertible. Maybe also mention Schur decomposition. Add $\pm$.
+\end{proof}
+
+We call $\det(P_N\widetilde T^\pm P_N)$ the bulk determinant and $\det M_N$ the edge determinant. If $\delta > -\frac 12$ there are no edge eigenvalues and therefore the edge determinant is trivially $1$ and can be ignored. We first determine the asymptotic behaviour of the bulk determinant. 
+
+\section{The bulk determinant}
+
+We prove the following 
+\begin{theorem}\label{bulk-asymp}
+\begin{equation}\label{eq:bulk-asymptotic}
+ \log\det(P_N\widetilde T^{\,\pm}P_N)
+ =-\frac{q^2\mp q}{2}\log N+O_\delta(1).
 \end{equation}
-This proves Theorem~\ref{thm:main} for $\delta \geq -\frac12$.
+with $q:= \arcsin(s)$. 
+\end{theorem}
 
-For $\alpha<\frac12$ and in turn $\delta < -\frac12$, Proposition~\ref{prop:Hilbert-det} does not apply directly.  The next two
-lemmas show how different generalized Hilbert matrices can be compared.
+
+We start with two auxiliary lemmas whose importance will be clear afterwards.
 
 \begin{lemma}[Trace-class difference]\label{lem:trace-class-shift}
 If $\alpha,\beta\in\mathbb R\setminus\{0,-1,-2,\ldots\}$, then
@@ -493,7 +503,7 @@ where $\cS$ stands for the trace class.
 Choose $r\in\Nzero$ so large that $\alpha+2r>0$ and $\beta+2r>0$. We
 first show that treating $\Hh_{\alpha+2r}-\Hh_{\beta+2r}$ is enough
 since the difference has finite rank.
-Let $P_r$ be the projection onto the first $r$ coordinates and
+Let $P_r$ be the projection onto the first $r$ coordinates and and
 $Q_r=\id-P_r$.
 Expanding via $\id = P_r + Q_r$ gives
 \[
@@ -507,8 +517,8 @@ $U_re_j=e_{j+r}$, then
  =
  \Hh_{\alpha+2r}-\Hh_{\beta+2r}.
 \]
-The difference between $U_r(\Hh_{\alpha+2r}-\Hh_{\beta+2r})U_r^*$ and
-$\Hh_\alpha-\Hh_\beta$ is therefore of finite rank.
+The difference between $\Hh_{\alpha+2r}-\Hh_{\beta+2r}$ and $\Hh_\alpha-\Hh_\beta$ is
+therefore of finite rank.
 
 Assume, without loss of generality, that
 $a:=\alpha+2r<b:=\beta+2r$.  The entries of $\Hh_a-\Hh_b$ satisfy
@@ -558,63 +568,63 @@ $c^{-1}\norm{K_N}_1\le c^{-1}\norm{S-R}_1$.  Integration over $t\in[0,1]$
 proves the claim.
 \end{proof}
 
-We now fix a noncritical parameter,
-\begin{equation}\label{eq:nonthreshold}
- s:=\sin(\pi\alpha),\qquad \abs{s}<1,
+Now, with $s$ defined in \eqref{eq:nonthreshold}, we define the auxilliary operator 
+\begin{equation}\label{eq:Rpm}
+ R^\pm:=\id\pm\frac{s}{\pi}\Hh_1.
 \end{equation}
-and define
-\begin{equation}\label{eq:Tpm}
- T^\pm:=\id\pm A_\alpha,
- \qquad
- K^\pm:=\Ker T^\pm.
-\end{equation}
-Let $\Pi^\pm$ be the orthogonal projection onto $K^\pm$, and set
-\begin{equation}\label{eq:Ttilde-pm}
- \widetilde T^{\,\pm}:=T^\pm+\Pi^\pm.
-\end{equation}
+
 By Proposition~\ref{prop:spectral-data}, the spectra of the operators
 $\widetilde T^{\,\pm}$ lie in $[1 - \abs{s}, \infty)$ and thus
 $\widetilde T^{\,\pm} \ge 1-\abs{s}$. The same is true for
 \begin{equation}\label{eq:Rpm}
  R^\pm:=\id\pm\frac{s}{\pi}\Hh_1 \geq 1 - \abs{s}
 \end{equation}
-because $\pi^{-1}\Hh_1$ has spectrum $[0,1]$.  Moreover,
+because $\pi^{-1}\Hh_1$ has spectrum $[0,1]$ (TODO: Maybe we need a comment about this in Section 2).  Moreover,
 \begin{equation}\label{eq:regularized-difference}
  \widetilde T^{\,\pm}-R^\pm
  =\pm\frac{s}{\pi}(\Hh_\alpha-\Hh_1)+\Pi^\pm
  \in\cS
 \end{equation}
 by Lemma~\ref{lem:trace-class-shift} and $\dim K^\pm < \infty$.
-With
-\begin{equation}\label{eq:def-q}
- q:=\frac1\pi\arcsin(s),
+The identical positive lower bounds for $\widetilde T^\pm$ and $R^\pm$ and the latter trace class bound, imply with Lemma~\ref{lem:stable-traceclass}  that 
+\begin{equation}
+    \log\det(P_N\widetilde T^{\,\pm}P_N) = \log \det (P_N R^\pm P_N) + O(1)
 \end{equation}
-Lemma~\ref{lem:stable-traceclass}, together
-with Proposition~\ref{prop:Hilbert-det} applied at $a=1$, give the regularized asymptotics
+as $N\to\infty$. Now, cite Otte gives directly
+
+\begin{proposition}
 \begin{equation}\label{eq:regularized-asymptotic}
- \log\det(P_N\widetilde T^{\,\pm}P_N)
+ \log\det(P_N\widetilde R^{\,\pm}P_N)
  =-\frac{q^2\mp q}{2}\log N+O_\delta(1).
 \end{equation}
-This is the contribution that depends only on the principal inverse
-sine.
+with $q:= \arcsin(s)$. 
+\end{proposition}
 
-What is left is treating $T^\pm$, an operator which can have
-eigenvalues $\pm 1$.
+\begin{proof}[Proof of Theorem \ref{bulk-asymp}]
+    Collect stuff above. 
+\end{proof}
 
-\section{Factorizing into bulk and edge determinant}
+\section{The edge determinant}
 
-The next lemma divides the asymptotics of the determinant into two. Firstly, into the asymptotics \eqref{eq:regularized-asymptotic} and secondly into the asymptotics of a determinant consisting of the edge eigenfunctions of the generalized Hilbert matrix only.
+We prove in this section the asymptotics of the edge determinant:
+\begin{theorem}\label{edge-asymp}
+    \begin{equation}\label{eq:edge-contribution}
+ \log\det M_N^\pm
+ =\left(
+ \sum_{j\in J^\pm_\delta}(2\delta+2j+1)
+ \right)\log N+O(1),
+\end{equation}
+Todo: Enrich
+\end{theorem}
 
-\begin{lemma}[Bulk and edge determinant factorization]\label{lem:edge-extraction}
+We first simplify the edge determinant in the following way: 
+
+\begin{lemma}[Edge determinant]\label{lem:edge-extraction}
 Let $T\ge0$ be bounded on $\ell^2(\Nzero)$.  Suppose that
 $K:=\Ker T$ has finite dimension $m$ and that $T$ is bounded below by a
 positive constant on $K^\perp$.  Let $\Pi$ be the orthogonal projection onto
-$K$, set $\widetilde T:=T+\Pi$, and let $V$ be an isometry $\C^m\to K$.  Then
-\begin{equation}\label{eq:edge-factorization}
- \det(P_NTP_N)
- =\det(P_N\widetilde TP_N)\det M_N,
-\end{equation}
-where
+$K$, set $\widetilde T:=T+\Pi$, and let $V$ be an isometry $\C^m\to K$. 
+Define
 \begin{equation}\label{eq:def-MN}
  M_N:=\id_m-V^*P_N(P_N\widetilde TP_N)^{-1}P_NV.
 \end{equation}
@@ -636,13 +646,6 @@ and if $V^*Q_NV$ is positive definite
 \end{lemma}
 
 \begin{proof}
-Since $\Pi=VV^*$, we obtain
-\begin{align}
-    P_NTP_N &= P_N\widetilde TP_N-(P_NV)(P_NV)^* \\
-    &= P_N\widetilde TP_N( \id - (P_N\widetilde TP_N)^{-1}(P_NV)(P_NV)^*).
-\end{align}
-Since $\det(\id - ABC) = \det(\id - CAB)$ we obtain \eqref{eq:edge-factorization} and \eqref{eq:def-MN}.
-
 Let $B:=\widetilde T^{1/2}$.  Since by assumption $\widetilde T > 0$, $B$ is boundedly
 invertible.  Moreover, $\widetilde T=\id$ on $K$, so
 \begin{equation}\label{eq:B-on-kernel}
@@ -714,11 +717,9 @@ Therefore
 Since $m$ is fixed, this is equivalent to \eqref{eq:edge-logdet}.
 \end{proof}
 
-Applying Lemma~\ref{lem:edge-extraction} to $T^\pm$ reduces the remaining
+Lemma~\ref{lem:edge-extraction} reduces the asymptotic
 problem to the tails of the explicit vectors $u_j$ from
 Proposition~\ref{prop:spectral-data}.
-
-\section{The edge eigenvalue determinant}
 
 Let $u_j(n)$ denote the $n$th Taylor coefficient of $f_j$ in
 \eqref{eq:fj}.
@@ -790,8 +791,7 @@ independent functions $c_jx^{\delta+j}$ in $L^2(1,\infty)$.  Its determinant
 is therefore positive, proving \eqref{eq:tail-gram-asymptotic}.
 \end{proof}
 
-TODO: Add a section Proof of Theorem main result and prove the theorem there referencing all lemmas in the proof, i.e. the following will go into this proof.
-
+\begin{proof}[Proof of Theorem \ref{edge-asymp}]
 Lemmas
 \ref{lem:edge-extraction} and \ref{lem:eigenvector-tails} give [TODO:
   This needs a little bit more of an argument since it's not clear the
@@ -813,13 +813,15 @@ Combining \eqref{eq:regularized-asymptotic} and
  +\sum_{j\in J^\pm_\delta}(2\delta+2j+1)
  \right]\log N+O_\delta(1)
 \end{equation}
-whenever $\abs{\sin(\pi(1+\delta))}<1$.
+whenever $\abs{\sin(\pi(1+\delta))}<1$.    
+\end{proof}
 
 Formula~\eqref{eq:master-formula} is the unsimplified strong asymptotic.  Its
 first term depends only on the principal inverse sine.  Its finite sum is the
 contribution of the exact eigenvalues at $\mp1$ to
 $D_N^\pm=\det(\id_N\pm H_N^\delta)$.
-\section{Recovery of the original sine argument}
+
+\section{Proof of Theorem \ref{thm:main}}
 
 Assume that $\delta<-\frac12$ and $\delta\notin\mathcal C$.  In this range
 $\theta_\delta=-\delta>\frac12$.  Put
@@ -1018,11 +1020,11 @@ M. Gebert,
 \emph{The asymptotics of an eigenfunction-correlation determinant for Dirac-$\delta$ perturbations},
 J. Math. Phys. \textbf{56} (2015), no.~7, article id.\ 072110.
 
-% \bibitem{BirmanPushnitski}
-% M.~Sh. Birman and A.~B. Pushnitski,
-% \emph{Spectral shift function, amazing and multifaceted},
-% Integral Equations Operator Theory \textbf{30} (1998), no.~2, 191--199.
-% \href{https://doi.org/10.1007/BF01238218}{doi:10.1007/BF01238218}.
+\bibitem{BirmanPushnitski}
+M.~Sh. Birman and A.~B. Pushnitski,
+\emph{Spectral shift function, amazing and multifaceted},
+Integral Equations Operator Theory \textbf{30} (1998), no.~2, 191--199.
+\href{https://doi.org/10.1007/BF01238218}{doi:10.1007/BF01238218}.
 
 \bibitem{KostrykinMakarov}
 V. Kostrykin and K.~A. Makarov,
