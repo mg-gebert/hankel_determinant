@@ -854,7 +854,7 @@ alternating eigenvalues.  Define
 Thus $J^\pm_\delta=J_m^\pm$.
 
 \begin{lemma}\label{lem:unfolding}
-With $m$ as in \eqref{eq:m-def} and $\delta_{\text{reg}}$ as in \eqref{eq:lift},
+With $m$ as in \eqref{eq:m-def}, we have
 \begin{equation}\label{eq:unfolding-identity}
  -\frac{\delta_{\text{reg}}^2\pm \delta_{\text{reg}}}{2}
  +\sum_{j\in J_m^\pm}(1-2\theta_\delta+2j)
@@ -862,102 +862,39 @@ With $m$ as in \eqref{eq:m-def} and $\delta_{\text{reg}}$ as in \eqref{eq:lift},
 \end{equation}
 \end{lemma}
 
-% "Original" proof; can be deleted if the below is good.
-%% \begin{proof}
-%% Suppose first that $m$ is even, i.e. $m=2a$.  Then
-%% \[
-%%  J_m^-=\{2i:0\le i\le a-1\},
-%%  \qquad
-%%  J_m^+=\{2i+1:0\le i\le a-1\},
-%% \]
-%% each with $a$ elements, and $(-1)^m=1$, so \eqref{eq:lift} gives
-%% $\delta_{\text{reg}}=\theta_\delta-2a$.  Using $\sum_{i=0}^{a-1}i=\frac{a(a-1)}2$,
-%% \begin{align*}
-%%  \sum_{j\in J_m^-}(1-2\theta_\delta+2j)
-%%  &=\sum_{i=0}^{a-1}(1-2\theta_\delta+4i) \\
-%%  &=a(1-2\theta_\delta)+4\cdot\frac{a(a-1)}2 \\
-%%  &=a(1-2\theta_\delta)+2a(a-1),\\
-%%  \sum_{j\in J_m^+}(1-2\theta_\delta+2j)
-%%  &=\sum_{i=0}^{a-1}(3-2\theta_\delta+4i) \\
-%%  &=a(3-2\theta_\delta)+2a(a-1) \\
-%%  &=a(1-2\theta_\delta)+2a^2.
-%% \end{align*}
-%% For the lower sign, substituting $\delta_{\text{reg}}=\theta_\delta-2a$ gives
-%% \[
-%%  \delta_{\text{reg}}^2+\delta_{\text{reg}}
-%%  =(\theta_\delta-2a)^2+(\theta_\delta-2a)
-%%  =\theta_\delta^2+\theta_\delta-4a\theta_\delta+4a^2-2a,
-%% \]
-%% so that
-%% \begin{align*}
-%%  -\frac{\delta_{\text{reg}}^2+\delta_{\text{reg}}}2+\sum_{j\in J_m^-}(1-2\theta_\delta+2j)
-%%  &=-\frac{\theta_\delta^2+\theta_\delta}2+2a\theta_\delta-2a^2+a
-%%  +a(1-2\theta_\delta)+2a(a-1)\\
-%%  &=-\frac{\theta_\delta^2+\theta_\delta}2
-%% \end{align*}
-%% which is \eqref{eq:unfolding-identity} for the lower sign.  For the upper sign,
-%% \[
-%%  \delta_{\text{reg}}^2-\delta_{\text{reg}}
-%%  =(\theta_\delta-2a)^2-(\theta_\delta-2a)
-%%  =\theta_\delta^2-\theta_\delta-4a\theta_\delta+4a^2+2a,
-%% \]
-%% and adding $\sum_{j\in J_m^+}(1-2\theta_\delta+2j)=a(1-2\theta_\delta)+2a^2$ gives, by the same
-%% cancellation,
-%% \[
-%%  -\frac{\delta_{\text{reg}}^2-\delta_{\text{reg}}}2+\sum_{j\in J_m^+}(1-2\theta_\delta+2j)
-%%  =-\frac{\theta_\delta^2-\theta_\delta}2.
-%% \]
-%% This proves \eqref{eq:unfolding-identity} for $m=2a$.
-
-%% For $m=2a+1$, the statement follows along the same lines as above.
-%% \end{proof}
-
-% Alternative proof when I asked chatty for something shorter
 \begin{proof}
-For $k=0,\ldots,m$, set
+For $j=0,\ldots,m$, put
 \[
- \rho_k:=(-1)^k(r-k),
- \qquad
- \Phi_\pm(t):=-\frac{t^2\mp t}{2}.
+ \rho_j:=(-1)^j(\theta_\delta-j).
 \]
-Then
+Then $\rho_0=\theta_\delta$, $\rho_m=-\delta_{\mathrm{reg}}$ by
+\eqref{eq:lift}, and
 \[
- \rho_0=r,
- \qquad
- \rho_m=q,
- \qquad
- \rho_{k+1}=(-1)^k-\rho_k.
+ \rho_{j+1}=(-1)^j-\rho_j.
 \]
-Moreover,
+Using
 \[
- J_m^\pm=\{0\leq k<m:(-1)^k=\mp1\}.
+ J_m^\pm=\{0\leq j<m:(-1)^j=\mp1\},
 \]
-
-Writing $a_k:=(-1)^k$, a direct calculation gives
+a direct calculation gives
 \[
- \Phi_\pm(\rho_k)-\Phi_\pm(\rho_{k+1})
- =
- \frac{1\mp a_k}{2}+(\pm1-a_k)\rho_k
+ -\frac{\rho_j^2\mp\rho_j}{2}
+ +\frac{\rho_{j+1}^2\mp\rho_{j+1}}{2}
  =
  \begin{cases}
-  1-2r+2k,&k\in J_m^\pm,\\
-  0,&k\notin J_m^\pm.
+  1-2\theta_\delta+2j,&j\in J_m^\pm,\\
+  0,&j\notin J_m^\pm.
  \end{cases}
 \]
-Summing over $k=0,\ldots,m-1$ therefore yields
+Summing over $j=0,\ldots,m-1$ and using
+$\rho_0=\theta_\delta$ and $\rho_m=-\delta_{\mathrm{reg}}$ yields
 \[
- \Phi_\pm(r)-\Phi_\pm(q)
+ -\frac{\theta_\delta^2\mp\theta_\delta}{2}
+ +\frac{\delta_{\mathrm{reg}}^2\pm\delta_{\mathrm{reg}}}{2}
  =
- \sum_{k\in J_m^\pm}(1-2r+2k).
+ \sum_{j\in J_m^\pm}(1-2\theta_\delta+2j),
 \]
-Substituting the definition of $\Phi_\pm$ and rearranging gives
-\[
- -\frac{q^2\mp q}{2}
- +\sum_{k\in J_m^\pm}(1-2r+2k)
- =
- -\frac{r^2\mp r}{2},
-\]
-which is \eqref{eq:unfolding-identity}.
+which is equivalent to \eqref{eq:unfolding-identity}.
 \end{proof}
 
 Since $2\delta+2j+1=1-2\theta_\delta+2j$, Lemma~\ref{lem:unfolding} turns
