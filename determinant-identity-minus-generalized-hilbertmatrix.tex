@@ -84,7 +84,7 @@ Most notably, we obtain
   \log \det\bigl(\id_N - (H_N^\delta)^2\bigr) = -\theta_\delta^2 \log
   N + O(1).
 \]
-The asymptotics exhibits a kind of
+The asymptotics exhibit a kind of
 phase transition: for all $\delta \ge -\frac{1}{2}$ the decay exponent is
 bounded $\theta_\delta^2\in [0,\frac 1 4]$, whereas for $\delta <
 -\frac{1}{2}$ the exponent $\theta_\delta^2 = \delta^2$ is
@@ -451,13 +451,13 @@ and $\arcsin$ is the principal branch of the inverse sine.
   [TODO: I think this is clearer if we call this \emph{proof} and then
   refer to the literature in the proof?]
 Fedele and Gebert first obtained the leading term $h(\beta)$ for $\abs{\beta}<1$
-\cite{FedeleGebert}. For the classical Hilbert matrix $a=1$, the
+\cite{FedeleGebert}. For the classical Hilbert matrix $\alpha=1$, the
 endpoint case $\beta=1$ with an $o(\log N)$ remainder was obtained by
 Gebert and Poplavskyi \cite{GebertPoplavskyi}, as a special case in
 the context of truncations of random orthogonal matrices. Otte proved
 the generalized-parameter statement, improved the remainder to $O(1)$
 for $\beta<1$, and established the same $o(\log N)$ remainder at the
-endpoint $\beta=1$ for general $a\ge\frac12$ \cite{Otte}.
+endpoint $\beta=1$ for general $\alpha\ge\frac12$ \cite{Otte}.
 \end{remark}
 
 Translated to our notation, let $\delta\ge-\frac12$.  Then
@@ -493,7 +493,7 @@ where $\cS$ stands for the trace class.
 Choose $r\in\Nzero$ so large that $\alpha+2r>0$ and $\beta+2r>0$. We
 first show that treating $\Hh_{\alpha+2r}-\Hh_{\beta+2r}$ is enough
 since the difference has finite rank.
-Let $P_r$ be the projection onto the first $r$ coordinates and and
+Let $P_r$ be the projection onto the first $r$ coordinates and
 $Q_r=\id-P_r$.
 Expanding via $\id = P_r + Q_r$ gives
 \[
@@ -507,8 +507,8 @@ $U_re_j=e_{j+r}$, then
  =
  \Hh_{\alpha+2r}-\Hh_{\beta+2r}.
 \]
-The difference between $\Hh_{\alpha+2r}-\Hh_{\beta+2r}$ and $\Hh_\alpha-\Hh_\beta$ is
-therefore of finite rank.
+The difference between $U_r(\Hh_{\alpha+2r}-\Hh_{\beta+2r})U_r^*$ and
+$\Hh_\alpha-\Hh_\beta$ is therefore of finite rank.
 
 Assume, without loss of generality, that
 $a:=\alpha+2r<b:=\beta+2r$.  The entries of $\Hh_a-\Hh_b$ satisfy
