@@ -38,6 +38,7 @@
 \newcommand{\minushalf}{{\nulldelimiterspace=0pt $\vcenter{\hbox{$\scriptstyle-\frac12$}}$}}
 
 \pgfplotsset{set layers}
+\pgfplotsset{compat=1.18}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -91,11 +92,6 @@ unbounded. This stems from the appearance of edge eigenvalues in the case of $\d
 more complicated vanishing of the ground-state overlap of two
 non-interacting Fermi gases known as Anderson’s orthogonality
 catastrophe.]
-
-AI acknowledgement: While the authors were aware of most results of
-this paper for several years, the key
-inequality \eqref{eq:loewner-tail}, while known in the literature, was
-pointed out by ChatGPT~5.6 Pro.
 \end{abstract}
 
 \maketitle
@@ -281,12 +277,15 @@ exponent $\pi^{-2}\arcsin^2(\sin\delta_\alpha)$ fails to be sharp once the phase
 $\pi/2$: the true exponent is $\pi^{-2}\delta_\alpha^2$
 throughout.
 
-Expanding \eqref{eq:aoc-det} yields trace expressions of the form
-$\Tr(\id_{(-\infty, E]} (H_0) - \id_{(-\infty, E]} (H_1))$ which gives
-rise to the spectral shift function originally introduced by Lifshitz
-and Krein, see \cite{KostrykinMakarov} and its references. Note that
-in that work, generalized Hilbert matrices play a key role in
-determining the spectral properties of this difference of projections.
+Differences of spectral projections as in \eqref{eq:aoc-det} give rise
+to the ``amazing and multifaceted'' spectral shift function,
+originally introduced by Lifshitz and Krein, see
+\cite{BirmanPushnitski} and its references. It plays a key role in
+perturbation theory; one illustrative example is
+\cite{KostrykinMakarov}, where
+generalized Hilbert matrices are used to determine the
+spectral properties of the difference of projections
+$\Tr(\id_{(-\infty, E]} (H_0) - \id_{(-\infty, E]} (H_1))$.
 
 (2) \emph{Appearance in random matrix theory.} At $\delta=0$,
 $D_N^-(0)=\det(\id_N-H_N)$ with $H_N$ the classical Hilbert matrix, and its
@@ -315,7 +314,7 @@ $\ell^2(\Nzero)$, and define its normalized form
 \begin{equation}\label{eq:Aalpha}
  A_\alpha:=\frac{\sin(\pi\alpha)}\pi\Hh_\alpha.
 \end{equation}
-[Since $A_\alpha = H^{1+\delta}$ do we really need both variables?]
+[Since $A_{1+\delta} = H^\delta$ do we really need both variables?]
 Throughout let $P_N$ be the orthogonal projection onto
 $\operatorname{span}\{e_0,\ldots,e_{N-1}\}$ and put
 \[Q_N:=\id-P_N.\]
@@ -956,6 +955,12 @@ identity
 \]
 is recovered directly in the exponents of the finite determinants.
 
+\section*{Acknowledgements and use of AI tools}
+
+The key estimate \eqref{eq:loewner-tail}, a consequence of known results,
+was pointed out to us by ChatGPT~5.6~Pro (OpenAI); all proofs were
+checked by the authors.
+
 \begin{thebibliography}{99}
 
 \bibitem{AlemanMontesSarafoleanu}
@@ -1022,6 +1027,12 @@ J. Spectr. Theory \textbf{6} (2016), no.~3, 643--683.
 M. Gebert,
 \emph{The asymptotics of an eigenfunction-correlation determinant for Dirac-$\delta$ perturbations},
 J. Math. Phys. \textbf{56} (2015), no.~7, article id.\ 072110.
+
+\bibitem{BirmanPushnitski}
+M.~Sh. Birman and A.~B. Pushnitski,
+\emph{Spectral shift function, amazing and multifaceted},
+Integral Equations Operator Theory \textbf{30} (1998), no.~2, 191--199.
+\href{https://doi.org/10.1007/BF01238218}{doi:10.1007/BF01238218}.
 
 \bibitem{KostrykinMakarov}
 V. Kostrykin and K.~A. Makarov,
