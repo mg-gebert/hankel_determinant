@@ -859,46 +859,45 @@ Combining Lemma \ref{lem:factorization}, Theorem \ref{bulk-asymp} and Theorem \r
 \begin{equation}\label{eq:master-formula}
  \log D_N^\pm(\delta)
  =\left[
- -\frac{q^2\mp q}{2}
+ -\frac{\delta_{\text{reg}}^2\pm \delta_{\text{reg}}}{2}
  +\sum_{j\in J^\pm_\delta}(2\delta+2j+1)
  \right]\log N+O_\delta(1).
 \end{equation}
-Formula~\eqref{eq:master-formula} is the unsimplified strong asymptotic.  
+Formula~\eqref{eq:master-formula} is the unsimplified strong asymptotic. 
+We note that $J^\pm_\delta \neq \emptyset$ only for $\delta\leq -\frac 12$. 
+
 Now, Lemma \ref{lem:unfolding} below concludes the proof.
 \end{proof}
 
-[TODO: Briefly say $\delta\ge\frac12$ is a consequence of the literature.]
-Assume that $\delta<-\frac12$ and $\delta\notin\mathcal C$.  In this range
-$\theta_\delta=-\delta>\frac12$.  Put
-\begin{equation}\label{eq:m-def}
- m:=\#\{j\in\Nzero:j<\theta_\delta-\tfrac12\}.
-\end{equation}
-More generally, for every $\theta_\delta>\frac12$ the above definition of $m$ gives
-$\theta_\delta\in(m-\frac12,m+\frac12]$, and on this interval
-\begin{equation}\label{eq:lift}
- -\delta_{\text{reg}}=(-1)^m(\theta_\delta-m),
- \qquad\text{equivalently}\qquad
- \theta_\delta=m - (-1)^m\delta_{\text{reg}}.
-\end{equation}
-The $m$ edge eigenvectors are indexed by $j=0,\ldots,m-1$, with
-alternating eigenvalues.  Define
-\begin{equation}\label{eq:Jm-pm}
- J_m^+:=\{0\le j<m:j\ \text{odd}\},
- \qquad
- J_m^-:=\{0\le j<m:j\ \text{even}\}.
-\end{equation}
-Thus $J^\pm_\delta=J_m^\pm$.
 
 \begin{lemma}\label{lem:unfolding}
-With $m$ as in \eqref{eq:m-def}, we have
+Let $\delta\in\R\setminus(\mathcal P\cup\mathcal C)$.
+Then
 \begin{equation}\label{eq:unfolding-identity}
  -\frac{\delta_{\text{reg}}^2\pm \delta_{\text{reg}}}{2}
- +\sum_{j\in J_m^\pm}(1-2\theta_\delta+2j)
+ +\sum_{j\in J_\delta^\pm}(2\delta + 2j + 1)
  =-\frac{\theta_\delta^2\mp\theta_\delta}{2}.
 \end{equation}
 \end{lemma}
 
 \begin{proof}
+Since for $\delta > -\frac 12$ the set of eigenvalues $J^\pm_\delta = \emptyset$, there is nothing to prove as $\theta_\delta = - \delta_{\text{reg}}$. 
+
+Let $\delta \leq -\frac12$ and define
+\begin{equation}\label{eq:m-def}
+ m:=|J_\delta^+| + |J_\delta^-| = \#\{j\in\Nzero:j<-\delta-\tfrac12\}
+\end{equation}
+where here $|\cdot|$ denotes the cardinality of a set. 
+Since $-\delta = \theta_\delta$, we obtain
+$\theta_\delta\in(m-\frac12,m+\frac12)$, and on this interval
+\begin{equation}\label{eq:lift}
+ -\delta_{\text{reg}}=(-1)^m(\theta_\delta-m),
+ \qquad\text{equivalently}\qquad
+ \theta_\delta=m - (-1)^m\delta_{\text{reg}}.
+\end{equation}
+We index the $m$ edge eigenvectors by $j=0,\ldots,m-1$, with
+alternating eigenvalues.  
+
 For $j=0,\ldots,m$, put
 \[
  \rho_j:=(-1)^j(\theta_\delta-j).
@@ -908,18 +907,18 @@ Then $\rho_0=\theta_\delta$, $\rho_m=-\delta_{\mathrm{reg}}$ by
 \[
  \rho_{j+1}=(-1)^j-\rho_j.
 \]
-Using
+By the definition of $m$ and $J_\delta^\pm$ we have
 \[
- J_m^\pm=\{0\leq j<m:(-1)^j=\mp1\},
+ J_\delta^\pm=\{0\leq j<m:(-1)^j=\mp1\},
 \]
-a direct calculation gives
+and a direct calculation gives
 \[
  -\frac{\rho_j^2\mp\rho_j}{2}
  +\frac{\rho_{j+1}^2\mp\rho_{j+1}}{2}
  =
  \begin{cases}
-  1-2\theta_\delta+2j,&j\in J_m^\pm,\\
-  0,&j\notin J_m^\pm.
+  1-2\theta_\delta+2j,&j\in J_\delta^\pm,\\
+  0,&j\notin J_\delta^\pm.
  \end{cases}
 \]
 Summing over $j=0,\ldots,m-1$ and using
@@ -928,26 +927,10 @@ $\rho_0=\theta_\delta$ and $\rho_m=-\delta_{\mathrm{reg}}$ yields
  -\frac{\theta_\delta^2\mp\theta_\delta}{2}
  +\frac{\delta_{\mathrm{reg}}^2\pm\delta_{\mathrm{reg}}}{2}
  =
- \sum_{j\in J_m^\pm}(1-2\theta_\delta+2j),
+ \sum_{j\in J_\delta^\pm}(1-2\theta_\delta+2j),
 \]
-which is equivalent to \eqref{eq:unfolding-identity}.
+which is equivalent to \eqref{eq:unfolding-identity} using once more that, by definition, $\theta_\delta = - \delta$.
 \end{proof}
-
-Since $2\delta+2j+1=1-2\theta_\delta+2j$, Lemma~\ref{lem:unfolding} turns
-\eqref{eq:master-formula} into
-\begin{equation}\label{eq:unfolded-final}
- \log D_N^\pm(\delta)
- =-\frac{\theta_\delta^2\mp\theta_\delta}{2}\log N+O_\delta(1)
- =-\frac{\delta^2\pm\delta}{2}\log N+O_\delta(1).
-\end{equation}
-This proves Theorem~\ref{thm:main} for
-$\delta<-\frac12$.  Since
-\begin{equation}\label{eq:product-determinant}
- \det\bigl(\id_N-(H_N^\delta)^2\bigr)
- =D_N^+(\delta)D_N^-(\delta),
-\end{equation}
-the two powers add to $-\delta^2$.
-
 
 \section{Conclusion}
 
