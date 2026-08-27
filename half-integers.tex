@@ -1,0 +1,450 @@
+\section{Negative critical half-integers}\label{sec:threshold}
+
+It remains to treat
+\begin{equation}\label{eq:threshold-parameter}
+ \delta=-m-\frac12,
+ \qquad m=1,2,\ldots.
+\end{equation}
+Then
+\[
+ \alpha=1+\delta=\frac12-m,
+ \qquad
+ \sin(\pi\alpha)=(-1)^m.
+\]
+It is convenient in this section to write
+\begin{equation}\label{eq:KTa}
+ K_a:=\frac1\pi\Hh_a,
+ \qquad
+ T_a:=\id-K_a,
+ \qquad
+ T_{N,a}:=P_NT_aP_N\big|_{P_N\ell^2(\Nzero)}.
+\end{equation}
+Thus $A_\alpha=(-1)^mK_\alpha$.  The determinant whose absolutely continuous
+spectrum reaches zero is $D_N^-$ if $m$ is even and $D_N^+$ if $m$ is odd; in
+either case it equals $\det T_{N,\alpha}$.
+
+The proof requires a weak quantitative form of endpoint coercivity.  For a
+sequence $0<\gamma_N\le1$, we write $\gamma_N=N^{-o(1)}$ when
+\begin{equation}\label{eq:subpolynomial-definition}
+ -\log\gamma_N=o(\log N),
+\end{equation}
+equivalently, $\gamma_N^{-1}=N^{o(1)}$.  Such a loss is negligible on the
+scale of powers of $N$ but need not be bounded.
+
+\begin{lemma}[Endpoint coercivity at $a=\frac12$]
+\label{lem:positive-endpoint-coercivity}
+There is a sequence $\gamma_N=N^{-o(1)}$ such that
+\begin{equation}\label{eq:positive-endpoint-coercivity}
+ T_{N,1/2}\ge\gamma_N\id_N.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Write $T_{N,1/2}$ in the decomposition
+$\C e_0\oplus\operatorname{span}\{e_1,\ldots,e_{N-1}\}$ as
+\begin{equation}\label{eq:block-positive-endpoint}
+ T_{N,1/2}
+ =\begin{pmatrix} a_N&b_N^*\\ b_N&R_N\end{pmatrix},
+ \qquad
+ R_N=T_{N-1,5/2}.
+\end{equation}
+The moment representation
+\[
+ \Hh_{a,N}=\int_0^1 x^{a-1}
+ (1,x,\ldots,x^{N-1})^{\mathsf T}
+ (1,x,\ldots,x^{N-1})\,dx
+\]
+shows that $\Hh_{N,5/2}\le\Hh_{N,2}$.  The classical finite Hilbert-matrix
+estimate
+\begin{equation}\label{eq:Wilf-gap}
+ \pi-\|\Hh_{N,2}\|\ge \frac{c}{\log^2(N+1)}
+\end{equation}
+for all sufficiently large $n$ therefore gives
+\begin{equation}\label{eq:R-gap}
+ R_N\ge\frac{c}{\log^2(N+1)}\id_{N-1}.
+\end{equation}
+The sharper asymptotic behind \eqref{eq:Wilf-gap} is due to de Bruijn and
+Wilf; only this lower bound is needed here \cite{Wilf}. [TODO: Clarify
+  this, "shar per asymptotic vs "only this"?]
+
+Let
+\[
+ \rho_N:=a_N-b_N^*R_N^{-1}b_N
+ =\frac{\det T_{N,1/2}}{\det T_{N-1,5/2}}
+\]
+be the scalar Schur complement.  Both determinants are positive.  Otte's
+endpoint theorem, applied once with parameter $1/2$ and once with parameter
+$5/2$, gives
+\begin{equation}\label{eq:rho-subpoly}
+ \log\rho_N=o(\log N),
+ \qquad
+ \rho_N^{-1}=N^{o(1)}.
+\end{equation}
+The second assertion follows from the first because $\rho_N>0$.
+
+Moreover, $\|b_N\|$ is bounded uniformly in $N$.  Put
+\[
+ U_N:=\begin{pmatrix}1&0\\R_N^{-1}b_N&\id\end{pmatrix}.
+\]
+The Schur factorization may be written as the congruence
+\begin{equation}\label{eq:endpoint-LDU}
+ T_{N,1/2}
+ =U_N^*
+   \begin{pmatrix}\rho_N&0\\0&R_N\end{pmatrix}
+  U_N.
+\end{equation}
+By \eqref{eq:R-gap},
+$\|R_N^{-1}b_N\|=O(\log^2(N+1))$, and hence
+\begin{equation}\label{eq:endpoint-U-bound}
+ \|U_N\|+\|U_N^{-1}\|=O(\log^2(N+1)).
+\end{equation}
+For every vector $z$,
+\[
+ \langle z,T_{N,1/2}z\rangle
+ \ge
+ \min\left\{\rho_N,\frac{c}{\log^2(N+1)}\right\}
+ \|U_Nz\|^2.
+\]
+Using $\|U_Nz\|\ge\|U_N^{-1}\|^{-1}\|z\|$ and
+\eqref{eq:rho-subpoly}--\eqref{eq:endpoint-U-bound}, the right-hand side is
+bounded below by $\gamma_N\|z\|^2$ for a sequence
+$\gamma_N=N^{-o(1)}$.  This proves
+\eqref{eq:positive-endpoint-coercivity}.
+\end{proof}
+
+The other base parameter, $a=-\frac12$, is not covered by Otte's theorem.  It
+can nevertheless be reduced to the two positive parameters $a=\frac12$ and
+$a=\frac32$ by elementary eigenvalue interlacing.
+
+\begin{proposition}[The base negative threshold]\label{prop:negative-half-base}
+As $N\to\infty$,
+\begin{equation}\label{eq:negative-half-det}
+ \log\det T_{N,-1/2}=-\frac38\log N+o(\log N).
+\end{equation}
+Moreover, there is a sequence $\widetilde\gamma_N=N^{-o(1)}$ such that
+\begin{equation}\label{eq:negative-half-coercivity}
+ T_{N,-1/2}\ge\widetilde\gamma_N\id_N.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Set $L_N:=K_{N,-1/2}$.  Its lower-right principal submatrix is
+$K_{N-1,3/2}>0$, whereas
+$\langle e_0,L_Ne_0\rangle=-2/\pi<0$.  Cauchy interlacing therefore shows that
+$L_N$ has exactly one negative eigenvalue.  Write its eigenvalues as
+\begin{equation}\label{eq:L-eigenvalues}
+ \lambda_1\ge\cdots\ge\lambda_{N-1}>0>\lambda_N.
+\end{equation}
+
+The infinite operator $K_{-1/2}$ has the eigenvalue $-1$ with eigenvector given
+by the Taylor coefficients of
+\begin{equation}\label{eq:negative-half-eigenvector}
+ (1-z)^{1/2}.
+\end{equation}
+These coefficients are $O(n^{-3/2})$.  If $u$ is the normalized coefficient
+vector, then $\|Q_Nu\|=O(N^{-1})$, and hence
+\[
+ \|(L_N+\id_N)P_Nu\|
+ =\|P_NK_{-1/2}Q_Nu\|=O(N^{-1}).
+\]
+Since $\|P_Nu\|\to1$, the spectral theorem implies that the distance from
+$-1$ to the spectrum of $L_N$ is $O(N^{-1})$.  The only negative eigenvalue is
+$\lambda_N$, while all other eigenvalues are positive.  Hence
+\begin{equation}\label{eq:negative-eigenvalue-rate}
+ \lambda_N=-1+O(N^{-1}).
+\end{equation}
+
+Delete the first row of $L_N$, and denote the resulting
+$(N-1)\times N$ matrix by $B_N$.  After reindexing, $B_N$ is the first
+$N-1$ rows of $K_{N,1/2}$.  For $j=1,\ldots,N-1$, singular-value
+interlacing under deletion of one row and the ideal property give
+\begin{equation}\label{eq:singular-interlace-full}
+ \sigma_{j+1}(L_N)
+ \le \sigma_j(B_N)
+ \le \sigma_j(K_{N,1/2}).
+\end{equation}
+In particular,
+\begin{equation}\label{eq:singular-interlace-base}
+ \sigma_2(L_N)
+ \le\|K_{N,1/2}\|
+ \le1-\gamma_N,
+\end{equation}
+where $\gamma_N=N^{-o(1)}$ is supplied by
+Lemma~\ref{lem:positive-endpoint-coercivity}.  Since
+$N^{-1}=o(\gamma_N)$, equations \eqref{eq:negative-eigenvalue-rate} and
+\eqref{eq:singular-interlace-base} imply that $|\lambda_N|$ is the largest
+singular value of $L_N$ for all sufficiently large $N$.
+
+Let $\mu_1\ge\cdots\ge\mu_N>0$ be the eigenvalues of $K_{N,1/2}$.  Once
+$|\lambda_N|$ is the largest singular value, the remaining singular values of
+$L_N$ are $\lambda_1,\ldots,\lambda_{N-1}$ in that order.  Thus
+\eqref{eq:singular-interlace-full} gives the explicit comparison
+\begin{equation}\label{eq:positive-eigenvalue-comparison}
+ \lambda_j=\sigma_{j+1}(L_N)
+ \le\sigma_j(B_N)
+ \le\mu_j,
+ \qquad j=1,\ldots,N-1.
+\end{equation}
+The normalized infinite operator $K_{-1/2}$ is a contraction, and so is its
+compression $L_N$; in particular, $-1\le\lambda_N<0$.  Consequently,
+\begin{align}
+ \det(\id_N-L_N)
+ &=(1-\lambda_N)\prod_{j=1}^{N-1}(1-\lambda_j)\notag\\
+ &\ge\prod_{j=1}^{N-1}(1-\mu_j)
+ \ge\det(\id_N-K_{N,1/2}).
+ \label{eq:base-lower-bound}
+\end{align}
+For the reverse estimate, let
+$\nu_1\ge\cdots\ge\nu_{N-1}>0$ be the eigenvalues of the lower-right
+principal submatrix $K_{N-1,3/2}$.  Cauchy interlacing gives
+$\lambda_j\ge\nu_j$ for $j=1,\ldots,N-1$.  Since
+$1-\lambda_N\le2$, it follows that
+\begin{equation}\label{eq:base-upper-bound}
+ \det(\id_N-L_N)
+ \le2\prod_{j=1}^{N-1}(1-\nu_j)
+ =2\det(\id_{N-1}-K_{N-1,3/2}).
+\end{equation}
+Otte's endpoint theorem applied to $a=\frac12$ and $a=\frac32$ in
+\eqref{eq:base-lower-bound}--\eqref{eq:base-upper-bound} proves
+\eqref{eq:negative-half-det}.
+
+Finally, \eqref{eq:positive-eigenvalue-comparison} and
+Lemma~\ref{lem:positive-endpoint-coercivity} imply
+$\lambda_1\le1-\gamma_N$.  Since $1-\lambda_N>1$, this proves
+\eqref{eq:negative-half-coercivity}.
+\end{proof}
+
+We next replace the uniform coercivity in
+Lemma~\ref{lem:edge-extraction} by the subpolynomial estimates just obtained.
+The following formulation is adapted to the Schur complements used below.
+
+\begin{lemma}[Threshold tail extraction]\label{lem:threshold-tail-extraction}
+Let $B\ge0$ be a bounded injective operator on $\ell^2(\Nzero)$ and suppose
+that
+\begin{equation}\label{eq:threshold-B-coercivity}
+ P_MB P_M\ge\gamma_M P_M,
+ \qquad
+ \gamma_M=M^{-o(1)}.
+\end{equation}
+Let $L:\C^d\to\ell^2(\Nzero)$ be injective, put
+$G_M:=L^*Q_ML$, and assume that $G_M$ is positive definite for all sufficiently
+large $M$.  Suppose further that there are fixed constants $A>1$, $c>0$, and
+$C<\infty$ such that
+\begin{equation}\label{eq:scale-separation}
+ L^*Q_{\lfloor M^A\rfloor}L
+ \le C M^{-c}G_M
+\end{equation}
+for all sufficiently large $M$.  Define a positive $d\times d$ matrix by
+\begin{equation}\label{eq:threshold-S-def}
+ x^*S_Mx
+ :=\inf_{y\in P_M\ell^2}
+ \langle y-Lx,B(y-Lx)\rangle.
+\end{equation}
+Then
+\begin{equation}\label{eq:threshold-S-asymptotic}
+ \log\det S_M=\log\det G_M+o(\log M).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Choosing $y=P_MLx$ in \eqref{eq:threshold-S-def} gives
+\begin{equation}\label{eq:threshold-upper}
+ S_M\le\|B\|G_M.
+\end{equation}
+For the lower bound, fix $y\in P_M\ell^2$, put
+$w:=y-Lx$, and let $M_A:=\lfloor M^A\rfloor$.  By the triangle inequality,
+\begin{align*}
+ \|B^{1/2}w\|
+ &\ge \|B^{1/2}P_{M_A}w\|
+      -\|B^{1/2}Q_{M_A}w\|\\
+ &\ge \gamma_{M_A}^{1/2}\|P_{M_A}w\|
+      -\|B\|^{1/2}\|Q_{M_A}Lx\|.
+\end{align*}
+Because $y$ is supported in the first $M$ coordinates,
+\[
+ \|P_{M_A}w\|
+ \ge\|(P_{M_A}-P_M)Lx\|.
+\]
+Condition \eqref{eq:scale-separation} therefore implies, uniformly in $x$,
+\[
+ \|(P_{M_A}-P_M)Lx\|^2
+ \ge(1-CM^{-c})x^*G_Mx,
+ \qquad
+ \|Q_{M_A}Lx\|^2\le CM^{-c}x^*G_Mx.
+\]
+Since $\gamma_{M_A}=M^{-o(1)}$, one has
+$M^{-c/2}\gamma_{M_A}^{-1/2}=M^{-c/2+o(1)}\to0$.  Hence the second term in
+the lower bound for $\|B^{1/2}w\|$ is eventually at most one half of the
+first, uniformly in $x$.  Taking the infimum over $y$ yields
+\begin{equation}\label{eq:threshold-lower}
+ S_M\ge\frac14\gamma_{M_A}G_M
+\end{equation}
+for all sufficiently large $M$.  Since $d$ is fixed,
+\eqref{eq:threshold-upper} and \eqref{eq:threshold-lower} imply
+\[
+ d\log\gamma_{M_A}-d\log4
+ \le \log\det S_M-\log\det G_M
+ \le d\log\|B\|.
+\]
+Finally, $\log\gamma_{M_A}=o(\log M_A)=o(\log M)$, proving
+\eqref{eq:threshold-S-asymptotic}.
+\end{proof}
+
+For the vectors in Lemma~\ref{lem:eigenvector-tails}, condition
+\eqref{eq:scale-separation} follows directly from the Cauchy-Gram asymptotic.
+Indeed, if the relevant indices are $j_1<\cdots<j_d$ and
+\[
+ D_M:=\operatorname{diag}
+ \bigl(M^{\delta+j_1+1/2},\ldots,M^{\delta+j_d+1/2}\bigr),
+\]
+then \eqref{eq:tail-pairing} gives
+\[
+ G_M=D_M(C+o(1))D_M
+\]
+with $C>0$.  At $\lfloor M^A\rfloor$ the corresponding diagonal matrix is
+$D_ME_M(\id+o(1))$, where
+\[
+ E_M:=\operatorname{diag}
+ \bigl(M^{(A-1)(\delta+j_1+1/2)},\ldots,
+       M^{(A-1)(\delta+j_d+1/2)}\bigr).
+\]
+Every exponent in $E_M$ is strictly negative.  Thus there is $c>0$ such
+that $\|E_M\|^2\le M^{-c}$.  Since $C$ is positive definite, for all large
+$M$ there are constants $0<c_0\le C_0<\infty$ with
+\[
+ c_0D_M^2\le G_M\le C_0D_M^2
+\]
+and
+\[
+ G_{\lfloor M^A\rfloor}
+ \le C_0D_ME_M^2D_M
+ \le \frac{C_0}{c_0}M^{-c}G_M.
+\]
+This is \eqref{eq:scale-separation}.  A fixed change of basis conjugates both
+Gram matrices by the same invertible matrix and therefore does not affect the
+conclusion.
+
+\begin{proposition}[Threshold determinant asymptotics]
+\label{prop:threshold-asymptotics}
+Let $\delta=-m-\frac12$ with $m=1,2,\ldots$, and set
+\begin{equation}\label{eq:threshold-q}
+ q:=\frac1\pi\arcsin(\sin(-\pi\delta))=\frac{(-1)^m}{2}.
+\end{equation}
+Then
+\begin{equation}\label{eq:threshold-master}
+ \log D_N^\pm(\delta)
+ =\left[
+ -\frac{q^2\mp q}{2}
+ +\sum_{j\in J^\pm_\delta}(2\delta+2j+1)
+ \right]\log N+o(\log N).
+\end{equation}
+Consequently,
+\begin{equation}\label{eq:threshold-unfolded}
+ \log D_N^\pm(\delta)
+ =-\frac{\delta^2\pm\delta}{2}\log N+o(\log N).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Put $\alpha=\frac12-m$ and $d:=\lfloor m/2\rfloor$.  Compression to the
+coordinates $d,d+1,\ldots$ shifts the generalized Hilbert parameter by $2d$:
+\begin{equation}\label{eq:threshold-compression}
+ Q_dK_\alpha Q_d\cong K_a,
+ \qquad
+ a:=\alpha+2d=
+ \begin{cases}
+  \frac12,&m\ \text{even},\\
+  -\frac12,&m\ \text{odd}.
+ \end{cases}
+\end{equation}
+The kernel of $T_\alpha=\id-K_\alpha$ has dimension $d$ and is spanned by the
+vectors $u_j$ with
+\begin{equation}\label{eq:critical-J}
+ 0\le j<m,
+ \qquad
+ j\equiv m\pmod2.
+\end{equation}
+Indeed, $K_\alpha=(-1)^mA_\alpha$ and
+$A_\alpha u_j=(-1)^ju_j$.
+
+Let $E_d:=P_d\ell^2$ and $F_d:=Q_d\ell^2$.  The restriction from
+$\Ker T_\alpha$ to $E_d$ is injective: a kernel vector vanishing on $E_d$
+would, by \eqref{eq:threshold-compression}, give a vector in $\Ker T_a$, but
+$T_{1/2}$ and $T_{-1/2}$ are injective.  Since both spaces have dimension $d$,
+the restriction is an isomorphism.  Hence there is a map
+$L:E_d\to F_d$ such that
+\begin{equation}\label{eq:kernel-graph}
+ \Ker T_\alpha=\{x\oplus Lx:x\in E_d\}.
+\end{equation}
+
+With respect to $E_d\oplus F_d$, write
+\begin{equation}\label{eq:threshold-block-operator}
+ T_\alpha=
+ \begin{pmatrix}A&C^*\\ C&T_a\end{pmatrix}.
+\end{equation}
+Since every $x\oplus Lx$ lies in the kernel, the two block equations are
+\[
+ Cx+T_aLx=0,
+ \qquad
+ Ax+C^*Lx=0.
+\]
+Thus $C=-T_aL$ and, using self-adjointness, $A=L^*T_aL$.  Consequently,
+\begin{equation}\label{eq:threshold-square-completion}
+ \left\langle x\oplus y,T_\alpha(x\oplus y)\right\rangle
+ =\langle y-Lx,T_a(y-Lx)\rangle.
+\end{equation}
+
+Let $M=N-d$.  The lower-right block of the $N$th finite section is
+$T_{M,a}$ and is positive definite.  Taking its Schur complement gives
+\begin{equation}\label{eq:threshold-det-factorization}
+ \det T_{N,\alpha}=\det T_{M,a}\det S_M,
+\end{equation}
+where the Schur complement has the equivalent variational description
+\begin{equation}\label{eq:threshold-variational}
+ x^*S_Mx
+ =\inf_{y\in P_MF_d}
+ \langle y-Lx,T_a(y-Lx)\rangle.
+\end{equation}
+Proposition~\ref{prop:negative-half-base} and
+Lemma~\ref{lem:positive-endpoint-coercivity} allow us to apply
+Lemma~\ref{lem:threshold-tail-extraction} to \eqref{eq:threshold-variational}.
+The columns of $L$ are a fixed basis of the kernel in
+\eqref{eq:critical-J}; Lemma~\ref{lem:eigenvector-tails} is unchanged by this
+fixed change of basis and by deleting finitely many coordinates.  Therefore
+\begin{equation}\label{eq:critical-schur-exponent}
+ \log\det S_M
+ =\left(
+   \sum_{\substack{0\le j<m\\j\equiv m\ (2)}}
+   (2\delta+2j+1)
+  \right)\log M+o(\log M).
+\end{equation}%
+[TODO: Fix  this last equation. Parens are super large and what does
+  the notation mean, modulo?]
+Both base determinants in \eqref{eq:threshold-compression} satisfy
+\begin{equation}\label{eq:base-three-eighths}
+ \log\det T_{M,a}=-\frac38\log M+o(\log M)
+\end{equation}
+by Otte's theorem when $a=\frac12$ and by
+Proposition~\ref{prop:negative-half-base} when $a=-\frac12$.  This proves
+\eqref{eq:threshold-master} for the critical determinant, because its
+principal-branch term is $-3/8$.
+
+For the other determinant the absolutely continuous part of
+$\id+K_\alpha$ is bounded below by the identity.  After adding the projection
+onto its finite-dimensional kernel at $-1$, the trace-class comparison and
+Lemma~\ref{lem:edge-extraction} apply exactly as in Sections~3--5, now with the
+reference operator $\id+\pi^{-1}\Hh_1$.  Proposition~\ref{prop:Hilbert-det}
+with coupling $-1$ gives the principal term $1/8$, and the remaining kernel
+vectors are those with parity opposite to \eqref{eq:critical-J}.  This proves
+\eqref{eq:threshold-master} for the second determinant.
+
+Finally, with $\theta_\delta=-\delta=m+\frac12$, equation \eqref{eq:threshold-q} gives
+$q=(-1)^m(\theta_\delta-m)$.  The algebra in Lemma~\ref{lem:unfolding} remains valid at
+this endpoint and turns \eqref{eq:threshold-master} into
+\eqref{eq:threshold-unfolded}.
+\end{proof}
+
+Proposition~\ref{prop:threshold-asymptotics} completes the proof of
+Theorem~\ref{thm:main}.  The argument determines the coefficient of $\log N$;
+it deliberately allows additional factors of the form $N^{o(1)}$, including
+possible powers of $\log N$.
