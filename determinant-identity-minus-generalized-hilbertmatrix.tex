@@ -498,13 +498,21 @@ We call $\det(P_N\widetilde T^\pm P_N)$ the bulk determinant and $\det M_N$ the 
 \section{The bulk determinant}
 
 We prove the following
-\begin{theorem}\label{bulk-asymp}
+\begin{theorem}[Bulk asymptotics]\label{bulk-asymp}
+Let $\delta\in\R\setminus(\mathcal P\cup\mathcal C)$, let $s$ and
+$\widetilde T^{\,\pm}$ be as in \eqref{eq:nonthreshold} and
+\eqref{eq:Ttilde-pm}, and put
+\begin{equation}\label{eq:def-q}
+ q:=\frac1\pi\arcsin(s)\in\left(-\frac12,\frac12\right).
+\end{equation}
+Then, as $N\to\infty$,
 \begin{equation}\label{eq:bulk-asymptotic}
  \log\det(P_N\widetilde T^{\,\pm}P_N)
  =-\frac{q^2\mp q}{2}\log N+O_\delta(1).
 \end{equation}
-with $q:=\frac1\pi\arcsin(s)$.
 \end{theorem}
+Note that $q=-\delta_{\mathrm{reg}}$, since $s=\sin((1+\delta)\pi)=-\sin(\delta\pi)$;
+in particular $q=\theta_\delta$ for $\delta>-\frac12$.
 
 
 We start with two auxiliary lemmas whose importance will be clear afterwards.
