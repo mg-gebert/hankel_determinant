@@ -598,17 +598,25 @@ by Lemma~\ref{lem:trace-class-shift} and $\dim K^\pm < \infty$.
 Together with the positive lower bound for $\widetilde T^\pm$ and
 $R^\pm$ this supplies the assumptions of
 Lemma~\ref{lem:stable-traceclass} which then implies
-\begin{equation}
+\begin{equation}\label{eq:regularized-determinant}
   \log\det(P_N\widetilde T^{\,\pm}P_N) = \log \det (P_N R^\pm P_N) + O(1)
 \end{equation}
-as $N\to\infty$. Now, cite Otte gives directly
+as $N\to\infty$.
 
-\begin{proposition}
+The asymptotics of the right-hand side of
+\eqref{eq:regularized-determinant} are the case $\alpha=1$, $\beta=\mp
+s$ of \cite[Thm.~1.1]{Otte}, whose exponent equals
+$\frac12\gamma(\beta)\log N+O(1)$ with
+$\gamma(\beta)=-\pi^{-2}\bigl(\arcsin^2\beta+\pi\arcsin\beta\bigr)$
+for $\beta\in(-1,1)$.
+
+\begin{proposition}[{\cite[Thm.~1.1]{Otte}}]\label{prop:otte}
+Let $s\in(-1,1)$ and let $R^\pm$ be as in \eqref{eq:Rpm}. Then
 \begin{equation}\label{eq:regularized-asymptotic}
- \log\det(P_N\widetilde R^{\,\pm}P_N)
- =-\frac{q^2\mp q}{2}\log N+O_\delta(1).
+ \log\det(P_NR^\pm P_N)
+ =-\frac{q^2\mp q}{2}\log N+O_\delta(1)
 \end{equation}
-with $q:=\frac1\pi\arcsin(s)$.
+as $N\to\infty$, with $q:=\frac1\pi\arcsin(s)$.
 \end{proposition}
 
 \begin{proof}[Proof of Theorem \ref{bulk-asymp}]
