@@ -461,7 +461,7 @@ By Proposition~\ref{prop:spectral-data}, the spectra of the operators
 $\widetilde T^{\,\pm}$ lie in $[1 - \abs{s}, \infty)$ and thus
 $\widetilde T^{\,\pm} \ge 1-\abs{s}$.
 
-We decompose $D_N^\pm(\delta)$ the following way:
+We decompose $D_N^\pm(\delta)$ using the following lemma:
 
 \begin{lemma}[Bulk and edge determinant factorization]\label{lem:factorization}
 Let $T\ge0$ be bounded on $\ell^2(\Nzero)$.  Suppose that
@@ -481,19 +481,23 @@ and $\id_m$ denotes the identity on $\mathbb C^m$.
 
 \begin{proof}
 The assumptions imply that $\widetilde T$ has a positive lower bound
-and is therefore invertible. On $P_N(\ell^2(\Nzero))$, so is the
-finite matrix $P_N\widetilde T P_N$.
+and is therefore invertible. On $P_N(\ell^2(\Nzero))$, the
+finite matrix $P_N\widetilde T P_N$ satisfies the same lower bound and is therefore invertible as well.
 Since $\Pi=VV^*$, we obtain
 \begin{align}
     P_NTP_N &= P_N\widetilde TP_N-(P_NV)(P_NV)^*\notag \\
     &= P_N\widetilde TP_N( \id - (P_N\widetilde TP_N)^{-1}(P_NV)(P_NV)^*).
 \end{align}
-Since $\det(\id - ABC) = \det(\id - CAB)$ we obtain \eqref{eq:edge-factorization} and \eqref{eq:def-MN}.
-
-TODO: Maybe also mention Schur decomposition. Add $\pm$.
+Since $\det(\id - ABC) = \det(\id - CAB)$, we obtain \eqref{eq:edge-factorization} and \eqref{eq:def-MN}.
 \end{proof}
 
-We call $\det(P_N\widetilde T^\pm P_N)$ the bulk determinant and $\det M_N$ the edge determinant. If $\delta > -\frac 12$ there are no edge eigenvalues and therefore the edge determinant is trivially $1$ and can be ignored. We first determine the asymptotic behaviour of the bulk determinant.
+Applying the above lemma to $T^\pm$, we obtain 
+\begin{equation}
+    D_N^\pm(\delta) = \det(P_N\widetilde T^\pm P_N)\det (M^\pm_N),
+\end{equation}
+where $M^\pm_N$ is defined as in \eqref{eq:def-MN}.
+
+We call $\det(P_N\widetilde T^\pm P_N)$ the bulk determinant and $\det( M^\pm_N)$ the edge determinant. If $\delta > -\frac 12$ there are no edge eigenvalues, the edge determinant is trivially $1$ and can be ignored. We first determine the asymptotic behaviour of the bulk determinant.
 
 \section{The bulk determinant}
 
