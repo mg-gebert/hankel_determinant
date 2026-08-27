@@ -849,8 +849,13 @@ $u_j$s are orthonormal. One fix: define $Ue_j = u_j$, \ $G=U^*U$, then
  \right)\log N+O(1),
 \end{equation}
 where $M_N^\pm$ is the matrix in \eqref{eq:def-MN} for $T=T^\pm$.
-Combining \eqref{eq:regularized-asymptotic} and
-\eqref{eq:edge-contribution} yields
+\end{proof}
+
+\section{Proof of Theorem \ref{thm:main}}
+
+\begin{proof}
+Combining Lemma \ref{lem:factorization}, Theorem \ref{bulk-asymp} and Theorem \ref{edge-asymp}
+ yields
 \begin{equation}\label{eq:master-formula}
  \log D_N^\pm(\delta)
  =\left[
@@ -858,14 +863,9 @@ Combining \eqref{eq:regularized-asymptotic} and
  +\sum_{j\in J^\pm_\delta}(2\delta+2j+1)
  \right]\log N+O_\delta(1).
 \end{equation}
+Formula~\eqref{eq:master-formula} is the unsimplified strong asymptotic.  
+Now, Lemma \ref{lem:unfolding} below concludes the proof.
 \end{proof}
-
-\section{Proof of Theorem \ref{thm:main}}
-
-Formula~\eqref{eq:master-formula} is the unsimplified strong asymptotic.  Its
-first term depends only on the principal inverse sine.  Its finite sum is the
-contribution of the exact eigenvalues at $\mp1$ to
-$D_N^\pm=\det(\id_N\pm H_N^\delta)$.
 
 [TODO: Briefly say $\delta\ge\frac12$ is a consequence of the literature.]
 Assume that $\delta<-\frac12$ and $\delta\notin\mathcal C$.  In this range
