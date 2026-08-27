@@ -90,7 +90,7 @@ bounded $\theta_\delta^2\in [0,\frac 1 4]$, whereas for $\delta <
 -\frac{1}{2}$ the exponent $\theta_\delta^2 = \delta^2$ is
 unbounded. This stems from the appearance of edge eigenvalues in the case of $\delta < -\frac 1 2$ which don't appear for larger $\delta \geq -\frac 1 2$, [TODO: Add motivation? E.g.: This decay behavior mirrors the
 more complicated vanishing of the ground-state overlap of two
-non-interacting Fermi gases known as Anderson’s orthogonality
+non-interacting Fermi gases known as Anderson's orthogonality
 catastrophe.]
 \end{abstract}
 
@@ -116,7 +116,7 @@ We are interested in the asymptotic behaviour  of the determinants
 \begin{equation}\label{eq:def-Dpm}
  D_N^\pm(\delta):=\det(\id_N\pm H_N^\delta)
 \end{equation}
-as the matrix size $N\to\infty$. We note that $D_N^\pm(\delta)>0$ by Lemma \ref{lem:positivity} and therefore $\log D_N^\pm(\delta)$ is well-defined.
+as the matrix size $N\to\infty$. We note that $D_N^\pm(\delta)>0$ by Lemma~\ref{lem:positivity} (for $\delta\in\Nzero$ trivially, since then $H_N^\delta=0$) and therefore $\log D_N^\pm(\delta)$ is well-defined.
 
 \begin{figure}
 \centering
@@ -176,7 +176,7 @@ Define the pole and critical sets
 Our main result is the following:
 
 \begin{theorem}\label{thm:main}
-Let $\delta\in\mathbb R\setminus(\mathcal P\cup\mathcal C)$. We define a $\arcsin$-\,$\sin$ regularized $\delta$ by
+Let $\delta\in\mathbb R\setminus(\mathcal P\cup\mathcal C)$. We define an $\arcsin$-\,$\sin$ regularization of $\delta$ by
 \begin{align}\label{eq:def-sq}
  \delta_{\text{reg}}:=&\frac1\pi\arcsin\bigl(\sin(\delta\pi)\bigr)
  \in\left[-\frac12,\frac12\right]
@@ -237,7 +237,7 @@ For $\delta\ge-\frac12$, this is proven in \cite{Otte}. For $\delta<-\frac12$,
 the same conclusion follows by proving a suitable $N$-dependent lower bound
 $\id_N\pm H_N^\delta>c_N$ and using it to carry the $o(\log N)$ bulk
 remainder through Lemma~\ref{lem:stable-traceclass} and the bulk/edge
-factorization of Lemma~\ref{lem:edge-extraction}. We omit the details here to
+factorization of Lemma~\ref{lem:factorization}. We omit the details here to
 keep the presentation concise.
 \end{remark}
 
@@ -260,24 +260,24 @@ finite-volume projections $\id_L$. Products and differences of such spectral pro
 are closely related to Hankel operators \cite{FrankPushnitski}, and the generalized Hilbert matrix
 treated here can serve as a model operator.
 For example, the Hilbert matrix already appeared in the
-study of Krein’s example which is a simple pair of such spectral projections, see \cite{KostrykinMakarov}.
+study of Krein's example which is a simple pair of such spectral projections, see \cite{KostrykinMakarov}.
 
 In the direct context of AOC, the determinant identity minus squared
 (generalized) Hilbert matrix appeared in \cite{KnoerrOtteSpitzer}, where, in a
 special case, the asymptotics of AOC was reduced to the asymptotics of
 \begin{equation}\label{rm:sq-asymp}
-    \det(\id_N-\pi^{-2}\sin^2(\delta)P_N\mathcal H_\eta^2P_N),
+    \det(\id_N-\pi^{-2}\sin^2(\vartheta)P_N\mathcal H_\eta^2P_N),
 \end{equation}
-for some $\eta$ and $\mathcal H_\eta$ is defined here \eqref{eq:Halpha}. The absence of a Szeg\H o-type theorem for this quantity was noted.
+for a phase shift $\vartheta$ and some $\eta$, where $\mathcal H_\eta$ is defined in \eqref{eq:Halpha}. The absence of a Szeg\H o-type theorem for this quantity was noted.
 Corollary~\ref{cor:main-sq} resolves this question for every
 $\delta\in\mathbb R\setminus(\mathcal P\cup\mathcal C)$, i.e.\ for every
 $\eta=1+\delta$ away from the poles and the critical half-integers. Fedele and
 Gebert \cite[Cor.~1.5]{FedeleGebert} had previously given a partial answer to the asymptotics of \eqref{rm:sq-asymp},
-valid only for the classical Hilbert matrix $\eta=1$ and $\abs{\sin(\pi\delta)}<1$.
+valid only for the classical Hilbert matrix $\eta=1$ and $\abs{\sin\vartheta}<1$.
 Moreover, AOC for Dirac-$\delta$ perturbations is treated in
 \cite{Gebert2015}, where it was first observed that the
-exponent $\pi^{-2}\arcsin^2(\sin\delta_\alpha)$ fails to be sharp once the phase shift $\delta_\alpha$ exceeds
-$\pi/2$: the true exponent is $\pi^{-2}\delta_\alpha^2$
+exponent $\pi^{-2}\arcsin^2(\sin\vartheta_\alpha)$ fails to be sharp once the phase shift $\vartheta_\alpha$ exceeds
+$\pi/2$: the true exponent is $\pi^{-2}\vartheta_\alpha^2$
 throughout.
 
 (2) \emph{Appearance in random matrix theory.} The asymptotics of the determinant $\det(\id_N-\mathcal H_1)$ with $\mathcal H_1$ being the classical Hilbert matrix defined in \eqref{eq:Halpha}, determines the probability that a truncated random orthogonal
@@ -304,7 +304,6 @@ $\ell^2(\Nzero)$, and define its normalized form
 \begin{equation}\label{eq:Aalpha}
  A_\alpha:=\frac{\sin(\pi\alpha)}\pi\Hh_\alpha.
 \end{equation}
-[Since $A_{1+\delta} = H^\delta$ do we really need both variables?]
 Throughout let $P_N$ be the orthogonal projection onto
 $\operatorname{span}\{e_0,\ldots,e_{N-1}\}$ and put
 \[Q_N:=\id-P_N.\]
@@ -313,6 +312,10 @@ $\alpha=1+\delta$, we obtain
 \begin{equation}\label{eq:compression}
  H_N^\delta=P_NA_\alpha P_N\big|_{P_N\ell^2(\Nzero)}.
 \end{equation}
+If $\delta\in\Nzero$, then $\sin((1+\delta)\pi)=0$, so $H^\delta=0$,
+$D_N^\pm(\delta)=1$ and $\theta_\delta=0$; Theorem~\ref{thm:main} is
+trivial in this case. We therefore assume $\delta\notin\mathbb Z$, i.e.\
+$\alpha\notin\mathbb Z$, for the rest of the paper.
 
 The generalized Hilbert operator $A_\alpha$ can be diagonalized explicitly, see e.g.
 \cite{AlemanMontesSarafoleanu,RosenblumII,Silbermann}.
@@ -421,12 +424,12 @@ $\gamma_{j^*}c_{j^*}\ne0$, so $\psi(n)\ne0$ for large $n$ -- contradicting
 $\psi\in P_N\ell^2(\Nzero)$.
 \end{proof}
 
-\section{The bulk and the edge determinant}
+\section{The bulk and the edge determinant}\label{sec:bulk-edge}
 
-In this section we we decompose the determinat $D_N^\pm(\delta)$ into two determinants:
+In this section we decompose the determinant $D_N^\pm(\delta)$ into two determinants:
 \begin{itemize}
     \item[(i)] (Bulk determinant) A determinant involving a matrix which is based only on the absolutely continuous part of  $H^\delta$.
-    \item[(ii)] (Edge determinant) A determinant involving (mainly) the edge eigenvalues $\pm 1$ eigenspace of $H^\delta$.
+    \item[(ii)] (Edge determinant) A determinant involving (mainly) the eigenspaces of the edge eigenvalues $\pm1$ of $H^\delta$.
 \end{itemize}
 To do so, we now fix a noncritical parameter $\delta\in\mathbb R\setminus(\mathcal P\cup\mathcal C)$, and set
 \begin{equation}\label{eq:nonthreshold}
@@ -448,7 +451,7 @@ $\widetilde T^{\,\pm} \ge 1-\abs{s}$.
 
 We decompose $D_N^\pm(\delta)$ the following way:
 
-\begin{lemma}[Bulk and edge determinant factorization]\label{lem:edge-extraction}
+\begin{lemma}[Bulk and edge determinant factorization]\label{lem:factorization}
 Let $T\ge0$ be bounded on $\ell^2(\Nzero)$.  Suppose that
 $K:=\Ker T$ has finite dimension $m$ and that $T$ is bounded below by a
 positive constant on $K^\perp$.  Let $\Pi$ be the orthogonal projection onto
@@ -549,7 +552,7 @@ A positive bounded operator with finite diagonal sum is trace class.
 
 \begin{lemma}[Determinant bound for trace-class perturbations]\label{lem:stable-traceclass}
 Let $R,S$ be bounded self-adjoint operators on a Hilbert space with $S-R\in\cS$. Suppose that
-$R\ge c\id$ and $S\ge c\id$ for some $c>0$.  Then
+$R\ge c\id$ and $S\ge c\id$ for some $c>0$.  Then, for every $N\in\mathbb N$,
 \begin{equation}\label{eq:stable-determinant}
  \abs*{\log\det(P_NSP_N)-\log\det(P_NRP_N)}
  \le c^{-1}\norm{S-R}_1.
@@ -567,22 +570,20 @@ Therefore
  \frac{d}{dt}\log\det(R_N+tK_N)
  =\Tr\bigl((R_N+tK_N)^{-1}K_N\bigr),
 \]
-via Jacobi’s determinant formula
+via Jacobi's determinant formula
 and the absolute value of the right-hand side is bounded by
 $c^{-1}\norm{K_N}_1\le c^{-1}\norm{S-R}_1$.  Integration over $t\in[0,1]$
 proves the claim.
 \end{proof}
 
-Now, with $s$ defined in \eqref{eq:nonthreshold}, we define the auxilliary operator
+Now, with $s$ defined in \eqref{eq:nonthreshold}, we define the auxiliary operator
 \begin{equation}\label{eq:Rpm}
  R^\pm:=\id\pm\frac{s}{\pi}\Hh_1.
 \end{equation}
 
-By Proposition~\ref{prop:spectral-data}, the spectra of the operators
-$\widetilde T^{\,\pm}$ lie in $[1 - \abs{s}, \infty)$ and thus
-$\widetilde T^{\,\pm} \ge 1-\abs{s}$. The same is true for
-$R^\pm$ because $\pi^{-1}\Hh_1$ has spectrum $[0,1]$ (TODO: Maybe we
-need a comment about this in Section 2).  Moreover,
+Recall from Section~\ref{sec:bulk-edge} that
+$\widetilde T^{\,\pm}\ge1-\abs{s}$. The same is true for $R^\pm$, because
+$\pi^{-1}\Hh_1$ has spectrum $[0,1]$ \cite{Magnus}.  Moreover,
 \begin{equation}\label{eq:regularized-difference}
  \widetilde T^{\,\pm}-R^\pm
  =\pm\frac{s}{\pi}(\Hh_\alpha-\Hh_1)+\Pi^\pm
@@ -625,22 +626,14 @@ Todo: Enrich
 
 We first simplify the edge determinant in the following way:
 
-\begin{lemma}[Edge determinant]\label{lem:edge-extraction}
-Let $T\ge0$ be bounded on $\ell^2(\Nzero)$.  Suppose that
-$K:=\Ker T$ has finite dimension $m$ and that $T$ is bounded below by a
-positive constant on $K^\perp$.  Let $\Pi$ be the orthogonal projection onto
-$K$, set $\widetilde T:=T+\Pi$, and let $V$ be an isometry $\C^m\to K$.
-Define
-\begin{equation}\label{eq:def-MN}
- M_N:=\id_m-V^*P_N(P_N\widetilde TP_N)^{-1}P_NV.
-\end{equation}
-Let
+\begin{lemma}[Edge determinant]\label{lem:edge-determinant}
+In the setting of Lemma~\ref{lem:factorization}, let
 \begin{equation}\label{eq:loewner-constants}
  c=\norm{\widetilde T^{-1/2}}^{-2},
  \qquad
  C=\norm{\widetilde T^{1/2}}^2.
 \end{equation}
-Then, with $Q_N := \id - P_N$,
+Then
 \begin{equation}\label{eq:loewner-tail}
  c\,V^*Q_NV\le M_N\le C\,V^*Q_NV
 \end{equation}
@@ -723,14 +716,14 @@ Therefore
 Since $m$ is fixed, this is equivalent to \eqref{eq:edge-logdet}.
 \end{proof}
 
-Lemma~\ref{lem:edge-extraction} reduces the asymptotic
+Lemma~\ref{lem:edge-determinant} reduces the asymptotic
 problem to the tails of the explicit vectors $u_j$ from
 Proposition~\ref{prop:spectral-data}.
 
 Let $u_j(n)$ denote the $n$th Taylor coefficient of $f_j$ in
 \eqref{eq:fj}.
 
-\begin{lemma}[Edge eigenvalue determinant]\label{lem:eigenvector-tails}
+\begin{lemma}[Tails of the edge eigenvectors]\label{lem:eigenvector-tails}
 Assume $\delta\notin\mathbb Z$ and let $j\in\Nzero$ satisfy
 $\delta+j<-\frac12$.  Then
 \begin{equation}\label{eq:coeff-asymptotic}
@@ -799,11 +792,11 @@ is therefore positive, proving \eqref{eq:tail-gram-asymptotic}.
 
 \begin{proof}[Proof of Theorem \ref{edge-asymp}]
 Lemmas
-\ref{lem:edge-extraction} and \ref{lem:eigenvector-tails} give [TODO:
+\ref{lem:edge-determinant} and \ref{lem:eigenvector-tails} give [TODO:
   This needs a little bit more of an argument since it's not clear the
 $u_j$s are orthonormal. One fix: define $Ue_j = u_j$, \ $G=U^*U$, then
   $V = UG^{-1/2}$ is an isometry.]
-\begin{equation}\label{eq:edge-contribution}
+\begin{equation}
  \log\det M_N^\pm
  =\left(
  \sum_{j\in J^\pm_\delta}(2\delta+2j+1)
@@ -817,17 +810,16 @@ Combining \eqref{eq:regularized-asymptotic} and
  =\left[
  -\frac{q^2\mp q}{2}
  +\sum_{j\in J^\pm_\delta}(2\delta+2j+1)
- \right]\log N+O_\delta(1)
+ \right]\log N+O_\delta(1).
 \end{equation}
-whenever $\abs{\sin(\pi(1+\delta))}<1$.
 \end{proof}
+
+\section{Proof of Theorem \ref{thm:main}}
 
 Formula~\eqref{eq:master-formula} is the unsimplified strong asymptotic.  Its
 first term depends only on the principal inverse sine.  Its finite sum is the
 contribution of the exact eigenvalues at $\mp1$ to
 $D_N^\pm=\det(\id_N\pm H_N^\delta)$.
-
-\section{Proof of Theorem \ref{thm:main}}
 
 [TODO: Briefly say $\delta\ge\frac12$ is a consequence of the literature.]
 Assume that $\delta<-\frac12$ and $\delta\notin\mathcal C$.  In this range
@@ -932,7 +924,7 @@ $\sin((1+\delta)\pi)$.
 Away from the threshold couplings, that comparison is trace-class stable only
 after the exact kernels at $\pm1$ have been regularized.  Removing the
 regularization creates a finite-dimensional determinant.
-Lemma~\ref{lem:edge-extraction} identifies it, up to bounded factors, with the
+Lemma~\ref{lem:edge-determinant} identifies it, up to bounded factors, with the
 Gram determinant of the omitted tails of the edge eigenvectors.  The
 power-law tails contain precisely the branch index lost on passing from
 $-\pi\delta$ to $\arcsin(\sin(-\pi\delta))$.
@@ -985,6 +977,12 @@ P. Otte,
 \emph{A Szeg\H{o} limit theorem related to the Hilbert matrix},
 Rocky Mountain J. Math. \textbf{54} (2024), no.~5, 1447--1472.
 \href{https://doi.org/10.1216/rmj.2024.54.1447}{doi:10.1216/rmj.2024.54.1447}.
+
+\bibitem{Magnus}
+W. Magnus,
+\emph{On the spectrum of Hilbert's matrix},
+Amer. J. Math. \textbf{72} (1950), no.~4, 699--704.
+\href{https://doi.org/10.2307/2372284}{doi:10.2307/2372284}.
 
 \bibitem{RosenblumII}
 M. Rosenblum,
