@@ -529,14 +529,16 @@ $a:=\alpha+2r<b:=\beta+2r$.  The entries of $\Hh_a-\Hh_b$ satisfy
  \frac1{j+k+a}-\frac1{j+k+b}
  =\int_0^1 t^{j+k}\bigl(t^{a-1}-t^{b-1}\bigr)\,dt.
 \]
-Hence, for $\psi\in\ell^2(\Nzero)$ we obtain
+Hence, for $\psi\in\ell^2(\Nzero)$ with finite support we obtain
 \begin{align}
     \<\psi, (\Hh_a - \Hh_b)\psi \>
     &= \int_0^1\bigl(t^{a-1}-t^{b-1}\bigr) \sum_{j,k} \overline{\psi_j} t^j t^k \psi_k\,dt \\
     &= \int_0^1\bigl(t^{a-1}-t^{b-1}\bigr) \abs{\< \psi, t_{\text{vec}} \>}^2\,dt \geq 0,
 \end{align}
-where $(t_{\text{vec}})_j = t^j$ and $t_{\text{vec}}\in\ell^2(\Nzero)$ for $t\in [0,1)$,
-so the difference is positive.  Its diagonal sum is also finite:
+where $(t_{\text{vec}})_j = t^j$. Since
+$t_{\text{vec}}\in\ell^2(\Nzero)$ for $t\in [0,1)$, this extends to
+all $\psi\in\ell^2(\Nzero)$ and so the difference is positive. Its
+diagonal sum is also finite:
 \[
 \Tr(\Hh_a - \Hh_b) =
  \sum_{n=0}^\infty
@@ -579,19 +581,19 @@ Now, with $s$ defined in \eqref{eq:nonthreshold}, we define the auxilliary opera
 By Proposition~\ref{prop:spectral-data}, the spectra of the operators
 $\widetilde T^{\,\pm}$ lie in $[1 - \abs{s}, \infty)$ and thus
 $\widetilde T^{\,\pm} \ge 1-\abs{s}$. The same is true for
-\begin{equation}\label{eq:Rpm}
- R^\pm:=\id\pm\frac{s}{\pi}\Hh_1 \geq 1 - \abs{s}
-\end{equation}
-because $\pi^{-1}\Hh_1$ has spectrum $[0,1]$ (TODO: Maybe we need a comment about this in Section 2).  Moreover,
+$R^\pm$ because $\pi^{-1}\Hh_1$ has spectrum $[0,1]$ (TODO: Maybe we
+need a comment about this in Section 2).  Moreover,
 \begin{equation}\label{eq:regularized-difference}
  \widetilde T^{\,\pm}-R^\pm
  =\pm\frac{s}{\pi}(\Hh_\alpha-\Hh_1)+\Pi^\pm
  \in\cS
 \end{equation}
 by Lemma~\ref{lem:trace-class-shift} and $\dim K^\pm < \infty$.
-The identical positive lower bounds for $\widetilde T^\pm$ and $R^\pm$ and the latter trace class bound, imply with Lemma~\ref{lem:stable-traceclass}  that
+Together with the positive lower bound for $\widetilde T^\pm$ and
+$R^\pm$ this supplies the assumptions of
+Lemma~\ref{lem:stable-traceclass} which then implies
 \begin{equation}
-    \log\det(P_N\widetilde T^{\,\pm}P_N) = \log \det (P_N R^\pm P_N) + O(1)
+  \log\det(P_N\widetilde T^{\,\pm}P_N) = \log \det (P_N R^\pm P_N) + O(1)
 \end{equation}
 as $N\to\infty$. Now, cite Otte gives directly
 
@@ -609,13 +611,14 @@ with $q:= \arcsin(s)$.
 
 \section{The edge determinant}
 
-We prove in this section the asymptotics of the edge determinant:
+In this section we determine the asymptotics of the edge determinant.
 \begin{theorem}\label{edge-asymp}
     \begin{equation}\label{eq:edge-contribution}
  \log\det M_N^\pm
- =\left(
+ =
  \sum_{j\in J^\pm_\delta}(2\delta+2j+1)
- \right)\log N+O(1),
+ \,
+ \log N+O(1).
 \end{equation}
 Todo: Enrich
 \end{theorem}
@@ -826,6 +829,7 @@ $D_N^\pm=\det(\id_N\pm H_N^\delta)$.
 
 \section{Proof of Theorem \ref{thm:main}}
 
+[TODO: Briefly say $\delta\ge\frac12$ is a consequence of the literature.]
 Assume that $\delta<-\frac12$ and $\delta\notin\mathcal C$.  In this range
 $\theta_\delta=-\delta>\frac12$.  Put
 \begin{equation}\label{eq:m-def}
