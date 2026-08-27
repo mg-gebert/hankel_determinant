@@ -233,12 +233,19 @@ leading term survives: for every $\delta\in\mathcal C$,
  \log D_N^\pm(\delta)
  =-\frac{\theta_\delta^2\mp\theta_\delta}{2}\log N+o(\log N).
 \end{equation}
-For $\delta\ge-\frac12$, this is proven in \cite{Otte}. For $\delta<-\frac12$,
-the same conclusion follows by proving a suitable $N$-dependent lower bound
-$\id_N\pm H_N^\delta>c_N$ and using it to carry the $o(\log N)$ bulk
-remainder through Lemma~\ref{lem:stable-traceclass} and the bulk/edge
-factorization of Lemma~\ref{lem:factorization}. We omit the details here to
-keep the presentation concise.
+For $\delta\ge-\frac12$, this is proven in \cite{Otte}.
+
+For $\delta<-\frac12$, the same conclusion follows. We give only a brief
+sketch of the argument to keep the presentation concise: After
+deleting finitely many initial rows and
+columns, the problem is reducued to the endpoint parameters
+$a=\pm\frac12$. Although the corresponding finite matrices are no
+longer uniformly bounded away from zero, their smallest eigenvalues
+decrease more slowly than any power of $N$. A Schur-complement
+argument shows that the resulting loss is only $o(\log N)$ and
+that the eigenvectors at $\pm1$ give the same contribution as in the
+noncritical case. The determinant with the opposite sign is treated
+exactly as below.
 \end{remark}
 
 TODO: Add motivation where the different behaviour for $\delta<-\frac12$ comes from, i.e. the eigenvalues $\pm 1$. Maybe add remark about spectral structure of $H$ earlier. Mention bulk and edge contribution.
