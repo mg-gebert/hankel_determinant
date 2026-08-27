@@ -514,8 +514,7 @@ Then, as $N\to\infty$,
 Note that $q=-\delta_{\mathrm{reg}}$, since $s=\sin((1+\delta)\pi)=-\sin(\delta\pi)$;
 in particular $q=\theta_\delta$ for $\delta>-\frac12$.
 
-
-We start with two auxiliary lemmas whose importance will be clear afterwards.
+We start with two auxiliary lemmas.
 
 \begin{lemma}[Trace-class difference]\label{lem:trace-class-shift}
 If $\alpha,\beta\in\mathbb R\setminus\{0,-1,-2,\ldots\}$, then
@@ -596,7 +595,7 @@ $c^{-1}\norm{K_N}_1\le c^{-1}\norm{S-R}_1$.  Integration over $t\in[0,1]$
 proves the claim.
 \end{proof}
 
-Now, with $s$ defined in \eqref{eq:nonthreshold}, we define the auxiliary operator
+Now, with $s$ as in \eqref{eq:nonthreshold}, we define the auxiliary operator
 \begin{equation}\label{eq:Rpm}
  R^\pm:=\id\pm\frac{s}{\pi}\Hh_1.
 \end{equation}
@@ -644,15 +643,18 @@ proves \eqref{eq:bulk-asymptotic}.
 \section{The edge determinant}
 
 In this section we determine the asymptotics of the edge determinant.
-\begin{theorem}\label{edge-asymp}
-    \begin{equation}\label{eq:edge-contribution}
+\begin{theorem}[Edge asymptotics]\label{edge-asymp}
+Let $\delta\in\R\setminus(\mathcal P\cup\mathcal C)$, and let $M_N^\pm$ be
+the matrix \eqref{eq:def-MN} of Lemma~\ref{lem:factorization} for
+$T=T^\pm$. Then, as $N\to\infty$,
+\begin{equation}\label{eq:edge-contribution}
  \log\det M_N^\pm
  =
  \sum_{j\in J^\pm_\delta}(2\delta+2j+1)
  \,
  \log N+O(1).
 \end{equation}
-Todo: Enrich
+For $\delta>-\frac12$ the sum is empty and $\det M_N^\pm=1$.
 \end{theorem}
 
 We first simplify the edge determinant in the following way:
