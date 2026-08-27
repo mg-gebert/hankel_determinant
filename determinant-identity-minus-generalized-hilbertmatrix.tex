@@ -425,10 +425,10 @@ $\psi\in P_N\ell^2(\Nzero)$.
 
 In this section we we decompose the determinat $D_N^\pm(\delta)$ into two determinants:
 \begin{itemize}
-    \item[(i)] (Bulk determinant) A determinant involving a matrix which is based only on the absolutely continuous part of  $H^\delta$. 
-    \item[(ii)] (Edge determinant) A determinant involving (mainly) the edge eigenvalues $\pm 1$ eigenspace of $H^\delta$. 
+    \item[(i)] (Bulk determinant) A determinant involving a matrix which is based only on the absolutely continuous part of  $H^\delta$.
+    \item[(ii)] (Edge determinant) A determinant involving (mainly) the edge eigenvalues $\pm 1$ eigenspace of $H^\delta$.
 \end{itemize}
-To do so, we now fix a noncritical parameter $\delta\in\mathbb R\setminus(\mathcal P\cup\mathcal C)$, and set 
+To do so, we now fix a noncritical parameter $\delta\in\mathbb R\setminus(\mathcal P\cup\mathcal C)$, and set
 \begin{equation}\label{eq:nonthreshold}
  s:=\sin((\delta +1)\pi),\qquad \abs{s}<1,
 \end{equation}
@@ -444,9 +444,9 @@ Let $\Pi^\pm$ be the orthogonal projection onto $K^\pm$, and set
 \end{equation}
 By Proposition~\ref{prop:spectral-data}, the spectra of the operators
 $\widetilde T^{\,\pm}$ lie in $[1 - \abs{s}, \infty)$ and thus
-$\widetilde T^{\,\pm} \ge 1-\abs{s}$. 
+$\widetilde T^{\,\pm} \ge 1-\abs{s}$.
 
-We decompose $D_N^\pm(\delta)$ the following way: 
+We decompose $D_N^\pm(\delta)$ the following way:
 
 \begin{lemma}[Bulk and edge determinant factorization]\label{lem:edge-extraction}
 Let $T\ge0$ be bounded on $\ell^2(\Nzero)$.  Suppose that
@@ -465,27 +465,30 @@ and $\id_m$ denotes the identity on $\mathbb C^m$.
 \end{lemma}
 
 \begin{proof}
+The assumptions imply that $\widetilde T$ has a positive lower bound
+and is therefore invertible. On $P_N(\ell^2(\Nzero))$, so is the
+finite matrix $P_N\widetilde T P_N$.
 Since $\Pi=VV^*$, we obtain
 \begin{align}
     P_NTP_N &= P_N\widetilde TP_N-(P_NV)(P_NV)^*\notag \\
     &= P_N\widetilde TP_N( \id - (P_N\widetilde TP_N)^{-1}(P_NV)(P_NV)^*).
 \end{align}
-Since $\det(\id - ABC) = \det(\id - CAB)$ we obtain \eqref{eq:edge-factorization} and \eqref{eq:def-MN}.    
+Since $\det(\id - ABC) = \det(\id - CAB)$ we obtain \eqref{eq:edge-factorization} and \eqref{eq:def-MN}.
 
-TODO: Why is $(P_N\widetilde TP_N)^{-1}$ invertible. Maybe also mention Schur decomposition. Add $\pm$.
+TODO: Maybe also mention Schur decomposition. Add $\pm$.
 \end{proof}
 
-We call $\det(P_N\widetilde T^\pm P_N)$ the bulk determinant and $\det M_N$ the edge determinant. If $\delta > -\frac 12$ there are no edge eigenvalues and therefore the edge determinant is trivially $1$ and can be ignored. We first determine the asymptotic behaviour of the bulk determinant. 
+We call $\det(P_N\widetilde T^\pm P_N)$ the bulk determinant and $\det M_N$ the edge determinant. If $\delta > -\frac 12$ there are no edge eigenvalues and therefore the edge determinant is trivially $1$ and can be ignored. We first determine the asymptotic behaviour of the bulk determinant.
 
 \section{The bulk determinant}
 
-We prove the following 
+We prove the following
 \begin{theorem}\label{bulk-asymp}
 \begin{equation}\label{eq:bulk-asymptotic}
  \log\det(P_N\widetilde T^{\,\pm}P_N)
  =-\frac{q^2\mp q}{2}\log N+O_\delta(1).
 \end{equation}
-with $q:= \arcsin(s)$. 
+with $q:= \arcsin(s)$.
 \end{theorem}
 
 
@@ -568,7 +571,7 @@ $c^{-1}\norm{K_N}_1\le c^{-1}\norm{S-R}_1$.  Integration over $t\in[0,1]$
 proves the claim.
 \end{proof}
 
-Now, with $s$ defined in \eqref{eq:nonthreshold}, we define the auxilliary operator 
+Now, with $s$ defined in \eqref{eq:nonthreshold}, we define the auxilliary operator
 \begin{equation}\label{eq:Rpm}
  R^\pm:=\id\pm\frac{s}{\pi}\Hh_1.
 \end{equation}
@@ -586,7 +589,7 @@ because $\pi^{-1}\Hh_1$ has spectrum $[0,1]$ (TODO: Maybe we need a comment abou
  \in\cS
 \end{equation}
 by Lemma~\ref{lem:trace-class-shift} and $\dim K^\pm < \infty$.
-The identical positive lower bounds for $\widetilde T^\pm$ and $R^\pm$ and the latter trace class bound, imply with Lemma~\ref{lem:stable-traceclass}  that 
+The identical positive lower bounds for $\widetilde T^\pm$ and $R^\pm$ and the latter trace class bound, imply with Lemma~\ref{lem:stable-traceclass}  that
 \begin{equation}
     \log\det(P_N\widetilde T^{\,\pm}P_N) = \log \det (P_N R^\pm P_N) + O(1)
 \end{equation}
@@ -597,11 +600,11 @@ as $N\to\infty$. Now, cite Otte gives directly
  \log\det(P_N\widetilde R^{\,\pm}P_N)
  =-\frac{q^2\mp q}{2}\log N+O_\delta(1).
 \end{equation}
-with $q:= \arcsin(s)$. 
+with $q:= \arcsin(s)$.
 \end{proposition}
 
 \begin{proof}[Proof of Theorem \ref{bulk-asymp}]
-    Collect stuff above. 
+    Collect stuff above.
 \end{proof}
 
 \section{The edge determinant}
@@ -617,13 +620,13 @@ We prove in this section the asymptotics of the edge determinant:
 Todo: Enrich
 \end{theorem}
 
-We first simplify the edge determinant in the following way: 
+We first simplify the edge determinant in the following way:
 
 \begin{lemma}[Edge determinant]\label{lem:edge-extraction}
 Let $T\ge0$ be bounded on $\ell^2(\Nzero)$.  Suppose that
 $K:=\Ker T$ has finite dimension $m$ and that $T$ is bounded below by a
 positive constant on $K^\perp$.  Let $\Pi$ be the orthogonal projection onto
-$K$, set $\widetilde T:=T+\Pi$, and let $V$ be an isometry $\C^m\to K$. 
+$K$, set $\widetilde T:=T+\Pi$, and let $V$ be an isometry $\C^m\to K$.
 Define
 \begin{equation}\label{eq:def-MN}
  M_N:=\id_m-V^*P_N(P_N\widetilde TP_N)^{-1}P_NV.
@@ -813,7 +816,7 @@ Combining \eqref{eq:regularized-asymptotic} and
  +\sum_{j\in J^\pm_\delta}(2\delta+2j+1)
  \right]\log N+O_\delta(1)
 \end{equation}
-whenever $\abs{\sin(\pi(1+\delta))}<1$.    
+whenever $\abs{\sin(\pi(1+\delta))}<1$.
 \end{proof}
 
 Formula~\eqref{eq:master-formula} is the unsimplified strong asymptotic.  Its
