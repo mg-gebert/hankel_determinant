@@ -241,20 +241,24 @@ Corollary~\ref{cor:main-sq} can be written as
 \]
 \end{remark}
 
+
+\begin{remark}\label{rem:critical-halfintegers}
 At the critical half-integers $\delta\in\mathcal C$ excluded from
 Theorem~\ref{thm:main}, the strong remainder $O_\delta(1)$ degrades but the
 leading term survives:
-
-\begin{theorem}\label{thm:critical-halfintegers}
-Let $\delta\in\mathcal C$. Then
 \begin{equation}\label{eq:critical-weak}
  \log D_N^\pm(\delta)
  =-\frac{\theta_\delta^2\mp\theta_\delta}{2}\log N+o(\log N).
 \end{equation}
-\end{theorem}
-For $\delta\ge-\frac12$, this is proven in \cite{Otte}. For
-$\delta<-\frac12$ we give a sketch of the proof in
-section~\ref{sec:negative-critical-proof}.
+For $\delta\ge-\frac12$, this is proven in \cite{Otte}.
+For $\delta<-\frac12$, deleting finitely many initial rows and columns
+reduces the new issue to the endpoint matrices with parameters
+\(a=\pm\frac12\), and a finite-dimensional block argument shows that
+the decay of their smallest eigenvalues changes the logarithm of the
+determinant only by \(o(\log N)\) such that the remainder of the
+noncritical argument still applies. We omit the details here to
+keep the presentation concise.
+\end{remark}
 
 TODO: Add motivation where the different behaviour for $\delta<-\frac12$ comes from, i.e. the eigenvalues $\pm 1$. Maybe add remark about spectral structure of $H$ earlier. Mention bulk and edge contribution.
 
@@ -915,136 +919,6 @@ $\rho_0=\theta_\delta$ and $\rho_m=-\delta_{\mathrm{reg}}$ yields
 \]
 which is equivalent to \eqref{eq:unfolding-identity} using once more that, by definition, $\theta_\delta = - \delta$.
 \end{proof}
-
-\section{Negative critical half-integers}
-\label{sec:negative-critical-proof}
-
-To keep the presentation concise, we only give an outline of the proof
-of Theorem~\ref{thm:critical-halfintegers}.
-
-Let
-\[
- \delta=-m-\frac12,\qquad m\ge1,
- \qquad
- \alpha=1+\delta=\frac12-m,
-\]
-and write
-\[
- K_a:=\frac1\pi\Hh_a,
- \qquad
- T_a:=\id-K_a,
- \qquad
- T_{N,a}:=P_NT_aP_N\big|_{P_N\ell^2(\Nzero)}.
-\]
-Depending on the parity of $m$, one of the two determinants
-$D_N^\pm(\delta)$ is equal to $\det T_{N,\alpha}$.  This is the only
-one that requires an additional argument.
-
-We first record the estimates needed at the endpoint parameters
-$a=\pm\frac12$.  There are numbers $\gamma_{N,a}>0$ such that
-$-\log\gamma_{N,a}=o(\log N)$ and
-\begin{equation}\label{eq:critical-base-input}
- T_{N,a}\ge\gamma_{N,a}\id_N,
- \qquad
- \log\det T_{N,a}
- =-\frac38\log N+o(\log N).
-\end{equation}
-For $a=\frac12$, separate the first row and column.  The lower-right
-block is $T_{N-1,5/2}$, whose smallest eigenvalue is bounded below by
-a constant times $(\log N)^{-2}$.  The remaining scalar factor in the
-block determinant is
-\[
- \frac{\det T_{N,1/2}}{\det T_{N-1,5/2}}.
-\]
-Otte's determinant asymptotics
-\cite[Thm.~1.1]{Otte} show that the reciprocal of this ratio is
-$N^{o(1)}$.  The usual block factorization therefore gives the first
-two assertions in \eqref{eq:critical-base-input}, while the last is
-again \cite[Thm.~1.1]{Otte}.
-
-For $a=-\frac12$, the matrix $K_{N,-1/2}$ has exactly one negative
-eigenvalue.  The explicit eigenvector of $K_{-1/2}$ at $-1$ shows
-that this eigenvalue is $-1+O(N^{-1})$.  Interlacing after deletion
-of the first row, followed by interlacing with the lower-right
-principal block, gives
-\[
- \det T_{N,1/2}
- \le \det T_{N,-1/2}
- \le 2\det T_{N-1,3/2}.
-\]
-Together with \cite[Thm.~1.1]{Otte}, this proves the determinant
-asymptotic in \eqref{eq:critical-base-input}; the same comparison
-transfers the required lower bound for the smallest eigenvalue from
-$a=\frac12$ to $a=-\frac12$.
-
-Now set
-\[
- d:=\left\lfloor\frac m2\right\rfloor,
- \qquad
- a:=\alpha+2d\in\left\{\frac12,-\frac12\right\}.
-\]
-The block of $K_\alpha$ indexed by $d,d+1,\ldots$ is $K_a$.
-Moreover, $\Ker T_\alpha$ has dimension $d$, and every vector in this
-kernel can be written uniquely in the form
-\[
- x\oplus Lx,
- \qquad x\in P_d\ell^2,
-\]
-for a linear map $L:P_d\ell^2\to Q_d\ell^2$.  If $M=N-d$, completing
-the square in the corresponding block decomposition gives the
-factorization
-\begin{equation}\label{eq:critical-schur-factorization}
- \det T_{N,\alpha}=\det T_{M,a}\det S_M,
-\end{equation}
-where
-\[
- x^*S_Mx
- =\inf_{y\in P_M\ell^2}
-   \langle y-Lx,T_a(y-Lx)\rangle.
-\]
-
-Put
-\[
- G_M:=L^*Q_ML.
-\]
-Thus the entries of $G_M$ are scalar products of the parts, beginning
-at index $M$, of the finitely many eigenvectors spanning
-$\Ker T_\alpha$.  Their power-law asymptotics from
-Lemma~\ref{lem:eigenvector-tails} imply that, for some fixed $A>1$
-and $c>0$,
-\[
- G_{\lfloor M^A\rfloor}\le C M^{-c}G_M.
-\]
-Splitting the vectors in the definition of $S_M$ at the index
-$\lfloor M^A\rfloor$ and using \eqref{eq:critical-base-input}, one
-obtains, for all sufficiently large $M$,
-\[
- \frac14\gamma_{\lfloor M^A\rfloor,a}G_M
- \le S_M
- \le \|T_a\|G_M.
-\]
-Since the matrices have fixed size and
-\[
- \log\gamma_{\lfloor M^A\rfloor,a}=o(\log M),
-\]
-it follows that
-\[
- \log\det S_M=\log\det G_M+o(\log M).
-\]
-Lemma~\ref{lem:eigenvector-tails} therefore gives the same
-finite-dimensional contribution as in
-\eqref{eq:edge-contribution}, now with an $o(\log N)$ error.
-
-For the determinant with the opposite sign, the relevant operator
-remains uniformly bounded away from zero after its finite-dimensional
-kernel has been separated off, so the argument above
-applies without change.  Hence \eqref{eq:master-formula} remains valid
-at the critical parameter, with $O_\delta(1)$ replaced by
-$o(\log N)$.  Lemma~\ref{lem:unfolding} then gives
-\[
- \log D_N^\pm(\delta)
- =-\frac{\theta_\delta^2\mp\theta_\delta}{2}\log N+o(\log N).
-\]
 
 \section{Conclusion}
 
