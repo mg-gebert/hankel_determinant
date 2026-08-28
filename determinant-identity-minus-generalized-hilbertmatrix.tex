@@ -98,21 +98,29 @@ catastrophe.]
 
 \section{Introduction and results}
 
-For $\delta\in\mathbb R \setminus \{-1,-2,\ldots\}$, we define the generalized Hilbert matrix $H^\delta: \ell^2(\Nzero)\rightarrow \ell^2(\Nzero)$ by the matrix elements
-\begin{equation}
- H^\delta(j,k)
- :=\left(
- \frac{\sin((1+\delta)\pi)}{\pi(j+k+1+\delta)}
- \right)
+For $\alpha\notin\{0,-1,-2,\ldots\}$, we define
+the bounded self-adjoint generalized Hilbert matrix on
+$\ell^2(\Nzero)$ by
+\begin{equation}\label{eq:Halpha}
+ \Hh_\alpha:=\left(\frac1{j+k+\alpha}\right)_{j,k\in\Nzero}
 \end{equation}
-for $j,k\in\Nzero$. For $N\in\mathbb N$, denote restrictions of $H^\delta$ by
+ and its normalized form by
+\begin{equation}\label{eq:Aalpha}
+ A_\alpha:=\frac{\sin(\pi\alpha)}\pi\Hh_\alpha.
+\end{equation}
+
+For $\delta\in\mathbb R \setminus \{-1,-2,\ldots\}$, let
+\begin{equation}
+ H^\delta := A_{1+\delta}
+\end{equation}
+and for $N\in\mathbb N$, we denote its $N\times N$ restriction by
 \begin{equation}\label{eq:def-Hdelta}
  H_N^\delta
  :=
  \Big(H^\delta(j,k)\Big)_{j,k=0}^{N-1}.
 \end{equation}
 
-We are interested in the asymptotic behaviour  of the determinants
+Our goal is to understand the asymptotic behaviour  of the determinants
 \begin{equation}\label{eq:def-Dpm}
  D_N^\pm(\delta):=\det(\id_N\pm H_N^\delta)
 \end{equation}
@@ -308,46 +316,34 @@ matrices to be related to the same symbol, a condition that fails here.
 
 \section{The spectrum of the generalized Hilbert matrix}
 
-Let $\ell^2(\Nzero)$ have standard orthonormal basis $(e_j)_{j\ge0}$.  For a
-real parameter
-$\alpha\notin\{0,-1,-2,\ldots\}$, let
-\begin{equation}\label{eq:Halpha}
- \Hh_\alpha:=\left(\frac1{j+k+\alpha}\right)_{j,k\in\Nzero}
-\end{equation}
-be the bounded self-adjoint generalized Hilbert operator on
-$\ell^2(\Nzero)$, and define its normalized form
-\begin{equation}\label{eq:Aalpha}
- A_\alpha:=\frac{\sin(\pi\alpha)}\pi\Hh_\alpha.
-\end{equation}
-Throughout let $P_N$ be the orthogonal projection onto
+Let $\ell^2(\Nzero)$ have standard orthonormal basis $(e_j)_{j\ge0}$.  Throughout let $P_N$ be the orthogonal projection onto
 $\operatorname{span}\{e_0,\ldots,e_{N-1}\}$ and put
-\[Q_N:=\id-P_N.\]
-  With
-$\alpha=1+\delta$, we obtain
-\begin{equation}\label{eq:compression}
- H_N^\delta=P_NA_\alpha P_N\big|_{P_N\ell^2(\Nzero)}.
+\begin{equation}
+    Q_N:=\id-P_N.
 \end{equation}
-If $\delta\in\Nzero$, then $\sin((1+\delta)\pi)=0$, so $H^\delta=0$,
-$D_N^\pm(\delta)=1$ and $\theta_\delta=0$; Theorem~\ref{thm:main} is
-trivial in this case. We therefore assume $\delta\notin\mathbb Z$, i.e.\
-$\alpha\notin\mathbb Z$, for the rest of the paper.
+We remark that 
+\begin{equation}\label{eq:compression}
+ H_N^\delta=P_NA_{1+\delta} P_N\big|_{P_N\ell^2(\Nzero)}.
+\end{equation}
+If $\delta\in\Nzero$, then $\sin((1+\delta)\pi)=0$, so $H^\delta=0$ and
+$D_N^\pm(\delta)=1$. 
 
-The generalized Hilbert operator $A_\alpha$ can be diagonalized explicitly, see e.g.
-\cite{AlemanMontesSarafoleanu,RosenblumII,Silbermann}.
+The generalized Hilbert matrix $H^\delta = A_{1+\delta}$ can be diagonalized explicitly, see e.g.
+\cite{AlemanMontesSarafoleanu,RosenblumII,Silbermann}:
 
-\begin{proposition}[Spectrum of generalized Hilbert operator]\label{prop:spectral-data}
-Let $\alpha=1+\delta\in\R\setminus\mathbb Z$ and set
-$s:=\sin(\pi\alpha)$.  Then:
+\begin{proposition}[Spectrum of generalized Hilbert matrix $H^\delta$]\label{prop:spectral-data}
+Let $\delta\in\R\setminus\mathbb Z$ and set
+$s:=\sin((1+\delta)\pi)$.  Then:
 
 \begin{enumerate}
-\item The absolutely continuous spectrum of $A_\alpha$ is
+\item The absolutely continuous spectrum of $H^\delta$ is
 \begin{equation}\label{eq:ac-spectrum}
- \operatorname{spec}_{\mathrm{ac}}(A_\alpha)
+ \operatorname{spec}_{\mathrm{ac}}(H^\delta)
  =[\min\{0,s\},\max\{0,s\}],
 \end{equation}
 with multiplicity one.
 
-\item The point spectrum of $A_\alpha$ is contained in $\{-1,+1\}$.  Define
+\item The point spectrum of $H^\delta$ is contained in $\{-1,+1\}$.  Define
 \begin{align}
  J^-_\delta
  &:=\left\{j\in 2\Nzero:0\leq j<-\delta-\frac12\right\},
@@ -356,26 +352,26 @@ with multiplicity one.
  &:=\left\{j\in 2 \Nzero +1:0\leq j<-\delta-\frac12\right\}.
  \label{eq:Jplus}
 \end{align}
-For each $j\in J^-_\delta \cup J^+_\delta$, let $u_j$ be the Taylor coefficient vector (TODO: Check if saying here Fourier coefficients is better) of
+For each $j\in J^-_\delta \cup J^+_\delta$, let $u_j$ be the Taylor coefficient vector of
 \begin{equation}\label{eq:fj}
  f_j(z):=(1-z)^{-\alpha-j}(1+z)^j.
 \end{equation}
 Then
 \begin{equation}\label{eq:eigenvalue-fj}
- A_\alpha u_j=(-1)^j u_j,
+ H^\delta u_j=(-1)^j u_j,
 \end{equation}
 and
 \begin{equation}\label{eq:kernel-basis}
- \Ker(\id\pm A_\alpha)
+ \Ker(\id\pm H^\delta)
  =\operatorname{span}\{u_j:j\in J^\pm_\delta\}.
 \end{equation}
 
 \item
-The singular continuous spectrum is empty, i.e. the above describes the  spectrum of $A_\alpha$ completely.
+The singular continuous spectrum is empty, i.e. the above describes the  spectrum of $H^\delta$ completely.
 \end{enumerate}
 \end{proposition}
 
-\begin{remark} {}
+\begin{remark} {(Symbol of the generalized Hilbert matrix)}
 For a Hankel matrix $H:\ell^2(\Nzero)\to\ell^2(\Nzero)$, we call a bounded function
 $f:\mathbb T\to\mathbb C$ a \emph{symbol of $H$} if
 \begin{equation}
@@ -390,19 +386,26 @@ denotes the $n$-th Fourier coefficient of $f$. For the operator $H^\delta$ studi
  f(e^{it})=e^{i(1+\delta)(\pi-t)}, \qquad t\in[0,2\pi),
 \end{equation}
 is a symbol.
+
+Writing $\alpha:=1+\delta$, we have $f(e^{it})=e^{i\alpha(\pi-t)}$, so $f$ is
+unimodular and continuous except for a single jump at $z=1$, where
+\begin{equation}
+ f(1^\pm)=e^{\pm i\alpha\pi},\qquad
+ \tfrac{1}{2i}\bigl(f(1^+)-f(1^-)\bigr)=\sin(\pi\alpha).
+\end{equation}
+By the theory of piecewise-continuous Hankel symbols, this jump
+ accounts for the absolutely continuous spectrum \eqref{eq:ac-spectrum}, see \cite{Peller}.
 \end{remark}
 
 \begin{remark}
-    The operator $A_\alpha$ is a self-adjoint contraction.  If $\abs{s}<1$,
+    The operator $H^\delta$ is a self-adjoint contraction.  If $\abs{s}<1$,
 then, after the kernels in \eqref{eq:kernel-basis} are removed, the
-spectra of $\id\pm A_\alpha$ are bounded away from zero.
-[TODO: Reformulate? E.g.: The absolutely continuous spectra of $I\pm
-  A_\alpha$ have positive distance to zero.]
+spectrum of $\id\pm H^\delta$ is bounded away from zero.
 \end{remark}
 
 \begin{remark}
 The asymptotic behavior of $u_j(n)$ as $n\to\infty$, derived in
-Lemma~\ref{lem:eigenvector-tails} below, shows that $u_j\in\ell^2(\Nzero)$.
+Lemma~\ref{lem:eigenvector-tails} below, shows that $u_j\in\ell^2(\Nzero)$. The $u_j$ form a basis of $J^\pm_\delta$ but are neither normalized nor orthogonal. 
 \end{remark}
 
 \begin{lemma}\label{lem:positivity}
@@ -1221,6 +1224,14 @@ R. Gharakhloo and A. Its,
 \emph{A Riemann-Hilbert approach to asymptotic analysis of Toeplitz+Hankel determinants II},
 Nonlinearity \textbf{39} (2026), no.~8, 085002.
 \href{https://doi.org/10.1088/1361-6544/ae8d79}{doi:10.1088/1361-6544/ae8d79}.
+
+
+\bibitem{Peller}
+V.~V. Peller,
+\emph{Hankel operators and their applications},
+Springer Monographs in Mathematics,
+Springer-Verlag, New York, 2003.
+\href{https://doi.org/10.1007/978-0-387-21681-2}{doi:10.1007/978-0-387-21681-2}.
 \end{thebibliography}
 
 \end{document}
