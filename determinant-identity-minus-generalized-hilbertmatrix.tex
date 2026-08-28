@@ -197,7 +197,7 @@ Then, we have the following asymptotic behaviour as $N\to\infty$
 \end{theorem}
 
 \begin{remark}
-    For $\delta \geq - \frac 1 2$ the above is already proven in \cite{Otte}. In this case, the above asymptotics was before also 
+    For $\delta \geq - \frac 1 2$ the above is already proven in \cite{Otte}. In this case, the above asymptotics was before also
     found in a more general setting of Hankel matrices with jump discontinuities in their symbol with the weaker remainder term $o(\log N)$ in \cite{FedeleGebert}. The main novelty here is understanding the behaviour of the determinant in the case $\delta < -\frac 12$.
 \end{remark}
 
@@ -230,7 +230,7 @@ Corollary~\ref{cor:main-sq} can be written as
 \]
 \end{remark}
 
-\begin{remark}\label{rem:critical-halfintegers} 
+\begin{remark}\label{rem:critical-halfintegers}
 At the critical half-integers $\delta\in\mathcal C$ excluded from
 Theorem~\ref{thm:main}, the strong remainder $O_\delta(1)$ degrades but the
 leading term survives: for every $\delta\in\mathcal C$,
@@ -496,7 +496,7 @@ Since $\Pi=VV^*$, we obtain
 Since $\det(\id - ABC) = \det(\id - CAB)$, we obtain \eqref{eq:edge-factorization} and \eqref{eq:def-MN}.
 \end{proof}
 
-Applying the above lemma to $T^\pm$, we obtain 
+Applying the above lemma to $T^\pm$, we obtain
 \begin{equation}
     D_N^\pm(\delta) = \det(P_N\widetilde T^\pm P_N)\det (M^\pm_N),
 \end{equation}
@@ -863,8 +863,8 @@ Combining Lemma \ref{lem:factorization}, Theorem \ref{bulk-asymp} and Theorem \r
  +\sum_{j\in J^\pm_\delta}(2\delta+2j+1)
  \right]\log N+O_\delta(1).
 \end{equation}
-Formula~\eqref{eq:master-formula} is the unsimplified strong asymptotic. 
-We note that $J^\pm_\delta \neq \emptyset$ only for $\delta\leq -\frac 12$. 
+Formula~\eqref{eq:master-formula} is the unsimplified strong asymptotic.
+We note that $J^\pm_\delta \neq \emptyset$ only for $\delta\leq -\frac 12$.
 
 Now, Lemma \ref{lem:unfolding} below concludes the proof.
 \end{proof}
@@ -881,13 +881,13 @@ Then
 \end{lemma}
 
 \begin{proof}
-Since for $\delta > -\frac 12$ the set of eigenvalues $J^\pm_\delta = \emptyset$, there is nothing to prove as $\theta_\delta = - \delta_{\text{reg}}$. 
+Since for $\delta > -\frac 12$ the set of eigenvalues $J^\pm_\delta = \emptyset$, there is nothing to prove as $\theta_\delta = - \delta_{\text{reg}}$.
 
 Let $\delta \leq -\frac12$ and define
 \begin{equation}\label{eq:m-def}
- m:=|J_\delta^+| + |J_\delta^-| = \#\{j\in\Nzero:j<-\delta-\tfrac12\}
+ m := \abs{J_\delta^+} + \abs{J_\delta^-} = \abs{\{j\in\Nzero:j<-\delta-\tfrac12\}}
 \end{equation}
-where here $|\cdot|$ denotes the cardinality of a set. 
+where $\abs{\,\cdot\,}$ denotes the cardinality of a set.
 Since $-\delta = \theta_\delta$, we obtain
 $\theta_\delta\in(m-\frac12,m+\frac12)$, and on this interval
 \begin{equation}\label{eq:lift}
@@ -896,11 +896,9 @@ $\theta_\delta\in(m-\frac12,m+\frac12)$, and on this interval
  \theta_\delta=m - (-1)^m\delta_{\text{reg}}.
 \end{equation}
 We index the $m$ edge eigenvectors by $j=0,\ldots,m-1$, with
-alternating eigenvalues.  
-
-For $j=0,\ldots,m$, put
+alternating eigenvalues and put
 \[
- \rho_j:=(-1)^j(\theta_\delta-j).
+ \rho_j:=(-1)^j(\theta_\delta-j) \quad \text{for} \quad 0\le j \le m.
 \]
 Then $\rho_0=\theta_\delta$, $\rho_m=-\delta_{\mathrm{reg}}$ by
 \eqref{eq:lift}, and
