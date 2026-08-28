@@ -304,7 +304,7 @@ $\pi/2$: the true exponent is $\pi^{-2}\vartheta_\alpha^2$
 throughout.
 
 (2) \emph{Appearance in random matrix theory.} The asymptotics of the determinant $\det(\id_N - \frac 1 \pi \mathcal H_{\frac12})$ with $\mathcal H_{\frac12}$ defined in \eqref{eq:Halpha}, determines the probability that a truncated random orthogonal
-matrix has no real eigenvalues which in turn gives the probability of Kac random polynomials having no real eigenvalues see \cite{GebertPoplavskyi}.
+matrix has no real eigenvalues which in turn gives the probability of Kac random polynomials having no real eigenvalues, see \cite{GebertPoplavskyi}.
 
 (3) \emph{Asymptotics of Hankel, Toeplitz, and Hankel-plus-Toeplitz determinants}
 are a classical subject, see e.g.\ \cite{BasorEhrhardt,DeiftItsKrasovsky,GharakhlooIts,GharakhlooItsII} and
@@ -321,12 +321,12 @@ $\operatorname{span}\{e_0,\ldots,e_{N-1}\}$ and put
 \begin{equation}
     Q_N:=\id-P_N.
 \end{equation}
-We remark that 
+We remark that
 \begin{equation}\label{eq:compression}
  H_N^\delta=P_NA_{1+\delta} P_N\big|_{P_N\ell^2(\Nzero)}.
 \end{equation}
 If $\delta\in\Nzero$, then $\sin((1+\delta)\pi)=0$, so $H^\delta=0$ and
-$D_N^\pm(\delta)=1$. 
+$D_N^\pm(\delta)=1$.
 
 The generalized Hilbert matrix $H^\delta = A_{1+\delta}$ can be diagonalized explicitly, see e.g.
 \cite{AlemanMontesSarafoleanu,RosenblumII,Silbermann}:
@@ -371,22 +371,8 @@ The singular continuous spectrum is empty, i.e. the above describes the  spectru
 \end{enumerate}
 \end{proposition}
 
-\begin{remark} {(Symbol of the generalized Hilbert matrix)}
-For a Hankel matrix $H:\ell^2(\Nzero)\to\ell^2(\Nzero)$, we call a bounded function
-$f:\mathbb T\to\mathbb C$ a \emph{symbol of $H$} if
-\begin{equation}
- H(j,k)=\hat f(j+k), \qquad j,k\in\Nzero,
-\end{equation}
-where $\mathbb T:=\{z\in\mathbb C:\abs{z}=1\}$ and
-\begin{equation}
- \hat f(n):=\frac1{2\pi}\int_0^{2\pi}f(e^{it})e^{-int}\,dt, \qquad n\in\Nzero,
-\end{equation}
-denotes the $n$-th Fourier coefficient of $f$. For the operator $H^\delta$ studied here, the function
-\begin{equation}
- f(e^{it})=e^{i(1+\delta)(\pi-t)}, \qquad t\in[0,2\pi),
-\end{equation}
-is a symbol.
-
+\begin{remark}
+(1) \emph{Symbol of the generalized Hilbert matrix.} For a Hankel matrix $H:\ell^2(\Nzero)\to\ell^2(\Nzero)$, we call a bounded function
 Writing $\alpha:=1+\delta$, we have $f(e^{it})=e^{i\alpha(\pi-t)}$, so $f$ is
 unimodular and continuous except for a single jump at $z=1$, where
 \begin{equation}
@@ -395,17 +381,13 @@ unimodular and continuous except for a single jump at $z=1$, where
 \end{equation}
 By the theory of piecewise-continuous Hankel symbols, this jump
  accounts for the absolutely continuous spectrum \eqref{eq:ac-spectrum}, see \cite{Peller}.
-\end{remark}
 
-\begin{remark}
-    The operator $H^\delta$ is a self-adjoint contraction.  If $\abs{s}<1$,
+(2) The operator $H^\delta$ is a self-adjoint contraction.  If $\abs{s}<1$,
 then, after the kernels in \eqref{eq:kernel-basis} are removed, the
 spectrum of $\id\pm H^\delta$ is bounded away from zero.
-\end{remark}
 
-\begin{remark}
-The asymptotic behavior of $u_j(n)$ as $n\to\infty$, derived in
-Lemma~\ref{lem:eigenvector-tails} below, shows that $u_j\in\ell^2(\Nzero)$. The $u_j$ form a basis of $J^\pm_\delta$ but are neither normalized nor orthogonal. 
+(3) The asymptotic behavior of $u_j(n)$ as $n\to\infty$, derived in
+Lemma~\ref{lem:eigenvector-tails} below, shows that $u_j\in\ell^2(\Nzero)$. The $u_j$ form a basis of $J^\pm_\delta$ but are neither normalized nor orthogonal.
 \end{remark}
 
 \begin{lemma}\label{lem:positivity}
