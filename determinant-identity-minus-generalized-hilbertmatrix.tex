@@ -352,7 +352,7 @@ with multiplicity one.
 \end{align}
 For each $j\in J^-_\delta \cup J^+_\delta$, let $u_j$ be the Taylor coefficient vector of
 \begin{equation}\label{eq:fj}
- f_j(z):=(1-z)^{-\alpha-j}(1+z)^j.
+ f_j(z):=(1-z)^{-(1+\delta+j)}(1+z)^j.
 \end{equation}
 Then
 \begin{equation}\label{eq:eigenvalue-fj}
@@ -393,9 +393,9 @@ $z=1$, where
 By the theory of piecewise-continuous Hankel symbols, this jump
  accounts for the absolutely continuous spectrum \eqref{eq:ac-spectrum}, see \cite{Peller}.
 
-(2) The operator $A_\alpha$ is a self-adjoint contraction. If $\abs{s}<1$,
-then $\operatorname{spec}(\id\pm A_\alpha)\setminus\{0\}\subseteq[1-\abs{s},2]$;
-in particular, $\id\pm A_\alpha\ge1-\abs{s}$ on the orthogonal complement of
+(2) The operator $H^\delta$ is a self-adjoint contraction. If $\abs{s}<1$,
+then $\operatorname{spec}(\id\pm H^\delta)\setminus\{0\}\subseteq[1-\abs{s},2]$;
+in particular, $\id\pm H^\delta\ge1-\abs{s}$ on the orthogonal complement of
 the kernel \eqref{eq:kernel-basis}.
 
 (3) The asymptotic behavior of $u_j(n)$ as $n\to\infty$, derived in
@@ -414,22 +414,22 @@ $\log D_N^\pm(\delta)$ is well-defined.
 
 \begin{proof}
 By \eqref{eq:compression}, $\langle\psi,(\id_N\pm H_N^\delta)\psi\rangle
-=\langle\psi,(\id\pm A_\alpha)\psi\rangle$ for any $\psi\in P_N\ell^2(\Nzero)$.
+=\langle\psi,(\id\pm H^\delta)\psi\rangle$ for any $\psi\in P_N\ell^2(\Nzero)$.
 
 Suppose there exists $0\ne\psi\in P_N\ell^2(\Nzero)$ such that
 \begin{equation}
-    \langle\psi,(\id\pm A_\alpha)\psi\rangle = 0.
+    \langle\psi,(\id\pm H^\delta)\psi\rangle = 0.
 \end{equation}
 With
-$B:=(\id\pm A_\alpha)^{1/2}\ge0$, the above shows $\norm{B\psi}^2=0$ and $B\psi=0$, hence
-$(\id\pm A_\alpha)\psi=B(B\psi)=0$, i.e.\ $\psi\in\Ker(\id\pm A_\alpha)$ and $A_\alpha$ has an eigenvalue $\mp 1$ with compactly supported eigenfunction.
+$B:=(\id\pm H^\delta)^{1/2}\ge0$, the above shows $\norm{B\psi}^2=0$ and $B\psi=0$, hence
+$(\id\pm H^\delta)\psi=B(B\psi)=0$, i.e.\ $\psi\in\Ker(\id\pm H^\delta)$ and $H^\delta$ has an eigenvalue $\mp 1$ with compactly supported eigenfunction.
 
 If $\delta\ge-\frac12$, Proposition~\ref{prop:spectral-data} shows that
-$A_\alpha$ has no eigenvalues at all, so $\Ker(\id\pm A_\alpha)=\{0\}$ by
+$H^\delta$ has no eigenvalues at all, so $\Ker(\id\pm H^\delta)=\{0\}$ by
 \eqref{eq:kernel-basis} -- contradicting $\psi\ne0$.
 
 If $\delta<-\frac12$, we show that there cannot be a $\mp 1$ eigenvalue with compact support. Note that \eqref{eq:kernel-basis} identifies
-$\Ker(\id\pm A_\alpha)$ with the span of $\{u_j:j\in J_\delta^\pm\}$. Writing
+$\Ker(\id\pm H^\delta)$ with the span of $\{u_j:j\in J_\delta^\pm\}$. Writing
 $\psi=\sum_{j\in J_\delta^\pm}\gamma_ju_j$ and
 $j^*:=\max\{j\in J_\delta^\pm:\gamma_j\ne0\}$, \eqref{eq:coeff-asymptotic}
 gives $\psi(n)=\gamma_{j^*}c_{j^*}n^{\delta+j^*}(1+o(1))$ with
