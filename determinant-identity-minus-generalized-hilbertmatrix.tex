@@ -33,8 +33,8 @@
 \newcommand{\cS}{\mathfrak S_1}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
-% Tick label -1/2 for the plot: one size smaller, centred on the text-style math axis
-% (so it lines up with neighbouring minus signs), without the side padding of \frac.
+% Tick label -1/2 for the plot: one size smaller, centered on the text-style math axis
+% (so it lines up with neighboring minus signs), without the side padding of \frac.
 \newcommand{\minushalf}{{\nulldelimiterspace=0pt $\vcenter{\hbox{$\scriptstyle-\frac12$}}$}}
 
 \pgfplotsset{set layers}
@@ -111,7 +111,7 @@ and for $N\in\mathbb N$, we denote its $N\times N$ restriction by
  \Big(H^\delta(j,k)\Big)_{j,k=0}^{N-1}.
 \end{equation}
 
-Our goal is to understand the asymptotic behaviour  of the determinants
+Our goal is to understand the asymptotic behavior of the determinants
 \begin{equation}\label{eq:def-Dpm}
  D_N^\pm(\delta):=\det(\id_N\pm H_N^\delta)
 \end{equation}
@@ -188,7 +188,7 @@ where $\arcsin:[-1,1]\to[-\pi/2,\pi/2]$ is the principal inverse sine. With the 
   - \delta_{\text{reg}},&\delta > -\frac12.
  \end{cases}
 \end{equation}
-Then, we have the following asymptotic behaviour as $N\to\infty$
+Then, we have the following asymptotic behavior as $N\to\infty$
 \begin{equation}\label{eq:strong-main}
  \log D_N^\pm(\delta)
  =-\frac{\theta_\delta^2\mp\theta_\delta}{2}\log N+O_\delta(1).
@@ -285,7 +285,7 @@ exponent was observed as in \eqref{eq:effective-phase}. In this case, $-\pi\delt
 matrix has no real eigenvalues which in turn gives the probability of Kac random polynomials having no real eigenvalues, see \cite{GebertPoplavskyi}.
 
 (3) \emph{Asymptotics of Hankel, Toeplitz, and Hankel-plus-Toeplitz determinants}
-are a classical subject, see e.g.\ \cite{BasorEhrhardt,DeiftItsKrasovsky,GharakhlooIts,GharakhlooItsII} and
+are a classical subject, see e.g., \cite{BasorEhrhardt,DeiftItsKrasovsky,GharakhlooIts,GharakhlooItsII} and
 the references therein. Since $\id_N$ is (trivially) Toeplitz and $H_N^\delta$
 is Hankel, $D_N^\pm(\delta)$ is itself a Hankel-plus-Toeplitz determinant;
 however, the existing literature generally requires the Toeplitz and Hankel
@@ -306,7 +306,7 @@ We remark that
 If $\delta\in\Nzero$, then $\sin((1+\delta)\pi)=0$, so $H^\delta=0$ and
 $D_N^\pm(\delta)=1$; we assume $\delta\notin\mathbb Z$ from now on.
 
-The generalized Hilbert matrix $H^\delta = A_{1+\delta}$ can be diagonalized explicitly, see e.g.~\cite{AlemanMontesSarafoleanu,RosenblumII,Silbermann}:
+The generalized Hilbert matrix $H^\delta = A_{1+\delta}$ can be diagonalized explicitly, see e.g., \cite{AlemanMontesSarafoleanu,RosenblumII,Silbermann}:
 
 \begin{proposition}[Spectrum of generalized Hilbert matrix $H^\delta$]\label{prop:spectral-data}
 Let $\delta\in\R\setminus\mathbb Z$ and set
@@ -318,7 +318,7 @@ $s:=\sin((1+\delta)\pi)$.  Then:
  \operatorname{spec}_{\mathrm{ac}}(H^\delta)
  =[\min\{0,s\},\max\{0,s\}],
 \end{equation}
-with multiplicity one, i.e.\ there is one band of absolutely continuous spectrum.
+with multiplicity one, i.e., there is one band of absolutely continuous spectrum.
 
 \item The point spectrum of $H^\delta$ is contained in $\{-1,+1\}$.  Define
 \begin{align}
@@ -342,11 +342,11 @@ and
  \Ker(\id\pm H^\delta)
  =\operatorname{span}\{u_j:j\in J^\pm_\delta\},
 \end{equation}
-i.e.\ $J_\delta^-$ indexes the eigenvectors for the eigenvalue $+1$ and
+i.e., $J_\delta^-$ indexes the eigenvectors for the eigenvalue $+1$ and
 $J_\delta^+$ those for the eigenvalue $-1$.
 
 \item
-The singular continuous spectrum is empty, i.e.\ the above describes the spectrum of $H^\delta$ completely.
+The singular continuous spectrum is empty, i.e., the above describes the spectrum of $H^\delta$ completely.
 \end{enumerate}
 \end{proposition}
 
@@ -403,7 +403,7 @@ Suppose there exists $0\ne\psi\in P_N\ell^2(\Nzero)$ such that
 \end{equation}
 With
 $B:=(\id\pm H^\delta)^{1/2}\ge0$, the above shows $\norm{B\psi}^2=0$ and $B\psi=0$, hence
-$(\id\pm H^\delta)\psi=B(B\psi)=0$, i.e.\ $\psi\in\Ker(\id\pm H^\delta)$ and $H^\delta$ has an eigenvalue $\mp 1$ with compactly supported eigenfunction.
+$(\id\pm H^\delta)\psi=B(B\psi)=0$, i.e., $\psi\in\Ker(\id\pm H^\delta)$ and $H^\delta$ has an eigenvalue $\mp 1$ with compactly supported eigenfunction.
 
 If $\delta\ge-\frac12$, Proposition~\ref{prop:spectral-data} shows that
 $H^\delta$ has no eigenvalues at all, so $\Ker(\id\pm H^\delta)=\{0\}$ by
@@ -481,7 +481,7 @@ where $M^\pm_N$ is the matrix \eqref{eq:def-MN} for some isometry
 $V\colon\C^{m^\pm}\to K^\pm$, $m^\pm:=\dim K^\pm$. An
 explicit $V$ adapted to the edge eigenvectors is constructed in the proof of Theorem~\ref{edge-asymp}.
 
-We call $\det(P_N\widetilde T^{\,\pm} P_N)$ the bulk determinant and $\det( M^\pm_N)$ the edge determinant. If $\delta > -\frac 12$ there are no edge eigenvalues, so $m^\pm=0$ and the edge determinant is trivially $1$ and can be ignored. We first determine the asymptotic behaviour of the bulk determinant.
+We call $\det(P_N\widetilde T^{\,\pm} P_N)$ the bulk determinant and $\det( M^\pm_N)$ the edge determinant. If $\delta > -\frac 12$ there are no edge eigenvalues, so $m^\pm=0$ and the edge determinant is trivially $1$ and can be ignored. We first determine the asymptotic behavior of the bulk determinant.
 
 \section{The bulk determinant}
 
@@ -910,7 +910,7 @@ which is equivalent to \eqref{eq:unfolding-identity} using once more that, by de
 \end{proof}
 
 
-\section*{Acknowledgements and use of AI tools}
+\section*{Acknowledgments and use of AI tools}
 
 The key estimate \eqref{eq:loewner-tail}, a consequence of known results,
 was pointed out to us by ChatGPT~5.6~Pro (OpenAI); all proofs were
