@@ -371,8 +371,21 @@ The singular continuous spectrum is empty, i.e. the above describes the  spectru
 
 \begin{remark}
 (1) \emph{Symbol of the generalized Hilbert matrix.} For a Hankel matrix $H:\ell^2(\Nzero)\to\ell^2(\Nzero)$, we call a bounded function
-Writing $\alpha:=1+\delta$, we have $f(e^{it})=e^{i\alpha(\pi-t)}$, so $f$ is
-unimodular and continuous except for a single jump at $z=1$, where
+$f:\mathbb T\to\mathbb C$ a \emph{symbol of $H$} if
+\begin{equation}
+ H(j,k)=\hat f(j+k), \qquad j,k\in\Nzero,
+\end{equation}
+where $\mathbb T:=\{z\in\mathbb C:\abs{z}=1\}$ and
+\begin{equation}
+ \hat f(n):=\frac1{2\pi}\int_0^{2\pi}f(e^{it})e^{-int}\,dt, \qquad n\in\Nzero,
+\end{equation}
+denotes the $n$-th Fourier coefficient of $f$. For the operator $H^\delta$
+studied here, with $\alpha:=1+\delta$, the function
+\begin{equation}
+ f(e^{it})=e^{i\alpha(\pi-t)}, \qquad t\in[0,2\pi),
+\end{equation}
+is a symbol. It is unimodular and continuous except for a single jump at
+$z=1$, where
 \begin{equation}
  f(1^\pm)=e^{\pm i\alpha\pi},\qquad
  \tfrac{1}{2i}\bigl(f(1^+)-f(1^-)\bigr)=\sin(\pi\alpha).
