@@ -77,7 +77,7 @@ The decay exponent is given by
     -\dfrac{1}{\pi} \arcsin\bigl(\sin(\delta\pi)\bigr), & \delta > -\frac{1}{2},
   \end{cases}
 \]
-where $\arcsin \colon [-1,1] \to [-\frac{\pi}{2}, \frac{\pi}{2}]$ denotes the principal branch of $\arcsin$. For $\delta \ge -\frac 12$ this asymptotics is known. The novelty of the present paper is the regime $\delta < - \frac 12$ and understanding the dichotomy in the decay exponent. This stems from the $\pm 1$ edge eigenvalues of the limiting operator appearing for $\delta \leq - \frac 12$.
+where $\arcsin \colon [-1,1] \to [-\frac{\pi}{2}, \frac{\pi}{2}]$ denotes the principal branch of $\arcsin$. For $\delta > -\frac 12$ this asymptotics is known. The novelty of the present paper is the regime $\delta < - \frac 12$ and understanding the dichotomy in the decay exponent. This stems from the $\pm 1$ edge eigenvalues of the limiting operator appearing for $\delta < - \frac 12$.
 Most notably, we obtain
 \[
   \log \det\bigl(\id_N - (H_N^\delta)^2\bigr) = -\theta_\delta^2 \log
@@ -202,7 +202,7 @@ obtained earlier, in the more general framework of Hankel matrices whose symbol
 has jump discontinuities, in \cite{FedeleGebert}. At a high level, the asymptotics follows from $H_N^\delta$ converging strongly to $H^\delta$ and the limiting operator having a band of absolutely continuous spectrum $[0,\pm\sin((1+\delta)\pi)]$, see Section~\ref{sec:spectrum}. We call this the \emph{bulk contribution} to the asymptotics.
 
 (2) The novelty of the present
-paper is the case $\delta < -\frac12$, where the operator $H^\delta$ in addition to the absolutely continuous spectrum, acquires
+paper is the case $\delta < -\frac12$, where the operator $H^\delta$, in addition to the absolutely continuous spectrum, acquires
 eigenvalues at $\pm1$; for its spectral structure, see
 Section~\ref{sec:spectrum}. The main content of the paper is to control the
 effect of these edge eigenvalues on $D_N^\pm(\delta)$. We call this the \emph{edge contribution}. Notably, the bulk and the edge contribution
@@ -838,7 +838,7 @@ Combining Lemma \ref{lem:factorization}, Theorem \ref{bulk-asymp} and Theorem \r
  \right]\log N+O_\delta(1).
 \end{equation}
 Formula~\eqref{eq:master-formula} is the unsimplified strong asymptotic.
-We note that $J^\pm_\delta \neq \emptyset$ only for $\delta\leq -\frac 12$.
+We note that $J^\pm_\delta \neq \emptyset$ only for $\delta< -\frac 12$.
 
 Now, Lemma \ref{lem:unfolding} below concludes the proof.
 \end{proof}
