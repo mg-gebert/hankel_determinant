@@ -204,7 +204,7 @@ Then, we have the following asymptotic behaviour as $N\to\infty$
 \end{theorem}
 
 \begin{remark}
-(1) For $\delta \geq - \frac 1 2$ the above is already proven in
+(1) For $\delta > - \frac 1 2$ the above is already proven in
 \cite{Otte}. In this case, the above asymptotics was also found in a
 more general setting of Hankel matrices with jump discontinuities in
 their symbol with the weaker remainder term $o(\log N)$ in
@@ -324,7 +324,7 @@ We remark that
  H_N^\delta=P_NA_{1+\delta} P_N\big|_{P_N\ell^2(\Nzero)}.
 \end{equation}
 If $\delta\in\Nzero$, then $\sin((1+\delta)\pi)=0$, so $H^\delta=0$ and
-$D_N^\pm(\delta)=1$.
+$D_N^\pm(\delta)=1$; we assume $\delta\notin\mathbb Z$ from now on.
 
 The generalized Hilbert matrix $H^\delta = A_{1+\delta}$ can be diagonalized explicitly, see e.g.
 \cite{AlemanMontesSarafoleanu,RosenblumII,Silbermann}:
@@ -635,7 +635,7 @@ for $\beta\in(-1,1)$.
 Let $s\in(-1,1)$ and let $R^\pm$ be as in \eqref{eq:Rpm}. Then
 \begin{equation}\label{eq:regularized-asymptotic}
  \log\det(P_NR^\pm P_N)
- =-\frac{q^2\mp q}{2}\log N+O_\delta(1)
+ =-\frac{q^2\mp q}{2}\log N+O_s(1)
 \end{equation}
 as $N\to\infty$, with $q:=\frac1\pi\arcsin(s)$.
 \end{proposition}
@@ -879,9 +879,9 @@ Then
 \end{lemma}
 
 \begin{proof}
-Since for $\delta > -\frac 12$ the set of eigenvalues $J^\pm_\delta = \emptyset$, there is nothing to prove as $\theta_\delta = - \delta_{\text{reg}}$.
+Since for $\delta > -\frac 12$ the index set $J^\pm_\delta$ is empty, there is nothing to prove as $\theta_\delta = - \delta_{\text{reg}}$.
 
-Let $\delta \leq -\frac12$ and define
+Let $\delta < -\frac12$ and define
 \begin{equation}\label{eq:m-def}
  m := \abs{J_\delta^+} + \abs{J_\delta^-} = \abs{\{j\in\Nzero:j<-\delta-\tfrac12\}}
 \end{equation}
