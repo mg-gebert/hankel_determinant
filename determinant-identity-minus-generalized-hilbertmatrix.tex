@@ -262,7 +262,7 @@ keep the presentation concise.
 
 \begin{remark}\label{rem:motivation}
 (1) \emph{Anderson's orthogonality catastrophe.} Determinants of the form
-$D_N^\pm(\delta)$ and $\det(\id_N-(H_N^\delta)^2)$ appear in a phenomenon called
+$D_N^\pm(\delta)$ appear in a phenomenon called
 Anderson's orthogonality catastrophe (AOC), which describes the
 asymptotic vanishing of ground-state overlaps of two non-interacting Fermi
 gases, see \cite{GebertKuttlerMuller,GebertKuttlerMullerOtte}. The essential
@@ -273,7 +273,9 @@ the form
     \det( \id - \id_L ( \id_{(-\infty, E]} (H_0) - \id_{(-\infty, E]} (H_1) )^2 \id_L),
 \end{equation}
 for appropriate pairs of Schr\"odinger operators $(H_0, H_1)$ which differ by a short-range scattering potential and
-finite-volume projections $\id_L$. Products and differences of such spectral projections
+finite-volume projections $\id_L$. 
+
+Products and differences of such spectral projections
 are closely related to Hankel operators \cite{FrankPushnitski}, and the generalized Hilbert matrix
 treated here can serve as a model operator, since it often plays a key
 role in the analysis. For example, the generalized Hilbert matrix already appeared in the
@@ -282,28 +284,10 @@ projections, see \cite{KostrykinMakarov}. Powers of the Hilbert matrix
 also yield the coefficients of a series expansion in
 \cite{GebertKuttlerMullerOtte}.
 
-In the direct context of AOC, the determinant identity minus squared
-generalized Hilbert matrix appeared in \cite{KnoerrOtteSpitzer}, where, in a
-special case, the asymptotics of AOC was reduced to the asymptotics of
-\begin{equation}\label{rm:sq-asymp}
-    \det(\id_N-\pi^{-2}\sin^2(\vartheta)P_N\mathcal H_\eta^2P_N),
-\end{equation}
-for a phase shift $\vartheta$ and some $\eta$, where $\mathcal H_\eta$
-is defined in \eqref{eq:Halpha}. The absence of a Szeg\H o-type
-theorem for this quantity was noted there.
-Since
-$(H_N^\delta)^2=\pi^{-2}\sin^2(\pi\eta)P_N\mathcal H_\eta^2P_N$ with
-$\eta=1+\delta$, Corollary~\ref{cor:main-sq} settles this question, with an
-$O(1)$ remainder, along the one-parameter family $\sin^2\vartheta=\sin^2(\pi\eta)$
-for every $\eta\notin\mathcal P+1$ away from the half-integers.
-Fedele and Gebert \cite[Cor.~1.5]{FedeleGebert} had previously given a
-partial answer to the asymptotics of \eqref{rm:sq-asymp},
-valid only for the classical Hilbert matrix $\eta=1$ and $\abs{\sin\vartheta}<1$.
-Moreover, AOC for Dirac-$\delta$ perturbations is treated in
-\cite{Gebert2015}, where it was first observed that the
-exponent $\pi^{-2}\arcsin^2(\sin\vartheta_\alpha)$ fails to be sharp once the phase shift $\vartheta_\alpha$ exceeds
-$\pi/2$: the true exponent is $\pi^{-2}\vartheta_\alpha^2$
-throughout.
+In the direct context of AOC, the determinant $\det(\id_N-(H_N^\delta)^2)$ appeared
+in \cite{KnoerrOtteSpitzer}. Moreover, AOC for Dirac-$\delta$ perturbations is
+treated in \cite{Gebert2015}, where the same phase transition of the decay
+exponent was observed as in \eqref{eq:effective-phase}. In this case $\delta$ is the scattering phase shift. 
 
 (2) \emph{Appearance in random matrix theory.} The asymptotics of the determinant $\det(\id_N - \frac 1 \pi \mathcal H_{\frac12})$ with $\mathcal H_{\frac12}$ defined in \eqref{eq:Halpha}, determines the probability that a truncated random orthogonal
 matrix has no real eigenvalues which in turn gives the probability of Kac random polynomials having no real eigenvalues, see \cite{GebertPoplavskyi}.
