@@ -204,14 +204,20 @@ Then, we have the following asymptotic behaviour as $N\to\infty$
 \end{theorem}
 
 \begin{remark}
-(1) For $\delta > - \frac 1 2$ the above is already proven in
-\cite{Otte}. In this case, the above asymptotics was also found in a
-more general setting of Hankel matrices with jump discontinuities in
-their symbol with the weaker remainder term $o(\log N)$ in
-\cite{FedeleGebert}. The main novelty of the present paper is the
-behaviour of the determinant in the case $\delta < -\frac 12$.
+(1) For $\delta > -\frac12$, the asymptotics \eqref{eq:strong-main} is already
+proven in \cite{Otte}; with the weaker remainder $o(\log N)$ it was also
+obtained earlier, in the more general framework of Hankel matrices whose symbol
+has jump discontinuities, in \cite{FedeleGebert}. At a high level, the asymptotics follows from $H_N^\delta$ converging weakly to $H^\delta$ and the limiting operator having a band of absolutely continuous spectrum $[0,\pm\sin((1+\delta)\pi)$, see Section~\ref{sec:spectrum}. We call this the bulk contribution to the asymptotics.  
 
-(2) Note that the exponent $\delta\mapsto\theta_\delta$ is a continuous function. See
+(2) The novelty of the present
+paper is the case $\delta < -\frac12$, where the operator $H^\delta$ in addition to the absolutely continuous spectrum, acquires
+eigenvalues at $\pm1$; its spectral structure, see
+Section~\ref{sec:spectrum}. The main content of the paper is to control the
+effect of these edge eigenvalues on $D_N^\pm(\delta)$. We call this the edge contribution. Notably, the buld and the edge contribution
+ combined reproduce the same closed expression
+\eqref{eq:strong-main}, now with $\theta_\delta=-\delta$.
+
+(3) Note that the exponent $\delta\mapsto\theta_\delta$ is a continuous function. See
 Figure~\ref{fig:effective-phase} for an illustration.
 Moreover,
 \begin{equation}
@@ -253,8 +259,6 @@ remainder of the
 noncritical argument still applies. We omit the details here to
 keep the presentation concise.
 \end{remark}
-
-TODO: Add motivation where the different behaviour for $\delta<-\frac12$ comes from, i.e. the eigenvalues $\pm 1$. Maybe add remark about spectral structure of $H$ earlier. Mention bulk and edge contribution.
 
 \begin{remark}\label{rem:motivation}
 (1) \emph{Anderson's orthogonality catastrophe.} Determinants of the form
@@ -312,7 +316,7 @@ however, the existing literature generally requires the Toeplitz and Hankel
 matrices to be related to the same symbol, a condition that fails here.
 \end{remark}
 
-\section{The spectrum of the generalized Hilbert matrix}
+\section{The spectrum of the generalized Hilbert matrix}\label{sec:spectrum}
 
 Let $\ell^2(\Nzero)$ have standard orthonormal basis $(e_j)_{j\ge0}$.  Throughout let $P_N$ be the orthogonal projection onto
 $\operatorname{span}\{e_0,\ldots,e_{N-1}\}$ and put
