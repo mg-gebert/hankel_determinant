@@ -64,8 +64,7 @@ For $N \in \mathbb{N}$ and $\delta \in \mathbb{R} \setminus \{-1, -2,
     \frac{\sin((1+\delta)\pi)}{\pi(j+k+1+\delta)}
   \right)_{j,k=0}^{N-1}
 \]
-be the generalized Hilbert matrix. For $\delta$ not a half-integer,
-i.e.\ $\delta \notin \frac{1}{2} + \mathbb{Z}$, we prove the large-$N$
+be the generalized Hilbert matrix. For $\delta$ not a half-integer, we prove the large-$N$
 asymptotics of the determinant
 \[
   \log \det(\id_N \pm H_N^\delta) = -\frac{\theta_\delta^2 \mp \theta_\delta}{2} \log N + O(1).
@@ -78,20 +77,13 @@ The decay exponent is given by
     -\dfrac{1}{\pi} \arcsin\bigl(\sin(\delta\pi)\bigr), & \delta > -\frac{1}{2},
   \end{cases}
 \]
-where $\arcsin \colon [-1,1] \to [-\frac{\pi}{2}, \frac{\pi}{2}]$ denotes the principal branch of $\arcsin$.
+where $\arcsin \colon [-1,1] \to [-\frac{\pi}{2}, \frac{\pi}{2}]$ denotes the principal branch of $\arcsin$. For $\delta \leq -\frac 12$ this asymptotics is known. The novelty of the present paper is the regime $\delta < - \frac 12$ and understanding the dichotomy in the decay exponent. This stems from the $\pm 1$ edge eigenvalues of the limiting operator appearing for $\delta \leq - \frac 12$. 
 Most notably, we obtain
 \[
   \log \det\bigl(\id_N - (H_N^\delta)^2\bigr) = -\theta_\delta^2 \log
   N + O(1).
 \]
-The asymptotics exhibit a kind of
-phase transition: for all $\delta \ge -\frac{1}{2}$ the decay exponent is
-bounded $\theta_\delta^2\in [0,\frac 1 4]$, whereas for $\delta <
--\frac{1}{2}$ the exponent $\theta_\delta^2 = \delta^2$ is
-unbounded. This stems from the appearance of edge eigenvalues in the case of $\delta < -\frac 1 2$ which don't appear for larger $\delta \geq -\frac 1 2$, [TODO: Add motivation? E.g.: This decay behavior mirrors the
-more complicated vanishing of the ground-state overlap of two
-non-interacting Fermi gases known as Anderson's orthogonality
-catastrophe.]
+Such determinants arise in the study of Anderson's orthogonality catastrophe. 
 \end{abstract}
 
 \maketitle
