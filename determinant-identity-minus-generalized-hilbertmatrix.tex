@@ -246,7 +246,7 @@ leading term survives:
 \end{equation}
 For $\delta\ge-\frac12$, this is proven in \cite{Otte}.
 For $\delta<-\frac12$, deleting finitely many initial rows and columns
-reduces the question to the matrix $\id_N\pm H_N^{-(1\pm1/2)}$, and a
+reduces the question to the matrix $\id_N\pm H_N^{-1\mp1/2}$, and a
 Schur-complement argument shows that the decay of its smallest eigenvalue
 changes the logarithm of the determinant only by \(o(\log N)\) such that the
 remainder of the
@@ -494,13 +494,13 @@ Since $\det(\id - ABC) = \det(\id - CAB)$, we obtain \eqref{eq:edge-factorizatio
 
 Applying the above lemma to $T^\pm$, we obtain
 \begin{equation}
-    D_N^\pm(\delta) = \det(P_N\widetilde T^\pm P_N)\det M^\pm_N,
+    D_N^\pm(\delta) = \det(P_N\widetilde T^{\,\pm} P_N)\det M^\pm_N,
 \end{equation}
 where $M^\pm_N$ is the matrix \eqref{eq:def-MN} for some isometry
 $V\colon\C^{m^\pm}\to K^\pm$, $m^\pm:=\dim K^\pm$. An
 explicit $V$ adapted to the edge eigenvectors is constructed in the proof of Theorem~\ref{edge-asymp}.
 
-We call $\det(P_N\widetilde T^\pm P_N)$ the bulk determinant and $\det( M^\pm_N)$ the edge determinant. If $\delta > -\frac 12$ there are no edge eigenvalues, so $m^\pm=0$ and the edge determinant is trivially $1$ and can be ignored. We first determine the asymptotic behaviour of the bulk determinant.
+We call $\det(P_N\widetilde T^{\,\pm} P_N)$ the bulk determinant and $\det( M^\pm_N)$ the edge determinant. If $\delta > -\frac 12$ there are no edge eigenvalues, so $m^\pm=0$ and the edge determinant is trivially $1$ and can be ignored. We first determine the asymptotic behaviour of the bulk determinant.
 
 \section{The bulk determinant}
 
@@ -616,7 +616,7 @@ $\pi^{-1}\Hh_1$ has spectrum $[0,1]$ \cite{Magnus}.  Moreover,
  \in\cS
 \end{equation}
 by Lemma~\ref{lem:trace-class-shift} and $\dim K^\pm < \infty$.
-Together with the positive lower bound for $\widetilde T^\pm$ and
+Together with the positive lower bound for $\widetilde T^{\,\pm}$ and
 $R^\pm$ this supplies the assumptions of
 Lemma~\ref{lem:stable-traceclass} which then implies
 \begin{equation}\label{eq:regularized-determinant}
