@@ -339,7 +339,7 @@ $s:=\sin((1+\delta)\pi)$.  Then:
  \operatorname{spec}_{\mathrm{ac}}(H^\delta)
  =[\min\{0,s\},\max\{0,s\}],
 \end{equation}
-with multiplicity one.
+with multiplicity one, i.e. there is one band of absolutely continuous spectrum.
 
 \item The point spectrum of $H^\delta$ is contained in $\{-1,+1\}$.  Define
 \begin{align}
@@ -361,8 +361,10 @@ Then
 and
 \begin{equation}\label{eq:kernel-basis}
  \Ker(\id\pm H^\delta)
- =\operatorname{span}\{u_j:j\in J^\pm_\delta\}.
+ =\operatorname{span}\{u_j:j\in J^\pm_\delta\},
 \end{equation}
+i.e. $J_\delta^-$ is the eigenspace corresponding to the eigenvalue $+1$ and 
+$J_\delta^+$ is the eigenspace corresponding to the eigenvalue $-1$.
 
 \item
 The singular continuous spectrum is empty, i.e. the above describes the  spectrum of $H^\delta$ completely.
@@ -391,7 +393,7 @@ $z=1$, where
  \tfrac{1}{2i}\bigl(f(1^+)-f(1^-)\bigr)=\sin(\pi\alpha).
 \end{equation}
 By the theory of piecewise-continuous Hankel symbols, this jump
- accounts for the absolutely continuous spectrum \eqref{eq:ac-spectrum}, see \cite{Peller}.
+ accounts for the absolutely continuous spectrum \eqref{eq:ac-spectrum}, see \cite{Howland}.
 
 (2) The operator $H^\delta$ is a self-adjoint contraction. If $\abs{s}<1$,
 then $\operatorname{spec}(\id\pm H^\delta)\setminus\{0\}\subseteq[1-\abs{s},2]$;
@@ -1090,13 +1092,12 @@ R. Gharakhloo and A. Its,
 Nonlinearity \textbf{39} (2026), no.~8, 085002.
 \href{https://doi.org/10.1088/1361-6544/ae8d79}{doi:10.1088/1361-6544/ae8d79}.
 
+\bibitem{Howland}
+J.~S. Howland,
+\emph{Spectral theory of self-adjoint Hankel matrices},
+Michigan Math. J. \textbf{33} (1986), no.~2, 145--153.
+\href{https://doi.org/10.1307/mmj/1029003344}{doi:10.1307/mmj/1029003344}.
 
-\bibitem{Peller}
-V.~V. Peller,
-\emph{Hankel operators and their applications},
-Springer Monographs in Mathematics,
-Springer-Verlag, New York, 2003.
-\href{https://doi.org/10.1007/978-0-387-21681-2}{doi:10.1007/978-0-387-21681-2}.
 \end{thebibliography}
 
 \end{document}
