@@ -66,20 +66,20 @@ For $N \in \mathbb{N}$ and $\delta \in \mathbb{R} \setminus \{-1, -2,
     \frac{\sin((1+\delta)\pi)}{\pi(j+k+1+\delta)}
   \right)_{j,k=0}^{N-1}
 \]
-be the generalized Hilbert matrix. For $\delta$ not a half-integer, we prove the large-$N$
+be the generalized Hilbert matrix. For $\delta$ not a half-integer, we prove the large-$N$ power-law
 asymptotics of the determinant
 \[
-  \log \det(\id_N \pm H_N^\delta) = -\frac{\theta_\delta^2 \mp \theta_\delta}{2} \log N + O(1).
+  \log \det(\id_N \pm H_N^\delta) = -\frac{\theta_\delta^2 \mp \theta_\delta}{2} \log N + O(1)
 \]
-The decay exponent is given by
+where
 \[
   \theta_\delta :=
   \begin{cases}
-    -\delta, & \delta \le -\frac{1}{2}, \\
-    -\dfrac{1}{\pi} \arcsin\bigl(\sin(\delta\pi)\bigr), & \delta > -\frac{1}{2},
+    -\delta, & \delta < -\frac{1}{2}, \\
+    -\dfrac{1}{\pi} \arcsin\bigl(\sin(\delta\pi)\bigr), & \delta \geq -\frac{1}{2},
   \end{cases}
 \]
-where $\arcsin \colon [-1,1] \to [-\frac{\pi}{2}, \frac{\pi}{2}]$ denotes the principal branch of $\arcsin$. For $\delta > -\frac 12$ this asymptotics is known. The novelty of the present paper is the regime $\delta < - \frac 12$ and understanding the dichotomy in the decay exponent. This stems from the $\pm 1$ edge eigenvalues of the limiting operator appearing for $\delta < - \frac 12$.
+and $\arcsin \colon [-1,1] \to [-\frac{\pi}{2}, \frac{\pi}{2}]$ denotes the principal branch of $\arcsin$. For $\delta \geq -\frac 12$ this asymptotics is known. The novelty of the present paper is the regime $\delta < - \frac 12$ and understanding the dichotomy in the decay exponent. This stems from the $\pm 1$ edge eigenvalues of the limiting operator appearing for $\delta < - \frac 12$.
 Most notably, we obtain
 \[
   \log \det\bigl(\id_N - (H_N^\delta)^2\bigr) = -\theta_\delta^2 \log
@@ -186,8 +186,8 @@ where $\arcsin:[-1,1]\to[-\pi/2,\pi/2]$ is the principal inverse sine. With the 
 \begin{equation}\label{eq:effective-phase}
  \theta_\delta:=
  \begin{cases}
-  - \delta,&\delta\le-\frac12,\\[1mm]
-  - \delta_{\text{reg}},&\delta > -\frac12.
+  - \delta,&\delta < -\frac12,\\[1mm]
+  - \delta_{\text{reg}},&\delta \geq -\frac12.
  \end{cases}
 \end{equation}
 Then, we have the following asymptotic behavior as $N\to\infty$
@@ -198,7 +198,7 @@ Then, we have the following asymptotic behavior as $N\to\infty$
 \end{theorem}
 
 \begin{remark}
-(1) For $\delta > -\frac12$, the asymptotics \eqref{eq:strong-main} is already
+(1) For $\delta \geq -\frac12$, the asymptotics \eqref{eq:strong-main} is already
 proven in \cite{Otte}; with the weaker remainder $o(\log N)$ it was also
 obtained earlier, in the more general framework of Hankel matrices whose symbol
 has jump discontinuities \cite{FedeleGebert}. At a high level, the asymptotics follows from the limiting operator $H^\delta$ having a band of absolutely continuous spectrum $[0,\pm\sin((1+\delta)\pi)]$, see Section~\ref{sec:spectrum}. We call this the \emph{bulk contribution} to the asymptotics.
@@ -488,7 +488,7 @@ where $M^\pm_N$ is the matrix \eqref{eq:def-MN} for some isometry
 $V\colon\C^{m^\pm}\to K^\pm$ with $m^\pm:=\dim K^\pm$. An
 explicit $V$ adapted to the edge eigenvectors is constructed in the proof of Theorem~\ref{edge-asymp}.
 
-We call $\det(P_N\widetilde T^{\,\pm} P_N)$ the \emph{bulk determinant} and $\det( M^\pm_N)$ the \emph{edge determinant}. If $\delta > -\frac 12$ there are no edge eigenvalues, so $m^\pm=0$ and the edge determinant is trivially $1$ and can be ignored. We first determine the asymptotic behavior of the bulk determinant.
+We call $\det(P_N\widetilde T^{\,\pm} P_N)$ the \emph{bulk determinant} and $\det( M^\pm_N)$ the \emph{edge determinant}. If $\delta \geq -\frac 12$ there are no edge eigenvalues, so $m^\pm=0$ and the edge determinant is trivially $1$ and can be ignored. We first determine the asymptotic behavior of the bulk determinant.
 
 \section{The bulk determinant}
 
@@ -649,7 +649,7 @@ $T=T^\pm$. Then, as $N\to\infty$,
  \,
  \log N+O(1).
 \end{equation}
-For $\delta>-\frac12$ the sum is empty and $\det M_N^\pm=1$.
+For $\delta\geq-\frac12$ the sum is empty and $\det M_N^\pm=1$.
 \end{theorem}
 
 We first simplify the edge determinant in the following way:
@@ -865,7 +865,7 @@ Then
 \end{lemma}
 
 \begin{proof}
-Since for $\delta > -\frac 12$ the index set $J^\pm_\delta$ is empty, there is nothing to prove as $\theta_\delta = - \delta_{\text{reg}}$.
+Since for $\delta \geq -\frac 12$ the index set $J^\pm_\delta$ is empty, there is nothing to prove as $\theta_\delta = - \delta_{\text{reg}}$.
 
 Let $\delta < -\frac12$ and define
 \begin{equation}\label{eq:m-def}
