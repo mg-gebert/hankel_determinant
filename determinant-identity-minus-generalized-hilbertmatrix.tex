@@ -37,6 +37,8 @@
 % (so it lines up with neighboring minus signs), without the side padding of \frac.
 \newcommand{\minushalf}{{\nulldelimiterspace=0pt $\vcenter{\hbox{$\scriptstyle-\frac12$}}$}}
 
+\setlength{\footskip}{24pt} % page number on the first page (amsart default 12pt is too tight)
+
 \pgfplotsset{set layers}
 \pgfplotsset{compat=1.18}
 
@@ -694,11 +696,11 @@ $\Ran C_N=BP_N\ell^2$.  Hence, for every $x\in\C^m$,
 \end{align}
 
 Using \eqref{eq:B-on-kernel},
-\begin{align*}
+\begin{equation*}
  \dist\bigl(Vx,BP_N\ell^2\bigr)
- &=\inf_{y\in P_N\ell^2}\norm{Vx-By}\\
- &=\inf_{y\in P_N\ell^2}\norm{B(Vx-y)}.
-\end{align*}
+ =\inf_{y\in P_N\ell^2}\norm{Vx-By}
+ =\inf_{y\in P_N\ell^2}\norm{B(Vx-y)}.
+\end{equation*}
 For every $z\in\ell^2$,
 \[
  \norm{B^{-1}}^{-1}\norm{z}
@@ -792,11 +794,11 @@ For $i,j\in J$, the hypotheses imply $2\delta+i+j<-1$.  Therefore, for $i,j\in J
 as $N\to\infty$.
 Factoring out $N^{\delta+i+1/2}$ from row $i$ and
 $N^{\delta+j+1/2}$ from column $j$, we obtain
-\begin{align}
-    &\det\left(\sum_{n=N}^\infty u_i(n)u_j(n)\right)_{i,j\in J}\notag\\
-    &= \det A \times
+\begin{equation}
+    \det\left(\sum_{n=N}^\infty u_i(n)u_j(n)\right)_{i,j\in J}
+    = \det A \times
     N^{\sum_{j\in J}(2\delta+2j+1)}\bigl(1+o(1)\bigr)
-\end{align}
+\end{equation}
 as $N\to\infty$ with
 \begin{equation}\label{eq:Cauchy-limit}
  A:= \left(\frac{c_ic_j}{-(2\delta+i+j+1)}\right)_{i,j\in J}.
@@ -819,9 +821,9 @@ Since $V^*Q_NV=G^{-1/2}(U^*Q_NU)G^{-1/2}$ and $(U^*Q_NU)_{i,j}=\langle u_i,Q_Nu_
 with $\log\det G$ a constant. Since $J^\pm_\delta\subseteq\{j\in\Nzero:\delta+j<-\tfrac12\}$, Lemma \ref{lem:eigenvector-tails} yields
 \begin{equation}
  \log\det M_N^\pm
- =\left(
+ =
  \sum_{j\in J^\pm_\delta}(2\delta+2j+1)
- \right)\log N+O(1).
+ \,\log N+O(1).
 \end{equation}
 \end{proof}
 
