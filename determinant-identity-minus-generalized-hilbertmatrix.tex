@@ -37,6 +37,7 @@
 % (so they line up with neighboring minus signs), without the side padding of \frac.
 \newcommand{\minushalf}{{\nulldelimiterspace=0pt $\vcenter{\hbox{$\scriptstyle-\frac12$}}$}}
 \newcommand{\plushalf}{{\nulldelimiterspace=0pt $\vcenter{\hbox to .5em{\hss$\scriptstyle\frac12$\hss}}$}} % digit-wide box: centered under 0 and 1 on the y axis
+\newcommand{\minushalfy}{{\nulldelimiterspace=0pt $\vcenter{\hbox{$\scriptstyle-\hbox to .5em{\hss$\scriptstyle\frac12$\hss}$}}$}} % same, with minus sign, aligned like -1 on the y axis
 
 \setlength{\footskip}{24pt} % page number on the first page (amsart default 12pt is too tight)
 
@@ -139,8 +140,8 @@ as the matrix size $N\to\infty$, where $\id_N$ denotes the $N\times N$ identity.
     extra x tick labels={\minushalf},
     extra x tick style={grid=none},
     ytick={-4,-3,-2,-1,0,1},
-    extra y ticks={0.5},
-    extra y tick labels={\plushalf},
+    extra y ticks={-0.5,0.5},
+    extra y tick labels={\minushalfy,\plushalf},
     axis lines=left,
     axis line style={gray!60},
     tick style={gray!60},
