@@ -270,8 +270,8 @@ treated here can serve as a model operator, since it often plays a key
 role in the analysis. For example, the generalized Hilbert matrix already appeared in the
 study of Krein's example which is a simple pair of such spectral
 projections, see \cite{KostrykinMakarov}. Powers of the Hilbert matrix
-also yield the coefficients of a series expansion in
-\cite{GebertKuttlerMullerOtte}.
+also yield the coefficients of a series expansion of the AOC decay
+exponent in \cite{GebertKuttlerMullerOtte}.
 
 In the direct context of AOC, the determinant $\det(\id_N-(H_N^\delta)^2)$ appeared
 in \cite{KnoerrOtteSpitzer}. Moreover, AOC for Dirac-$\delta$ perturbations is
@@ -404,7 +404,7 @@ $(\id\pm H^\delta)\psi=B(B\psi)=0$, i.e., $\psi\in\Ker(\id\pm H^\delta)$ and $H^
 
 If $\delta\ge-\frac12$, Proposition~\ref{prop:spectral-data} shows that
 $H^\delta$ has no eigenvalues at all, so $\Ker(\id\pm H^\delta)=\{0\}$ by
-\eqref{eq:kernel-basis} -- contradicting $\psi\ne0$.
+\eqref{eq:kernel-basis}, contradicting $\psi\ne0$.
 
 If $\delta<-\frac12$, we show that there cannot be a $\mp 1$ eigenvalue with compact support. Note that \eqref{eq:kernel-basis} identifies
 $\Ker(\id\pm H^\delta)$ with the span of $\{u_j:j\in J_\delta^\pm\}$. Writing
@@ -422,7 +422,7 @@ In this section we decompose the determinant $D_N^\pm(\delta)$ into two determin
     \item[(i)] (Bulk determinant) A determinant involving a matrix which is based only on the absolutely continuous part of  $H^\delta$.
     \item[(ii)] (Edge determinant) A determinant involving (mainly) the eigenspaces of the edge eigenvalues $\pm1$ of $H^\delta$.
 \end{itemize}
-To do so, we now fix a noncritical parameter $\delta\in\mathbb R\setminus(\mathcal P\cup\mathcal C)$, and set
+To do so, we now fix a noncritical parameter $\delta\in\mathbb R\setminus(\mathcal P\cup\mathcal C)$, set
 \begin{equation}\label{eq:nonthreshold}
  s:=\sin((\delta +1)\pi),\qquad \abs{s}<1,
 \end{equation}
@@ -475,10 +475,10 @@ Applying the above lemma to $T^\pm$, we obtain
     D_N^\pm(\delta) = \det(P_N\widetilde T^{\,\pm} P_N)\det M^\pm_N,
 \end{equation}
 where $M^\pm_N$ is the matrix \eqref{eq:def-MN} for some isometry
-$V\colon\C^{m^\pm}\to K^\pm$, $m^\pm:=\dim K^\pm$. An
+$V\colon\C^{m^\pm}\to K^\pm$ with $m^\pm:=\dim K^\pm$. An
 explicit $V$ adapted to the edge eigenvectors is constructed in the proof of Theorem~\ref{edge-asymp}.
 
-We call $\det(P_N\widetilde T^{\,\pm} P_N)$ the bulk determinant and $\det( M^\pm_N)$ the edge determinant. If $\delta > -\frac 12$ there are no edge eigenvalues, so $m^\pm=0$ and the edge determinant is trivially $1$ and can be ignored. We first determine the asymptotic behavior of the bulk determinant.
+We call $\det(P_N\widetilde T^{\,\pm} P_N)$ the \emph{bulk determinant} and $\det( M^\pm_N)$ the \emph{edge determinant}. If $\delta > -\frac 12$ there are no edge eigenvalues, so $m^\pm=0$ and the edge determinant is trivially $1$ and can be ignored. We first determine the asymptotic behavior of the bulk determinant.
 
 \section{The bulk determinant}
 
@@ -736,10 +736,8 @@ Since $m$ is fixed, this is equivalent to \eqref{eq:edge-logdet}.
 
 Lemma~\ref{lem:edge-determinant} reduces the asymptotic
 problem to the tails of the explicit vectors $u_j$ from
-Proposition~\ref{prop:spectral-data}.
-
-Let $u_j(n)$ denote the $n$th Taylor coefficient of $f_j$ in
-\eqref{eq:fj}.
+Proposition~\ref{prop:spectral-data}, where $u_j(n)$ is the $n$th
+Taylor coefficient of $f_j$ in \eqref{eq:fj}.
 
 \begin{lemma}[Tails of the edge eigenvectors]\label{lem:eigenvector-tails}
 Assume $\delta\notin\mathbb Z$ and let $j\in\Nzero$ satisfy
