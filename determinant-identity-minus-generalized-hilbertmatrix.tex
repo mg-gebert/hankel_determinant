@@ -33,9 +33,10 @@
 \newcommand{\cS}{\mathfrak S_1}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
-% Tick label -1/2 for the plot: one size smaller, centered on the text-style math axis
-% (so it lines up with neighboring minus signs), without the side padding of \frac.
+% Tick labels -1/2 and 1/2 for the plot: one size smaller, centered on the text-style math axis
+% (so they line up with neighboring minus signs), without the side padding of \frac.
 \newcommand{\minushalf}{{\nulldelimiterspace=0pt $\vcenter{\hbox{$\scriptstyle-\frac12$}}$}}
+\newcommand{\plushalf}{{\nulldelimiterspace=0pt $\vcenter{\hbox to .5em{\hss$\scriptstyle\frac12$\hss}}$}} % digit-wide box: centered under 0 and 1 on the y axis
 
 \setlength{\footskip}{24pt} % page number on the first page (amsart default 12pt is too tight)
 
@@ -69,14 +70,14 @@ For $N \in \mathbb{N}$ and $\delta \in \mathbb{R} \setminus \{-1, -2,
 be the generalized Hilbert matrix. For $\delta$ not a half-integer, we prove the large-$N$ power-law
 asymptotics of the determinant
 \[
-  \log \det(\id_N \pm H_N^\delta) = -\frac{\theta_\delta^2 \mp \theta_\delta}{2} \log N + O(1)
+  \log \det(\id_N \pm H_N^\delta) = -\frac{\theta_\delta^2 \pm \theta_\delta}{2} \log N + O(1)
 \]
 where
 \[
   \theta_\delta :=
   \begin{cases}
-    -\delta, & \delta < -\frac{1}{2}, \\
-    -\dfrac{1}{\pi} \arcsin\bigl(\sin(\delta\pi)\bigr), & \delta \geq -\frac{1}{2},
+    \delta, & \delta < -\frac{1}{2}, \\
+    \dfrac{1}{\pi} \arcsin\bigl(\sin(\delta\pi)\bigr), & \delta \geq -\frac{1}{2},
   \end{cases}
 \]
 and $\arcsin \colon [-1,1] \to [-\frac{\pi}{2}, \frac{\pi}{2}]$ denotes the principal branch of $\arcsin$. For $\delta \geq -\frac 12$ this asymptotics is known. The novelty of the present paper is the regime $\delta < - \frac 12$ and understanding the dichotomy in the decay exponent. This stems from the $\pm 1$ edge eigenvalues of the limiting operator appearing for $\delta < - \frac 12$.
@@ -126,15 +127,15 @@ as the matrix size $N\to\infty$, where $\id_N$ denotes the $N\times N$ identity.
     width=0.97\linewidth, height=5.2cm,
     xlabel={$\delta$},
     ylabel={$\theta_\delta$},
-    xmin=-4, xmax=6, ymin=-0.9, ymax=4.5,
+    xmin=-4, xmax=6, ymin=-4, ymax=1,
     xtick={-4,-3,...,6},
     minor x tick num=1,
     extra x ticks={-0.5},
     extra x tick labels={\minushalf},
     extra x tick style={grid=none},
-    ytick={0,1,2,3,4},
-    extra y ticks={-0.5},
-    extra y tick labels={\minushalf},
+    ytick={-4,-3,-2,-1,0,1},
+    extra y ticks={0.5},
+    extra y tick labels={\plushalf},
     axis lines=left,
     axis line style={gray!60},
     tick style={gray!60},
@@ -147,18 +148,18 @@ as the matrix size $N\to\infty$, where $\id_N$ denotes the $N\times N$ identity.
     clip=false,
 ]
 
-% Shade the region delta <= -1/2 (the non-folded branch)
+% Shade the region delta < -1/2 (the non-folded branch)
 \addplot[draw=none, fill=black!5, forget plot, on layer=axis background]
-    coordinates {(-4,-0.9) (-0.5,-0.9) (-0.5,4.5) (-4,4.5)} \closedcycle;
+    coordinates {(-4,-4) (-0.5,-4) (-0.5,1) (-4,1)} \closedcycle;
 
 % The function is piecewise linear, so exact vertices beat sampling.
-% delta <= 1/2 : the line -delta   (the two branches agree on (-1/2, 1/2])
+% delta <= 1/2 : the line delta    (the two branches agree on [-1/2, 1/2])
 % delta >  1/2 : triangle wave, reflecting at every half-integer
 % Domain is [-4, 6]; the endpoint (6, 0) falls mid-tooth.
 \addplot[very thick, blue!55!black] coordinates {
-    (-4, 4) (0.5, -0.5)
-    (1.5, 0.5) (2.5, -0.5) (3.5, 0.5) (4.5, -0.5)
-    (5.5, 0.5) (6, 0)
+    (-4, -4) (0.5, 0.5)
+    (1.5, -0.5) (2.5, 0.5) (3.5, -0.5) (4.5, 0.5)
+    (5.5, -0.5) (6, 0)
 };
 
 \end{axis}
@@ -186,14 +187,14 @@ where $\arcsin:[-1,1]\to[-\pi/2,\pi/2]$ is the principal inverse sine. With the 
 \begin{equation}\label{eq:effective-phase}
  \theta_\delta:=
  \begin{cases}
-  - \delta,&\delta < -\frac12,\\[1mm]
-  - \delta_{\text{reg}},&\delta \geq -\frac12.
+  \delta,&\delta < -\frac12,\\[1mm]
+  \delta_{\text{reg}},&\delta \geq -\frac12.
  \end{cases}
 \end{equation}
 Then, we have the following asymptotic behavior as $N\to\infty$
 \begin{equation}\label{eq:strong-main}
  \log D_N^\pm(\delta)
- =-\frac{\theta_\delta^2\mp\theta_\delta}{2}\log N+O_\delta(1).
+ =-\frac{\theta_\delta^2\pm\theta_\delta}{2}\log N+O_\delta(1).
 \end{equation}
 \end{theorem}
 
@@ -209,8 +210,8 @@ eigenvalues at $\pm1$; for its spectral structure, see
 Section~\ref{sec:spectrum}. The main content of the paper is to control the
 effect of these edge eigenvalues on $D_N^\pm(\delta)$. We call this the \emph{edge contribution}. Notably, the bulk and the edge contribution
  combined reproduce the same closed expression
-\eqref{eq:strong-main}, now with the unfolded exponent $\theta_\delta=-\delta$
-(rather than $-\delta_{\mathrm{reg}}$).
+\eqref{eq:strong-main}, now with the unfolded exponent $\theta_\delta=\delta$
+(rather than $\delta_{\mathrm{reg}}$).
 
 (3) Note that the exponent $\delta\mapsto\theta_\delta$ is a continuous function. See
 Figure~\ref{fig:effective-phase} for an illustration.
@@ -238,7 +239,7 @@ Theorem~\ref{thm:main}, the strong remainder $O_\delta(1)$ degrades but the
 leading term survives:
 \begin{equation}\label{eq:critical-weak}
  \log D_N^\pm(\delta)
- =-\frac{\theta_\delta^2\mp\theta_\delta}{2}\log N+o(\log N).
+ =-\frac{\theta_\delta^2\pm\theta_\delta}{2}\log N+o(\log N).
 \end{equation}
 For $\delta\ge-\frac12$, this is proven in \cite{Otte}.
 For $\delta<-\frac12$, the proof requires a separate threshold
@@ -507,7 +508,7 @@ Then, as $N\to\infty$,
 \end{equation}
 \end{theorem}
 Note that $q=-\delta_{\mathrm{reg}}$, since $s=\sin((1+\delta)\pi)=-\sin(\delta\pi)$;
-in particular $q=\theta_\delta$ for $\delta>-\frac12$.
+in particular $q=-\theta_\delta$ for $\delta>-\frac12$.
 
 We start with two auxiliary lemmas.
 
@@ -860,31 +861,30 @@ Then
 \begin{equation}\label{eq:unfolding-identity}
  -\frac{\delta_{\text{reg}}^2\pm \delta_{\text{reg}}}{2}
  +\sum_{j\in J_\delta^\pm}(2\delta + 2j + 1)
- =-\frac{\theta_\delta^2\mp\theta_\delta}{2}.
+ =-\frac{\theta_\delta^2\pm\theta_\delta}{2}.
 \end{equation}
 \end{lemma}
 
 \begin{proof}
-Since for $\delta \geq -\frac 12$ the index set $J^\pm_\delta$ is empty, there is nothing to prove as $\theta_\delta = - \delta_{\text{reg}}$.
+Since for $\delta \geq -\frac 12$ the index set $J^\pm_\delta$ is empty, there is nothing to prove as $\theta_\delta = \delta_{\text{reg}}$.
 
-Let $\delta < -\frac12$ and define
+Let $\delta < -\frac12$, so that $\theta_\delta=\delta$, and define
 \begin{equation}\label{eq:m-def}
  m := \abs{J_\delta^+} + \abs{J_\delta^-} = \abs{\{j\in\Nzero:j<-\delta-\tfrac12\}}
 \end{equation}
 where $\abs{\,\cdot\,}$ denotes the cardinality of a set.
-Since $-\delta = \theta_\delta$, we obtain
-$\theta_\delta\in(m-\frac12,m+\frac12)$, and on this interval
+Then $-\delta\in(m-\frac12,m+\frac12)$, and on this interval
 \begin{equation}\label{eq:lift}
- -\delta_{\text{reg}}=(-1)^m(\theta_\delta-m),
+ \delta_{\text{reg}}=(-1)^m(\delta+m),
  \qquad\text{equivalently}\qquad
- \theta_\delta=m - (-1)^m\delta_{\text{reg}}.
+ \delta=(-1)^m\delta_{\text{reg}}-m.
 \end{equation}
 We index the $m$ edge eigenvectors by $j=0,\ldots,m-1$, with
 alternating eigenvalues and put
 \[
- \rho_j:=(-1)^j(\theta_\delta-j) \quad \text{for} \quad 0\le j \le m.
+ \rho_j:=(-1)^{j+1}(\delta+j) \quad \text{for} \quad 0\le j \le m.
 \]
-Then $\rho_0=\theta_\delta$, $\rho_m=-\delta_{\mathrm{reg}}$ by
+Then $\rho_0=-\delta$, $\rho_m=-\delta_{\mathrm{reg}}$ by
 \eqref{eq:lift}, and
 \[
  \rho_{j+1}=(-1)^j-\rho_j.
@@ -899,19 +899,19 @@ and a direct calculation gives
  +\frac{\rho_{j+1}^2\mp\rho_{j+1}}{2}
  =
  \begin{cases}
-  1-2\theta_\delta+2j,&j\in J_\delta^\pm,\\
+  2\delta+2j+1,&j\in J_\delta^\pm,\\
   0,&j\notin J_\delta^\pm.
  \end{cases}
 \]
 Summing over $j=0,\ldots,m-1$ and using
-$\rho_0=\theta_\delta$ and $\rho_m=-\delta_{\mathrm{reg}}$ yields
+$\rho_0=-\delta$ and $\rho_m=-\delta_{\mathrm{reg}}$ yields
 \[
- -\frac{\theta_\delta^2\mp\theta_\delta}{2}
+ -\frac{\delta^2\pm\delta}{2}
  +\frac{\delta_{\mathrm{reg}}^2\pm\delta_{\mathrm{reg}}}{2}
  =
- \sum_{j\in J_\delta^\pm}(1-2\theta_\delta+2j),
+ \sum_{j\in J_\delta^\pm}(2\delta+2j+1),
 \]
-which is equivalent to \eqref{eq:unfolding-identity} using once more that, by definition, $\theta_\delta = - \delta$.
+which is \eqref{eq:unfolding-identity}, since $\theta_\delta=\delta$.
 \end{proof}
 
 
